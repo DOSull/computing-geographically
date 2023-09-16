@@ -76,10 +76,10 @@ The number of possible shortest paths, i.e., pairs of vertices, choosable from a
 The World City Network basic data set is available at the [Globalisation and World Cities Research Network website](https://www.lboro.ac.uk/microsites/geography/gawc/datasets/da11.html). These data are used in figures 6.5, 6.6, and 6.13.
 
 #### fig 6.5
-See [above](#footnote-6.6).
+See [footnote 6.6 above](#footnote-6.6).
 
 #### fig 6.6
-See [above](#footnote-6.6).
+See [footnote 6.6 above](#footnote-6.6).
 
 #### footnote 6.8
 Stirling numbers of the 2nd kind are in [integer sequence A008277](https://oeis.org/A008277). You can obtain values of these numbers at [this web page](http://austinmohr.com/home/?page_id=431).
@@ -88,10 +88,10 @@ Stirling numbers of the 2nd kind are in [integer sequence A008277](https://oeis.
 The trade data used in this figure and in Figure 6.9 are [version 3 of the trade data](https://correlatesofwar.org/wp-content/uploads/COW_Trade_3.0.zip) currently available from the [Correlates of War website](https://correlatesofwar.org). 
 
 #### fig 6.9
-See [above](#fig-6.7).
+See [fig 6.7 above](#fig-6.7).
 
 #### fig 6.13
-See [above](#footnote-6.6).
+See [footnote 6.6 above](#footnote-6.6).
 
 ## Chapter 7 Time and Dynamics
 #### footnote 7.2
