@@ -4,6 +4,19 @@ project:
 
 website:
   title: "Web resources for Computing Geographically"
+  navbar: 
+    left:
+      - text: Links
+        menu:
+          - chap1.qmd
+          - chap2.qmd
+          - chap3.qmd
+          - chap4.qmd
+          - chap5.qmd
+          - chap6.qmd
+          - chap7.qmd
+          - chap8.qmd
+      
   page-navigation: true
 
 format:

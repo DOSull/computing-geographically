@@ -1,0 +1,21 @@
+---
+title: Chapter 3
+subtitle: Scale and Projection
+---
+
+## Links 
+### footnote 3.3 
+The Degree Confluence Project is at [confluence.org](https://confluence.org/).
+
+### footnote 3.5
+Find out more about 'Null Island' (i.e., 0&deg;N 0&deg;E) at its [wikipedia page](https://en.wikipedia.org/wiki/Null_Island).
+
+### footnote 3.6
+The original announcement of geohash is in this blogpost by Greg Niemeyer: [blog.labix.org/2008/02/26/geohashorg-is-public](https://blog.labix.org/2008/02/26/geohashorg-is-public). You can generate geohash codes at the website [http://geohash.org](http://geohash.org) (yes `http`, not `https`).
+
+### footnote 3.7 
+Google's S2 index is explained at [s2geometry.io](https://s2geometry.io/).
+
+### footnote 3.8 
+Uber's H3 index is described at [h3geo.org](https://h3geo.org/).
+

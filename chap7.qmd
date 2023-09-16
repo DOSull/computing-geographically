@@ -1,0 +1,12 @@
+---
+title: Chapter 7
+subtitle: Time and Dynamics
+---
+
+## Links 
+### footnote 7.2
+The 'timebliography' of representations of time in giscience is available at [http://spaceandtime.wsiabato.info/](http://spaceandtime.wsiabato.info/) (yes `http`, not `https`).
+
+### fig 7.6
+The taxi trajectory dataset is available at [microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample](https://www.microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample/).
+
