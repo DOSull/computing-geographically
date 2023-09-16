@@ -88,7 +88,7 @@ Stirling numbers of the 2nd kind are in [integer sequence A008277](https://oeis.
 The trade data used in this figure and in Figure 6.9 are [version 3 of the trade data](https://correlatesofwar.org/wp-content/uploads/COW_Trade_3.0.zip) currently available from the [Correlates of War website](https://correlatesofwar.org). 
 
 #### fig 6.9
-See [above](#fig6.7).
+See [above](#fig-6.7).
 
 #### fig 6.13
 See [above](#footnote-6.6).
