@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "This repository contains copies of or links to web resources associated with my book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nMost of these resources are URLs in footnotes, which may change over time, so that the links become broken. I will try to keep them current here. They are listed below under headings numbered by chapter and footnote number (footnote x.y), or figure number (fig x.y).\n\n\n\n\nYou’ll find my PhD thesis here: Graph-based Cellular Automaton Models of Urban Spatial Processes. Chapter 2 is the slightly embarrassing take on space, mentioned in the note.\n\n\n\nSlides from the course I developed at Berkeley and taught from 2014 to 2018 Geog 80 Digital Worlds: An Introduction to Geospatial Technologies\n\n\n\n\n\n\n\nAs marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/\n\n\n\n\n\n\nThe Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at s2geometry.io.\n\n\n\nUber’s H3 index is described at h3geo.org.\n\n\n\n\n\n\nThe Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\n\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\n\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text at at github.com/TeHikuMedia/nga-kupu.\n\n\n\n\n\n\nThis figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this figure are at the link noted in the figure caption github.com/lucguillemot/bayareageodemo. An interactive map of the clusters can be viewed at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org.\n\n\n\n\n\n\nThe number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee above.\n\n\n\nSee above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee above.\n\n\n\nSee above.\n\n\n\n\n\n\nThe ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample.\n\n\n\n\n\n\nThe XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!"
+  },
+  {
+    "objectID": "index.html#chapter-1-building-bridges",
+    "href": "index.html#chapter-1-building-bridges",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "You’ll find my PhD thesis here: Graph-based Cellular Automaton Models of Urban Spatial Processes. Chapter 2 is the slightly embarrassing take on space, mentioned in the note.\n\n\n\nSlides from the course I developed at Berkeley and taught from 2014 to 2018 Geog 80 Digital Worlds: An Introduction to Geospatial Technologies"
+  },
+  {
+    "objectID": "index.html#chapter-2-location-and-space",
+    "href": "index.html#chapter-2-location-and-space",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/"
+  },
+  {
+    "objectID": "index.html#chapter-3-scale-and-projection",
+    "href": "index.html#chapter-3-scale-and-projection",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at s2geometry.io.\n\n\n\nUber’s H3 index is described at h3geo.org."
+  },
+  {
+    "objectID": "index.html#chapter-4-place-and-meaning-in-space",
+    "href": "index.html#chapter-4-place-and-meaning-in-space",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "The Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\n\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\n\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text at at github.com/TeHikuMedia/nga-kupu."
+  },
+  {
+    "objectID": "index.html#chapter-5-lines-and-areas",
+    "href": "index.html#chapter-5-lines-and-areas",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "This figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this figure are at the link noted in the figure caption github.com/lucguillemot/bayareageodemo. An interactive map of the clusters can be viewed at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org."
+  },
+  {
+    "objectID": "index.html#chapter-6-relations-networks-flows",
+    "href": "index.html#chapter-6-relations-networks-flows",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee above.\n\n\n\nSee above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee above.\n\n\n\nSee above."
+  },
+  {
+    "objectID": "index.html#chapter-7-time-and-dynamics",
+    "href": "index.html#chapter-7-time-and-dynamics",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample."
+  },
+  {
+    "objectID": "index.html#chapter-8-process-and-pattern",
+    "href": "index.html#chapter-8-process-and-pattern",
+    "title": "Web resources for Computing Geographically",
+    "section": "",
+    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!"
+  }
+]
