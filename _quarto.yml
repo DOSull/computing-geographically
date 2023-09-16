@@ -3,19 +3,27 @@ project:
   output-dir: docs
 
 website:
-  title: "Web resources for Computing Geographically"
+  title: "Resources for Computing Geographically"
   navbar: 
     left:
       - text: Links
         menu:
-          - chap1.qmd
-          - chap2.qmd
-          - chap3.qmd
-          - chap4.qmd
-          - chap5.qmd
-          - chap6.qmd
-          - chap7.qmd
-          - chap8.qmd
+          - text: "Building Bridges"
+            file: "chap1.qmd"
+          - text: "Location and Space"
+            file: "chap2.qmd"
+          - text: "Scale and Projection"
+            file: "chap3.qmd"
+          - text: "Place and Meaning in Space"
+            file: "chap4.qmd"
+          - text: "Lines and Areas"
+            file: "chap5.qmd"
+          - text: "Relations, Networks, Flows"
+            file: "chap6.qmd"
+          - text: "Time and Dynamics"
+            file: "chap7.qmd"
+          - text: "Process and Pattern"
+            file: "chap8.qmd"
       
   page-navigation: true
 

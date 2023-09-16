@@ -4,9 +4,9 @@ subtitle: Building Bridges
 ---
 
 ## Links 
-### footnote 1.6 
+### Footnote 6 
 You'll find my PhD thesis here: [Graph-based Cellular Automaton Models of Urban Spatial Processes](https://southosullivan.com/phd/). Chapter 2 is the slightly embarrassing take on space, mentioned in the note.
 
-### footnote 1.8 
+### Footnote 8 
 Slides from the course I developed at Berkeley and taught from 2014 to 2018 [_Geog 80 Digital Worlds: An Introduction to Geospatial Technologies_](https://southosullivan.com/geog80/)</li>
 

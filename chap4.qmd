@@ -4,12 +4,12 @@ subtitle: Place and Meaning in Space
 ---
 
 ## Links 
-### fig 4.2
+### Figure 4.2
 The Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won't work: [bostonography.com/hoods](https://bostonography.com/hoods/)). This [blogpost](https://bostonography.com/2012/crowdsourced-neighborhood-boundaries-part-one-consensus/) explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at [this link](https://openaccess.wgtn.ac.nz/articles/thesis/Crowdsourcing_Neighbourhood_Delineations_in_Wellington_New_Zealand/17147960).
 
-### fig 4.3
+### Figure 4.3
 The Nominatim geocoder is available at [nominatim.openstreetmap.org](https://nominatim.openstreetmap.org/ui/search.html).
 
-### fig 4.5
+### Figure 4.5
 Chris McDowall's notes on the te reo Māori placenames map are at [github.com/fogonwater/we-are-here](https://github.com/fogonwater/we-are-here/tree/master/8_heart_memory#801-ingoa-w%C4%81hi-o-aotearoa--place-names-of-new-zealand). Te Hiku Media's ngā-kupu tools for detecting Māori words in text at at [github.com/TeHikuMedia/nga-kupu](https://github.com/TeHikuMedia/nga-kupu).
 
