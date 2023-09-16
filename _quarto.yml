@@ -9,7 +9,7 @@ website:
 format:
   html:
     theme: 
-      light: flatly
+      light: superhero
       dark: darkly
     css: styles.css
     toc: true

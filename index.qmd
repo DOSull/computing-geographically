@@ -1,5 +1,5 @@
 # Web resources for _Computing Geographically_
-This repository contains copies of or links to web resources associated with my book [_Computing Geographically: Bridging Giscience and Geography_ (Guilford Press, New York)](https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938).
+This page keeps up to date links to web resources associated with my book [_Computing Geographically: Bridging Giscience and Geography_ (Guilford Press, New York)](https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938).
 
 Most of these resources are URLs in footnotes, which may change over time, so that the links become broken. I will try to keep them current here. They are listed below under headings numbered by chapter and footnote number (**footnote x.y**), or figure number (**fig x.y**).
 
