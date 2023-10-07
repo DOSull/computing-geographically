@@ -334,14 +334,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-a-map" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-map">Make a map</h2>
 <p>Finally, we can make a map, similar to the one in Figure 2.8 in the book.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-10_7f2bed82e1c9a35fcba6352992ec1a0c">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-10_ff6d7b7b91c7976989c788e68c21fe39">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(bldgs, <span class="at">bbox =</span> extent) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>() <span class="sc">+</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the road into a polygon for clipping to extent</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(roads <span class="sc">%&gt;%</span> <span class="fu">st_buffer</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">st_intersection</span>(extent)) <span class="sc">+</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"#c08080"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"#cc9999"</span>) <span class="sc">+</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter points so only those inside the extent are in the map</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(all_pts <span class="sc">%&gt;%</span> <span class="fu">st_filter</span>(extent <span class="sc">%&gt;%</span> <span class="fu">st_buffer</span>(<span class="sc">-</span>.<span class="dv">1</span>))) <span class="sc">+</span> </span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
