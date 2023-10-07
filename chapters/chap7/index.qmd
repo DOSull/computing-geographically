@@ -1,0 +1,9 @@
+---
+title: Chapter 7
+subtitle: Time and Dynamics
+listing:
+  contents:
+    - "links-7.qmd"
+  sort: false
+  type: grid
+---

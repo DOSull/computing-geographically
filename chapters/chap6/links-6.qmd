@@ -1,0 +1,31 @@
+---
+title: Links for Chapter 6
+subtitle: Relations, Networks, Flows
+image: "../../favicon.ico"
+---
+
+## Links 
+### Footnote 5
+The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in [integer sequence A000522](https://oeis.org/A000522).
+
+### Footnote 6
+The World City Network basic data set is available at the [Globalisation and World Cities Research Network website](https://www.lboro.ac.uk/microsites/geography/gawc/datasets/da11.html). These data are used in figures 6.5, 6.6, and 6.13.
+
+### Figure 6.5
+See [Footnote 6 above](#footnote-6.6).
+
+### Figure 6.6
+See [Footnote 6 above](#footnote-6.6).
+
+### Footnote 8
+Stirling numbers of the 2nd kind are in [integer sequence A008277](https://oeis.org/A008277). You can obtain values of these numbers at [this web page](http://austinmohr.com/home/?page_id=431).
+
+### Figure 6.7
+The trade data used in this Figure and in Figure 6.9 are [version 3 of the trade data](https://correlatesofwar.org/wp-content/uploads/COW_Trade_3.0.zip) currently available from the [Correlates of War website](https://correlatesofwar.org). 
+
+### Figure 6.9
+See [Figure 6.7 above](#figure-6.7).
+
+### Figure 6.13
+See [Footnote 6 above](#footnote-6.6).
+

@@ -1,0 +1,9 @@
+---
+title: Chapter 8
+subtitle: Pattern and Process
+listing:
+  contents:
+    - "links-8.qmd"
+  sort: false
+  type: grid
+---

@@ -3,12 +3,8 @@ title: "_Computing Geographically_ Extras"
 about:
   template: solana
   image: cover-600.png
-  image-shape: rounded
 ---
 
 This website provides a collection of resources for the book [_Computing Geographically: Bridging Giscience and Geography_](https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938) (Guilford Press, New York).
 
-From the dropdown menus above you will find:
-
-+ up to date links that appear in the book (mostly in footnotes) organised by chapter under the **Links** menu, and 
-+ code samples used to generate draft versions of a number of the figures under the **Code for figures** menu.
+Included are up to date links for any internet sources referenced, and code samples to create visualizations on which some of the figures are based.

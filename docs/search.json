@@ -1,289 +1,331 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Computing Geographically Extras",
-    "section": "",
-    "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nFrom the dropdown menus above you will find:\n\nup to date links that appear in the book (mostly in footnotes) organised by chapter under the Links menu, and\ncode samples used to generate draft versions of a number of the figures under the Code for figures menu.\n\n\n\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap8.html",
-    "href": "links/chap8.html",
-    "title": "Chapter 8",
-    "section": "",
-    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap8.html#links",
-    "href": "links/chap8.html#links",
-    "title": "Chapter 8",
-    "section": "",
-    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!"
-  },
-  {
-    "objectID": "links/chap1.html",
-    "href": "links/chap1.html",
-    "title": "Chapter 1",
-    "section": "",
-    "text": "You’ll find my PhD thesis here: Graph-based Cellular Automaton Models of Urban Spatial Processes. Chapter 2 is the slightly embarrassing take on space, mentioned in the note.\n\n\n\nSlides from the course I developed at Berkeley and taught from 2014 to 2018 Geog 80 Digital Worlds: An Introduction to Geospatial Technologies\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap1.html#links",
-    "href": "links/chap1.html#links",
-    "title": "Chapter 1",
-    "section": "",
-    "text": "You’ll find my PhD thesis here: Graph-based Cellular Automaton Models of Urban Spatial Processes. Chapter 2 is the slightly embarrassing take on space, mentioned in the note.\n\n\n\nSlides from the course I developed at Berkeley and taught from 2014 to 2018 Geog 80 Digital Worlds: An Introduction to Geospatial Technologies"
-  },
-  {
-    "objectID": "links/chap2.html",
-    "href": "links/chap2.html",
-    "title": "Chapter 2",
-    "section": "",
-    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap2.html#links",
-    "href": "links/chap2.html#links",
-    "title": "Chapter 2",
-    "section": "",
-    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/"
-  },
-  {
-    "objectID": "links/chap3.html",
-    "href": "links/chap3.html",
-    "title": "Chapter 3",
-    "section": "",
-    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at s2geometry.io.\n\n\n\nUber’s H3 index is described at h3geo.org.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap3.html#links",
-    "href": "links/chap3.html#links",
-    "title": "Chapter 3",
-    "section": "",
-    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at s2geometry.io.\n\n\n\nUber’s H3 index is described at h3geo.org."
-  },
-  {
-    "objectID": "links/chap7.html",
-    "href": "links/chap7.html",
-    "title": "Chapter 7",
-    "section": "",
-    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap7.html#links",
-    "href": "links/chap7.html#links",
-    "title": "Chapter 7",
-    "section": "",
-    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample."
-  },
-  {
-    "objectID": "links/chap6.html",
-    "href": "links/chap6.html",
-    "title": "Chapter 6",
-    "section": "",
-    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee Footnote 6 above.\n\n\n\nSee Footnote 6 above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee Figure 6.7 above.\n\n\n\nSee Footnote 6 above.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap6.html#links",
-    "href": "links/chap6.html#links",
-    "title": "Chapter 6",
-    "section": "",
-    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee Footnote 6 above.\n\n\n\nSee Footnote 6 above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee Figure 6.7 above.\n\n\n\nSee Footnote 6 above."
-  },
-  {
-    "objectID": "links/chap4.html",
-    "href": "links/chap4.html",
+    "objectID": "chapters/chap4/index.html",
+    "href": "chapters/chap4/index.html",
     "title": "Chapter 4",
+    "section": "",
+    "text": "Links for Chapter 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap4/links-4.html",
+    "href": "chapters/chap4/links-4.html",
+    "title": "Links for Chapter 4",
     "section": "",
     "text": "The Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\n\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\n\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text at at github.com/TeHikuMedia/nga-kupu.\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "links/chap4.html#links",
-    "href": "links/chap4.html#links",
-    "title": "Chapter 4",
+    "objectID": "chapters/chap4/links-4.html#links",
+    "href": "chapters/chap4/links-4.html#links",
+    "title": "Links for Chapter 4",
     "section": "",
     "text": "The Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\n\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\n\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text at at github.com/TeHikuMedia/nga-kupu."
   },
   {
-    "objectID": "links/chap5.html",
-    "href": "links/chap5.html",
-    "title": "Chapter 5",
-    "section": "",
-    "text": "This Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. An interactive map of the clusters can be viewed at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "links/chap5.html#links",
-    "href": "links/chap5.html#links",
-    "title": "Chapter 5",
-    "section": "",
-    "text": "This Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. An interactive map of the clusters can be viewed at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org."
-  },
-  {
-    "objectID": "code-for-figures/chap3/fig3-09-tobler-chen.html",
-    "href": "code-for-figures/chap3/fig3-09-tobler-chen.html",
+    "objectID": "chapters/chap3/fig3-09-tobler-chen.html",
+    "href": "chapters/chap3/fig3-09-tobler-chen.html",
     "title": "Figure 3.9: Equal area world in a square",
     "section": "",
     "text": "This equal-area projection could replace Web Mercator as the top level global web tile ‘world in a square’.\nWith astonishing foresight, it was proposed for that purpose in this paper in 1986:\n\nTobler WR and ZT Chen. 1986. A quadtree for global information storage. Geographical Analysis 18(4) 360–371. doi: 10.1111/j.1538-4632.1986.tb00108.x.\n\nGiven the upset that accompanied the Gall-Peters projection, another ‘odd-looking’ equal-area projection (only ‘odd’ because people are so accustomed to Mercator), it’s not clear it would catch on! See this paper for a discussion of that controversy:\n\nCrampton, J. 1994. Cartography’s defining moment: the Peters projection controversy, 1974–1990. Cartographica 31(4) 16–32. doi: 10.3138/1821-6811-L372-345P.\n\nIn any case, this is simply a standard cylindrical equal-area projection with standard parallels chosen to make the whole map area square.\n\n\nCode\nlibrary(sf)\nlibrary(tmap)\nlibrary(tmaptools)\nlibrary(dplyr)\n\n\nUse the supplied World dataset (in lat-lon EPSG 4326) and make projections as required.\n\n\nCode\ndata(\"World\") \nworld &lt;- World %&gt;%\n  select(geometry)\n\n# Tobler Chen standard parallels at 55.654\nworld_tc &lt;- world %&gt;%\n  st_transform(\"+proj=cea lat_ts=55.654\")\n\ntm_shape(world_tc, bbox = bb(xlim = c(-180, 180),\n                             ylim = c(-90, 90))) +\n  tm_fill() +\n  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),\n                labels.show = FALSE, lwd = 0.5) +\n  tm_layout(inner.margins = 0)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap3/index.html",
-    "href": "code-for-figures/chap3/index.html",
+    "objectID": "chapters/chap3/index.html",
+    "href": "chapters/chap3/index.html",
     "title": "Chapter 3",
     "section": "",
-    "text": "Code to generate some of the images in Chapter 3—or at any rate the base images from which the final figures were made— is available in the pages below, including explanations of what’s going on.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.10: Raster aggregation and disaggregation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "This chapter explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands consideration of map projections, which are also considered.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.10: Raster aggregation and disaggregation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-10-raster-resolution.html",
-    "href": "code-for-figures/chap3/fig3-10-raster-resolution.html",
+    "objectID": "chapters/chap3/links-3.html",
+    "href": "chapters/chap3/links-3.html",
+    "title": "Links for Chapter 3",
+    "section": "",
+    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at s2geometry.io.\n\n\n\nUber’s H3 index is described at h3geo.org.\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap3/links-3.html#links",
+    "href": "chapters/chap3/links-3.html#links",
+    "title": "Links for Chapter 3",
+    "section": "",
+    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at s2geometry.io.\n\n\n\nUber’s H3 index is described at h3geo.org."
+  },
+  {
+    "objectID": "chapters/chap3/fig3-10-raster-resolution.html",
+    "href": "chapters/chap3/fig3-10-raster-resolution.html",
     "title": "Figure 3.10: Raster aggregation and disaggregation",
     "section": "",
     "text": "This figure shows how you can’t recover raster information after aggregation.\n\n\nCode\nlibrary(terra)\nlibrary(tmap)\nlibrary(dplyr)\n\n\nGet the data—you’ll need some of your own data here.\n\n\nCode\nz &lt;- rast(\"raster-data.tif\")\n\n\nAggregate and disaggregate by 10\n\n\nCode\nz10 &lt;- z %&gt;% \n  aggregate(10)\n\nz_dash &lt;- z10 %&gt;%\n  resample(z)\n\n\nDissolve to polygons, so we can make smaller image files and control the colouring. This step is slow.\n\n\nCode\nz_p &lt;- z %&gt;%\n  as.polygons(dissolve = FALSE) %&gt;%\n  as(\"Spatial\")\n\nz10_p &lt;- z10 %&gt;%\n  as.polygons(dissolve = FALSE) %&gt;%\n  as(\"Spatial\")\n\nz_dash_p &lt;- z_dash %&gt;%\n  as.polygons(dissolve = FALSE) %&gt;%\n  as(\"Spatial\")\n\n\nMake maps\n\n\nCode\nm1 &lt;- tm_shape(z_p) + \n  tm_fill(col = \"Band 1\", breaks = seq(180, 280, 10), \n          palette = \"Greys\", style = \"fixed\") + \n  tm_legend(show = FALSE) + \n  tm_layout(inner.margins = 0, frame = FALSE)\n\nm2 &lt;- tm_shape(z10_p) + \n  tm_fill(col = \"Band 1\", breaks = seq(180, 280, 10), \n          palette = \"Greys\", style = \"fixed\") + \n  tm_legend(show = FALSE) + \n  tm_layout(inner.margins = 0, frame = FALSE)\n\nm3 &lt;- tm_shape(z_dash_p) + \n  tm_fill(col = \"Band 1\", breaks = seq(180, 280, 10), \n          palette = \"Greys\", style = \"fixed\") + \n  tm_legend(show = FALSE) + \n  tm_layout(inner.margins = 0, frame = FALSE)\n\ntmap_arrange(m1, m2, m3)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-07-platte-carre-and-lcea.html",
-    "href": "code-for-figures/chap3/fig3-07-platte-carre-and-lcea.html",
+    "objectID": "chapters/chap3/fig3-07-platte-carre-and-lcea.html",
+    "href": "chapters/chap3/fig3-07-platte-carre-and-lcea.html",
     "title": "Figure 3.7: Two simple world projections",
     "section": "",
     "text": "Code\nlibrary(sf)\nlibrary(tmap)\nlibrary(tmaptools)\nlibrary(dplyr)\n\n\nUse the supplied World dataset (in lat-lon EPSG 4326) and make projections as required.\n\n\nCode\ndata(\"World\") \nworld &lt;- World %&gt;%\n  select(geometry)\n\n# Equal area with standard parallel at 0\nworld_lcea &lt;- world %&gt;%\n  st_transform(\"+proj=cea\")\n\n\nThat’s pretty much it. So here are the maps.\n\n\nCode\ntm_shape(world, bbox = bb(xlim = c(-180, 180),\n                          ylim = c(-90, 90))) +\n  tm_fill() +\n  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),\n                labels.show = FALSE, lwd = 0.5) +\n  tm_layout(inner.margins = 0)\n\n\n\n\n\nCode\ntm_shape(world_lcea, bbox = bb(xlim = c(-180, 180),\n                               ylim = c(-90, 90))) +\n  tm_fill() +\n  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),\n                labels.show = FALSE, lwd = 0.5) +\n  tm_layout(inner.margins = 0)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-08-loxodrome.html",
-    "href": "code-for-figures/chap3/fig3-08-loxodrome.html",
+    "objectID": "chapters/chap3/fig3-08-loxodrome.html",
+    "href": "chapters/chap3/fig3-08-loxodrome.html",
     "title": "Figure 3.8: A loxodrome on the sphere and projected",
     "section": "",
     "text": "The figure produced below extends to ±89° which makes the point even more clearly, but doesn’t give a nice square Mercator projected map. See also Jason Davies’ page about loxodromes for more on this, including a couple of figures that probably on some level inspired mine. Indeed, Jason Davies’ pages include some gems for exploring the variety of global projections. See, for example, Map Projection Transitions.\nCode\nlibrary(dplyr)\nlibrary(sf)\nlibrary(tmap)\nlibrary(smoothr) # this is for interpolating along lines\nThis process is pretty complicated to do in R, so we need a bunch of helper functions. First, it is the default for sf now, but just to make the point, we intially use S2 mode, so that when we clip data with a hemisphere it does it properly.\nCode\nsf_use_s2(TRUE)\nAlso, define an orthographic projection for the globe view.\nCode\northo_proj &lt;- \"+proj=ortho lon_0=0 lat_0=40\"\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-08-loxodrome.html#make-a-hemisphere",
-    "href": "code-for-figures/chap3/fig3-08-loxodrome.html#make-a-hemisphere",
+    "objectID": "chapters/chap3/fig3-08-loxodrome.html#make-a-hemisphere",
+    "href": "chapters/chap3/fig3-08-loxodrome.html#make-a-hemisphere",
     "title": "Figure 3.8: A loxodrome on the sphere and projected",
     "section": "Make a hemisphere",
     "text": "Make a hemisphere\nMake a hemisphere for the globe view, and apply it to the built-in World dataset that ships with tmap.\n\n\nCode\nhemisphere &lt;- st_point(c(0, 0)) %&gt;%\n  st_buffer(6356752) %&gt;%\n  st_sfc(crs = ortho_proj) %&gt;%\n  densify() %&gt;%\n  st_transform(4326)\n\ndata(\"World\")\nworld_o &lt;- World %&gt;%\n  st_intersection(hemisphere) %&gt;%\n  st_transform(ortho_proj) %&gt;%\n  filter(st_is_empty(geometry) == FALSE)"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-08-loxodrome.html#helper-functions-for-coordinate-transformations",
-    "href": "code-for-figures/chap3/fig3-08-loxodrome.html#helper-functions-for-coordinate-transformations",
+    "objectID": "chapters/chap3/fig3-08-loxodrome.html#helper-functions-for-coordinate-transformations",
+    "href": "chapters/chap3/fig3-08-loxodrome.html#helper-functions-for-coordinate-transformations",
     "title": "Figure 3.8: A loxodrome on the sphere and projected",
     "section": "Helper functions for coordinate transformations",
     "text": "Helper functions for coordinate transformations\nNext, convenience ‘helper’ functions for converting coordinate pairs between projections, and converting degrees to radians. By default it will convert longitude-latitude to Mercator.\n\n\nCode\nx1y1_to_x2y2 &lt;- function(coords, crs1 = 4326, crs2 = \"+proj=merc\") {\n  coords %&gt;% st_point() %&gt;%\n    st_sfc(crs = crs1) %&gt;%\n    st_transform(crs2) %&gt;%\n    st_coordinates() %&gt;%\n    c()\n}\n\nget_radians &lt;- function(d) {\n  d * pi / 180\n}"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-08-loxodrome.html#making-a-loxodrome",
-    "href": "code-for-figures/chap3/fig3-08-loxodrome.html#making-a-loxodrome",
+    "objectID": "chapters/chap3/fig3-08-loxodrome.html#making-a-loxodrome",
+    "href": "chapters/chap3/fig3-08-loxodrome.html#making-a-loxodrome",
     "title": "Figure 3.8: A loxodrome on the sphere and projected",
     "section": "Making a loxodrome",
     "text": "Making a loxodrome\nThe next function makes a loxodrome line of equal bearing, starting from 89°S 180°E, and ending when it hits latitude 89°N (latitude range is determined by the lat parameter). The calculations are done in Mercator coordinates, since it is in this projection that a loxodrome is a straight line.\n\n\nCode\nget_loxodrome &lt;- function(lat = -89, bearing = 85, n = 100) {\n  transects &lt;- c() # empty vector for the west to east transects\n  pt &lt;- c(-180, lat)\n\n  # we keep going until we hit the latitude at lat North\n  while(TRUE && pt[2] &lt; -lat) {\n    p1 &lt;- x1y1_to_x2y2(pt) # convert to Mercator\n    # get the point at +180, ie 2 * pi radians in Mercator\n    p2 &lt;- c(-p1[1],         \n            p1[2] + tan(get_radians(90 - bearing)) * -2 * p1[1])\n    # the line is a densified version of this\n    transect &lt;- st_linestring(matrix(c(p1, p2), 2, 2, byrow = TRUE)) %&gt;%\n      st_sfc(crs = \"+proj=merc\") %&gt;%\n      densify(n) # the densification step (provided by smoothr)\n    transects &lt;- c(transects, transect)\n    # reset p1 to 'the other side' of the Mercator space i.e. -180\n    p1 &lt;- p2\n    pt &lt;- x1y1_to_x2y2(p1, crs1 = \"+proj=merc\", crs2 = 4326)\n    pt[1] &lt;- -180\n  }\n  # transects need tidying so they extend equally far N and S of equator\n  # max y coordinate should be the inverse of the minimum y coordinate\n  ymax &lt;- x1y1_to_x2y2(c(0, -lat))[2]\n  # apply this limit to the points along the last transect from west to east\n  n_transects &lt;- length(lines)\n  # convert the last transect to a set of points, to apply this limit\n  pts &lt;- transects[[n_transects]] %&gt;%\n    st_cast(\"MULTIPOINT\") %&gt;%\n    st_coordinates()\n  pts &lt;- pts[pts[, 2] &lt;= ymax, 1:2]\n  # and then convert back to a linestring\n  transects[[n_transects]] &lt;- pts %&gt;%\n    matrix(ncol = 2) %&gt;%\n    st_linestring()\n  # finally convert to lon-lat i.e. EPSG 4326\n  transects %&gt;% st_sfc(crs = \"+proj=merc\") %&gt;%\n    st_as_sf() %&gt;%\n    st_transform(4326)\n}"
   },
   {
-    "objectID": "code-for-figures/chap3/fig3-08-loxodrome.html#now-make-the-figure",
-    "href": "code-for-figures/chap3/fig3-08-loxodrome.html#now-make-the-figure",
+    "objectID": "chapters/chap3/fig3-08-loxodrome.html#now-make-the-figure",
+    "href": "chapters/chap3/fig3-08-loxodrome.html#now-make-the-figure",
     "title": "Figure 3.8: A loxodrome on the sphere and projected",
     "section": "Now make the figure!",
     "text": "Now make the figure!\n\nAssemble the layers\nMake a loxodrome and clip the world to the chosen latitude limits. To apply rectangular projection based limits we have to switch to planar geometry in sf. We have to do this because we can’t show the whole world in Mercator…\n\n\nCode\nlox &lt;- get_loxodrome() \nlox_o &lt;- lox %&gt;%\n  st_intersection(hemisphere)\n\nsf_use_s2(FALSE)\n\nmercator_limits &lt;- st_polygon(list(\n  matrix(c(-180, -89, 180, -89, 180, 89, -180, 89, -180, -89),\n  ncol = 2, byrow = TRUE))) %&gt;%\n  st_sfc(crs = 4326) %&gt;%\n  st_as_sf()\n\nworld_m &lt;- World %&gt;% \n  st_intersection(mercator_limits) %&gt;%\n  st_transform(\"+proj=merc\") %&gt;%\n  filter(st_is_empty(geometry) == FALSE)\n\nlox_m &lt;- lox %&gt;%\n  st_intersection(mercator_limits)\n\n\n\n\nPut them together\nAnd finally make the maps. (In the version in the book I handmade the graticule, not realising that there was a tm_graticules function in tmap…).\n\n\nCode\nm1 &lt;- tm_shape(world_o) + \n  tm_fill(col = \"lightgray\") +\n  tm_graticules(x = seq(-180,165,15), y = seq(-75,60,15), \n                col = \"gray\", lwd = 0.5, labels.show = FALSE) +\n  tm_shape(lox_o) + \n  tm_lines(col = \"black\") +\n  tm_layout(frame = FALSE)\n\nm2 &lt;- tm_shape(world_m, bbox = mercator_limits) + \n  tm_fill(col = \"lightgray\") +\n  tm_graticules(x = seq(-180,165,15), y = seq(-75,60,15), \n                col = \"gray\", lwd = 0.5, labels.show = FALSE) +\n  tm_shape(lox_m) + \n  tm_lines(col = \"black\") +\n  tm_layout(frame = FALSE)\n\ntmap_arrange(m1, m2, ncol = 2)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-04-ppa-relative-space.html",
-    "href": "code-for-figures/chap2/fig2-04-ppa-relative-space.html",
+    "objectID": "chapters/chap2/fig2-04-ppa-relative-space.html",
+    "href": "chapters/chap2/fig2-04-ppa-relative-space.html",
     "title": "Figure 2.4: Two point patterns in absolute space",
     "section": "",
-    "text": "Although it is labelled ‘point patterns in absolute space’, the real (ahem) point of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.\nIf you want point patterns, you need the fantastic spatstat by Adrian Baddeley, Ege Rubak, and Rolf Turner.\n\n\nCode\nlibrary(spatstat)\n\n\nMake a couple of point patterns, one evenly-space using sequential spatial inhibition, and one clustered using a Thomas process. For the latter, see\n\nThomas M. 1949. A generalisation of Poisson’s binomial limit for use in ecology. Biometrika 36, 18–25.\n\n\n\nCode\npp1 &lt;- rSSI(0.07, n = 105)\npp2 &lt;- rThomas(10, 0.03, 10)\n\n\nCalculate nearest neighbour distances.\n\n\nCode\nnn1 &lt;- nndist(pp1)\nnn2 &lt;- nndist(pp2)\n\n\nAnd plot them.\n\n\nCode\npar(mfrow = c(2, 2), mai = rep(0.15, 4))\n\nplot(pp1, main = \"\")\nhist(nn1, main = \"\", xlab = \"Distance\", ylab = \"Frequency\")\nplot(pp2, main = \"\")\nhist(nn2, main = \"\", xlab = \"Distance\", ylab = \"Frequency\")\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
+    "text": "Although it is labelled ‘point patterns in absolute space’, the real (ahem) point of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.\nIf you want point patterns, you need the fantastic spatstat by Adrian Baddeley, Ege Rubak, and Rolf Turner.\n\n\nCode\nlibrary(spatstat)\n\n\nMake a couple of point patterns, one evenly-space using sequential spatial inhibition, and one clustered using a Thomas process. For the latter, see\n\nThomas M. 1949. A generalisation of Poisson’s binomial limit for use in ecology. Biometrika 36, 18–25.\n\n\n\nCode\npp1 &lt;- rSSI(0.07, n = 105)\npp2 &lt;- rThomas(10, 0.03, 10)\n\n\nCalculate nearest neighbour distances.\n\n\nCode\nnn1 &lt;- nndist(pp1)\nnn2 &lt;- nndist(pp2)\nbreaks &lt;- seq(0, max(nn2), length.out = 10)\n\n\nAnd plot them.\n\n\nCode\npar(mfrow = c(2, 2), mai = rep(0.3, 4))\n\nplot(pp1, main = \"\")\nhist(nn1, main = \"\", xlab = \"Distance\", ylab = \"Frequency\", breaks = breaks)\nplot(pp2, main = \"\")\nhist(nn2, main = \"\", xlab = \"Distance\", ylab = \"Frequency\", breaks = breaks)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-07-point-voronoi.html",
-    "href": "code-for-figures/chap2/fig2-07-point-voronoi.html",
+    "objectID": "chapters/chap2/fig2-07-point-voronoi.html",
+    "href": "chapters/chap2/fig2-07-point-voronoi.html",
     "title": "Figure 2.7: Voronoi polygons associated with a set of point locations",
     "section": "",
     "text": "This is most conveniently made using spatstat, but I’ve shown it here making a point pattern into an sf dataset and then using sf::st_voronoi().\n\n\nCode\nlibrary(spatstat)\nlibrary(sf)\nlibrary(tmap)\n\n\nThere are a few steps making a spatstat point pattern into a simple features dataset…\n\n\nCode\npp &lt;- rpoispp(100) %&gt;%\n  as.data.frame() %&gt;%\n  st_as_sf(coords = c(\"x\", \"y\"), crs = 2193)\n\n\nAnd there are a few more making a point dataset into a Voronoi polygon dataset.\n\n\nCode\npp_vor &lt;- pp %&gt;%\n  st_union() %&gt;%\n  st_voronoi() %&gt;%\n  st_cast() %&gt;%\n  st_as_sf(crs = st_crs(pp))\n\n\nAnd finally a map.\n\n\nCode\ntm_shape(pp_vor, \n         bbox = pp %&gt;% st_union() %&gt;% st_buffer(0.05)) + \n  tm_borders() +\n  tm_shape(pp) + \n  tm_bubbles(col = \"white\", alpha = 0, border.col = \"black\", size = 0.1) +\n  tm_layout(frame = FALSE)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap2/index.html",
-    "href": "code-for-figures/chap2/index.html",
+    "objectID": "chapters/chap2/index.html",
+    "href": "chapters/chap2/index.html",
     "title": "Chapter 2",
     "section": "",
-    "text": "Code to generate some of the images in Chapter 2—or at any rate the base images from which the final figures were made— is available in the pages below, including explanations of what’s going on.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html",
-    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html",
+    "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html",
+    "href": "chapters/chap2/fig2-08-non-point-voronoi.html",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "",
     "text": "This figure was mostly prepared in QGIS, but an R version is provided here to show the steps involved.\nDifferences between thae versions are due to the original being prepared across a wider extent which was then clipped down to the final extent. The input data used here are already clipped to the final extent meaning there are anomalies near the edges.\nCode\nlibrary(sf)\nlibrary(dplyr)\nlibrary(tmap)\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#load-data",
-    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#load-data",
+    "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#load-data",
+    "href": "chapters/chap2/fig2-08-non-point-voronoi.html#load-data",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "Load data",
     "text": "Load data\nYou’ll need your own roads and buildings data. Mine came from OpenStreetMap via the QGIS QuickOSM plugin.\n\n\nCode\nroads &lt;- st_read(\"final-roads.gpkg\") %&gt;%\n  select(full_id, osm_id)\nbldgs &lt;- st_read(\"final-buildings.gpkg\") %&gt;%\n  select(full_id, osm_id)\n\n\nAnd a quick map to see what we’re working with.\n\n\nCode\ntm_shape(bldgs) + \n  tm_fill() + \n  tm_shape(roads) + \n  tm_lines()"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
-    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
+    "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
+    "href": "chapters/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "Interpolate points along the lines and polygon boundaries",
     "text": "Interpolate points along the lines and polygon boundaries\nPlace points along the boundaries of each of these.\nFor the roads we combine all elements into a single line object and assign the same id to every point generated.\n\n\nCode\nr_pts &lt;- roads %&gt;%\n  st_union() %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;%\n  mutate(id = \"0\")\n\n\nFor the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.\n\n\nCode\nb_pts &lt;- bldgs %&gt;%\n  st_cast(\"MULTILINESTRING\") %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  # if any perimeter is &lt; 1 then the sampling step fails\n  filter(st_length(.) &gt;= units::as_units(1, \"m\")) %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;%\n  st_join(bldgs, join = st_nearest_feature) %&gt;%\n  mutate(id = full_id) %&gt;%\n  select(id)"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
-    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
+    "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
+    "href": "chapters/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "Make the point Voronoi polygons",
     "text": "Make the point Voronoi polygons\nNow combine the two into a single point dataset.\n\n\nCode\nall_pts &lt;- bind_rows(r_pts, b_pts)\n\n\nNow make a Voronoi layer from the points.\n\n\nCode\npts_vor &lt;- all_pts %&gt;%\n  st_union() %&gt;%\n  st_voronoi()%&gt;%\n  st_cast() %&gt;%\n  st_as_sf() %&gt;%\n  st_join(all_pts, left = FALSE) \n\n\nWe need to clip this to the extent of the buildings data.\n\n\nCode\nextent &lt;- bldgs %&gt;%\n  st_bbox() %&gt;%\n  st_as_sfc() %&gt;%\n  st_sf()\n\npts_vor &lt;- pts_vor %&gt;%\n  st_intersection(extent)\n\nplot(pts_vor, main = \"Voronoi of all points\", key.pos = NULL)"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#finally-form-the-line-and-polygon-voronois",
-    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#finally-form-the-line-and-polygon-voronois",
+    "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#finally-form-the-line-and-polygon-voronois",
+    "href": "chapters/chap2/fig2-08-non-point-voronoi.html#finally-form-the-line-and-polygon-voronois",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "Finally form the line and polygon Voronois",
     "text": "Finally form the line and polygon Voronois\nNow we dissolve (group_by) on the id attribute.\n\n\nCode\ndiss_vor &lt;- pts_vor %&gt;%\n  group_by(id) %&gt;%\n  summarise()\n\nplot(diss_vor, main = \"Dissolved Voronois\", key.pos = NULL)"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-a-map",
-    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-a-map",
+    "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#make-a-map",
+    "href": "chapters/chap2/fig2-08-non-point-voronoi.html#make-a-map",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "Make a map",
     "text": "Make a map\nFinally, we can make a map, similar to the one in Figure 2.8 in the book.\n\n\nCode\ntm_shape(bldgs, bbox = extent) +\n  tm_fill() + \n  # make the road into a polygon for clipping to extent\n  tm_shape(roads %&gt;% st_buffer(2) %&gt;% st_intersection(extent)) + \n  tm_fill(col = \"#808080\") +\n  # filter points so only those inside the extent are in the map\n  tm_shape(all_pts %&gt;% st_filter(extent %&gt;% st_buffer(-.1))) + \n  tm_dots(col = \"black\") +\n  tm_shape(pts_vor) + \n  tm_borders(col = \"lightgray\") + \n  tm_shape(diss_vor) + \n  tm_borders(col = \"black\")\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-01-absolute-space.html",
-    "href": "code-for-figures/chap2/fig2-01-absolute-space.html",
+    "objectID": "chapters/chap2/links-2.html",
+    "href": "chapters/chap2/links-2.html",
+    "title": "Links for Chapter 2",
+    "section": "",
+    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap2/links-2.html#links",
+    "href": "chapters/chap2/links-2.html#links",
+    "title": "Links for Chapter 2",
+    "section": "",
+    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/"
+  },
+  {
+    "objectID": "chapters/chap2/fig2-01-absolute-space.html",
+    "href": "chapters/chap2/fig2-01-absolute-space.html",
     "title": "Figure 2.1: A representation of an absolute space",
     "section": "",
     "text": "A simple visualisation of geo-atoms in absolute space\n\n\nCode\nlibrary(plot3D)\nlibrary(dplyr)\n\n\nThere isn’t a lot to this. Just make a bunch of random numbers…\n\n\nCode\ndata &lt;- data.frame(x = rnorm(30), y = rnorm(30), z = rnorm(30))\n\n\n… and plot them.\n\n\nCode\nscatter3D(x = data$x, y = data$y, z = data$z, \n          theta = 25, phi = 30, scale = FALSE, \n          xlim = range(data$x) * 1.1, \n          ylim = range(data$y) * 1.1, \n          zlim = range(data$z) * 1.1, \n          pch = 19, col = \"#999999\", bty = \"u\", type = \"h\", \n          asp = 1, col.axis = \"#333333\", col.panel = \"#eeeeee\", \n          col.grid = \"#666666\", lwd.grid = 0.2, nticks = 6)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE.\n\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-09-spatial-weights.html",
-    "href": "code-for-figures/chap2/fig2-09-spatial-weights.html",
+    "objectID": "chapters/chap2/fig2-09-spatial-weights.html",
+    "href": "chapters/chap2/fig2-09-spatial-weights.html",
     "title": "Figure 2.9: A range of spatial weights applied to polygon data",
     "section": "",
     "text": "This figure is intended to demonstrate the diversity of possible conceptualisations of ‘neighbour’ that are often deployed in spatial analysis contexts, and represent possible different approaches to relative space.\nCode\nlibrary(sf)\nlibrary(dplyr)\nlibrary(spdep)\nlibrary(sp)\nFirst read a polygons dataset. You’ll need to supply your own for this.\nCode\nchch &lt;- st_read(\"chch-sa2.gpkg\") # you need a spatial dataset\n\n\nReading layer `chch-sa2' from data source \n  `/Users/osullid3/Documents/code/computing-geographically/code-for-figures/chap2/chch-sa2.gpkg' \n  using driver `GPKG'\nSimple feature collection with 161 features and 4 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 1550986 ymin: 5169304 xmax: 1584508 ymax: 5195841\nProjected CRS: NZGD2000 / New Zealand Transverse Mercator 2000\nThe spdep package I am using here requires the data in the sp package format, so convert to that.\nCode\npolys &lt;- chch %&gt;%\n  select(geom) %&gt;%\n  as(\"Spatial\")\nNow make some points inside the polygons, and also some centroids.\nCode\npts &lt;- chch %&gt;%\n  st_point_on_surface() %&gt;%\n  st_geometry()\n\n\nWarning: st_point_on_surface assumes attributes are constant over geometries\n\n\nCode\npts_c &lt;- chch %&gt;%\n  st_centroid() %&gt;%\n  st_geometry()\n\n\nWarning: st_centroid assumes attributes are constant over geometries\nThese are presented in a single figure in the book in four rows of three, Here I show them all individually for greater clarity. But include the following plot setup code if you want to present them as in the book.\nCode\npar(mfrow = c(4, 3), mai = rep(0, 4))\nAnd now work through a series of possible weights options.\n© 2023 David O’Sullivan"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-09-spatial-weights.html#contiguity-based",
-    "href": "code-for-figures/chap2/fig2-09-spatial-weights.html#contiguity-based",
+    "objectID": "chapters/chap2/fig2-09-spatial-weights.html#contiguity-based",
+    "href": "chapters/chap2/fig2-09-spatial-weights.html#contiguity-based",
     "title": "Figure 2.9: A range of spatial weights applied to polygon data",
     "section": "Contiguity based",
     "text": "Contiguity based\n\n\nCode\nnb &lt;- polys %&gt;% poly2nb(queen = TRUE)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Queen's rule adjacency\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\nnb &lt;- polys %&gt;% poly2nb(queen = FALSE)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Rook's rule adjacency\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\nnb &lt;- nb %&gt;% nblag(2) %&gt;% nblag_cumul()\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Cumulative lag-2 adjacency\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-09-spatial-weights.html#k-nearest-neighbours",
-    "href": "code-for-figures/chap2/fig2-09-spatial-weights.html#k-nearest-neighbours",
+    "objectID": "chapters/chap2/fig2-09-spatial-weights.html#k-nearest-neighbours",
+    "href": "chapters/chap2/fig2-09-spatial-weights.html#k-nearest-neighbours",
     "title": "Figure 2.9: A range of spatial weights applied to polygon data",
     "section": "k-nearest neighbours",
     "text": "k-nearest neighbours\nNote that we use the centroids to calculate the distances, but the points inside the polygons from st_point_on_surface() for the plotting.\n\n\nCode\nnb &lt;- pts_c %&gt;% knearneigh(k = 3) %&gt;% knn2nb()\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"k = 3\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\nnb &lt;- pts_c %&gt;% knearneigh(k = 6) %&gt;% knn2nb()\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"k = 6\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\nnb &lt;- pts_c %&gt;% knearneigh(k = 12) %&gt;% knn2nb()\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"k = 12\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-09-spatial-weights.html#distance-criteria",
-    "href": "code-for-figures/chap2/fig2-09-spatial-weights.html#distance-criteria",
+    "objectID": "chapters/chap2/fig2-09-spatial-weights.html#distance-criteria",
+    "href": "chapters/chap2/fig2-09-spatial-weights.html#distance-criteria",
     "title": "Figure 2.9: A range of spatial weights applied to polygon data",
     "section": "Distance criteria",
     "text": "Distance criteria\nNext, distance criteria, again calculated from centroids, but visualised using the st_point_on_surface().\n\n\nCode\nnb &lt;- pts_c %&gt;% dnearneigh(d1 = 0, d2 = 1000)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Distance &lt; 1000\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\nnb &lt;- pts_c %&gt;% dnearneigh(d1 = 0, d2 = 1500)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Distance &lt; 1500\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\nnb &lt;- pts_c %&gt;% dnearneigh(d1 = 1500, d2 = 2000)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"1500 &lt; Distance &lt; 2000\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)"
   },
   {
-    "objectID": "code-for-figures/chap2/fig2-09-spatial-weights.html#graph-based-approaches",
-    "href": "code-for-figures/chap2/fig2-09-spatial-weights.html#graph-based-approaches",
+    "objectID": "chapters/chap2/fig2-09-spatial-weights.html#graph-based-approaches",
+    "href": "chapters/chap2/fig2-09-spatial-weights.html#graph-based-approaches",
     "title": "Figure 2.9: A range of spatial weights applied to polygon data",
     "section": "Graph-based approaches",
     "text": "Graph-based approaches\nFinally, some network-based possibilities, Delaunay triangulation, Gabriel graph and the relative neighbour graph.\n\n\nCode\ng &lt;- tri2nb(pts_c)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Delaunay triangulation\")\nplot(g, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\ng &lt;- gabrielneigh(pts_c)\nnb &lt;- graph2nb(g)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Gabriel graph\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\nCode\ng &lt;- relativeneigh(pts_c)\nnb &lt;- graph2nb(g)\nplot(polys, col = \"lightgrey\", lwd = 0.5, border = 'white', main = \"Relative neighbour graph\")\nplot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
+  },
+  {
+    "objectID": "chapters/chap5/index.html",
+    "href": "chapters/chap5/index.html",
+    "title": "Chapter 5",
+    "section": "",
+    "text": "Links for Chapter 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap5/links-5.html",
+    "href": "chapters/chap5/links-5.html",
+    "title": "Links for Chapter 5",
+    "section": "",
+    "text": "This Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. There’s an interactive map at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org.\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap5/links-5.html#links",
+    "href": "chapters/chap5/links-5.html#links",
+    "title": "Links for Chapter 5",
+    "section": "",
+    "text": "This Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. There’s an interactive map at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org."
+  },
+  {
+    "objectID": "chapters/chap9/index.html",
+    "href": "chapters/chap9/index.html",
+    "title": "Chapter 9",
+    "section": "",
+    "text": "No matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap7/index.html",
+    "href": "chapters/chap7/index.html",
+    "title": "Chapter 7",
+    "section": "",
+    "text": "Links for Chapter 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap7/links-7.html",
+    "href": "chapters/chap7/links-7.html",
+    "title": "Links for Chapter 7",
+    "section": "",
+    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample.\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap7/links-7.html#links",
+    "href": "chapters/chap7/links-7.html#links",
+    "title": "Links for Chapter 7",
+    "section": "",
+    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample."
+  },
+  {
+    "objectID": "chapters/chap6/index.html",
+    "href": "chapters/chap6/index.html",
+    "title": "Chapter 6",
+    "section": "",
+    "text": "Links for Chapter 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap6/links-6.html",
+    "href": "chapters/chap6/links-6.html",
+    "title": "Links for Chapter 6",
+    "section": "",
+    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee Footnote 6 above.\n\n\n\nSee Footnote 6 above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee Figure 6.7 above.\n\n\n\nSee Footnote 6 above.\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap6/links-6.html#links",
+    "href": "chapters/chap6/links-6.html#links",
+    "title": "Links for Chapter 6",
+    "section": "",
+    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee Footnote 6 above.\n\n\n\nSee Footnote 6 above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee Figure 6.7 above.\n\n\n\nSee Footnote 6 above."
+  },
+  {
+    "objectID": "chapters/chap1/index.html",
+    "href": "chapters/chap1/index.html",
+    "title": "Chapter 1",
+    "section": "",
+    "text": "Links for Chapter 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap1/links-1.html",
+    "href": "chapters/chap1/links-1.html",
+    "title": "Links for Chapter 1",
+    "section": "",
+    "text": "Footnote 6\nYou’ll find my PhD thesis here: Graph-based Cellular Automaton Models of Urban Spatial Processes. Chapter 2 is the slightly embarrassing take on space, mentioned in the note.\n\n\nFootnote 8\nSlides from the course I developed at Berkeley and taught from 2014 to 2018 Geog 80 Digital Worlds: An Introduction to Geospatial Technologies\n\n\n\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap8/links-8.html",
+    "href": "chapters/chap8/links-8.html",
+    "title": "Links for Chapter 8",
+    "section": "",
+    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "chapters/chap8/links-8.html#links",
+    "href": "chapters/chap8/links-8.html#links",
+    "title": "Links for Chapter 8",
+    "section": "",
+    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!"
+  },
+  {
+    "objectID": "chapters/chap8/index.html",
+    "href": "chapters/chap8/index.html",
+    "title": "Chapter 8",
+    "section": "",
+    "text": "Links for Chapter 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Computing Geographically Extras",
+    "section": "",
+    "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nIncluded are up to date links for any internet sources referenced, and code samples to create visualizations on which some of the figures are based.\n\n\n© 2023 David O’Sullivan"
   }
 ]

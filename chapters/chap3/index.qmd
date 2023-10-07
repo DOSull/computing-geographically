@@ -1,0 +1,15 @@
+---
+title: Chapter 3
+subtitle: Scale and Projection
+listing:
+  contents:
+    - "links-3.qmd"
+    - "fig3-07-platte-carre-and-lcea.qmd"
+    - "fig3-08-loxodrome.qmd"
+    - "fig3-09-tobler-chen.qmd"
+    - "fig3-10-raster-resolution.qmd"
+  sort: false
+  type: grid 
+---
+
+This chapter explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands consideration of map projections, which are also considered.

@@ -1,0 +1,28 @@
+---
+title: Links for Chapter 2
+subtitle: Location and Space
+image: "../../favicon.ico"
+---
+
+## Links 
+### Footnote 1 
+As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: [esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview](https://www.esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview). 
+
+### Footnote 7 
+_ScapeToad_ is still at [http://scapetoad.choros.place/](http://scapetoad.choros.place/) (yes `http`, not `https`).
+
+### Footnote 8
+The TopoJSON format specification is at [github.com/topojson/topojson-specification](https://github.com/topojson/topojson-specification).
+
+### Footnote 9
+The GeoJSON format specification is at [datatracker.ietf.org/doc/html/rfc7946](https://datatracker.ietf.org/doc/html/rfc7946)
+
+### Footnote 10 
+You can experiment with the GeoJSON format at [geojson.io](https://geojson.io/).
+
+### Footnote 11 
+David Theobald's bewildered comment about the rendering speed of shapefiles is in an article in _ArcUser_ entitled 'Understanding topology and shapefiles': [esri.com/news/arcuser/0401/topo.html](https://www.esri.com/news/arcuser/0401/topo.html).
+
+### Footnote 14
+The PostGIS project home page: [osgeo.org/projects/postgis/](https://www.osgeo.org/projects/postgis/)
+

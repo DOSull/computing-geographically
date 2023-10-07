@@ -1,21 +1,63 @@
 [
   {
-    "listing": "/code-for-figures/chap3/index.html",
+    "listing": "/chapters/chap4/index.html",
     "items": [
-      "/code-for-figures/chap3/fig3-07-platte-carre-and-lcea.html",
-      "/code-for-figures/chap3/fig3-08-loxodrome.html",
-      "/code-for-figures/chap3/fig3-09-tobler-chen.html",
-      "/code-for-figures/chap3/fig3-10-raster-resolution.html"
+      "/chapters/chap4/links-4.html"
     ]
   },
   {
-    "listing": "/code-for-figures/chap2/index.html",
+    "listing": "/chapters/chap3/index.html",
     "items": [
-      "/code-for-figures/chap2/fig2-01-absolute-space.html",
-      "/code-for-figures/chap2/fig2-04-ppa-relative-space.html",
-      "/code-for-figures/chap2/fig2-07-point-voronoi.html",
-      "/code-for-figures/chap2/fig2-08-non-point-voronoi.html",
-      "/code-for-figures/chap2/fig2-09-spatial-weights.html"
+      "/chapters/chap3/links-3.html",
+      "/chapters/chap3/fig3-07-platte-carre-and-lcea.html",
+      "/chapters/chap3/fig3-08-loxodrome.html",
+      "/chapters/chap3/fig3-09-tobler-chen.html",
+      "/chapters/chap3/fig3-10-raster-resolution.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap2/index.html",
+    "items": [
+      "/chapters/chap2/links-2.html",
+      "/chapters/chap2/fig2-01-absolute-space.html",
+      "/chapters/chap2/fig2-04-ppa-relative-space.html",
+      "/chapters/chap2/fig2-07-point-voronoi.html",
+      "/chapters/chap2/fig2-08-non-point-voronoi.html",
+      "/chapters/chap2/fig2-09-spatial-weights.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap5/index.html",
+    "items": [
+      "/chapters/chap5/links-5.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap9/index.html",
+    "items": []
+  },
+  {
+    "listing": "/chapters/chap7/index.html",
+    "items": [
+      "/chapters/chap7/links-7.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap6/index.html",
+    "items": [
+      "/chapters/chap6/links-6.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap1/index.html",
+    "items": [
+      "/chapters/chap1/links-1.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap8/index.html",
+    "items": [
+      "/chapters/chap8/links-8.html"
     ]
   }
 ]
