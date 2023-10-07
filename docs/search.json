@@ -326,6 +326,6 @@
     "href": "index.html",
     "title": "Computing Geographically Extras",
     "section": "",
-    "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nIncluded are up to date links for any internet sources referenced, and code samples to create visualizations on which some of the figures are based.\n\n\n© 2023 David O’Sullivan"
+    "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nIncluded are:\n\nUp to date links for internet sources referenced in the text;\nCode samples to create the base graphics for som of the figures (mostly in R); and\nBackground information on other figures.\n\n\n\n© 2023 David O’Sullivan"
   }
 ]
