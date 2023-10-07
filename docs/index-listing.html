@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-title","listing-author"],
     };
@@ -210,9 +210,6 @@ ul.task-list li input[type="checkbox"] {
          <option value="listing-title-sort" data-direction="asc">
           Title
         </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
      </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
@@ -221,152 +218,115 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 
-<table class="quarto-listing-table table">
+<table class="quarto-listing-table table table-striped table-hover">
 <thead>
 <tr>
 <th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="figures,code" data-listing-file-modified-sort="1696716539172" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.1: A representation of an absolute space" data-listing-filename-sort="fig2-01-absolute-space.qmd">
+<tr data-index="0" data-categories="figures,code" data-listing-file-modified-sort="1696716539172" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.1: A representation of an absolute space" data-listing-filename-sort="fig2-01-absolute-space.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap2/fig2-01-absolute-space.html" class="title listing-title">Figure 2.1: A representation of an absolute space</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="1" data-categories="figures,code" data-listing-file-modified-sort="1696716539172" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.4: Two point patterns in absolute space" data-listing-filename-sort="fig2-04-ppa-relative-space.qmd">
+<tr data-index="1" data-categories="figures,code" data-listing-file-modified-sort="1696716539172" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.4: Two point patterns in absolute space" data-listing-filename-sort="fig2-04-ppa-relative-space.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap2/fig2-04-ppa-relative-space.html" class="title listing-title">Figure 2.4: Two point patterns in absolute space</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="2" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.7: Voronoi polygons associated with a set of point locations" data-listing-filename-sort="fig2-07-point-voronoi.qmd">
+<tr data-index="2" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.7: Voronoi polygons associated with a set of point locations" data-listing-filename-sort="fig2-07-point-voronoi.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap2/fig2-07-point-voronoi.html" class="title listing-title">Figure 2.7: Voronoi polygons associated with a set of point locations</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="3" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 2.8: Voronoi polygons associated with lines and polygons" data-listing-filename-sort="fig2-08-non-point-voronoi.qmd">
+<tr data-index="3" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 2.8: Voronoi polygons associated with lines and polygons" data-listing-filename-sort="fig2-08-non-point-voronoi.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap2/fig2-08-non-point-voronoi.html" class="title listing-title">Figure 2.8: Voronoi polygons associated with lines and polygons</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="4" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 2.9: A range of spatial weights applied to polygon data" data-listing-filename-sort="fig2-09-spatial-weights.qmd">
+<tr data-index="4" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 2.9: A range of spatial weights applied to polygon data" data-listing-filename-sort="fig2-09-spatial-weights.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap2/fig2-09-spatial-weights.html" class="title listing-title">Figure 2.9: A range of spatial weights applied to polygon data</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="5" data-categories="figures,code" data-listing-file-modified-sort="1696716849964" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.10: Raster aggregation and disaggregation" data-listing-filename-sort="fig3-10-raster-resolution.qmd">
+<tr data-index="5" data-categories="figures,code" data-listing-file-modified-sort="1696716849964" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.10: Raster aggregation and disaggregation" data-listing-filename-sort="fig3-10-raster-resolution.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap3/fig3-10-raster-resolution.html" class="title listing-title">Figure 3.10: Raster aggregation and disaggregation</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="6" data-categories="figures,code" data-listing-file-modified-sort="1696716830880" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.7: Two simple world projections" data-listing-filename-sort="fig3-07-platte-carre-and-lcea.qmd">
+<tr data-index="6" data-categories="figures,code" data-listing-file-modified-sort="1696716830880" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.7: Two simple world projections" data-listing-filename-sort="fig3-07-platte-carre-and-lcea.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap3/fig3-07-platte-carre-and-lcea.html" class="title listing-title">Figure 3.7: Two simple world projections</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="7" data-categories="figures,code" data-listing-file-modified-sort="1696716836613" data-listing-reading-time-sort="6" data-listing-title-sort="Figure 3.8: A loxodrome on the sphere and projected" data-listing-filename-sort="fig3-08-loxodrome.qmd">
+<tr data-index="7" data-categories="figures,code" data-listing-file-modified-sort="1696716836613" data-listing-reading-time-sort="6" data-listing-title-sort="Figure 3.8: A loxodrome on the sphere and projected" data-listing-filename-sort="fig3-08-loxodrome.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap3/fig3-08-loxodrome.html" class="title listing-title">Figure 3.8: A loxodrome on the sphere and projected</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="8" data-categories="figures,code" data-listing-file-modified-sort="1696716843516" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.9: Equal area world in a square" data-listing-filename-sort="fig3-09-tobler-chen.qmd">
+<tr data-index="8" data-categories="figures,code" data-listing-file-modified-sort="1696716843516" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.9: Equal area world in a square" data-listing-filename-sort="fig3-09-tobler-chen.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap3/fig3-09-tobler-chen.html" class="title listing-title">Figure 3.9: Equal area world in a square</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="9" data-categories="links" data-listing-file-modified-sort="1696716710233" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 1" data-listing-filename-sort="links-1.qmd">
+<tr data-index="9" data-categories="links" data-listing-file-modified-sort="1696716710233" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 1" data-listing-filename-sort="links-1.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap1/links-1.html" class="title listing-title">Links for Chapter 1</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="10" data-categories="links" data-listing-file-modified-sort="1696716668994" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 2" data-listing-filename-sort="links-2.qmd">
+<tr data-index="10" data-categories="links" data-listing-file-modified-sort="1696716668994" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 2" data-listing-filename-sort="links-2.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap2/links-2.html" class="title listing-title">Links for Chapter 2</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="11" data-categories="links" data-listing-file-modified-sort="1696716757604" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 3" data-listing-filename-sort="links-3.qmd">
+<tr data-index="11" data-categories="links" data-listing-file-modified-sort="1696716757604" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 3" data-listing-filename-sort="links-3.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap3/links-3.html" class="title listing-title">Links for Chapter 3</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="12" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 4" data-listing-filename-sort="links-4.qmd">
+<tr data-index="12" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 4" data-listing-filename-sort="links-4.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap4/links-4.html" class="title listing-title">Links for Chapter 4</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="13" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 5" data-listing-filename-sort="links-5.qmd">
+<tr data-index="13" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 5" data-listing-filename-sort="links-5.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap5/links-5.html" class="title listing-title">Links for Chapter 5</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="14" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 6" data-listing-filename-sort="links-6.qmd">
+<tr data-index="14" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 6" data-listing-filename-sort="links-6.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap6/links-6.html" class="title listing-title">Links for Chapter 6</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="15" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 7" data-listing-filename-sort="links-7.qmd">
+<tr data-index="15" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 7" data-listing-filename-sort="links-7.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap7/links-7.html" class="title listing-title">Links for Chapter 7</a>
 </td>
-<td>
-<span class="listing-author"></span>
-</td>
 </tr>
-<tr data-index="16" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 8" data-listing-filename-sort="links-8.qmd">
+<tr data-index="16" data-categories="links" data-listing-file-modified-sort="1696716757605" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 8" data-listing-filename-sort="links-8.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td>
 <a href="./chapters/chap8/links-8.html" class="title listing-title">Links for Chapter 8</a>
-</td>
-<td>
-<span class="listing-author"></span>
 </td>
 </tr>
 </tbody>
