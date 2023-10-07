@@ -1,7 +1,9 @@
 ---
 title: Links for Chapter 7
 subtitle: Time and Dynamics
-image: "../../favicon.ico"
+categories:
+  - links
+image: "../../links.png"
 ---
 
 ## Links 

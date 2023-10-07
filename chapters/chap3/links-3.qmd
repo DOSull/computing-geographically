@@ -1,7 +1,9 @@
 ---
 title: Links for Chapter 3
 subtitle: Scale and Projection
-image: "../../favicon.ico"
+categories:
+  - links
+image: "../../links.png"
 ---
 
 ## Links 

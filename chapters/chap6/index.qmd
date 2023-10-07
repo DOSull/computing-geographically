@@ -2,6 +2,7 @@
 title: Chapter 6
 subtitle: Relations, Networks, Flows
 listing:
+  categories: true
   contents:
     - "links-6.qmd"
   sort: false

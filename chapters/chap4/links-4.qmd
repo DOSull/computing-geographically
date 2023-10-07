@@ -1,7 +1,9 @@
 ---
 title: Links for Chapter 4
 subtitle: Place and Meaning in Space
-image: "../../favicon.ico"
+categories:
+  - links
+image: "../../links.png"
 ---
 
 ## Links 

@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -157,6 +157,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../index-listing.html" rel="" target="">
+ <span class="menu-text">All the pages</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -170,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(5)</span></div><div class="category" data-category="figures">figures <span class="quarto-category-count">(5)</span></div><div class="category" data-category="links">links <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -199,16 +203,21 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1696680454410" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="0" data-categories="links" data-listing-file-modified-sort="1696716668994" data-listing-reading-time-sort="1">
 <a href="../../chapters/chap2/links-2.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../../favicon.ico" class="thumbnail-image card-img" style="height: 150px;">
+<img src="../../links.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Links for Chapter 2
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('links'); return false;">
+links
+</div>
+</div>
 <div class="card-text listing-description">
 As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-…
 </div>
@@ -221,7 +230,7 @@ As marketing copy, this one is always already out of date. As of September 2023,
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1696657464939" data-listing-reading-time-sort="2">
+<div class="g-col-1" data-index="1" data-categories="figures,code" data-listing-file-modified-sort="1696716539172" data-listing-reading-time-sort="2">
 <a href="../../chapters/chap2/fig2-01-absolute-space.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fig2-01-absolute-space_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -229,6 +238,14 @@ As marketing copy, this one is always already out of date. As of September 2023,
 <h5 class="no-anchor card-title listing-title">
 Figure 2.1: A representation of an absolute space
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('figures'); return false;">
+figures
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+</div>
 <div class="card-text listing-description">
 A simple visualisation of geo-atoms in absolute space
 </div>
@@ -241,7 +258,7 @@ A simple visualisation of geo-atoms in absolute space
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1696681227516" data-listing-reading-time-sort="2">
+<div class="g-col-1" data-index="2" data-categories="figures,code" data-listing-file-modified-sort="1696716539172" data-listing-reading-time-sort="2">
 <a href="../../chapters/chap2/fig2-04-ppa-relative-space.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fig2-04-ppa-relative-space_files/figure-html/unnamed-chunk-4-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -249,6 +266,14 @@ A simple visualisation of geo-atoms in absolute space
 <h5 class="no-anchor card-title listing-title">
 Figure 2.4: Two point patterns in absolute space
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('figures'); return false;">
+figures
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+</div>
 <div class="card-text listing-description">
 Although it is labelled ‘point patterns in absolute space’, the real (ahem) <em>point</em> of this figure is that spatial analysis often works, in effect, with a…
 </div>
@@ -261,7 +286,7 @@ Although it is labelled ‘point patterns in absolute space’, the real (ahem) 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1696707439926" data-listing-reading-time-sort="2">
+<div class="g-col-1" data-index="3" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="2">
 <a href="../../chapters/chap2/fig2-07-point-voronoi.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fig2-07-point-voronoi_files/figure-html/unnamed-chunk-4-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -269,6 +294,14 @@ Although it is labelled ‘point patterns in absolute space’, the real (ahem) 
 <h5 class="no-anchor card-title listing-title">
 Figure 2.7: Voronoi polygons associated with a set of point locations
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('figures'); return false;">
+figures
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+</div>
 <div class="card-text listing-description">
 This is most conveniently made using <code>spatstat</code>, but I’ve shown it here making a point pattern into an <code>sf</code> dataset and then using <code>sf::st_voronoi()</code>.
 </div>
@@ -281,7 +314,7 @@ This is most conveniently made using <code>spatstat</code>, but I’ve shown it 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1696711939190" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="4" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="4">
 <a href="../../chapters/chap2/fig2-08-non-point-voronoi.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -291,6 +324,14 @@ This is most conveniently made using <code>spatstat</code>, but I’ve shown it 
 <h5 class="no-anchor card-title listing-title">
 Figure 2.8: Voronoi polygons associated with lines and polygons
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('figures'); return false;">
+figures
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+</div>
 <div class="card-text listing-description">
 This figure was mostly prepared in QGIS, but an <em>R</em> version is provided here to show the steps involved.
 </div>
@@ -303,7 +344,7 @@ This figure was mostly prepared in QGIS, but an <em>R</em> version is provided h
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1696657464939" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="5" data-categories="figures,code" data-listing-file-modified-sort="1696716539171" data-listing-reading-time-sort="4">
 <a href="../../chapters/chap2/fig2-09-spatial-weights.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fig2-09-spatial-weights_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -311,6 +352,14 @@ This figure was mostly prepared in QGIS, but an <em>R</em> version is provided h
 <h5 class="no-anchor card-title listing-title">
 Figure 2.9: A range of spatial weights applied to polygon data
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('figures'); return false;">
+figures
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+</div>
 <div class="card-text listing-description">
 This figure is intended to demonstrate…
 </div>

@@ -1,0 +1,12 @@
+---
+title: "All the pages"
+listing:
+  categories: true
+  include:
+    categories: [links, figures, code]
+  type: table
+  contents: 
+    - "chapters/chap*/*.qmd"
+---
+
+Use the sort, filter, and categories list to the right to find what you are looking for.

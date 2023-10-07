@@ -2,6 +2,7 @@
 title: Chapter 3
 subtitle: Scale and Projection
 listing:
+  categories: true
   contents:
     - "links-3.qmd"
     - "fig3-07-platte-carre-and-lcea.qmd"

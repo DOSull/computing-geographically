@@ -1,7 +1,9 @@
 ---
 title: Links for Chapter 6
 subtitle: Relations, Networks, Flows
-image: "../../favicon.ico"
+categories:
+  - links
+image: "../../links.png"
 ---
 
 ## Links 

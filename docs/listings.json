@@ -1,5 +1,27 @@
 [
   {
+    "listing": "/index-listing.html",
+    "items": [
+      "/chapters/chap2/fig2-01-absolute-space.html",
+      "/chapters/chap2/fig2-04-ppa-relative-space.html",
+      "/chapters/chap2/fig2-07-point-voronoi.html",
+      "/chapters/chap2/fig2-08-non-point-voronoi.html",
+      "/chapters/chap2/fig2-09-spatial-weights.html",
+      "/chapters/chap3/fig3-10-raster-resolution.html",
+      "/chapters/chap3/fig3-07-platte-carre-and-lcea.html",
+      "/chapters/chap3/fig3-08-loxodrome.html",
+      "/chapters/chap3/fig3-09-tobler-chen.html",
+      "/chapters/chap1/links-1.html",
+      "/chapters/chap2/links-2.html",
+      "/chapters/chap3/links-3.html",
+      "/chapters/chap4/links-4.html",
+      "/chapters/chap5/links-5.html",
+      "/chapters/chap6/links-6.html",
+      "/chapters/chap7/links-7.html",
+      "/chapters/chap8/links-8.html"
+    ]
+  },
+  {
     "listing": "/chapters/chap4/index.html",
     "items": [
       "/chapters/chap4/links-4.html"

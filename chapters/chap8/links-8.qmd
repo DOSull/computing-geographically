@@ -1,7 +1,9 @@
 ---
 title: Links for Chapter 8
 subtitle: Process and Pattern
-image: "../../favicon.ico"
+categories:
+  - links
+image: "../../links.png"
 ---
 
 ## Links 

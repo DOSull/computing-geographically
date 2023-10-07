@@ -1,5 +1,8 @@
 ---
 title: "Figure 3.9: Equal area world in a square"
+categories: 
+  - figures
+  - code
 execute: 
   cache: true
   freeze: auto

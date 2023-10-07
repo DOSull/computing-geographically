@@ -1,5 +1,8 @@
 ---
 title: "Figure 2.1: A representation of an absolute space"
+categories: 
+  - figures
+  - code
 execute: 
   cache: true
   freeze: auto

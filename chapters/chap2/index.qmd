@@ -2,6 +2,7 @@
 title: Chapter 2
 subtitle: Location and Space
 listing:
+  categories: true
   contents:
     - "links-2.qmd"
     - "fig2-01-absolute-space.qmd"

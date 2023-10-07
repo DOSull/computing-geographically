@@ -1,5 +1,8 @@
 ---
 title: "Figure 2.4: Two point patterns in absolute space"
+categories: 
+  - figures
+  - code
 execute: 
   cache: true
   freeze: auto

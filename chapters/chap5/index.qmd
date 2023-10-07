@@ -2,6 +2,7 @@
 title: Chapter 5
 subtitle: Lines and Areas
 listing:
+  categories: true
   contents:
     - "links-5.qmd"
   sort: false

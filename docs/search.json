@@ -1,10 +1,17 @@
 [
   {
+    "objectID": "index-listing.html",
+    "href": "index-listing.html",
+    "title": "All the pages",
+    "section": "",
+    "text": "Use the sort, filter, and categories list to the right to find what you are looking for.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\n\n\n\nFigure 3.10: Raster aggregation and disaggregation\n\n\n\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\n\n\n\n\nLinks for Chapter 1\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\n\n\n\n\nLinks for Chapter 3\n\n\n\n\n\n\n\nLinks for Chapter 4\n\n\n\n\n\n\n\nLinks for Chapter 5\n\n\n\n\n\n\n\nLinks for Chapter 6\n\n\n\n\n\n\n\nLinks for Chapter 7\n\n\n\n\n\n\n\nLinks for Chapter 8\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
     "objectID": "chapters/chap4/index.html",
     "href": "chapters/chap4/index.html",
     "title": "Chapter 4",
     "section": "",
-    "text": "Links for Chapter 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 4\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap4/links-4.html",
@@ -32,7 +39,7 @@
     "href": "chapters/chap3/index.html",
     "title": "Chapter 3",
     "section": "",
-    "text": "This chapter explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands consideration of map projections, which are also considered.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.10: Raster aggregation and disaggregation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "This chapter explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands consideration of map projections, which are also considered.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 3\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.10: Raster aggregation and disaggregation\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap3/links-3.html",
@@ -116,7 +123,7 @@
     "href": "chapters/chap2/index.html",
     "title": "Chapter 2",
     "section": "",
-    "text": "This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\nfigures\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html",
@@ -221,7 +228,7 @@
     "href": "chapters/chap5/index.html",
     "title": "Chapter 5",
     "section": "",
-    "text": "Links for Chapter 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 5\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap5/links-5.html",
@@ -249,7 +256,7 @@
     "href": "chapters/chap7/index.html",
     "title": "Chapter 7",
     "section": "",
-    "text": "Links for Chapter 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 7\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap7/links-7.html",
@@ -270,7 +277,7 @@
     "href": "chapters/chap6/index.html",
     "title": "Chapter 6",
     "section": "",
-    "text": "Links for Chapter 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 6\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap6/links-6.html",
@@ -291,7 +298,7 @@
     "href": "chapters/chap1/index.html",
     "title": "Chapter 1",
     "section": "",
-    "text": "Links for Chapter 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 1\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap1/links-1.html",
@@ -319,13 +326,13 @@
     "href": "chapters/chap8/index.html",
     "title": "Chapter 8",
     "section": "",
-    "text": "Links for Chapter 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 8\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Computing Geographically Extras",
     "section": "",
-    "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nIncluded are:\n\nUp to date links for internet sources referenced in the text;\nCode samples to create the base graphics for som of the figures (mostly in R); and\nBackground information on other figures.\n\n\n\n© 2023 David O’Sullivan"
+    "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nIncluded are:\n\nUp to date links for internet sources referenced in the text\nCode samples to create the base graphics for som of the figures (mostly in R)\nBackground information on other figures\n\nAccess them either from the drop-down menu by chapter, or from this listing page.\n\n\n© 2023 David O’Sullivan"
   }
 ]

@@ -1,7 +1,9 @@
 ---
 title: Links for Chapter 1
 subtitle: Building Bridges
-image: "../../favicon.ico"
+categories:
+  - links
+image: "../../links.png"
 ---
 
 ### Footnote 6 

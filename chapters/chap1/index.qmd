@@ -2,6 +2,7 @@
 title: Chapter 1
 subtitle: Building Bridges
 listing:
+  categories: true
   contents:
     - "links-1.qmd"
   sort: false

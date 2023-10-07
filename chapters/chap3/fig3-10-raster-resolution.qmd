@@ -1,5 +1,8 @@
 ---
 title: "Figure 3.10: Raster aggregation and disaggregation"
+categories: 
+  - figures
+  - code
 execute: 
   cache: true
   freeze: auto
