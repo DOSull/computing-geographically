@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>The figure produced below extends to ±89° which makes the point even more clearly, but doesn’t give a nice square Mercator projected map! See also <a href="https://www.jasondavies.com/maps/loxodrome/">Jason Davies’ page about loxodromes</a> for more on this, including a couple of figures that probably on some level inspired mine. Indeed, Jason Davies’ pages include some gems for exploring the variety of global projections. See, for example, <a href="https://www.jasondavies.com/maps/transition/">Map Projection Transitions</a>.</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-1_d460d1ba3cee6615768ce4843c548361">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -214,21 +214,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>This process is pretty complicated to do in <em>R</em>, so we need a bunch of helper functions. First, it is the default for <code>sf</code> now, but just to make the point, we intially use S2 mode, so that when we clip data with a hemisphere it does it properly.</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-2_e97b94aa73001da2bedc89201a341333">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sf_use_s2</span>(<span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Also, define an <a href="https://proj.org/en/9.3/operations/projections/ortho.html">orthographic projection</a> for the globe view.</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-3_0cb95f47f2071033f8eb4f6ec28a0843">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ortho_proj <span class="ot">&lt;-</span> <span class="st">"+proj=ortho lon_0=0 lat_0=40"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Make a hemisphere for the globe view, and apply it to the built-in <code>World</code> dataset that ships with <code>tmap</code>.</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-4_33fedfe95c4b6d922d56ed7d02e4a963">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hemisphere <span class="ot">&lt;-</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_buffer</span>(<span class="dv">6356752</span>) <span class="sc">%&gt;%</span></span>
@@ -245,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Next, convenience ‘helper’ functions for converting coordinate pairs between projections, and converting degrees to radians. By default it will convert longitude-latitude to Mercator.</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-5_4ed2209d0ac78ad750efd86c0e8fe964">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x1y1_to_x2y2 <span class="ot">&lt;-</span> <span class="cf">function</span>(coords, <span class="at">crs1 =</span> <span class="dv">4326</span>, <span class="at">crs2 =</span> <span class="st">"+proj=merc"</span>) {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  coords <span class="sc">%&gt;%</span> <span class="fu">st_point</span>() <span class="sc">%&gt;%</span></span>
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The next function makes a loxodrome line of equal bearing, starting from 89°S 180°E, and ending when it hits latitude 89°N (latitude range is determined by the <code>lat</code> parameter). The calculations are done in Mercator coordinates, since it is in this projection that a loxodrome is a straight line.</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-6_8bc13178f8a4f87024822b25b88324bc">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_loxodrome <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">lat =</span> <span class="sc">-</span><span class="dv">89</span>, <span class="at">bearing =</span> <span class="dv">85</span>, <span class="at">n =</span> <span class="dv">100</span>) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  transects <span class="ot">&lt;-</span> <span class="fu">c</span>() <span class="co"># empty vector for the west to east transects</span></span>
@@ -309,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>And now we are ready to make the figure!</p>
 <p>Make a loxodrome and clip the world to the chosen latitude limits, since we can’t show all of this in Mercator!</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-7_a8d64d537c64c2a3f2818cdaac4cc588">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lox <span class="ot">&lt;-</span> <span class="fu">get_loxodrome</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Warning in pts[, 2] &lt;= ymax: longer object length is not a multiple of shorter
 object length</code></pre>
 </div>
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lox_o <span class="ot">&lt;-</span> lox <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_intersection</span>(hemisphere)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -325,14 +325,14 @@ object length</code></pre>
 </div>
 <p>To apply rectangular projection based limits we have to switch to planar geometry in <code>sf</code>. We have to do this because we can’t show the whole world in Mercator!</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-8_bfda527d78aa19701cd71182ac0de405">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sf_use_s2</span>(<span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Spherical geometry (s2) switched off</code></pre>
 </div>
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mercator_limits <span class="ot">&lt;-</span> <span class="fu">st_polygon</span>(<span class="fu">list</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">180</span>, <span class="sc">-</span><span class="dv">89</span>, <span class="dv">180</span>, <span class="sc">-</span><span class="dv">89</span>, <span class="dv">180</span>, <span class="dv">89</span>, <span class="sc">-</span><span class="dv">180</span>, <span class="dv">89</span>, <span class="sc">-</span><span class="dv">180</span>, <span class="sc">-</span><span class="dv">89</span>),</span>
@@ -349,7 +349,7 @@ object length</code></pre>
 <pre><code>although coordinates are longitude/latitude, st_intersection assumes that they
 are planar</code></pre>
 </div>
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lox_m <span class="ot">&lt;-</span> lox <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_intersection</span>(mercator_limits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -361,7 +361,7 @@ are planar</code></pre>
 </div>
 <p>And finally make the maps. (In the version in the book I handmade the graticule, not realising that there was a <code>tm_graticules</code> function in <code>tmap</code>…).</p>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-9_1412d69a802a15a39fbc869586a92d19">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(world_o) <span class="sc">+</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span></span>
@@ -386,7 +386,7 @@ are planar</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="fig3-08-loxodrome_cache/html/unnamed-chunk-10_e68e986424e43086ff9d93dea2eb7b1d">
-<details open="">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The MIT License (MIT)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
