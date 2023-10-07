@@ -1,5 +1,5 @@
 ---
-title: "Figure 2.1: A reprentation of an absolute space"
+title: "Figure 2.1: A representation of an absolute space"
 execute: 
   cache: true
 ---
