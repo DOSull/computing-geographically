@@ -50,19 +50,19 @@ Make maps
 ```{r}
 m1 <- tm_shape(z_p) + 
   tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
-          palette = "Greys", style = "fixed") + 
+          palette = "BrBG", style = "fixed") + 
   tm_legend(show = FALSE) + 
   tm_layout(inner.margins = 0, frame = FALSE)
 
 m2 <- tm_shape(z10_p) + 
   tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
-          palette = "Greys", style = "fixed") + 
+          palette = "BrBG", style = "fixed") + 
   tm_legend(show = FALSE) + 
   tm_layout(inner.margins = 0, frame = FALSE)
 
 m3 <- tm_shape(z_dash_p) + 
   tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
-          palette = "Greys", style = "fixed") + 
+          palette = "BrBG", style = "fixed") + 
   tm_legend(show = FALSE) + 
   tm_layout(inner.margins = 0, frame = FALSE)
 

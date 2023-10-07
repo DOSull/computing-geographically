@@ -237,24 +237,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Make maps</p>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-5_dc3704e87a5f007d3898c96d308f7f4a">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-5_3591dad7e5a98bd302d8a266951af90b">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(z_p) <span class="sc">+</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"Band 1"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">180</span>, <span class="dv">280</span>, <span class="dv">10</span>), </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Greys"</span>, <span class="at">style =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"BrBG"</span>, <span class="at">style =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_legend</span>(<span class="at">show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">inner.margins =</span> <span class="dv">0</span>, <span class="at">frame =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(z10_p) <span class="sc">+</span> </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"Band 1"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">180</span>, <span class="dv">280</span>, <span class="dv">10</span>), </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Greys"</span>, <span class="at">style =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"BrBG"</span>, <span class="at">style =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_legend</span>(<span class="at">show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">inner.margins =</span> <span class="dv">0</span>, <span class="at">frame =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(z_dash_p) <span class="sc">+</span> </span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"Band 1"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">180</span>, <span class="dv">280</span>, <span class="dv">10</span>), </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Greys"</span>, <span class="at">style =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"BrBG"</span>, <span class="at">style =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_legend</span>(<span class="at">show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">inner.margins =</span> <span class="dv">0</span>, <span class="at">frame =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>

@@ -119,12 +119,12 @@ tm_shape(bldgs, bbox = extent) +
   tm_fill() + 
   # make the road into a polygon for clipping to extent
   tm_shape(roads %>% st_buffer(2) %>% st_intersection(extent)) + 
-  tm_fill(col = "#808080") +
+  tm_fill(col = "#c08080") +
   # filter points so only those inside the extent are in the map
   tm_shape(all_pts %>% st_filter(extent %>% st_buffer(-.1))) + 
   tm_dots(col = "black") +
   tm_shape(pts_vor) + 
-  tm_borders(col = "lightgray") + 
+  tm_borders(col = "lightgray", lwd = 0.75) + 
   tm_shape(diss_vor) + 
   tm_borders(col = "black")
 ```

@@ -24,23 +24,20 @@ library(tmaptools)
 library(dplyr)
 ```
 
-Use the supplied `World` dataset (in lat-lon EPSG 4326) and make projections as required.
+Use the supplied `World` dataset (in lat-lon EPSG 4326) and project as required!
 
 ```{r}
 data("World") 
-world <- World %>%
-  select(geometry)
-
-# Tobler Chen standard parallels at 55.654
-world_tc <- world %>%
+world_tc <- World %>%
+  select(geometry) %>%
   st_transform("+proj=cea lat_ts=55.654")
 
 tm_shape(world_tc, bbox = bb(xlim = c(-180, 180),
                              ylim = c(-90, 90))) +
-  tm_fill() +
+  tm_fill(col = "#aaeecc") +
   tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),
                 labels.show = FALSE, lwd = 0.5) +
-  tm_layout(inner.margins = 0)
+  tm_layout(inner.margins = 0, bg.color = "#ddeeff")
 ```
 
 ```{r}
