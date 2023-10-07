@@ -3,37 +3,52 @@ project:
   output-dir: docs
 
 website:
-  title: "Resources for _Computing Geographically_"
+  title: "_Computing Geographically_ Extras"
   navbar: 
     left:
       - text: Links
         menu:
           - text: "Building Bridges"
-            file: "chap1.qmd"
+            file: "links/chap1.qmd"
           - text: "Location and Space"
-            file: "chap2.qmd"
+            file: "links/chap2.qmd"
           - text: "Scale and Projection"
-            file: "chap3.qmd"
+            file: "links/chap3.qmd"
           - text: "Place and Meaning in Space"
-            file: "chap4.qmd"
+            file: "links/chap4.qmd"
           - text: "Lines and Areas"
-            file: "chap5.qmd"
+            file: "links/chap5.qmd"
           - text: "Relations, Networks, Flows"
-            file: "chap6.qmd"
+            file: "links/chap6.qmd"
           - text: "Time and Dynamics"
-            file: "chap7.qmd"
+            file: "links/chap7.qmd"
           - text: "Process and Pattern"
-            file: "chap8.qmd"
-      
+            file: "links/chap8.qmd"
+      - text: Code for figures
+        menu:
+          # - text: "Building Bridges"
+          #   file: "chap1.qmd"
+          - text: "Location and Space"
+            file: "code-for-figures/chap2/index.qmd"
+          - text: "Scale and Projection"
+            file: "code-for-figures/chap3/index.qmd"
+          # - text: "Place and Meaning in Space"
+          #   file: "chap4.qmd"
+          # - text: "Lines and Areas"
+          #   file: "chap5.qmd"
+          # - text: "Relations, Networks, Flows"
+          #   file: "chap6.qmd"
+          # - text: "Time and Dynamics"
+          #   file: "chap7.qmd"
+          # - text: "Process and Pattern"
+          #   file: "chap8.qmd"
   page-navigation: true
+  body-footer: "&copy; 2023 David O'Sullivan"
 
 format:
   html:
-    theme: 
-      light: superhero
-      dark: darkly
+    theme: simplex
     css: styles.css
     toc: true
-
-
-
+    # mainfont: "Libre Baskerville"
+    code-fold: show

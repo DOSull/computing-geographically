@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computing Geographically Extras</title>
+<title>Computing Geographically Extras - Figure 2.4: Two point patterns in absolute space</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -70,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><em>Computing Geographically</em> Extras</span>
     </a>
   </div>
@@ -86,35 +120,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-links">    
         <li>
-    <a class="dropdown-item" href="./links/chap1.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap1.html" rel="" target="">
  <span class="dropdown-text">Building Bridges</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap2.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap2.html" rel="" target="">
  <span class="dropdown-text">Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap3.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap3.html" rel="" target="">
  <span class="dropdown-text">Scale and Projection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap4.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap4.html" rel="" target="">
  <span class="dropdown-text">Place and Meaning in Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap5.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap5.html" rel="" target="">
  <span class="dropdown-text">Lines and Areas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap6.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap6.html" rel="" target="">
  <span class="dropdown-text">Relations, Networks, Flows</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap7.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap7.html" rel="" target="">
  <span class="dropdown-text">Time and Dynamics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap8.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap8.html" rel="" target="">
  <span class="dropdown-text">Process and Pattern</span></a>
   </li>  
     </ul>
@@ -125,11 +159,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-code-for-figures">    
         <li>
-    <a class="dropdown-item" href="./code-for-figures/chap2/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../code-for-figures/chap2/index.html" rel="" target="">
  <span class="dropdown-text">Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./code-for-figures/chap3/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../code-for-figures/chap3/index.html" rel="" target="">
  <span class="dropdown-text">Scale and Projection</span></a>
   </li>  
     </ul>
@@ -153,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Computing Geographically</em> Extras</h1>
+<h1 class="title">Figure 2.4: Two point patterns in absolute space</h1>
 </div>
 
 
@@ -168,12 +202,75 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This website provides a collection of resources for the book <a href="https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938"><em>Computing Geographically: Bridging Giscience and Geography</em></a> (Guilford Press, New York).</p>
-<p>From the dropdown menus above you will find:</p>
-<ul>
-<li>up to date links that appear in the book (mostly in footnotes) organised by chapter under the <strong>Links</strong> menu, and</li>
-<li>code samples used to generate draft versions of a number of the figures under the <strong>Code for figures</strong> menu.</li>
-</ul>
+<p>Although it is labelled ‘point patterns in absolute space’, the real (ahem) <em>point</em> of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.</p>
+<p>If you want point patterns, you need <a href="https://github.com/spatstat">the fantastic <code>spatstat</code></a> by Adrian Baddeley, Ege Rubak, and Rolf Turner.</p>
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-1_d8b8786e75600751e31bf72b735a0dce">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Make a couple of point patterns, one evenly-space using <em>sequential spatial inhibition</em>, and one clustered using a <em>Thomas process</em>. For the latter, see</p>
+<blockquote class="blockquote">
+<p>Thomas M. 1949. A generalisation of Poisson’s binomial limit for use in ecology. <em>Biometrika</em> <strong>36</strong>, 18–25.</p>
+</blockquote>
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-2_1c345d61e13f869aa9bb91199112caa6">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pp1 <span class="ot">&lt;-</span> <span class="fu">rSSI</span>(<span class="fl">0.07</span>, <span class="at">n =</span> <span class="dv">105</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pp2 <span class="ot">&lt;-</span> <span class="fu">rThomas</span>(<span class="dv">10</span>, <span class="fl">0.03</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Calculate nearest neighbour distances.</p>
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-3_76b0fd88bbfcb8646b10ff5baa6ddc49">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nn1 <span class="ot">&lt;-</span> <span class="fu">nndist</span>(pp1)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">nndist</span>(pp2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>And plot them.</p>
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-4_7227cd48c5c4f3aed8d83f1579b9746b">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mai =</span> <span class="fu">rep</span>(<span class="fl">0.15</span>, <span class="dv">4</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pp1, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(nn1, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> <span class="st">"Distance"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pp2, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(nn2, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> <span class="st">"Distance"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="fig2-04-ppa-relative-space_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-5_290da6b49981d1e9745a26ea587a2cd5">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The MIT License (MIT)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copyright (c) 2023 David O'Sullivan</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Permission is hereby granted, free of charge, to any person</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># obtaining a copy of this software and associated documentation</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># files (the "Software"), to deal in the Software without restriction,</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># including without limitation the rights to use, copy, modify, merge,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># publish, distribute, sublicense, and/or sell copies of the Software,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># and to  permit persons to whom the Software is furnished to do so,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># subject to the following conditions:</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># The above copyright notice and this permission notice shall be included</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># in all copies or substantial portions of the Software.</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># DEALINGS IN THE SOFTWARE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 

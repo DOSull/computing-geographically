@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resources for Computing Geographically - Chapter 3</title>
+<title>Computing Geographically Extras - Figure 2.1: A reprentation of an absolute space</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -72,8 +104,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Resources for <em>Computing Geographically</em></span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><em>Computing Geographically</em> Extras</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -88,42 +120,56 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-links">    
         <li>
-    <a class="dropdown-item" href="./chap1.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap1.html" rel="" target="">
  <span class="dropdown-text">Building Bridges</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap2.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap2.html" rel="" target="">
  <span class="dropdown-text">Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap3.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap3.html" rel="" target="">
  <span class="dropdown-text">Scale and Projection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap4.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap4.html" rel="" target="">
  <span class="dropdown-text">Place and Meaning in Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap5.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap5.html" rel="" target="">
  <span class="dropdown-text">Lines and Areas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap6.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap6.html" rel="" target="">
  <span class="dropdown-text">Relations, Networks, Flows</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap7.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap7.html" rel="" target="">
  <span class="dropdown-text">Time and Dynamics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chap8.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap8.html" rel="" target="">
  <span class="dropdown-text">Process and Pattern</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-code-for-figures" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Code for figures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-code-for-figures">    
+        <li>
+    <a class="dropdown-item" href="../../code-for-figures/chap2/index.html" rel="" target="">
+ <span class="dropdown-text">Location and Space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../code-for-figures/chap3/index.html" rel="" target="">
+ <span class="dropdown-text">Scale and Projection</span></a>
   </li>  
     </ul>
   </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -134,28 +180,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#links" id="toc-links" class="nav-link active" data-scroll-target="#links">Links</a>
-  <ul class="collapse">
-  <li><a href="#footnote-3" id="toc-footnote-3" class="nav-link" data-scroll-target="#footnote-3">Footnote 3</a></li>
-  <li><a href="#footnote-5" id="toc-footnote-5" class="nav-link" data-scroll-target="#footnote-5">Footnote 5</a></li>
-  <li><a href="#footnote-6" id="toc-footnote-6" class="nav-link" data-scroll-target="#footnote-6">Footnote 6</a></li>
-  <li><a href="#footnote-7" id="toc-footnote-7" class="nav-link" data-scroll-target="#footnote-7">Footnote 7</a></li>
-  <li><a href="#footnote-8" id="toc-footnote-8" class="nav-link" data-scroll-target="#footnote-8">Footnote 8</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 3</h1>
-<p class="subtitle lead">Scale and Projection</p>
+<h1 class="title">Figure 2.1: A reprentation of an absolute space</h1>
 </div>
 
 
@@ -170,33 +202,69 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
-<section id="footnote-3" class="level3">
-<h3 class="anchored" data-anchor-id="footnote-3">Footnote 3</h3>
-<p>The Degree Confluence Project is at <a href="https://confluence.org/">confluence.org</a>.</p>
-</section>
-<section id="footnote-5" class="level3">
-<h3 class="anchored" data-anchor-id="footnote-5">Footnote 5</h3>
-<p>Find out more about ‘Null Island’ (i.e., 0°N 0°E) at its <a href="https://en.wikipedia.org/wiki/Null_Island">wikipedia page</a>.</p>
-</section>
-<section id="footnote-6" class="level3">
-<h3 class="anchored" data-anchor-id="footnote-6">Footnote 6</h3>
-<p>The original announcement of geohash is in this blogpost by Greg Niemeyer: <a href="https://blog.labix.org/2008/02/26/geohashorg-is-public">blog.labix.org/2008/02/26/geohashorg-is-public</a>. You can generate geohash codes at the website <a href="http://geohash.org">http://geohash.org</a> (yes <code>http</code>, not <code>https</code>).</p>
-</section>
-<section id="footnote-7" class="level3">
-<h3 class="anchored" data-anchor-id="footnote-7">Footnote 7</h3>
-<p>Google’s S2 index is explained at <a href="https://s2geometry.io/">s2geometry.io</a>.</p>
-</section>
-<section id="footnote-8" class="level3">
-<h3 class="anchored" data-anchor-id="footnote-8">Footnote 8</h3>
-<p>Uber’s H3 index is described at <a href="https://h3geo.org/">h3geo.org</a>.</p>
+<p>A simple visualisation of geo-atoms in absolute space</p>
+<div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-1_e1a94de04ed6605e5d11c268d56556e1">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plot3D)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>There isn’t a lot to this. Just make a bunch of random numbers…</p>
+<div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-2_97a1a5d2f78b52328d033f82422cb450">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">z =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>… and plot them.</p>
+<div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-3_fe7ec3ff6f5b795c9a1b83b32f73aeae">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3D</span>(<span class="at">x =</span> data<span class="sc">$</span>x, <span class="at">y =</span> data<span class="sc">$</span>y, <span class="at">z =</span> data<span class="sc">$</span>z, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">theta =</span> <span class="dv">25</span>, <span class="at">phi =</span> <span class="dv">30</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlim =</span> <span class="fu">range</span>(data<span class="sc">$</span>x) <span class="sc">*</span> <span class="fl">1.1</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylim =</span> <span class="fu">range</span>(data<span class="sc">$</span>y) <span class="sc">*</span> <span class="fl">1.1</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">zlim =</span> <span class="fu">range</span>(data<span class="sc">$</span>z) <span class="sc">*</span> <span class="fl">1.1</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"#999999"</span>, <span class="at">bty =</span> <span class="st">"u"</span>, <span class="at">type =</span> <span class="st">"h"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">asp =</span> <span class="dv">1</span>, <span class="at">col.axis =</span> <span class="st">"#333333"</span>, <span class="at">col.panel =</span> <span class="st">"#eeeeee"</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.grid =</span> <span class="st">"#666666"</span>, <span class="at">lwd.grid =</span> <span class="fl">0.2</span>, <span class="at">nticks =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="fig2-01-absolute-space_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-4_9479f77eb301d0fcce2382dd3e263a34">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The MIT License (MIT)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copyright (c) 2023 David O'Sullivan</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Permission is hereby granted, free of charge, to any person</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># obtaining a copy of this software and associated documentation</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># files (the "Software"), to deal in the Software without restriction,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># including without limitation the rights to use, copy, modify, merge,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># publish, distribute, sublicense, and/or sell copies of the Software,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># and to  permit persons to whom the Software is furnished to do so,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># subject to the following conditions:</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># The above copyright notice and this permission notice shall be included</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># in all copies or substantial portions of the Software.</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># DEALINGS IN THE SOFTWARE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
-</section>
-</section>
 
-</main> <!-- /main -->
+<p>© 2023 David O’Sullivan</p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -217,121 +285,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

@@ -1,0 +1,11 @@
+---
+title: Chapter 3
+subtitle: Scale and Projection
+listing:
+  contents:
+    - "fig3-08-loxodrome.qmd"
+  sort: false
+  type: grid 
+---
+
+Code to generate some of the images in Chapter 3&mdash;or at any rate the base images from which the final figures were made&mdash; is available in the pages below, including explanations of what's going on.

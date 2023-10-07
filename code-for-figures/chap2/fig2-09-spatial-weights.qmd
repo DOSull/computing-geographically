@@ -1,0 +1,143 @@
+---
+title: "Figure 2.9: A range of spatial weights applied to polygon data"
+execute: 
+  cache: true
+---
+
+This figure is intended to demonstrate the diversity of possible conceptualisations of 'neighbour' that are often deployed in spatial analysis contexts, and represent possible different approaches to relative space. 
+
+```{R message=FALSE, warning=FALSE}
+library(sf)
+library(dplyr)
+library(spdep)
+library(sp)
+```
+
+First read a polygons dataset. You'll need to supply your own for this.
+
+```{R message=FALSE}
+chch <- st_read("chch-sa2.gpkg") # you need a spatial dataset
+```
+
+The `spdep` package I am using here requires the data in the `sp` package format, so convert to that.
+
+```{R}
+polys <- chch %>%
+  select(geom) %>%
+  as("Spatial")
+```
+
+Now make some points inside the polygons, and also some centroids.
+
+```{R}
+pts <- chch %>%
+  st_point_on_surface() %>%
+  st_geometry()
+pts_c <- chch %>%
+  st_centroid() %>%
+  st_geometry()
+```
+
+These are presented in a single figure in the book in four rows of three, Here I show them all individually for greater clarity. But include the following plot setup code if you want to present them as in the book.
+
+```{R eval:FALSE}
+par(mfrow = c(4, 3), mai = rep(0, 4))
+```
+
+And now work through a series of possible weights options.
+
+## Contiguity based
+
+```{R}
+nb <- polys %>% poly2nb(queen = TRUE)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Queen's rule adjacency")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+nb <- polys %>% poly2nb(queen = FALSE)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Rook's rule adjacency")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+nb <- nb %>% nblag(2) %>% nblag_cumul()
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Cumulative lag-2 adjacency")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+```
+
+## _k_-nearest neighbours
+Note that we use the centroids to calculate the distances, but the points inside the polygons from `st_point_on_surface()` for the plotting.
+
+```{R}
+nb <- pts_c %>% knearneigh(k = 3) %>% knn2nb()
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "k = 3")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+nb <- pts_c %>% knearneigh(k = 6) %>% knn2nb()
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "k = 6")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+nb <- pts_c %>% knearneigh(k = 12) %>% knn2nb()
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "k = 12")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+```
+
+## Distance criteria
+Next, distance criteria, again calculated from centroids, but visualised using the `st_point_on_surface()`.
+
+```{R}
+nb <- pts_c %>% dnearneigh(d1 = 0, d2 = 1000)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Distance < 1000")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+nb <- pts_c %>% dnearneigh(d1 = 0, d2 = 1500)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Distance < 1500")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+nb <- pts_c %>% dnearneigh(d1 = 1500, d2 = 2000)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "1500 < Distance < 2000")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+```
+
+## Graph-based approaches
+Finally, some network-based possibilities, [Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation), [Gabriel graph](https://en.wikipedia.org/wiki/Gabriel_graph) and the [relative neighbour graph](https://en.wikipedia.org/wiki/Relative_neighborhood_graph).
+
+```{R}
+g <- tri2nb(pts_c)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Delaunay triangulation")
+plot(g, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+g <- gabrielneigh(pts_c)
+nb <- graph2nb(g)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Gabriel graph")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+
+g <- relativeneigh(pts_c)
+nb <- graph2nb(g)
+plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Relative neighbour graph")
+plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
+```
+
+
+
+```{R}
+# The MIT License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

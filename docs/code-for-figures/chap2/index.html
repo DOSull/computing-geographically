@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computing Geographically Extras</title>
+<title>Computing Geographically Extras - Chapter 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -58,9 +60,40 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="styles.css">
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -70,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><em>Computing Geographically</em> Extras</span>
     </a>
   </div>
@@ -86,35 +119,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-links">    
         <li>
-    <a class="dropdown-item" href="./links/chap1.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap1.html" rel="" target="">
  <span class="dropdown-text">Building Bridges</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap2.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap2.html" rel="" target="">
  <span class="dropdown-text">Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap3.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap3.html" rel="" target="">
  <span class="dropdown-text">Scale and Projection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap4.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap4.html" rel="" target="">
  <span class="dropdown-text">Place and Meaning in Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap5.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap5.html" rel="" target="">
  <span class="dropdown-text">Lines and Areas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap6.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap6.html" rel="" target="">
  <span class="dropdown-text">Relations, Networks, Flows</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap7.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap7.html" rel="" target="">
  <span class="dropdown-text">Time and Dynamics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./links/chap8.html" rel="" target="">
+    <a class="dropdown-item" href="../../links/chap8.html" rel="" target="">
  <span class="dropdown-text">Process and Pattern</span></a>
   </li>  
     </ul>
@@ -125,11 +158,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-code-for-figures">    
         <li>
-    <a class="dropdown-item" href="./code-for-figures/chap2/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../code-for-figures/chap2/index.html" rel="" target="">
  <span class="dropdown-text">Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./code-for-figures/chap3/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../code-for-figures/chap3/index.html" rel="" target="">
  <span class="dropdown-text">Scale and Projection</span></a>
   </li>  
     </ul>
@@ -153,7 +186,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Computing Geographically</em> Extras</h1>
+<h1 class="title">Chapter 2</h1>
+<p class="subtitle lead">Location and Space</p>
 </div>
 
 
@@ -168,16 +202,78 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This website provides a collection of resources for the book <a href="https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938"><em>Computing Geographically: Bridging Giscience and Geography</em></a> (Guilford Press, New York).</p>
-<p>From the dropdown menus above you will find:</p>
-<ul>
-<li>up to date links that appear in the book (mostly in footnotes) organised by chapter under the <strong>Links</strong> menu, and</li>
-<li>code samples used to generate draft versions of a number of the figures under the <strong>Code for figures</strong> menu.</li>
-</ul>
+<p>Code to generate some of the images in Chapter 2—or at any rate the base images from which the final figures were made— is available in the pages below, including explanations of what’s going on.</p>
 
 
 
-<p>© 2023 David O’Sullivan</p></main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1696645110761" data-listing-reading-time-sort="2">
+<a href="../../code-for-figures/chap2/fig2-01-absolute-space.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="fig2-01-absolute-space_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Figure 2.1: A reprentation of an absolute space
+</h5>
+<div class="card-text listing-description">
+A simple visualisation of geo-atoms in absolute space
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1696645110762" data-listing-reading-time-sort="2">
+<a href="../../code-for-figures/chap2/fig2-04-ppa-relative-space.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="fig2-04-ppa-relative-space_files/figure-html/unnamed-chunk-4-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Figure 2.4: Two point patterns in absolute space
+</h5>
+<div class="card-text listing-description">
+Although it is labelled ‘point patterns in absolute space’, the real (ahem) <em>point</em> of this figure is that spatial analysis often works, in effect, with a…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1696645110761" data-listing-reading-time-sort="4">
+<a href="../../code-for-figures/chap2/fig2-09-spatial-weights.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="fig2-09-spatial-weights_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Figure 2.9: A range of spatial weights applied to polygon data
+</h5>
+<div class="card-text listing-description">
+This figure is intended to demonstrate…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><p>© 2023 David O’Sullivan</p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
