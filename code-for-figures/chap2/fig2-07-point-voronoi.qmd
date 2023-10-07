@@ -1,0 +1,69 @@
+---
+title: "Figure 2.7: Voronoi polygons associated with a set of point locations"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+This is most conveniently made using `spatstat`, but I've shown it here making a point pattern into an `sf` dataset and then using `sf::st_voronoi(). 
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+library(spatstat)
+library(sf)
+library(tmap)
+```
+
+There are a few steps making a `spatstat` point pattern into a simple features dataset...
+
+```{r warning=FALSE}
+pp <- rpoispp(100) %>%
+  as.data.frame() %>%
+  st_as_sf(coords = c("x", "y"), crs = 2193)
+```
+
+And there are a few more making a point dataset into a Voronoi polygon dataset.
+
+```{r warning=FALSE}
+pp_vor <- pp %>%
+  st_union() %>%
+  st_voronoi() %>%
+  st_cast() %>%
+  st_as_sf(crs = st_crs(pp))
+```
+
+And finally a map.
+
+```{r warning=FALSE}
+tm_shape(pp_vor, 
+         bbox = pp %>% st_union() %>% st_buffer(0.05)) + 
+  tm_borders() +
+  tm_shape(pp) + 
+  tm_bubbles(col = "white", alpha = 0, border.col = "black", size = 0.1) +
+  tm_layout(frame = FALSE)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

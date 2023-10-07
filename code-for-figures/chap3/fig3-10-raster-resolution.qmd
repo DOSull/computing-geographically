@@ -1,0 +1,96 @@
+---
+title: "Figure 3.10: Raster aggregation and disaggregation"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+This figure shows how you can't recover raster information after aggregation.
+
+```{r message=FALSE}
+library(terra)
+library(tmap)
+library(dplyr)
+```
+
+Get the data&mdash;you'll need some of your own data here.
+
+```{r}
+z <- rast("raster-data.tif")
+```
+
+Aggregate and disaggregate by 10
+
+```{r}
+z10 <- z %>% 
+  aggregate(10)
+
+z_dash <- z10 %>%
+  resample(z)
+```
+
+Dissolve to polygons, so we can make smaller image files and control the colouring. This step is **slow**.
+
+```{r}
+z_p <- z %>%
+  as.polygons(dissolve = FALSE) %>%
+  as("Spatial")
+
+z10_p <- z10 %>%
+  as.polygons(dissolve = FALSE) %>%
+  as("Spatial")
+
+z_dash_p <- z_dash %>%
+  as.polygons(dissolve = FALSE) %>%
+  as("Spatial")
+```
+
+Make maps
+
+```{r}
+m1 <- tm_shape(z_p) + 
+  tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
+          palette = "Greys", style = "fixed") + 
+  tm_legend(show = FALSE) + 
+  tm_layout(inner.margins = 0, frame = FALSE)
+
+m2 <- tm_shape(z10_p) + 
+  tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
+          palette = "Greys", style = "fixed") + 
+  tm_legend(show = FALSE) + 
+  tm_layout(inner.margins = 0, frame = FALSE)
+
+m3 <- tm_shape(z_dash_p) + 
+  tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
+          palette = "Greys", style = "fixed") + 
+  tm_legend(show = FALSE) + 
+  tm_layout(inner.margins = 0, frame = FALSE)
+
+tmap_arrange(m1, m2, m3)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

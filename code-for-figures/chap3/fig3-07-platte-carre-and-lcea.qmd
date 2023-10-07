@@ -1,0 +1,69 @@
+---
+title: "Figure 3.7: Two simple world projections"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+```{r message=FALSE}
+library(sf)
+library(tmap)
+library(tmaptools)
+library(dplyr)
+```
+
+Use the supplied `World` dataset (in lat-lon EPSG 4326) and make projections as required.
+
+```{r}
+data("World") 
+world <- World %>%
+  select(geometry)
+
+# Equal area with standard parallel at 0
+world_lcea <- world %>%
+  st_transform("+proj=cea")
+```
+
+That's pretty much it. So here are the maps.
+
+```{r}
+tm_shape(world, bbox = bb(xlim = c(-180, 180),
+                          ylim = c(-90, 90))) +
+  tm_fill() +
+  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),
+                labels.show = FALSE, lwd = 0.5) +
+  tm_layout(inner.margins = 0)
+
+tm_shape(world_lcea, bbox = bb(xlim = c(-180, 180),
+                               ylim = c(-90, 90))) +
+  tm_fill() +
+  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),
+                labels.show = FALSE, lwd = 0.5) +
+  tm_layout(inner.margins = 0)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

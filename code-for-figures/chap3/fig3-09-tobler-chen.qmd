@@ -1,0 +1,70 @@
+---
+title: "Figure 3.9: Equal area world in a square"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+This equal-area projection could replace Web Mercator as the top level global web tile 'world in a square'.
+
+With astonishing foresight, it was proposed for that purpose in this paper in 1986:
+
+> Tobler WR and ZT Chen. 1986. A quadtree for global information storage. _Geographical Analysis_ **18**(4) 360–371. doi: [10.1111/j.1538-4632.1986.tb00108.x](https://dx.doi.org/10.1111/j.1538-4632.1986.tb00108.x).
+
+Given the upset that accompanied the Gall-Peters projection, another 'odd-looking' equal-area projection (only 'odd' because people are so accustomed to Mercator), it's not clear it would catch on! See this paper for a discussion of that controversy:
+
+> Crampton, J. 1994. Cartography’s defining moment: the Peters projection controversy, 1974–1990. _Cartographica_ **31**(4) 16–32. doi: [10.3138/1821-6811-L372-345P](https://dx.doi.org/10.3138/1821-6811-L372-345P).
+
+In any case, this is simply a standard cylindrical equal-area projection with standard parallels chosen to make the whole map area square. 
+
+```{r message=FALSE}
+library(sf)
+library(tmap)
+library(tmaptools)
+library(dplyr)
+```
+
+Use the supplied `World` dataset (in lat-lon EPSG 4326) and make projections as required.
+
+```{r}
+data("World") 
+world <- World %>%
+  select(geometry)
+
+# Tobler Chen standard parallels at 55.654
+world_tc <- world %>%
+  st_transform("+proj=cea lat_ts=55.654")
+
+tm_shape(world_tc, bbox = bb(xlim = c(-180, 180),
+                             ylim = c(-90, 90))) +
+  tm_fill() +
+  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),
+                labels.show = FALSE, lwd = 0.5) +
+  tm_layout(inner.margins = 0)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

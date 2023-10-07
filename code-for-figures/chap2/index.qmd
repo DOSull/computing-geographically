@@ -5,6 +5,7 @@ listing:
   contents:
     - "fig2-01-absolute-space.qmd"
     - "fig2-04-ppa-relative-space.qmd"
+    - "fig2-07-point-voronoi.qmd"
     - "fig2-08-non-point-voronoi.qmd"
     - "fig2-09-spatial-weights.qmd"
   sort: false
