@@ -51,4 +51,4 @@ format:
     css: styles.css
     toc: true
     # mainfont: "Libre Baskerville"
-    code-fold: true
+    code-fold: show

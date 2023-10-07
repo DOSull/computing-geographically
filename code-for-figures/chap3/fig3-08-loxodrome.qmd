@@ -82,7 +82,7 @@ get_loxodrome <- function(lat = -89, bearing = 85, n = 100) {
   }
   # transects need tidying so they extend equally far N and S of equator
   # max y coordinate should be the inverse of the minimum y coordinate
-  ymax <- x1y1_to_x2y2(c(0, -lat))
+  ymax <- x1y1_to_x2y2(c(0, -lat))[2]
   # ymax <- -(transects[[1]] %>% st_bbox())[2]
   # apply this limit to the points along the last transect from west to east
   n_transects <- length(lines)
