@@ -5,7 +5,7 @@ execute:
   freeze: auto
 ---
 
-This is most conveniently made using `spatstat`, but I've shown it here making a point pattern into an `sf` dataset and then using `sf::st_voronoi(). 
+This is most conveniently made using `spatstat`, but I've shown it here making a point pattern into an `sf` dataset and then using `sf::st_voronoi()`. 
 
 ```{r message=FALSE, warning=FALSE, results=FALSE}
 library(spatstat)
