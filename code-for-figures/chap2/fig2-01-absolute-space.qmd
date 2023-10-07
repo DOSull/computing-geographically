@@ -33,7 +33,8 @@ scatter3D(x = data$x, y = data$y, z = data$z,
 
 
 ```{R}
-# The MIT License (MIT)
+#| code-fold: true
+# License (MIT)
 #
 # Copyright (c) 2023 David O'Sullivan
 #

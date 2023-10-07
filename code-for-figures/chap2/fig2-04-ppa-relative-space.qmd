@@ -42,7 +42,8 @@ hist(nn2, main = "", xlab = "Distance", ylab = "Frequency")
 
 
 ```{R}
-# The MIT License (MIT)
+#| code-fold: true
+# License (MIT)
 #
 # Copyright (c) 2023 David O'Sullivan
 #

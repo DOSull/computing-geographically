@@ -118,7 +118,8 @@ plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
 
 ```{R}
-# The MIT License (MIT)
+#| code-fold: true
+# License (MIT)
 #
 # Copyright (c) 2023 David O'Sullivan
 #

@@ -4,7 +4,7 @@ execute:
   cache: true
 ---
 
-The figure produced below extends to &pm;89&deg; which makes the point even more clearly, but doesn't give a nice square Mercator projected map! See also [Jason Davies' page about loxodromes](https://www.jasondavies.com/maps/loxodrome/) for more on this, including a couple of figures that probably on some level inspired mine. Indeed, Jason Davies' pages include some gems for exploring the variety of global projections. See, for example, [Map Projection Transitions](https://www.jasondavies.com/maps/transition/).
+The figure produced below extends to &pm;89&deg; which makes the point even more clearly, but doesn't give a nice square Mercator projected map. See also [Jason Davies' page about loxodromes](https://www.jasondavies.com/maps/loxodrome/) for more on this, including a couple of figures that probably on some level inspired mine. Indeed, Jason Davies' pages include some gems for exploring the variety of global projections. See, for example, [Map Projection Transitions](https://www.jasondavies.com/maps/transition/).
 
 ```{R message = FALSE, warning = FALSE}
 library(dplyr)
@@ -25,6 +25,7 @@ Also, define an [orthographic projection](https://proj.org/en/9.3/operations/pro
 ortho_proj <- "+proj=ortho lon_0=0 lat_0=40"
 ```
 
+## Make a hemisphere
 Make a hemisphere for the globe view, and apply it to the built-in `World` dataset that ships with `tmap`.
 
 ```{R warning=FALSE}
@@ -41,6 +42,7 @@ world_o <- World %>%
   filter(st_is_empty(geometry) == FALSE)
 ```
 
+## Helper functions for coordinate transformations
 Next, convenience 'helper' functions for converting coordinate pairs between projections, and converting degrees to radians. By default it will convert longitude-latitude to Mercator.
 
 ```{R}
@@ -57,6 +59,7 @@ get_radians <- function(d) {
 } 
 ```
 
+## Making a loxodrome
 The next function makes a loxodrome line of equal bearing, starting from 89&deg;S 180&deg;E, and ending when it hits latitude 89&deg;N (latitude range is determined by the `lat` parameter). The calculations are done in Mercator coordinates, since it is in this projection that a loxodrome is a straight line.
 
 ```{R}
@@ -83,7 +86,6 @@ get_loxodrome <- function(lat = -89, bearing = 85, n = 100) {
   # transects need tidying so they extend equally far N and S of equator
   # max y coordinate should be the inverse of the minimum y coordinate
   ymax <- x1y1_to_x2y2(c(0, -lat))[2]
-  # ymax <- -(transects[[1]] %>% st_bbox())[2]
   # apply this limit to the points along the last transect from west to east
   n_transects <- length(lines)
   # convert the last transect to a set of points, to apply this limit
@@ -102,19 +104,15 @@ get_loxodrome <- function(lat = -89, bearing = 85, n = 100) {
 }
 ```
 
-And now we are ready to make the figure!
+## Now make the figure!
+### Assemble the layers
+Make a loxodrome and clip the world to the chosen latitude limits. To apply rectangular projection based limits we have to switch to planar geometry in `sf`. We have to do this because we can't show the whole world in Mercator... 
 
-Make a loxodrome and clip the world to the chosen latitude limits, since we can't show all of this in Mercator!
-
-```{R}
+```{R warning=FALSE, message=FALSE}
 lox <- get_loxodrome() 
 lox_o <- lox %>%
   st_intersection(hemisphere)
-```
 
-To apply rectangular projection based limits we have to switch to planar geometry in `sf`. We have to do this because we can't show the whole world in Mercator!
-
-```{R warning=FALSE}
 sf_use_s2(FALSE)
 
 mercator_limits <- st_polygon(list(
@@ -132,6 +130,7 @@ lox_m <- lox %>%
   st_intersection(mercator_limits)
 ```
 
+### Put them together
 And finally make the maps. (In the version in the book I handmade the graticule, not realising that there was a `tm_graticules` function in `tmap`...).
 
 ```{R}
@@ -157,7 +156,8 @@ tmap_arrange(m1, m2, ncol = 2)
 
 
 ```{R}
-# The MIT License (MIT)
+#| code-fold: true
+# License (MIT)
 #
 # Copyright (c) 2023 David O'Sullivan
 #
