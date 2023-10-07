@@ -1,5 +1,6 @@
 ---
-title: "_Computing Geographically_ Extras"
+title: "_Computing Geographically_"
+subtitle: "Bonus Material"
 about:
   template: solana
   image: cover-600.png
@@ -9,8 +10,8 @@ This website provides a collection of resources for the book [_Computing Geograp
 
 Included are:
 
-+ Up to date links for internet sources referenced in the text
-+ Code samples to create the base graphics for som of the figures (mostly in _R_)
++ Current links for internet sources referenced in the text
++ Code samples to create the base graphics for some of the figures
 + Background information on other figures
 
 Access them either from the drop-down menu by chapter, or from this [listing page](index-listing.qmd).

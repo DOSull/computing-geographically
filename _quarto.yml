@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "_Computing Geographically_ Extras"
+  title: "_Computing Geographically_ Bonus Material"
   favicon: favicon.ico
   navbar: 
     left:
