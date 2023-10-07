@@ -2,11 +2,12 @@
 title: "Figure 2.9: A range of spatial weights applied to polygon data"
 execute: 
   cache: true
+  freeze: auto
 ---
 
 This figure is intended to demonstrate the diversity of possible conceptualisations of 'neighbour' that are often deployed in spatial analysis contexts, and represent possible different approaches to relative space. 
 
-```{R message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(sf)
 library(dplyr)
 library(spdep)
@@ -15,13 +16,13 @@ library(sp)
 
 First read a polygons dataset. You'll need to supply your own for this.
 
-```{R message=FALSE}
+```{r message=FALSE}
 chch <- st_read("chch-sa2.gpkg") # you need a spatial dataset
 ```
 
 The `spdep` package I am using here requires the data in the `sp` package format, so convert to that.
 
-```{R}
+```{r}
 polys <- chch %>%
   select(geom) %>%
   as("Spatial")
@@ -29,7 +30,7 @@ polys <- chch %>%
 
 Now make some points inside the polygons, and also some centroids.
 
-```{R}
+```{r}
 pts <- chch %>%
   st_point_on_surface() %>%
   st_geometry()
@@ -40,7 +41,7 @@ pts_c <- chch %>%
 
 These are presented in a single figure in the book in four rows of three, Here I show them all individually for greater clarity. But include the following plot setup code if you want to present them as in the book.
 
-```{R eval:FALSE}
+```{r eval:FALSE}
 par(mfrow = c(4, 3), mai = rep(0, 4))
 ```
 
@@ -48,7 +49,7 @@ And now work through a series of possible weights options.
 
 ## Contiguity based
 
-```{R}
+```{r}
 nb <- polys %>% poly2nb(queen = TRUE)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Queen's rule adjacency")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
@@ -65,7 +66,7 @@ plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 ## _k_-nearest neighbours
 Note that we use the centroids to calculate the distances, but the points inside the polygons from `st_point_on_surface()` for the plotting.
 
-```{R}
+```{r}
 nb <- pts_c %>% knearneigh(k = 3) %>% knn2nb()
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "k = 3")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
@@ -82,7 +83,7 @@ plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 ## Distance criteria
 Next, distance criteria, again calculated from centroids, but visualised using the `st_point_on_surface()`.
 
-```{R}
+```{r}
 nb <- pts_c %>% dnearneigh(d1 = 0, d2 = 1000)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Distance < 1000")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
@@ -99,7 +100,7 @@ plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 ## Graph-based approaches
 Finally, some network-based possibilities, [Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation), [Gabriel graph](https://en.wikipedia.org/wiki/Gabriel_graph) and the [relative neighbour graph](https://en.wikipedia.org/wiki/Relative_neighborhood_graph).
 
-```{R}
+```{r}
 g <- tri2nb(pts_c)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', main = "Delaunay triangulation")
 plot(g, pts, col = 'red', lwd = 0.5, add = TRUE)
@@ -117,7 +118,7 @@ plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
 
 
-```{R}
+```{r}
 #| code-fold: true
 # License (MIT)
 #

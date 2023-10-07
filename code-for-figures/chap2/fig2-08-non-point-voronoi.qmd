@@ -1,0 +1,156 @@
+---
+title: "Figure 2.8: Voronoi polygons associated with lines and polygons"
+image: "voronoi-map-1.png"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+This figure was mostly prepared in QGIS, but an _R_ version is provided here to show the steps involved. 
+
+Differences between thae versions are due to the original being prepared across a wider extent which was then clipped down to the final extent. The input data used here are already clipped to the final extent meaning there are anomalies near the edges.
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+library(sf)
+library(dplyr)
+library(tmap)
+```
+
+## Load data
+You'll need your own roads and buildings data. Mine came from OpenStreetMap via the [QGIS QuickOSM plugin](https://plugins.qgis.org/plugins/QuickOSM/).
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+roads <- st_read("final-roads.gpkg") %>%
+  select(full_id, osm_id)
+bldgs <- st_read("final-buildings.gpkg") %>%
+  select(full_id, osm_id)
+```
+
+And a quick map to see what we're working with.
+
+```{r}
+tm_shape(bldgs) + 
+  tm_fill() + 
+  tm_shape(roads) + 
+  tm_lines()
+```
+
+## Interpolate points along the lines and polygon boundaries
+Place points along the boundaries of each of these.
+
+For the roads we combine all elements into a single line object and assign the same `id` to every point generated.
+
+```{r warning=FALSE}
+r_pts <- roads %>%
+  st_union() %>%
+  st_cast("LINESTRING") %>%
+  st_line_sample(density = 1) %>%
+  st_cast("POINT") %>%
+  st_as_sf() %>%
+  rename(geometry = x) %>%
+  mutate(id = "0")
+```
+
+For the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.
+
+```{r warning=FALSE}
+b_pts <- bldgs %>%
+  st_cast("MULTILINESTRING") %>%
+  st_cast("LINESTRING") %>%
+  # if any perimeter is < 1 then the sampling step fails
+  filter(st_length(.) >= units::as_units(1, "m")) %>%
+  st_line_sample(density = 1) %>%
+  st_cast("POINT") %>%
+  st_as_sf() %>%
+  rename(geometry = x) %>%
+  st_join(bldgs, join = st_nearest_feature) %>%
+  mutate(id = full_id) %>%
+  select(id)
+```
+
+## Make the point Voronoi polygons
+Now combine the two into a single point dataset.
+
+```{r}
+all_pts <- bind_rows(r_pts, b_pts)
+```
+
+Now make a Voronoi layer from the points.
+
+```{r warning=FALSE}
+pts_vor <- all_pts %>%
+  st_union() %>%
+  st_voronoi()%>%
+  st_cast() %>%
+  st_as_sf() %>%
+  st_join(all_pts, left = FALSE) 
+```
+
+We need to clip this to the extent of the buildings data.
+
+```{r warning=FALSE}
+extent <- bldgs %>%
+  st_bbox() %>%
+  st_as_sfc() %>%
+  st_sf()
+
+pts_vor <- pts_vor %>%
+  st_intersection(extent)
+
+plot(pts_vor, main = "Voronoi of all points", key.pos = NULL)
+```
+
+## Finally form the line and polygon Voronois
+Now we dissolve (`group_by`) on the `id` attribute.
+
+```{r warning=FALSE}
+diss_vor <- pts_vor %>%
+  group_by(id) %>%
+  summarise()
+
+plot(diss_vor, main = "Dissolved Voronois", key.pos = NULL)
+```
+
+## Make a map
+Finally, we can make a map, similar to the one in Figure 2.8 in the book.
+
+```{r warning=FALSE}
+tm_shape(bldgs, bbox = extent) +
+  tm_fill() + 
+  # make the road into a polygon for clipping to extent
+  tm_shape(roads %>% st_buffer(2) %>% st_intersection(extent)) + 
+  tm_fill(col = "#808080") +
+  # filter points so only those inside the extent are in the map
+  tm_shape(all_pts %>% st_filter(extent %>% st_buffer(-.1))) + 
+  tm_dots(col = "black") +
+  tm_shape(pts_vor) + 
+  tm_borders(col = "lightgray") + 
+  tm_shape(diss_vor) + 
+  tm_borders(col = "black")
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

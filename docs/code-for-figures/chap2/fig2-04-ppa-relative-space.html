@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Although it is labelled ‘point patterns in absolute space’, the real (ahem) <em>point</em> of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.</p>
 <p>If you want point patterns, you need <a href="https://github.com/spatstat">the fantastic <code>spatstat</code></a> by Adrian Baddeley, Ege Rubak, and Rolf Turner.</p>
-<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-1_d8b8786e75600751e31bf72b735a0dce">
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-1_d48eaa928b0649ac9c5cdff7ccbfd09f">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>Thomas M. 1949. A generalisation of Poisson’s binomial limit for use in ecology. <em>Biometrika</em> <strong>36</strong>, 18–25.</p>
 </blockquote>
-<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-2_1c345d61e13f869aa9bb91199112caa6">
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-2_1d0a2c319a4333dce2db8d5d00684ddf">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pp1 <span class="ot">&lt;-</span> <span class="fu">rSSI</span>(<span class="fl">0.07</span>, <span class="at">n =</span> <span class="dv">105</span>)</span>
@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Calculate nearest neighbour distances.</p>
-<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-3_76b0fd88bbfcb8646b10ff5baa6ddc49">
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-3_57a3396afd01dbf057e49410a9fdf180">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nn1 <span class="ot">&lt;-</span> <span class="fu">nndist</span>(pp1)</span>
@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And plot them.</p>
-<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-4_7227cd48c5c4f3aed8d83f1579b9746b">
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-4_ad2e77b8345d91b686c9f9b7080e93a4">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mai =</span> <span class="fu">rep</span>(<span class="fl">0.15</span>, <span class="dv">4</span>))</span>
@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig2-04-ppa-relative-space_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-5_9d426ec14abcf3b787bcc903277cbaaa">
+<div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-5_403a0011fa9fb8bd107386a71f6c5841">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

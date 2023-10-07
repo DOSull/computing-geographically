@@ -2,13 +2,14 @@
 title: "Figure 2.4: Two point patterns in absolute space"
 execute: 
   cache: true
+  freeze: auto
 ---
 
 Although it is labelled 'point patterns in absolute space', the real (ahem) _point_ of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.
 
 If you want point patterns, you need [the fantastic `spatstat`](https://github.com/spatstat) by Adrian Baddeley, Ege Rubak, and Rolf Turner.
 
-```{R message = FALSE}
+```{r message = FALSE}
 library(spatstat)
 ```
 
@@ -16,21 +17,21 @@ Make a couple of point patterns, one evenly-space using _sequential spatial inhi
 
 > Thomas M. 1949. A generalisation of Poisson's binomial limit for use in ecology. _Biometrika_ **36**, 18–25.
 
-```{R}
+```{r}
 pp1 <- rSSI(0.07, n = 105)
 pp2 <- rThomas(10, 0.03, 10)
 ```
 
 Calculate nearest neighbour distances.
 
-```{R}
+```{r}
 nn1 <- nndist(pp1)
 nn2 <- nndist(pp2)
 ```
 
 And plot them.
 
-```{R}
+```{r}
 par(mfrow = c(2, 2), mai = rep(0.15, 4))
 
 plot(pp1, main = "")
@@ -41,7 +42,7 @@ hist(nn2, main = "", xlab = "Distance", ylab = "Frequency")
 
 
 
-```{R}
+```{r}
 #| code-fold: true
 # License (MIT)
 #

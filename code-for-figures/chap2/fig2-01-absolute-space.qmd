@@ -2,24 +2,25 @@
 title: "Figure 2.1: A representation of an absolute space"
 execute: 
   cache: true
+  freeze: auto
 ---
 
 A simple visualisation of geo-atoms in absolute space
 
-```{R message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(plot3D)
 library(dplyr)
 ```
 
 There isn't a lot to this. Just make a bunch of random numbers...
 
-```{R}
+```{r}
 data <- data.frame(x = rnorm(30), y = rnorm(30), z = rnorm(30))
 ```
 
 ... and plot them.
 
-```{R}
+```{r}
 scatter3D(x = data$x, y = data$y, z = data$z, 
           theta = 25, phi = 30, scale = FALSE, 
           xlim = range(data$x) * 1.1, 
@@ -32,7 +33,7 @@ scatter3D(x = data$x, y = data$y, z = data$z,
 
 
 
-```{R}
+```{r}
 #| code-fold: true
 # License (MIT)
 #

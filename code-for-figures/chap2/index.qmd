@@ -5,9 +5,10 @@ listing:
   contents:
     - "fig2-01-absolute-space.qmd"
     - "fig2-04-ppa-relative-space.qmd"
+    - "fig2-08-non-point-voronoi.qmd"
     - "fig2-09-spatial-weights.qmd"
   sort: false
-  type: grid 
+  type: grid
 ---
 
 Code to generate some of the images in Chapter 2&mdash;or at any rate the base images from which the final figures were made&mdash; is available in the pages below, including explanations of what's going on.

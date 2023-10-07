@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>This figure is intended to demonstrate the diversity of possible conceptualisations of ‘neighbour’ that are often deployed in spatial analysis contexts, and represent possible different approaches to relative space.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-1_968ed07079c4f2881c9bcd9e8487aac7">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-1_a7126242f93cbb3ddb36ed9b73af8f2d">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>First read a polygons dataset. You’ll need to supply your own for this.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-2_af96b73f8aac99824507dd9a13beccec">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-2_33e30621620e278333940b5bbfca57d4">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chch <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"chch-sa2.gpkg"</span>) <span class="co"># you need a spatial dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -239,7 +239,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 </div>
 </div>
 <p>The <code>spdep</code> package I am using here requires the data in the <code>sp</code> package format, so convert to that.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-3_47b6675c60ac9fc13602de77197ed349">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-3_c0256c9d30b2373c3568beb36816ec0a">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>polys <span class="ot">&lt;-</span> chch <span class="sc">%&gt;%</span></span>
@@ -248,7 +248,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 </details>
 </div>
 <p>Now make some points inside the polygons, and also some centroids.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-4_ddc36dac7d3cd108d4350ae014ae2e80">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-4_f703a3fc2cbe01eba7c91e9148735088">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pts <span class="ot">&lt;-</span> chch <span class="sc">%&gt;%</span></span>
@@ -269,7 +269,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 </div>
 </div>
 <p>These are presented in a single figure in the book in four rows of three, Here I show them all individually for greater clarity. But include the following plot setup code if you want to present them as in the book.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/eval-FALSE_776355ffda65c90ce08cf7bf464edc9e">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/eval-FALSE_3207f76919290de3391218359010514c">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>), <span class="at">mai =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -278,7 +278,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 <p>And now work through a series of possible weights options.</p>
 <section id="contiguity-based" class="level2">
 <h2 class="anchored" data-anchor-id="contiguity-based">Contiguity based</h2>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-5_20abc4d2d0efb14ecd035677fcbb8089">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-5_35f9cf7b8d44aed687494afdd9e2894e">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> polys <span class="sc">%&gt;%</span> <span class="fu">poly2nb</span>(<span class="at">queen =</span> <span class="cn">TRUE</span>)</span>
@@ -311,7 +311,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 <section id="k-nearest-neighbours" class="level2">
 <h2 class="anchored" data-anchor-id="k-nearest-neighbours"><em>k</em>-nearest neighbours</h2>
 <p>Note that we use the centroids to calculate the distances, but the points inside the polygons from <code>st_point_on_surface()</code> for the plotting.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-6_0cfa6eb0f93103e3d02989a5a23afdc5">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-6_4a07f9d67a218ddde918ffa70694298f">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> pts_c <span class="sc">%&gt;%</span> <span class="fu">knearneigh</span>(<span class="at">k =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">knn2nb</span>()</span>
@@ -344,7 +344,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 <section id="distance-criteria" class="level2">
 <h2 class="anchored" data-anchor-id="distance-criteria">Distance criteria</h2>
 <p>Next, distance criteria, again calculated from centroids, but visualised using the <code>st_point_on_surface()</code>.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-7_00b9f743bdc83f3ac1638e92e39182bd">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-7_d4279469a525cc3923cd44ec1c94f5e9">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> pts_c <span class="sc">%&gt;%</span> <span class="fu">dnearneigh</span>(<span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">1000</span>)</span>
@@ -377,7 +377,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 <section id="graph-based-approaches" class="level2">
 <h2 class="anchored" data-anchor-id="graph-based-approaches">Graph-based approaches</h2>
 <p>Finally, some network-based possibilities, <a href="https://en.wikipedia.org/wiki/Delaunay_triangulation">Delaunay triangulation</a>, <a href="https://en.wikipedia.org/wiki/Gabriel_graph">Gabriel graph</a> and the <a href="https://en.wikipedia.org/wiki/Relative_neighborhood_graph">relative neighbour graph</a>.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-8_f882175055c297cf2d28a897747262cb">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-8_4824b2f308cbd77c992c2eb62a1523a6">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">tri2nb</span>(pts_c)</span>
@@ -408,7 +408,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 <p><img src="fig2-09-spatial-weights_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-9_238daa41bef2036ed2383d786440b87a">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-9_a423fc155014897bde9aae0149076057">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

@@ -172,7 +172,49 @@
     "href": "code-for-figures/chap2/index.html",
     "title": "Chapter 2",
     "section": "",
-    "text": "Code to generate some of the images in Chapter 2—or at any rate the base images from which the final figures were made— is available in the pages below, including explanations of what’s going on.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Code to generate some of the images in Chapter 2—or at any rate the base images from which the final figures were made— is available in the pages below, including explanations of what’s going on.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html",
+    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html",
+    "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
+    "section": "",
+    "text": "This figure was mostly prepared in QGIS, but an R version is provided here to show the steps involved.\nDifferences between thae versions are due to the original being prepared across a wider extent which was then clipped down to the final extent. The input data used here are already clipped to the final extent meaning there are anomalies near the edges.\nCode\nlibrary(sf)\nlibrary(dplyr)\nlibrary(tmap)\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#load-data",
+    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#load-data",
+    "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
+    "section": "Load data",
+    "text": "Load data\nYou’ll need your own roads and buildings data. Mine came from OpenStreetMap via the QGIS QuickOSM plugin.\n\n\nCode\nroads &lt;- st_read(\"final-roads.gpkg\") %&gt;%\n  select(full_id, osm_id)\nbldgs &lt;- st_read(\"final-buildings.gpkg\") %&gt;%\n  select(full_id, osm_id)\n\n\nAnd a quick map to see what we’re working with.\n\n\nCode\ntm_shape(bldgs) + \n  tm_fill() + \n  tm_shape(roads) + \n  tm_lines()"
+  },
+  {
+    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
+    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
+    "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
+    "section": "Interpolate points along the lines and polygon boundaries",
+    "text": "Interpolate points along the lines and polygon boundaries\nPlace points along the boundaries of each of these.\nFor the roads we combine all elements into a single line object and assign the same id to every point generated.\n\n\nCode\nr_pts &lt;- roads %&gt;%\n  st_union() %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;%\n  mutate(id = \"0\")\n\n\nFor the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.\n\n\nCode\nb_pts &lt;- bldgs %&gt;%\n  st_cast(\"MULTILINESTRING\") %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  # if any perimeter is &lt; 1 then the sampling step fails\n  filter(st_length(.) &gt;= units::as_units(1, \"m\")) %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;%\n  st_join(bldgs, join = st_nearest_feature) %&gt;%\n  mutate(id = full_id) %&gt;%\n  select(id)"
+  },
+  {
+    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
+    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
+    "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
+    "section": "Make the point Voronoi polygons",
+    "text": "Make the point Voronoi polygons\nNow combine the two into a single point dataset.\n\n\nCode\nall_pts &lt;- bind_rows(r_pts, b_pts)\n\n\nNow make a Voronoi layer from the points.\n\n\nCode\npts_vor &lt;- all_pts %&gt;%\n  st_union() %&gt;%\n  st_voronoi()%&gt;%\n  st_cast() %&gt;%\n  st_as_sf() %&gt;%\n  st_join(all_pts, left = FALSE) \n\n\nWe need to clip this to the extent of the buildings data.\n\n\nCode\nextent &lt;- bldgs %&gt;%\n  st_bbox() %&gt;%\n  st_as_sfc() %&gt;%\n  st_sf()\n\npts_vor &lt;- pts_vor %&gt;%\n  st_intersection(extent)\n\nplot(pts_vor, main = \"Voronoi of all points\", key.pos = NULL)"
+  },
+  {
+    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#finally-form-the-line-and-polygon-voronois",
+    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#finally-form-the-line-and-polygon-voronois",
+    "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
+    "section": "Finally form the line and polygon Voronois",
+    "text": "Finally form the line and polygon Voronois\nNow we dissolve (group_by) on the id attribute.\n\n\nCode\ndiss_vor &lt;- pts_vor %&gt;%\n  group_by(id) %&gt;%\n  summarise()\n\nplot(diss_vor, main = \"Dissolved Voronois\", key.pos = NULL)"
+  },
+  {
+    "objectID": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-a-map",
+    "href": "code-for-figures/chap2/fig2-08-non-point-voronoi.html#make-a-map",
+    "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
+    "section": "Make a map",
+    "text": "Make a map\nFinally, we can make a map, similar to the one in Figure 2.8 in the book.\n\n\nCode\ntm_shape(bldgs, bbox = extent) +\n  tm_fill() + \n  # make the road into a polygon for clipping to extent\n  tm_shape(roads %&gt;% st_buffer(2) %&gt;% st_intersection(extent)) + \n  tm_fill(col = \"#808080\") +\n  # filter points so only those inside the extent are in the map\n  tm_shape(all_pts %&gt;% st_filter(extent %&gt;% st_buffer(-.1))) + \n  tm_dots(col = \"black\") +\n  tm_shape(pts_vor) + \n  tm_borders(col = \"lightgray\") + \n  tm_shape(diss_vor) + \n  tm_borders(col = \"black\")\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
   },
   {
     "objectID": "code-for-figures/chap2/fig2-01-absolute-space.html",
