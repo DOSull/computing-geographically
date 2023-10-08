@@ -10,6 +10,12 @@ execute:
 
 This figure is intended to demonstrate the diversity of possible conceptualisations of 'neighbour' that are often deployed in spatial analysis contexts, and represent possible different approaches to relative space. 
 
+The [`spdep` package](https://cran.r-project.org/web/packages/spdep/index.html) I am using here is not the easiest to use. The best guidance on `spdep` I've found is in 
+
+> Bivand R, EJ Pebesma, and V Gómez-Rubio. 2013. _Applied Spatial Data Analysis with R_. 2nd edn. Springer.
+
+The newer [`sfdep` package](https://cran.r-project.org/package=sfdep) is still finding its feet at time of writing (Oct 2023), but will likely be a better choice before long.
+
 ```{r message=FALSE, warning=FALSE}
 library(sf)
 library(dplyr)
@@ -17,17 +23,14 @@ library(spdep)
 library(sp)
 ```
 
+## Assembling the data
 First read a polygons dataset. You'll need to supply your own for this.
 
 ```{r message=FALSE, warning=FALSE, results=FALSE}
 chch <- st_read("chch-sa2.gpkg") # you need a spatial dataset
 ```
 
-The [`spdep` package](https://cran.r-project.org/web/packages/spdep/index.html) I am using here requires the data in the `sp` package format, so convert to that. The best guidance on `spdep` I've found is in 
-
-> Bivand R, EJ Pebesma, and V Gómez-Rubio. 2013. _Applied Spatial Data Analysis with R_. 2nd edn. Springer.
-
-and you will need guidance, because it's a tricky package to use. The newer [`sfdep` package](https://cran.r-project.org/package=sfdep) is still finding its feet at time of writing (Oct 2023).
+`spdep` requires the data to be in the `sp` package format, so we convert to that.
 
 ```{r}
 polys <- chch %>%
@@ -37,25 +40,22 @@ polys <- chch %>%
 
 Now make some points inside the polygons, and also some centroids.
 
-```{r}
+```{r warning=FALSE}
+# guaranteed inside the polygons
 pts <- chch %>%
-  st_point_on_surface() %>%
+  st_point_on_surface() %>% 
   st_geometry()
+
+# not guaranteed, but better(?) for distance measurements
 pts_c <- chch %>%
-  st_centroid() %>%
+  st_centroid() %>% 
   st_geometry()
 ```
 
-These are presented in a single figure in the book in four rows of three, Here I show them as sets of three for greater clarity. Include the following plot setup code if you want to present them as in the book.
+## Maps of adjacencies based on different rules
+These are presented in a single figure in the book in four rows of three. Here I show them as sets of three for greater clarity. 
 
-```{r eval:FALSE}
-layout(matrix(1:12, ncol = 3, byrow = TRUE))
-par(mai = rep(0, 4))
-```
-
-And now work through a series of possible weights options.
-
-## Contiguity based
+### Contiguity based
 
 ```{r}
 #| fig.dim=c(8, 3)
@@ -78,8 +78,8 @@ plot(polys, col = "lightgrey", lwd = 0.5, border = 'white',
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 ```
 
-## _k_-nearest neighbours
-Note that we use the centroids to calculate the distances, but the points inside the polygons from `st_point_on_surface()` for the plotting.
+### _k_-nearest neighbours
+Note that we use the centroids (`pts_c`) to calculate the distances, but the points inside the polygons (`pts`) from `st_point_on_surface()` for the plotting.
 
 ```{r}
 #| fig.dim=c(8, 3)
@@ -102,7 +102,7 @@ plot(polys, col = "lightgrey", lwd = 0.5, border = 'white',
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 ```
 
-## Distance criteria
+### Distance criteria
 Next, distance criteria, again calculated from centroids, but visualised using the `st_point_on_surface()`.
 
 ```{r}
@@ -126,7 +126,7 @@ plot(polys, col = "lightgrey", lwd = 0.5, border = 'white',
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 ```
 
-## Graph-based approaches
+### Graph-based approaches
 Finally, some network-based possibilities, [Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation), [Gabriel graph](https://en.wikipedia.org/wiki/Gabriel_graph) and the [relative neighbour graph](https://en.wikipedia.org/wiki/Relative_neighborhood_graph).
 
 ```{r}
