@@ -140,7 +140,7 @@ And finally make the maps. (In the version in the book I handmade the graticule,
 ```{r}
 m1 <- tm_shape(world_o) + 
   tm_fill(col = "lightgray") +
-  tm_graticules(x = seq(-180,165,15), y = seq(-75,60,15), 
+  tm_graticules(x = seq(-180, 165, 15), y = seq(-75, 75, 15), 
                 col = "gray", lwd = 0.5, labels.show = FALSE) +
   tm_shape(lox_o) + 
   tm_lines(col = "black") +
@@ -148,7 +148,7 @@ m1 <- tm_shape(world_o) +
 
 m2 <- tm_shape(world_m, bbox = mercator_limits) + 
   tm_fill(col = "lightgray") +
-  tm_graticules(x = seq(-180,165,15), y = seq(-75,60,15), 
+  tm_graticules(x = seq(-180, 165, 15), y = seq(-75, 75, 15), 
                 col = "gray", lwd = 0.5, labels.show = FALSE) +
   tm_shape(lox_m) + 
   tm_lines(col = "black") +
