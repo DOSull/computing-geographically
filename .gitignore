@@ -1,3 +1,5 @@
 /.quarto/
 .DS_Store
 *cache*/
+.Rhistory
+.RData

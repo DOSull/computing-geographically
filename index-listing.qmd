@@ -4,8 +4,19 @@ listing:
   categories: true
   type: table
   contents: 
-    - "chapters/chap*/links*.qmd"
-    - "chapters/chap*/fig*.qmd"
+    - "chapters/chap1/links*.qmd"
+    - "chapters/chap2/links*.qmd"
+    - "chapters/chap2/fig2-0*.qmd"
+    - "chapters/chap2/fig2-0*.qmd"
+    - "chapters/chap3/links*.qmd"
+    - "chapters/chap3/fig3-0*.qmd"
+    - "chapters/chap3/fig3-1*.qmd"
+    - "chapters/chap4/links*.qmd"
+    - "chapters/chap5/links*.qmd"
+    - "chapters/chap6/links*.qmd"
+    - "chapters/chap7/links*.qmd"
+    - "chapters/chap8/links*.qmd"
+  sort: false
   table-striped: true
   table-hover: true
   fields: 
