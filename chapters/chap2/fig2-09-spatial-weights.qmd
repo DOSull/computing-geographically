@@ -19,7 +19,7 @@ library(sp)
 
 First read a polygons dataset. You'll need to supply your own for this.
 
-```{r message=FALSE}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 chch <- st_read("chch-sa2.gpkg") # you need a spatial dataset
 ```
 
