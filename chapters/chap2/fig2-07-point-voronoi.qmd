@@ -37,8 +37,7 @@ pp_vor <- pp %>%
 And finally a map.
 
 ```{r warning=FALSE}
-tm_shape(pp_vor, 
-         bbox = pp %>% st_union() %>% st_buffer(0.05)) + 
+tm_shape(pp_vor, bbox = pp %>% st_union() %>% st_buffer(0.05)) + 
   tm_polygons(border.col = "white") +
   tm_shape(pp) + 
   tm_bubbles(col = "white", alpha = 0, border.col = "black", size = 0.1) +
