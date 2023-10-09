@@ -5,10 +5,7 @@ listing:
   categories: true
   contents:
     - "links-3.qmd"
-    - "fig3-07-platte-carre-and-lcea.qmd"
-    - "fig3-08-loxodrome.qmd"
-    - "fig3-09-tobler-chen.qmd"
-    - "fig3-10-raster-resolution.qmd"
+    - "fig3-0*.qmd"
   sort: false
   type: grid 
 ---

@@ -1,0 +1,205 @@
+---
+title: "Figure 4.3: Many Springfields"
+categories: 
+  - figures
+  - code
+execute: 
+  cache: true
+  freeze: auto
+---
+
+Many of the data preparation steps for this figure were initially carried out in QGIS. Here they have been implemented in _R_ only.
+
+To understand why this version is different from the published figure, read on...
+
+```{r message=FALSE}
+library(sf)
+library(tmap)
+library(dplyr)
+library(stringr)
+library(units)
+
+sf_use_s2(FALSE)
+```
+
+## Get data
+The 'Springfields' data set was obtained using the following code (shown here but not run) to query the [Nominatim geocoder](https://nominatim.openstreetmap.org/ui/search.html).
+
+```{r eval=FALSE}
+#| code-fold: true
+library(sf)
+library(dplyr)
+library(stringr)
+
+query <- "https://nominatim.openstreetmap.org/search"
+place <- "Springfield"
+excluded_places <- ""
+
+result <- NULL
+got_new_results <- TRUE
+n_results <- 0
+max_n <- 1000
+
+while (n_results < max_n & got_new_results) {
+  url <- str_flatten(c(
+    str_glue("{query}?q={place}&"),
+    "polygon_geojson=1&limit=50&format=geojson&",
+    str_glue("exclude_place_ids={excluded_places}")
+  ))
+  download.file(url, "result.geojson", quiet = TRUE, method = "auto")
+next_result <- st_read("result.geojson")
+got_new_results <- dim(next_result)[1] > 0
+if (is.null(result)) {
+  result <- next_result
+} else {
+  result <- bind_rows(result, next_result)
+}
+n_results <- dim(result)[1]
+excluded_places <- str_flatten(result$place_id, collapse = ",")
+Sys.sleep(1)
+}
+
+result %>% 
+  st_centroid() %>% 
+  st_write(str_glue("all-results-{place}.geojson"))
+```
+
+## Make a map
+OK, with that done, we can make a map. The degree of difficulty is much increased by choosing a [Briesemeister projection](https://www.map-projections.net/single-view/briesemeister-v2). We choose projections like this one not because they are easy, but because they are hard (something like that...). Anyway the published map is actually an oblique [Hammer-Aitoff projection](https://en.wikipedia.org/wiki/Aitoff_projection) based on this `proj` string.
+
+```{r}
+bries <- "+proj=ob_tran +o_proj=hammer +o_lat_p=45 +o_lon_p=-10 +lon_0=0"
+```
+
+I'll explain why this is only an *approximate* Briesemeister projection [later](#as-it-turns-out).
+
+### Dealing with that weird projection
+A world 'disc' for the background. Make this by buffering a point and stretching it to an ellipse with the projection extent (this has been estimated to the nearest 10m).
+
+```{r}
+disc <- st_point(c(0, 0)) %>%
+  st_buffer(1, nQuadSegs = 90)
+disc <- disc * matrix(c(18040100, 0, 0, 9020050), 2, 2)
+disc <- disc %>%
+  st_sfc() %>%
+  st_sf(crs = bries)
+```
+
+The world countries must be cut at the Briesemeister 'cut line' which is where there is a break in the projection, to avoid anomalies when places are projected that cross the line. We figured out where this line is in other work...
+
+```{r warning=FALSE, results=FALSE}
+data("World")
+
+cut_line <- st_read("briesemeister-cut.geojson") %>%
+  st_buffer(0.002)
+
+world <- World %>%
+  st_difference(cut_line) %>%
+  st_transform(bries) %>%
+  select(-(1:15)) # get rid of variables we have no need for
+```
+
+### Make a graticule 
+A graticule - here we assemble this as linestrings (with many points) because projection of `tm_graticules` output can be problematic, especially if the projection has cuts other than at &pm;180&deg; longitude (and even then it can have issues), or as in this case is in any way unusual.
+
+```{r}
+#| code-fold: true
+get_meridian <- function(longitude) {
+  st_linestring(matrix(cbind(longitude, seq(-90, 90, 1)),
+                       ncol = 2, byrow = FALSE)) %>%
+    st_sfc(crs = 4326)
+}
+
+get_meridians <- function(spacing = 15) {
+  g <- c()
+  for (lon in seq(-180, 180 - spacing, spacing)) {
+    g <- c(g, get_meridian(longitude = lon))
+  }
+  g
+}
+
+get_parallel <- function(latitude) {
+  st_linestring(matrix(cbind(seq(-180, 180, 1), latitude),
+                       ncol = 2, byrow = FALSE)) %>%
+    st_sfc(crs = 4326)
+}
+
+get_parallels <- function(spacing = 15) {
+  g <- c()
+  for (lat in seq(-90 + spacing, 90 - spacing, spacing)) {
+    g <- c(g, get_parallel(latitude = lat))
+  }
+  g
+}
+
+graticule <- c(get_meridians(), get_parallels()) %>%
+  st_sfc(crs = 4326) %>%
+  # again it must be cut at the Briesemeister breakline
+  st_difference(cut_line) %>%
+  st_sfc() %>%
+  st_sf() %>%
+  st_transform(bries)
+```
+
+### As it turns out
+The published map is really not in the Briesemeister proper, which is a _stretched_ version of an oblique Hammer-Aitoff projection. See
+
+> Briesemeister W. 1953. A new oblique equal-area projection. *Geographical Review* **43**(2) 260&ndash;261. doi: [10.2307/211940](https://dx.doi.org/10.2307/211940).
+
+for details. So let's also do that here (this really is bonus material). We could use the `+proj=affine` transformation with appropriate settings, but I've had issues getting `GDAL` and `tmap` to cooperate with pipeline projected data. Instead, we'll just use the weird matrix multiplication of geometries trick that `sf` allows to apply the required stretch, and not update the CRS information&mdash;thus making these data layers useless for almost any other purpose.
+
+```{r}
+stretch_mat <- matrix(c(7/8, 0, 0, 8/7), 2, 2)
+disc <- disc %>%
+  mutate(geometry = geometry * stretch_mat)
+world <- world %>%
+  mutate(geometry = geometry * stretch_mat)
+graticule <- graticule %>%
+  mutate(geometry = geometry * stretch_mat)
+```
+
+For what it's worth, all these shenanigans are a good example of why more flexibility in the projection architectures of contemporary platforms would be welcome, something discussed in [Chapter 3](../chap3/index.qmd).
+
+## Yeah, OK, _now_ make a map of all those Springfields
+
+```{r fig.size=c(8,4), warning=FALSE}
+springfields <- st_read("all-results-Springfield.geojson") %>%
+  st_transform(bries) %>%
+  mutate(geometry = geometry * stretch_mat)
+
+tm_shape(disc) + 
+  tm_fill(col = "#eeeeee") + 
+  tm_shape(world) + 
+  tm_fill(col = "white") +
+  tm_shape(springfields) +
+  tm_dots(col = "red", size = 0.15, alpha = 0.15) +
+  tm_shape(graticule) +
+  tm_lines(col = "gray", lwd = 0.5) +
+  tm_layout(frame = FALSE)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```
