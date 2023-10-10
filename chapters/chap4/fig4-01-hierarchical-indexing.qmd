@@ -58,7 +58,7 @@ library(sf)
 library(maptiles)
 ```
 
-Make 20km square near Wellington, Aotearoa.
+Make a 20km square near Wellington, Aotearoa.
 
 ```{r}
 square <- c(1.735e6 + 2e4 * c(0, 0, 1, 1, 0), 
