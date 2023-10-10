@@ -1,0 +1,66 @@
+---
+title: "Figure 4.5: Te Reo Māori toponyms in Aotearoa"
+categories: 
+  - figures
+  - code
+  - "extras"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+I made this alternative version of this map for some slides. It shows off the little-known mulltiplication by a matrix affine transformation superpower that `sf` somewhat surprisingly allows.
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+library(sf)
+library(tmap)
+library(dplyr)
+
+ang <- 40 * pi / 180
+rotation <- matrix(c(cos(ang), -sin(ang), 
+                     sin(ang),  cos(ang)), 2, 2, byrow = TRUE)
+
+nz <- st_read("nz-2193.gpkg") %>%
+  st_cast("POLYGON") %>%
+  mutate(geom = geom * rotation)
+
+toponyms <- st_read("placenames.gpkg") %>%
+  mutate(maori = reo > 0) %>%
+  mutate(geom = geom * rotation) %>%
+st_filter(nz)
+
+tm_shape(nz) + 
+  tm_fill(col = "#eee8d5") + 
+  tm_shape(toponyms %>% arrange(id)) +
+  tm_dots(col = "maori", palette = c("slategrey", "red"), size = 0.005, alpha = 0.2,
+          legend.show = FALSE) +
+  tm_layout(frame = FALSE, inner.margins = 0.05, bg.color = "#002b36")
+```
+
+As noted in the book, the materials for this figure draw on the [amazing work of Chris McDowall and Tim Denee](https://github.com/fogonwater/we-are-here/) in their [_We Are Here_ atlas](https://www.masseypress.ac.nz/books/we-are-here/), the [Toitū Te Whenua &ndash; Land Information New Zealand](https://www.linz.govt.nz/) [gazetteer of placenames](https://data.linz.govt.nz/layer/51681-nz-place-names-nzgb/), and on [Te Hiku Media](https://tehiku.nz/)'s [Ngā-kupu tools](https://github.com/TeHikuMedia/nga-kupu).  
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

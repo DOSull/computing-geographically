@@ -3,6 +3,7 @@ title: "Figure 4.3: Many Springfields"
 categories: 
   - figures
   - code
+  - "extras"
 execute: 
   cache: true
   freeze: auto

@@ -1,0 +1,138 @@
+---
+title: "Figure 4.1: Geohashes and hierarchical indexing"
+categories: 
+  - figures
+  - code
+  - "extras"
+execute: 
+  cache: true
+  freeze: auto
+---
+
+I made this figure by hand in Inkscape, which was _kind of_ fun, if a little tedious, given all the repetition involved. Here I show what I could have done instead in _R_.
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+library(dplyr)
+library(tidyr)
+```
+
+## The Z-order (Morton) and Hilbert curves
+The first two are general indexing schemes with deep mathematical roots, so unsurprisingly there are _R_ packages for working with them. The [`morton` package](https://github.com/s-u/morton) is only available on github so you will need `devtools` to install it, while [`hilbert`](https://cloud.r-project.org/web/packages/hilbert/index.html) is on CRAN. Because I can, I've made these bigger than the labouriously hand-crafted examples in the book.
+
+```{R}
+library(morton)
+library(hilbert)
+
+# make a data frame to put the numbers in
+df <- tibble(n = 1:1023) %>%
+  mutate(m1 = morton::fromMorton(n)[[1]],
+         m2 = -morton::fromMorton(n)[[2]])
+
+# the hilbert functions are hard to use with mutate, so 
+# just use base R to make these
+df$h1 <- hilbert::position(df$n, n = 10)[, 1] + 33 # an offset
+df$h2 <- -hilbert::position(df$n, n = 10)[, 2]
+```
+
+That's it&mdash;why didn't I think of this earlier?  And `ggplot::geom_path()` provides an easy way to plot the 'curves'.
+
+```{r}
+library(ggplot2)
+
+ggplot(df) + 
+  geom_path(aes(x = m1, y = m2), linewidth = 0.25) + 
+  geom_path(aes(x = h1, y = h2), linewidth = 0.25) + 
+  coord_equal() + 
+  theme_void()
+```
+
+## H3 hexagons
+If you like hexagons, you'll love the [`h3forr` package](https://github.com/crazycapivara/h3forr), which provides a spatial data friendly API for the H3 indexing scheme. There is an official H3 API for _R_ but it focuses on the indexes and makes it harder work to fill spaces with hexagons, unlike the [h3forr::polyfill()](https://github.com/crazycapivara/h3forr) function.
+
+Anyway, here goes:
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+library(h3forr)
+library(tmap)
+library(sf)
+library(maptiles)
+```
+
+Make 20km square near Wellington, Aotearoa.
+
+```{r}
+square <- c(1.735e6 + 2e4 * c(0, 0, 1, 1, 0), 
+            5.425e6 + 2e4 * c(0, 1, 1, 0, 0)) %>%
+  matrix(ncol = 2) %>%
+  list() %>%
+  st_polygon() %>%
+  st_sfc() %>%
+  st_sf(crs = 2193) %>%
+  st_transform(4326) # polyfill needs lat-lon
+```
+
+A convenience function to wrap `hsforr::polyfill()` so that we retrieve all hexes within a buffered area of the supplied data.
+
+```{r}
+get_hexes <- function(poly, resolution, distance) {
+  poly %>% 
+    st_buffer(distance) %>%
+    polyfill(res = resolution) %>% 
+    h3_to_geo_boundary() %>% 
+    geo_boundary_to_sf()
+}
+```
+
+Then get some hexagons.
+
+```{r}
+h3_4 <- get_hexes(square, 4, 10000)
+h3_5 <- get_hexes(square, 5, 5000)
+h3_6 <- get_hexes(square, 6, 2500)
+h3_7 <- get_hexes(square, 7, 1500)
+h3_8 <- get_hexes(square, 8, 1000)
+h3_9 <- get_hexes(square, 9, 750)
+```
+
+And make a map. I'm using `maptiles::get_tiles()` to provide a base map.
+
+```{r}
+basemap <- get_tiles(square, zoom = 11, provider = "CartoDB.Positron")
+
+tm_shape(basemap, bbox = square) + tm_rgb() +
+  tm_shape(h3_4) + tm_borders(lwd = 5) +
+  tm_shape(h3_5) + tm_borders(lwd = 3) +
+  tm_shape(h3_6) + tm_borders(lwd = 2) +
+  tm_shape(h3_7) + tm_borders(lwd = 1) +
+  tm_shape(h3_8) + tm_borders(lwd = 0.5) +
+  tm_shape(h3_9) + tm_borders(lwd = 0.35) +
+  tm_credits(get_credit("CartoDB.Positron"), bg.color = "white",
+             position = c("RIGHT", "BOTTOM"), bg.alpha = 0.5)
+```
+
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```
