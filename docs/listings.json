@@ -19,6 +19,7 @@
       "/chapters/chap4/fig4-05-te-reo-names.html",
       "/chapters/chap5/links-5.html",
       "/chapters/chap5/fig5-05-ca-pop-maps.html",
+      "/chapters/chap5/fig5-07-maup-aggregation.html",
       "/chapters/chap6/links-6.html",
       "/chapters/chap7/links-7.html",
       "/chapters/chap8/links-8.html"
@@ -57,7 +58,8 @@
     "listing": "/chapters/chap5/index.html",
     "items": [
       "/chapters/chap5/links-5.html",
-      "/chapters/chap5/fig5-05-ca-pop-maps.html"
+      "/chapters/chap5/fig5-05-ca-pop-maps.html",
+      "/chapters/chap5/fig5-07-maup-aggregation.html"
     ]
   },
   {
