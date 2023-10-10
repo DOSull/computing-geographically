@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="get-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-data">Get data</h2>
 <p>The ‘Springfields’ data set was obtained using the following code (shown here but not run) to query the <a href="https://nominatim.openstreetmap.org/ui/search.html">Nominatim geocoder</a>.</p>
-<div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-2_6ed8ef8180eed177590e2c254dfd61a1">
+<div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-2_3cd1959a2414c090fc3780fff3d5d4ad">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -254,16 +254,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_glue</span>(<span class="st">"exclude_place_ids={excluded_places}"</span>)</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  ))</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(url, <span class="st">"result.geojson"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"auto"</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>next_result <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"result.geojson"</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>got_new_results <span class="ot">&lt;-</span> <span class="fu">dim</span>(next_result)[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(result)) {</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> next_result</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(result, next_result)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>n_results <span class="ot">&lt;-</span> <span class="fu">dim</span>(result)[<span class="dv">1</span>]</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>excluded_places <span class="ot">&lt;-</span> <span class="fu">str_flatten</span>(result<span class="sc">$</span>place_id, <span class="at">collapse =</span> <span class="st">","</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  next_result <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"result.geojson"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  got_new_results <span class="ot">&lt;-</span> <span class="fu">dim</span>(next_result)[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(result)) {</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    result <span class="ot">&lt;-</span> next_result</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    result <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(result, next_result)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  n_results <span class="ot">&lt;-</span> <span class="fu">dim</span>(result)[<span class="dv">1</span>]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  excluded_places <span class="ot">&lt;-</span> <span class="fu">str_flatten</span>(result<span class="sc">$</span>place_id, <span class="at">collapse =</span> <span class="st">","</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>result <span class="sc">%&gt;%</span> </span>

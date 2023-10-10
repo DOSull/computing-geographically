@@ -48,16 +48,16 @@ while (n_results < max_n & got_new_results) {
     str_glue("exclude_place_ids={excluded_places}")
   ))
   download.file(url, "result.geojson", quiet = TRUE, method = "auto")
-next_result <- st_read("result.geojson")
-got_new_results <- dim(next_result)[1] > 0
-if (is.null(result)) {
-  result <- next_result
-} else {
-  result <- bind_rows(result, next_result)
-}
-n_results <- dim(result)[1]
-excluded_places <- str_flatten(result$place_id, collapse = ",")
-Sys.sleep(1)
+  next_result <- st_read("result.geojson")
+  got_new_results <- dim(next_result)[1] > 0
+  if (is.null(result)) {
+    result <- next_result
+  } else {
+    result <- bind_rows(result, next_result)
+  }
+  n_results <- dim(result)[1]
+  excluded_places <- str_flatten(result$place_id, collapse = ",")
+  Sys.sleep(1)
 }
 
 result %>% 
