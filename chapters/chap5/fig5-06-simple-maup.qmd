@@ -1,0 +1,111 @@
+---
+title: "Figure 5.6: Simple illustration of the modifiable areal unit problem"
+categories: 
+  - figures
+  - code
+  - extras
+execute: 
+  cache: true
+  freeze: auto
+---
+
+I've remade this one in colour, because I think it's a bit easier to see this way.
+
+Some libraries:
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+library(sf)
+library(dplyr)
+library(tmap)
+library(MASS)
+```
+
+We need to make a grid of values, with a clear gradient in one direction. The code for making geometries in _R_ is ugly, so I've hidden it.
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+#| code-fold: true
+make_square <- function(x = 0, y = 0, d = 1) {
+  xs <- x + c(-1, 1, 1, -1) * d / 2
+  ys <- y + c(-1, -1, 1, 1) * d / 2
+  xs <- c(xs, xs[1])
+  ys <- c(ys, ys[1])
+  st_polygon(list(matrix(c(xs, ys), ncol = 2)))
+}
+
+grid <- expand.grid(1:10, 1:10)
+
+polys <- list()
+for (r in 1:nrow(grid)) {
+  polys <- c(polys, make_square(x = grid[r, 1], y = grid[r, 2]))
+}
+
+poly_sf <- polys %>% 
+  lapply(list) %>%
+  lapply(st_polygon) %>%
+  st_sfc() %>%
+  st_sf(x = grid[, 1], y = grid[, 2])
+n <- dim(poly_sf)[1]
+poly_sf$val <- poly_sf$x + runif(n, -0.5, 0.5)
+```
+
+Anyway... we have a 10 by 10 grid of squares with values that increase from left to right:
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+brks <- .5 + (0:100) / 10
+
+tm_shape(poly_sf) +
+  tm_polygons(col = "val", palette = "Spectral", breaks = brks, lwd = 0.5) +
+  tm_layout(frame = FALSE, legend.show = FALSE)
+```
+
+Now we aggregate into columns and rows, taking the mean value of our variable in each case.
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+column_sf <- poly_sf %>%
+  group_by(x) %>%
+  summarise(val = mean(val)) 
+
+rows_sf <- poly_sf %>%
+  group_by(y) %>%
+  summarise(val = mean(val))
+```
+
+And now we can make maps of the results. The column-wise aggregation emphasizes the gradient, while the row-wise aggregation erases it completely, since every row has a similar set of values ranging from low to high, and when these are combined each row ends up pretty much the same.
+
+```{r message=FALSE, warning=FALSE, results=FALSE}
+m1 <- tm_shape(column_sf) +
+  tm_polygons(col = "val", palette = "Spectral", breaks = brks, lwd = 0.5) +
+  tm_layout(frame = FALSE, legend.show = FALSE)
+
+m2 <- tm_shape(rows_sf) +
+  tm_polygons(col = "val", palette = "Spectral", breaks = brks, lwd = 0.5) +
+  tm_layout(frame = FALSE, legend.show = FALSE)
+
+tmap_arrange(list(m1, m2), nrow = 1)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```
