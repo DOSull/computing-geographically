@@ -3,7 +3,7 @@ title: "Figure 4.1: Geohashes and hierarchical indexing"
 categories: 
   - figures
   - code
-  - "extras"
+  - extras
 execute: 
   cache: true
   freeze: auto

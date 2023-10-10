@@ -3,7 +3,7 @@ title: "Figure 4.5: Te Reo Māori toponyms in Aotearoa"
 categories: 
   - figures
   - code
-  - "extras"
+  - extras
 execute: 
   cache: true
   freeze: auto

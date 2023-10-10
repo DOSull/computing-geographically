@@ -1,48 +1,45 @@
 ---
-title: "Figure 2.7: Voronoi polygons associated with a set of point locations"
+title: "Figure 5.5: Maps of areas with widely varying populations"
 categories: 
   - figures
   - code
-  - extras
 execute: 
   cache: true
   freeze: auto
 ---
 
-This is most conveniently made using `spatstat`, but I've shown it here making a point pattern into an `sf` dataset and then using `sf::st_voronoi()`. 
+Not too much to say here, except that it would be nice if somebody would develop a better approach to mapping US-wide data. Counties really are a terrible base unit.
 
-```{r message=FALSE, warning=FALSE, results=FALSE}
-library(spatstat)
+```{r warning=FALSE, message=FALSE, results=FALSE}
 library(sf)
 library(tmap)
-```
+library(dplyr)
 
-There are a few steps making a `spatstat` point pattern into a simple features dataset...
+ca <- st_read("ca-pops.gpkg")
 
-```{r warning=FALSE}
-pp <- rpoispp(100) %>%
-  as.data.frame() %>%
-  st_as_sf(coords = c("x", "y"), crs = 2193)
-```
+m1 <- tm_shape(ca) + 
+  tm_fill(col = "population", 
+          title = "Population", palette = "Reds") +
+  tm_borders(col = "white", lwd = 0.5) + 
+  tm_legend(position = c("left", "bottom")) +
+  tm_layout(frame = FALSE, legend.width = 0.5)
+  
+m2 <- tm_shape(ca) + 
+  tm_fill(col = "population", convert2density = TRUE, 
+          title = "Pop density", palette = "Greens") +
+  tm_borders(col = "white", lwd = 0.5) + 
+  tm_legend(position = c("left", "bottom")) +
+  tm_layout(frame = FALSE, legend.width = 0.5)
 
-And there are a few more making a point dataset into a Voronoi polygon dataset.
-
-```{r warning=FALSE}
-pp_vor <- pp %>%
-  st_union() %>%
-  st_voronoi() %>%
-  st_cast() %>%
-  st_as_sf(crs = st_crs(pp))
-```
-
-And finally a map.
-
-```{r warning=FALSE}
-tm_shape(pp_vor, bbox = pp %>% st_union() %>% st_buffer(0.05)) + 
-  tm_polygons(border.col = "white") +
-  tm_shape(pp) + 
-  tm_bubbles(col = "white", alpha = 0, border.col = "black", size = 0.1) +
-  tm_layout(frame = FALSE)
+m3 <- tm_shape(ca) + 
+  tm_fill(col = "population", convert2density = TRUE, 
+          title = "Pop density", style = "log10_pretty", 
+          palette = "Blues") +
+  tm_borders(col = "white", lwd = 0.5) + 
+  tm_legend(position = c("left", "bottom")) +
+  tm_layout(frame = FALSE, legend.width = 0.5)
+  
+tmap_arrange(m1, m2, m3)
 ```
 
 ```{r}
