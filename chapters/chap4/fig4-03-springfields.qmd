@@ -60,27 +60,31 @@ while (n_results < max_n & got_new_results) {
   Sys.sleep(1)
 }
 
-result %>% 
+result < result %>% 
   st_centroid() %>% 
   st_write(str_glue("all-results-{place}.geojson"))
 ```
 
 ## Make a map
-OK, with that done, we can make a map. The degree of difficulty is much increased by choosing a [Briesemeister projection](https://www.map-projections.net/single-view/briesemeister-v2). We choose projections like this one not because they are easy, but because they are hard (something like that...). Anyway the published map is actually an oblique [Hammer-Aitoff projection](https://en.wikipedia.org/wiki/Aitoff_projection) based on this `proj` string.
+OK, with that done, we can make a map. The degree of difficulty is much increased by choosing a [Briesemeister projection](https://www.map-projections.net/single-view/briesemeister-v2). We choose projections like this one not because they are easy, but because they are hard (something like that...). Anyway the published map is actually an oblique [Hammer-Aitoff projection](https://en.wikipedia.org/wiki/Aitoff_projection), and not the right kind of oblique projection to be a Briesemeister...
+
+More recently, I unearthed a slightly different `proj` string at Michael Minn's website, in [the _R_ code](https://michaelminn.net/tutorials/gis-projections-world/world-projections.r) for [this page](https://michaelminn.net/tutorials/gis-projections-world/index.html). (However... I suspect even that code is no longer valid as the `M` parameter included in that string no longer seems to have any effect on the output and the linked manual is v4.3, which is a long way out of date.)
+
+Anyway, here's the string we're using, but even this is not the full story as we will [see later](#as-it-turns-out).
 
 ```{r}
-bries <- "+proj=ob_tran +o_proj=hammer +o_lat_p=45 +o_lon_p=-10 +lon_0=0"
+bries <- "+proj=ob_tran +o_proj=hammer +o_lon_p=0 +o_lat_p=45 +lon_0=10"
 ```
 
 I'll explain why this is only an *approximate* Briesemeister projection [later](#as-it-turns-out).
 
 ### Dealing with that weird projection
-A world 'disc' for the background. Make this by buffering a point and stretching it to an ellipse with the projection extent (this has been estimated to the nearest 10m).
+A world 'disc' for the background. Make this by buffering a point and stretching it to an ellipse with the Hammer projection extent.
 
 ```{r}
 disc <- st_point(c(0, 0)) %>%
   st_buffer(1, nQuadSegs = 90)
-disc <- disc * matrix(c(18040100, 0, 0, 9020050), 2, 2)
+disc <- disc * matrix(c(18040096, 0, 0, 9020048), 2, 2)
 disc <- disc %>%
   st_sfc() %>%
   st_sf(crs = bries)
@@ -91,13 +95,12 @@ The world countries must be cut at the Briesemeister 'cut line' which is where t
 ```{r warning=FALSE, results=FALSE}
 data("World")
 
-cut_line <- st_read("briesemeister-cut.geojson") %>%
+cut_line <- st_read("briesemeister-cut-corrected.geojson") %>%
   st_buffer(0.002)
 
 world <- World %>%
   st_difference(cut_line) %>%
-  st_transform(bries) %>%
-  select(-(1:15)) # get rid of variables we have no need for
+  st_transform(bries)
 ```
 
 ### Make a graticule 
@@ -111,7 +114,7 @@ get_meridian <- function(longitude) {
     st_sfc(crs = 4326)
 }
 
-get_meridians <- function(spacing = 15) {
+get_meridians <- function(spacing = 10) {
   g <- c()
   for (lon in seq(-180, 180 - spacing, spacing)) {
     g <- c(g, get_meridian(longitude = lon))
@@ -125,7 +128,7 @@ get_parallel <- function(latitude) {
     st_sfc(crs = 4326)
 }
 
-get_parallels <- function(spacing = 15) {
+get_parallels <- function(spacing = 10) {
   g <- c()
   for (lat in seq(-90 + spacing, 90 - spacing, spacing)) {
     g <- c(g, get_parallel(latitude = lat))
@@ -149,13 +152,18 @@ The published map is really not in the Briesemeister proper, which is a _stretch
 
 for details. So let's also do that here (this really is bonus material). We could use the `+proj=affine` transformation with appropriate settings, but I've had issues getting `GDAL` and `tmap` to cooperate with pipeline projected data. Instead, we'll just use the weird matrix multiplication of geometries trick that `sf` allows to apply the required stretch, and not update the CRS information&mdash;thus making these data layers useless for almost any other purpose.
 
-```{r}
-stretch_mat <- matrix(c(7/8, 0, 0, 8/7), 2, 2)
+```{r results=FALSE}
+stretch_mat <- matrix(c(sqrt(7/8), 0, 0, sqrt(8/7)), 2, 2)
 disc <- disc %>%
   mutate(geometry = geometry * stretch_mat)
 world <- world %>%
   mutate(geometry = geometry * stretch_mat)
 graticule <- graticule %>%
+  mutate(geometry = geometry * stretch_mat)
+
+# and not forgetting the Springfields...
+springfields <- st_read("all-results-Springfield.geojson") %>%
+  st_transform(bries) %>%
   mutate(geometry = geometry * stretch_mat)
 ```
 
@@ -164,10 +172,6 @@ For what it's worth, all these shenanigans are a good example of why more flexib
 ## Yeah, OK, _now_ make a map of all those Springfields
 
 ```{r fig.size=c(8,4), warning=FALSE}
-springfields <- st_read("all-results-Springfield.geojson") %>%
-  st_transform(bries) %>%
-  mutate(geometry = geometry * stretch_mat)
-
 tm_shape(disc) + 
   tm_fill(col = "#eeeeee") + 
   tm_shape(world) + 

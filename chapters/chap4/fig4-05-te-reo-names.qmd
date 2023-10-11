@@ -9,7 +9,7 @@ execute:
   freeze: auto
 ---
 
-I made this alternative version of this map for some slides. It shows off the little-known mulltiplication by a matrix affine transformation superpower that `sf` somewhat surprisingly allows.
+I made an alternative version of this map for some slides. It shows off the little-known multiplication by an affine transform matrix superpower that `sf` somewhat surprisingly admits (it felt like a cheat-code when I came across it [here](https://r-spatial.github.io/sf/articles/sf3.html#affine-transformations)).
 
 ```{r message=FALSE, warning=FALSE, results=FALSE}
 library(sf)
