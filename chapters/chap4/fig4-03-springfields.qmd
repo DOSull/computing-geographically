@@ -19,8 +19,6 @@ library(tmap)
 library(dplyr)
 library(stringr)
 library(units)
-
-sf_use_s2(FALSE)
 ```
 
 ## Get data
@@ -90,11 +88,11 @@ disc <- disc %>%
 
 The world countries must be cut at the Briesemeister 'cut line' which is where there is a break in the projection, to avoid anomalies when places are projected that cross the line. We figured out where this line is in other work...
 
-```{r warning=FALSE, results=FALSE}
+```{r warning=FALSE, results=FALSE, message=FALSE}
 data("World")
 
 cut_line <- st_read("briesemeister-cut-corrected.geojson") %>%
-  st_buffer(0.002)
+  st_buffer(1000) # metres!
 
 world <- World %>%
   st_difference(cut_line) %>%
@@ -104,7 +102,7 @@ world <- World %>%
 ### Make a graticule 
 A graticule - here we assemble this as linestrings (with many points) because projection of `tm_graticules` output can be problematic, especially if the projection has cuts other than at &pm;180&deg; longitude (and even then it can have issues), or as in this case is in any way unusual.
 
-```{r}
+```{r warning=FALSE, results=FALSE, message=FALSE}
 #| code-fold: true
 get_meridian <- function(longitude) {
   st_linestring(matrix(cbind(longitude, seq(-90, 90, 1)),
