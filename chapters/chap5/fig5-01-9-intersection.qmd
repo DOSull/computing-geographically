@@ -9,7 +9,7 @@ execute:
   freeze: auto
 ---
 
-This page attempts to show the various spatial predicates of the 9-intersection model presented in Figure 5.1 in code.
+This page attempts to show the various [spatial predicates of the 9-intersection model](https://en.wikipedia.org/wiki/DE-9IM#Spatial_predicates) presented in Figure 5.1 in code.
 
 First we make some shapes, and map them.
 
