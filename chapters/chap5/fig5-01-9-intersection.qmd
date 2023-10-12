@@ -19,18 +19,16 @@ library(dplyr)
 library(tmap)
 library(stringr)
 
-p1 <- st_point(c(-2e4, 0)) %>% st_buffer(1e4, nQuadSegs = 90)
+p1 <- st_point(c(-2, 0)) %>% st_buffer(1, nQuadSegs = 90)
 p2 <- p1
-p3 <- p1 + c(2e4, 0)
+p3 <- p1 + c(2, 0)
 p4 <- p3 * matrix(c(0.5, 0, 0, 0.5), 2, 2)
-p5 <- p4 + c(0, -5e3)
-p6 <- st_difference(p3, p4) + c(2.1e4, 0)
-p7 <- p4 * matrix(c(1.5, 0, 0, 1.5), 2, 2) + c(2e4, -1e3)
+p5 <- p4 + c(0, -0.5)
+p6 <- st_difference(p3, p4) + c(2.1, 0)
+p7 <- p4 * matrix(c(1.5, 0, 0, 1.5), 2, 2) + c(2, -1)
 
 polys <- st_sfc(list(p1, p2, p3, p4, p5, p6, p7)) %>% 
   st_sf() %>%
-  mutate(geometry = geometry + c(1.745e6, 5.425e6)) %>%
-  st_set_crs(2193) %>%
   mutate(ID = 1:7, 
          dx = c(0, 0, .5, 0, 0, 0, 0), 
          dy = c(-1, 1, 2, 0, 0, 0, 0))
