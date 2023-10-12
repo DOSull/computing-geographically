@@ -98,7 +98,7 @@ three_plots <- function(df1, df2, df3) {
 ## Finally the plots
 So now make some datsets and see what we get.
 
-First a dataset with approximage correlation between $x$ and $y$ of 0.5. We then aggregate it two ways and plot the results.
+First a dataset with approximage correlation between `x` and `y` of 0.5. We then aggregate it two ways and plot the results.
 
 ```{r message=FALSE, warning=FALSE}
 df <- get_correlated_df(0.5)

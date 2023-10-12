@@ -1,0 +1,118 @@
+---
+title: "Figure 5.1: The 9-intersection model of topological relations"
+categories: 
+  - figures
+  - code
+  - extras
+execute: 
+  cache: true
+  freeze: auto
+---
+
+This page attempts to show the various spatial predicates of the 9-intersection model presented in Figure 5.1 in code.
+
+First we make some shapes, and map them.
+
+```{r message=FALSE, warning=FALSE}
+library(sf)
+library(dplyr)
+library(tmap)
+library(stringr)
+
+p1 <- st_point(c(-2e4, 0)) %>% st_buffer(1e4, nQuadSegs = 90)
+p2 <- p1
+p3 <- p1 + c(2e4, 0)
+p4 <- p3 * matrix(c(0.5, 0, 0, 0.5), 2, 2)
+p5 <- p4 + c(0, -5e3)
+p6 <- st_difference(p3, p4) + c(2.1e4, 0)
+p7 <- p4 * matrix(c(1.5, 0, 0, 1.5), 2, 2) + c(2e4, -1e3)
+
+polys <- st_sfc(list(p1, p2, p3, p4, p5, p6, p7)) %>% 
+  st_sf() %>%
+  mutate(geometry = geometry + c(1.745e6, 5.425e6)) %>%
+  st_set_crs(2193) %>%
+  mutate(ID = 1:7, 
+         dx = c(0, 0, .5, 0, 0, 0, 0), 
+         dy = c(-1, 1, 2, 0, 0, 0, 0))
+```
+
+Map and label these for reference.
+
+```{r fig.width=8, fig.height=4}
+lines <- polys %>% st_cast("MULTILINESTRING") # for placing text labels
+
+tm_shape(polys) + 
+  tm_fill(col = "ID", alpha = 0.5, style = "cat", 
+          palette = c("red", "dodgerblue3", "darkgreen", 
+                      "black", "yellow", "violet", "brown"),
+          legend.is.portrait = FALSE) +
+  tm_shape(lines) +
+  tm_text(text = "ID", xmod = "dx", ymod = "dy") +
+  tm_layout(
+    frame = FALSE, legend.outside = TRUE,
+    legend.outside.position = "bottom", 
+    legend.position = c(0.5, 0.5), 
+    legend.just = c(0.5, 0.5))
+```
+
+Now we can run various tests against the spatial predicates in turn. For example `st_disjoint` tells us the following. 
+
+```{r}
+polys %>% st_disjoint()
+```
+
+We can tabulate the result of applying all the spatial predicates to these polygons into a table. 
+
+The details of how this is done don't matter greatly, but if you are interested click into the code below. The core of it is based on the various `st_*` functions such as `st_intersects` or `st_contains`. These correspond, more or less to the relations identified in Figure 5.1. The spatial predicates available in the `sf` package in _R_ correspond to those implemented in spatial databases such as [PostGIS](https://postgis.net/).
+
+```{r}
+#| code-fold: true
+
+get_spatial_query_as_vector <- function(data, predicate) {
+  data %>% 
+    predicate() %>%
+    lapply(str_c, collapse = " ") %>%
+    unlist()
+}
+
+de9im <- data.frame(
+  ID = polys$ID,
+  disjoint          = get_spatial_query_as_vector(polys, st_disjoint),
+  touches           = get_spatial_query_as_vector(polys, st_touches),
+  equals            = get_spatial_query_as_vector(polys, st_equals),
+  intersects        = get_spatial_query_as_vector(polys, st_intersects),
+  contains_properly = get_spatial_query_as_vector(polys, st_contains_properly),
+  contains          = get_spatial_query_as_vector(polys, st_contains),
+  within            = get_spatial_query_as_vector(polys, st_within),
+  covers            = get_spatial_query_as_vector(polys, st_covers),
+  covered_by        = get_spatial_query_as_vector(polys, st_covered_by)
+)
+
+knitr::kable(de9im)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

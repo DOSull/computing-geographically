@@ -18,6 +18,7 @@
       "/chapters/chap4/fig4-03-springfields.html",
       "/chapters/chap4/fig4-05-te-reo-names.html",
       "/chapters/chap5/links-5.html",
+      "/chapters/chap5/fig5-01-9-intersection.html",
       "/chapters/chap5/fig5-05-ca-pop-maps.html",
       "/chapters/chap5/fig5-06-simple-maup.html",
       "/chapters/chap5/fig5-07-maup-aggregation.html",
@@ -59,6 +60,7 @@
     "listing": "/chapters/chap5/index.html",
     "items": [
       "/chapters/chap5/links-5.html",
+      "/chapters/chap5/fig5-01-9-intersection.html",
       "/chapters/chap5/fig5-05-ca-pop-maps.html",
       "/chapters/chap5/fig5-06-simple-maup.html",
       "/chapters/chap5/fig5-07-maup-aggregation.html"
