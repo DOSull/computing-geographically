@@ -184,9 +184,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-base-data" id="toc-the-base-data" class="nav-link active" data-scroll-target="#the-base-data">The base data</a>
   <ul class="collapse">
   <li><a href="#making-the-data-into-a-network" id="toc-making-the-data-into-a-network" class="nav-link" data-scroll-target="#making-the-data-into-a-network">Making the data into a network</a></li>
-  <li><a href="#the-geography" id="toc-the-geography" class="nav-link" data-scroll-target="#the-geography">The geography</a></li>
+  </ul></li>
+  <li><a href="#the-geography" id="toc-the-geography" class="nav-link" data-scroll-target="#the-geography">The geography</a>
+  <ul class="collapse">
+  <li><a href="#a-bad-map" id="toc-a-bad-map" class="nav-link" data-scroll-target="#a-bad-map">A bad map</a></li>
   <li><a href="#the-world-is-not-flat" id="toc-the-world-is-not-flat" class="nav-link" data-scroll-target="#the-world-is-not-flat">The world is not flat</a></li>
-  <li><a href="#code-to-make-dense-geodesics" id="toc-code-to-make-dense-geodesics" class="nav-link" data-scroll-target="#code-to-make-dense-geodesics">Code to make dense geodesics</a></li>
+  <li><a href="#make-geodesic-datasets-between-the-cities" id="toc-make-geodesic-datasets-between-the-cities" class="nav-link" data-scroll-target="#make-geodesic-datasets-between-the-cities">Make geodesic datasets between the cities</a></li>
   </ul></li>
   <li><a href="#mollweide-fail-maps" id="toc-mollweide-fail-maps" class="nav-link" data-scroll-target="#mollweide-fail-maps">Mollweide fail maps</a></li>
   <li><a href="#orthographic-not-so-fail-maps" id="toc-orthographic-not-so-fail-maps" class="nav-link" data-scroll-target="#orthographic-not-so-fail-maps">Orthographic not so fail maps</a></li>
@@ -218,8 +221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>This page includes python code that was used to generate these figures, where again we saw just how troublesome the limitations of existing platforms in handling projections intelligently can be. Some of the code is a bit overwhelming, so it is hidden by default, but you can see it by clicking into the <strong>Code ►</strong> blocks.</p>
-<div class="cell" data-execution_count="187">
+<p>This page includes python code that was used to generate these figures, where again we see just how troublesome the limitations of existing platforms in handling projections intelligently can be. Some of the code is a bit overwhelming, so I’ve hidden most of it by default, but you can see it by clicking into the <strong>► Code</strong> blocks.</p>
+<div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -236,13 +239,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-base-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-base-data">The base data</h2>
 <p>This is dataset 11 from the site linked <a href="../../chapters/chap6/links-6.html#footnote-6">here</a> and shows the numbers of offices of 100 major firms that exist in a collection of 315 cities. The network we build is based on shared offices of firms, i.e.&nbsp;if two cities both have offices of the same firm, then they are linked.</p>
-<div class="cell" data-execution_count="188">
+<div class="cell" data-execution_count="2">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wcn <span class="op">=</span> pd.read_csv(<span class="st">"da11-1.csv"</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>wcn.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="188">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -428,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="making-the-data-into-a-network" class="level3">
 <h3 class="anchored" data-anchor-id="making-the-data-into-a-network">Making the data into a network</h3>
 <p>The two function in the code block below enable filtering the raw data to only retain cities that have some number or more offices of each firm, and then by matrix multiplication to convert this table into the adjacency matrix of a graph.</p>
-<div class="cell" data-execution_count="189">
+<div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cut_table_at(table, x):</span>
@@ -446,10 +449,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-<section id="the-geography" class="level3">
-<h3 class="anchored" data-anchor-id="the-geography">The geography</h3>
+</section>
+<section id="the-geography" class="level2">
+<h2 class="anchored" data-anchor-id="the-geography">The geography</h2>
 <p>Below, we use the previous functions to form the graph, and then add longitude-latitude coordinates for each city to the nodes.</p>
-<div class="cell" data-execution_count="190">
+<div class="cell" data-execution_count="4">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Gnx <span class="op">=</span> make_network_from_incidence_table(cut_table_at(wcn, <span class="dv">4</span>))</span>
@@ -463,8 +467,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    Gnx.nodes[name][<span class="st">"lon"</span>] <span class="op">=</span> lon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<section id="a-bad-map" class="level3">
+<h3 class="anchored" data-anchor-id="a-bad-map">A bad map</h3>
 <p>At this point, we can make up a naïve map (i.e.&nbsp;Figure 6.5a), simply connecting the end point coordinates of each edge in the graph with straight lines.</p>
-<div class="cell" data-execution_count="191">
+<div class="cell" data-execution_count="5">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>city_to_city <span class="op">=</span> []</span>
@@ -490,20 +496,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> gpd.read_file(<span class="st">"ne-world.gpkg"</span>)</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># and make up a map</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> pyplot.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>), dpi <span class="op">=</span> <span class="dv">300</span>)</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> globe_gdf.to_crs(moll).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>countries.to_crs(moll).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>city_to_city_gdf.to_crs(moll).plot(</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> globe_gdf.to_crs(moll).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>countries.to_crs(moll).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>city_to_city_gdf.to_crs(moll).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                                   alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>pyplot.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="191">
-<pre><code>&lt;Axes: &gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>(-19844105.265762024,
+ 19844105.265762024,
+ -9922052.632687533,
+ 9922052.632687533)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 3600x1800 with 0 Axes&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-6-output-3.png" class="img-fluid"></p>
+<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -511,110 +517,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="the-world-is-not-flat">The world is not flat</h3>
 <p>That map is not very useful, although avoiding making this kind of nonsense map is surprisingly difficult—another consequence of the limitations of how projections are handled in contemporary platforms. Things get complicated though… you have been warned…</p>
 <p>So, we need several functions. First, the great circle distance beween two longitude-latitude points.</p>
-<div class="cell" data-execution_count="192">
-<details open="">
+<div class="cell" data-execution_count="6">
+<details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uses the Haversine formulae, see</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://en.wikipedia.org/wiki/Haversine_formula</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_great_circle_distance(p1: geom.Point, p2: geom.Point,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                                    R: <span class="bu">float</span> <span class="op">=</span> <span class="fl">6378.137</span>):</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    lon0 <span class="op">=</span> math.radians(p1.x)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    lat0 <span class="op">=</span> math.radians(p1.y)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    lon1 <span class="op">=</span> math.radians(p2.x)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    lat1 <span class="op">=</span> math.radians(p2.y)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    dlon <span class="op">=</span> lon1 <span class="op">-</span> lon0</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    dlat <span class="op">=</span> lat1 <span class="op">-</span> lat0</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> math.sin(dlat <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> math.sin(dlat <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        math.cos(lat0) <span class="op">*</span> math.cos(lat1) <span class="op">*</span> <span class="op">\</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        math.sin(dlon <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> math.sin(dlon <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> math.atan2(math.sqrt(a), math.sqrt(<span class="dv">1</span> <span class="op">-</span> a))</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (R <span class="op">*</span> c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uses the Haversine formulae, see</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://en.wikipedia.org/wiki/Haversine_formula</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_great_circle_distance(p1: geom.Point, p2: geom.Point,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                    R: <span class="bu">float</span> <span class="op">=</span> <span class="fl">6378.137</span>):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    lon0 <span class="op">=</span> math.radians(p1.x)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    lat0 <span class="op">=</span> math.radians(p1.y)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    lon1 <span class="op">=</span> math.radians(p2.x)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    lat1 <span class="op">=</span> math.radians(p2.y)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    dlon <span class="op">=</span> lon1 <span class="op">-</span> lon0</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    dlat <span class="op">=</span> lat1 <span class="op">-</span> lat0</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> math.sin(dlat <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> math.sin(dlat <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        math.cos(lat0) <span class="op">*</span> math.cos(lat1) <span class="op">*</span> <span class="op">\</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        math.sin(dlon <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> math.sin(dlon <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> math.atan2(math.sqrt(a), math.sqrt(<span class="dv">1</span> <span class="op">-</span> a))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (R <span class="op">*</span> c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Next, a function to return a great circle line string between two points.</p>
-<div class="cell" data-execution_count="193">
-<details open="">
+<p>Next, a function to return a great circle line (geodesic) between two points.</p>
+<div class="cell" data-execution_count="7">
+<details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> interpolate_between(z1: <span class="bu">float</span>, z2: <span class="bu">float</span>, steps: <span class="bu">int</span>):</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    fractions <span class="op">=</span> [(<span class="dv">1</span> <span class="op">+</span> x) <span class="op">/</span> steps <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(steps <span class="op">-</span> <span class="dv">1</span>)]</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [z1] <span class="op">+</span> [(z2 <span class="op">-</span> z1) <span class="op">*</span> f <span class="cf">for</span> f <span class="kw">in</span> fractions] <span class="op">+</span> [z2]</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_geodesic(p1: geom.Point, p2: geom.Point, step_length: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10</span>):</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    dist <span class="op">=</span> get_great_circle_distance(p1, p2)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># determine number of steps</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    n_steps <span class="op">=</span> math.ceil(dist <span class="op">/</span> step_length) </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reproject in a space where great circles are straight lines</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    gdf <span class="op">=</span> gpd.GeoDataFrame(geometry <span class="op">=</span> gpd.GeoSeries([p1, p2]))</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    gdf.crs <span class="op">=</span> <span class="st">"+proj=longlat"</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    gdf <span class="op">=</span> gdf.to_crs(<span class="ss">f"+proj=aeqd +lon_0=</span><span class="sc">{</span>p1<span class="sc">.</span>x<span class="sc">}</span><span class="ss"> +lat_0=</span><span class="sc">{</span>p1<span class="sc">.</span>y<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    np1x, np1y <span class="op">=</span> gdf.geometry[<span class="dv">0</span>].x, gdf.geometry[<span class="dv">0</span>].y</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    np2x, np2y <span class="op">=</span> gdf.geometry[<span class="dv">1</span>].x, gdf.geometry[<span class="dv">1</span>].y</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> interpolate_between(np1x, np2x, n_steps)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> interpolate_between(np1y, np2y, n_steps)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    ngdf <span class="op">=</span> gpd.GeoDataFrame(geometry <span class="op">=</span> gpd.GeoSeries(</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        geom.Point(x, y) <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(xs, ys)))</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    ngdf.crs <span class="op">=</span> <span class="ss">f"+proj=aeqd +lon_0=</span><span class="sc">{</span>p1<span class="sc">.</span>x<span class="sc">}</span><span class="ss"> +lat_0=</span><span class="sc">{</span>p1<span class="sc">.</span>y<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> <span class="bu">list</span>(ngdf.to_crs(<span class="st">"+proj=longlat"</span>).geometry)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> geom.LineString((p.x, p.y) <span class="cf">for</span> p <span class="kw">in</span> points) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> interpolate_between(z1: <span class="bu">float</span>, z2: <span class="bu">float</span>, steps: <span class="bu">int</span>):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    fractions <span class="op">=</span> [(<span class="dv">1</span> <span class="op">+</span> x) <span class="op">/</span> steps <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(steps <span class="op">-</span> <span class="dv">1</span>)]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [z1] <span class="op">+</span> [(z2 <span class="op">-</span> z1) <span class="op">*</span> f <span class="cf">for</span> f <span class="kw">in</span> fractions] <span class="op">+</span> [z2]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_geodesic(p1: geom.Point, p2: geom.Point, step_length: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10</span>):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    dist <span class="op">=</span> get_great_circle_distance(p1, p2)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># determine number of steps</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    n_steps <span class="op">=</span> math.ceil(dist <span class="op">/</span> step_length) </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reproject in a space where great circles are straight lines</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    gdf <span class="op">=</span> gpd.GeoDataFrame(geometry <span class="op">=</span> gpd.GeoSeries([p1, p2]))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    gdf.crs <span class="op">=</span> <span class="st">"+proj=longlat"</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    gdf <span class="op">=</span> gdf.to_crs(<span class="ss">f"+proj=aeqd +lon_0=</span><span class="sc">{</span>p1<span class="sc">.</span>x<span class="sc">}</span><span class="ss"> +lat_0=</span><span class="sc">{</span>p1<span class="sc">.</span>y<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    np1x, np1y <span class="op">=</span> gdf.geometry[<span class="dv">0</span>].x, gdf.geometry[<span class="dv">0</span>].y</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    np2x, np2y <span class="op">=</span> gdf.geometry[<span class="dv">1</span>].x, gdf.geometry[<span class="dv">1</span>].y</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> interpolate_between(np1x, np2x, n_steps)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> interpolate_between(np1y, np2y, n_steps)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    ngdf <span class="op">=</span> gpd.GeoDataFrame(geometry <span class="op">=</span> gpd.GeoSeries(</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        geom.Point(x, y) <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(xs, ys)))</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    ngdf.crs <span class="op">=</span> <span class="ss">f"+proj=aeqd +lon_0=</span><span class="sc">{</span>p1<span class="sc">.</span>x<span class="sc">}</span><span class="ss"> +lat_0=</span><span class="sc">{</span>p1<span class="sc">.</span>y<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> <span class="bu">list</span>(ngdf.to_crs(<span class="st">"+proj=longlat"</span>).geometry)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> geom.LineString((p.x, p.y) <span class="cf">for</span> p <span class="kw">in</span> points) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Next, a function that takes geodesic and breaks itat any point where there is large apparent jump between consecutive points. Here we use the naïve distance measurement based on the coordinates. This will mean the line is broken at the antimeridian.</p>
-<div class="cell" data-execution_count="194">
-<details open="">
+<div class="cell" data-execution_count="8">
+<details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split_at_jumps(geodesic: geom.LineString):</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> geodesic.coords</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># make into a series of LineStrings</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    segments <span class="op">=</span> [geom.LineString([p1, p2]) </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">for</span> p1, p2 <span class="kw">in</span> <span class="bu">zip</span>(points[:<span class="op">-</span><span class="dv">1</span>], points[<span class="dv">1</span>:])]</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    lengths <span class="op">=</span> [ls.length <span class="cf">for</span> ls <span class="kw">in</span> segments]</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    intersections <span class="op">=</span> [l <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">for</span> l <span class="kw">in</span> lengths]</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">True</span> <span class="kw">in</span> intersections:</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> intersections.index(<span class="va">True</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        coords1 <span class="op">=</span> points[:idx]</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        coords2 <span class="op">=</span> points[idx<span class="op">+</span><span class="dv">1</span>:]</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(coords1) <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> <span class="bu">len</span>(coords2) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> geom.MultiLineString([coords1, coords2])</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">len</span>(coords1) <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="bu">len</span>(coords2) <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> geom.MultiPoint(points)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(coords1) <span class="op">&gt;</span> <span class="bu">len</span>(coords2):</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> geom.LineString(coords1)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> geom.LineString(coords2)</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> geom.LineString(points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split_at_antimeridian(geodesic: geom.LineString):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> geodesic.coords</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># make into a series of LineStrings</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    segments <span class="op">=</span> [geom.LineString([p1, p2]) </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">for</span> p1, p2 <span class="kw">in</span> <span class="bu">zip</span>(points[:<span class="op">-</span><span class="dv">1</span>], points[<span class="dv">1</span>:])]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    lengths <span class="op">=</span> [ls.length <span class="cf">for</span> ls <span class="kw">in</span> segments]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    intersections <span class="op">=</span> [l <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">for</span> l <span class="kw">in</span> lengths]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">True</span> <span class="kw">in</span> intersections:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> intersections.index(<span class="va">True</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        coords1 <span class="op">=</span> points[:idx]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        coords2 <span class="op">=</span> points[idx<span class="op">+</span><span class="dv">1</span>:]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(coords1) <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> <span class="bu">len</span>(coords2) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> geom.MultiLineString([coords1, coords2])</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">len</span>(coords1) <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="bu">len</span>(coords2) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> geom.MultiPoint(points)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(coords1) <span class="op">&gt;</span> <span class="bu">len</span>(coords2):</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> geom.LineString(coords1)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> geom.LineString(coords2)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> geom.LineString(points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="code-to-make-dense-geodesics" class="level3">
-<h3 class="anchored" data-anchor-id="code-to-make-dense-geodesics">Code to make dense geodesics</h3>
-<div class="cell" data-execution_count="195">
-<details open="">
+<section id="make-geodesic-datasets-between-the-cities" class="level3">
+<h3 class="anchored" data-anchor-id="make-geodesic-datasets-between-the-cities">Make geodesic datasets between the cities</h3>
+<div class="cell" data-execution_count="9">
+<details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>geodesics <span class="op">=</span> [] <span class="co"># list of LineStrings along the geodesic</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cut_geodesics <span class="op">=</span> [] <span class="co"># list of the geodesics cut at the dateline</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate over the edges</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> Gnx.edges():</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    p1 <span class="op">=</span> geom.Point(Gnx.nodes[e[<span class="dv">0</span>]][<span class="st">"lon"</span>], Gnx.nodes[e[<span class="dv">0</span>]][<span class="st">"lat"</span>])</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    p2 <span class="op">=</span> geom.Point(Gnx.nodes[e[<span class="dv">1</span>]][<span class="st">"lon"</span>], Gnx.nodes[e[<span class="dv">1</span>]][<span class="st">"lat"</span>])</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> get_geodesic(p1, p2)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    geodesics.append(g)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    cut_geodesics.append(split_at_jumps(g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell" data-execution_count="196">
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>geodesics_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> gpd.GeoSeries(geodesics))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>geodesics_gdf.crs <span class="op">=</span> <span class="st">"+proj=longlat"</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> gpd.GeoSeries(cut_geodesics))</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.crs <span class="op">=</span> <span class="st">"+proj=longlat"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>geodesics <span class="op">=</span> [] <span class="co"># list of LineStrings along the geodesic</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cut_geodesics <span class="op">=</span> [] <span class="co"># list of the geodesics cut at the dateline</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate over the edges</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> Gnx.edges():</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  p1 <span class="op">=</span> geom.Point(Gnx.nodes[e[<span class="dv">0</span>]][<span class="st">"lon"</span>], Gnx.nodes[e[<span class="dv">0</span>]][<span class="st">"lat"</span>])</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  p2 <span class="op">=</span> geom.Point(Gnx.nodes[e[<span class="dv">1</span>]][<span class="st">"lon"</span>], Gnx.nodes[e[<span class="dv">1</span>]][<span class="st">"lat"</span>])</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  g <span class="op">=</span> get_geodesic(p1, p2)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  geodesics.append(g)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  cut_geodesics.append(split_at_antimeridian(g))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>geodesics_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> gpd.GeoSeries(geodesics))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>geodesics_gdf.crs <span class="op">=</span> <span class="st">"+proj=longlat"</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> gpd.GeoSeries(cut_geodesics))</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.crs <span class="op">=</span> <span class="st">"+proj=longlat"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -622,65 +623,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mollweide-fail-maps" class="level2">
 <h2 class="anchored" data-anchor-id="mollweide-fail-maps">Mollweide fail maps</h2>
 <p>More maps that don’t quite work. The first of these doesn’t break the great circle links at the anti-meridian (dateline) so we get ‘parallels’ from one side of the map to the other when one crosses the anti-meridian. The second</p>
-<div class="cell" data-execution_count="197">
-<details open="">
+<div class="cell" data-execution_count="10">
+<details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> pyplot.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> globe_gdf.to_crs(moll).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>countries.to_crs(moll).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>geodesics_gdf.to_crs(moll).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                                alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> globe_gdf.to_crs(moll).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>countries.to_crs(moll).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.to_crs(moll).plot(</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> globe_gdf.to_crs(moll).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>countries.to_crs(moll).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>geodesics_gdf.to_crs(moll).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>pyplot.axis(<span class="st">"off"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> globe_gdf.to_crs(moll).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>countries.to_crs(moll).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.to_crs(moll).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                                    alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>pyplot.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="197">
-<pre><code>&lt;Axes: &gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>(-19844105.265762024,
+ 19844105.265762024,
+ -9922052.632687533,
+ 9922052.632687533)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 800x400 with 0 Axes&gt;</code></pre>
+<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-12-output-3.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-12-output-4.png" class="img-fluid"></p>
+<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-11-output-3.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="orthographic-not-so-fail-maps" class="level2">
 <h2 class="anchored" data-anchor-id="orthographic-not-so-fail-maps">Orthographic not so fail maps</h2>
-<div class="cell" data-execution_count="198">
-<details open="">
+<div class="cell" data-execution_count="11">
+<details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>atlantic <span class="op">=</span> <span class="st">"+proj=ortho +lon_0=0 +lat_0=0"</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pacific <span class="op">=</span> <span class="st">"+proj=ortho +lon_0=180 +lat_0=0"</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>half_globe <span class="op">=</span> globe_gdf.copy()</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>half_globe.geometry <span class="op">=</span> half_globe.geometry.scale(xfact <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>countries_a <span class="op">=</span> gpd.read_file(<span class="st">"atlantic.gpkg"</span>).to_crs(atlantic)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>countries_p <span class="op">=</span> gpd.read_file(<span class="st">"pacific.gpkg"</span>).to_crs(pacific)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> pyplot.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>half_globe.to_crs(atlantic).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>countries_a.to_crs(atlantic).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.to_crs(atlantic).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>                                        alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">122</span>)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>half_globe.to_crs(pacific).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>countries_p.to_crs(pacific).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.to_crs(pacific).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>                                       alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>atlantic <span class="op">=</span> <span class="st">"+proj=ortho +lon_0=0 +lat_0=0"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pacific <span class="op">=</span> <span class="st">"+proj=ortho +lon_0=180 +lat_0=0"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>half_globe <span class="op">=</span> globe_gdf.copy()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>half_globe.geometry <span class="op">=</span> half_globe.geometry.scale(xfact <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>countries_a <span class="op">=</span> gpd.read_file(<span class="st">"atlantic.gpkg"</span>).to_crs(atlantic)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>countries_p <span class="op">=</span> gpd.read_file(<span class="st">"pacific.gpkg"</span>).to_crs(pacific)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> half_globe.to_crs(atlantic).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>countries_a.to_crs(atlantic).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.to_crs(atlantic).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                                        alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>pyplot.axis(<span class="st">"off"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> half_globe.to_crs(pacific).plot(fc <span class="op">=</span> <span class="st">"#dddddd"</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>countries_p.to_crs(pacific).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"w"</span>, linewidth <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>geodesics_cut_gdf.to_crs(pacific).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                                       alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>pyplot.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="198">
-<pre><code>&lt;Axes: &gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>(-7015950.7, 7015950.7, -6992427.545669697, 6992427.545669697)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="fig6-05-6-06-world-cities-network_files/figure-html/cell-12-output-3.png" class="img-fluid"></p>
 </div>
 </div>
 
