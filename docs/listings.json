@@ -23,6 +23,7 @@
       "/chapters/chap5/fig5-06-simple-maup.html",
       "/chapters/chap5/fig5-07-maup-aggregation.html",
       "/chapters/chap6/links-6.html",
+      "/chapters/chap6/fig6-05-6-06-world-cities-network.html",
       "/chapters/chap7/links-7.html",
       "/chapters/chap8/links-8.html"
     ]
@@ -79,7 +80,8 @@
   {
     "listing": "/chapters/chap6/index.html",
     "items": [
-      "/chapters/chap6/links-6.html"
+      "/chapters/chap6/links-6.html",
+      "/chapters/chap6/fig6-05-6-06-world-cities-network.html"
     ]
   },
   {
