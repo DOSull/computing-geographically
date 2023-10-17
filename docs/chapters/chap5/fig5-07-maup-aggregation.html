@@ -197,6 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
     <div class="quarto-category">extras</div>
   </div>
   </div>
@@ -228,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-a-correlated-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="make-a-correlated-dataset">Make a correlated dataset</h3>
 <p>Using the <code>MASS::mvrnorm()</code> function we can create a dataframe with <code>x</code> and <code>y</code> variables with some requested correlation. We also reorder by the sum of the two variables (in effect from lower-left to upper-right), and number the observations on that basis. This allows us to aggregate observations that are broadly similar or broadly different.</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-2_7c7b733960414e8def7c4d424c549b3e">
+<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-2_70a6d4006df75b54e91e0e6a978a73c6">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>get_correlated_df <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">cor =</span> <span class="fl">0.5</span>) {</span>
@@ -248,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="aggregator-functions">Aggregator functions</h3>
 <p>Next two functions that aggregate either similar or different observations. This is a fairly crude approach but it works. <code>agg_similar()</code> uses integer division to create a ‘grouper’ variable that goes eight 0s, then eight 1s, then eight 2s, and so on up to eight 127s. When <code>group_by</code> is applied using this variable, sets of 8 similar observations are aggregated and the mean taken to give a new dataset.</p>
 <p>Conversely, if the grouper variable is based on the remainder from division by 128, we get 8 sequences of 0, 1, 2, 3,… 127, and when these are aggregated into groups, each will consist of eight observations at widely separated positions in the sequence (i.e., with very different values).</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-3_e835e3693ee61661c3e8e05d3c8c0dfa">
+<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-3_663dab116b77f3ae15b1797ae846401c">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aggregate similar observations</span></span>
@@ -346,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>What do we take from this in a geographical setting? Well, if indeed “near things are more related than distant things”, then in many situations where data are aggregated spatially based on proximity positive correlations are likely to be ‘enhanced’, and we may even see correlations where none exist at the individual level.</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-7_11d6aac2473981d8deda864ae2c0edba">
+<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-7_87129c132688cfd3348353a6374f0254">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

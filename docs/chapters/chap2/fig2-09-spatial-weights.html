@@ -198,6 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
   </div>
   </div>
 
@@ -238,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p><code>spdep</code> requires the data to be in the <code>sp</code> package format, so we convert to that.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-3_c0256c9d30b2373c3568beb36816ec0a">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-3_833adbc55725f66d261d0f0732228a14">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>polys <span class="ot">&lt;-</span> chch <span class="sc">%&gt;%</span></span>
@@ -247,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Now make some points inside the polygons, and also some centroids.</p>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-4_7cd362fa6f3995d966a2e34b1a0afd62">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-4_6876993b4f35e63bf1830ec650bba0d5">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># guaranteed inside the polygons</span></span>
@@ -267,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These are presented in a single figure in the book in four rows of three. Here I show them as sets of three for greater clarity.</p>
 <section id="contiguity-based" class="level3">
 <h3 class="anchored" data-anchor-id="contiguity-based">Contiguity based</h3>
-<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-5_ed1d29fc72f314e14695a702c2ff0812">
+<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-5_9a728cf50ac07e1c44397a26dcdfb032">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
@@ -296,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="k-nearest-neighbours" class="level3">
 <h3 class="anchored" data-anchor-id="k-nearest-neighbours"><em>k</em>-nearest neighbours</h3>
 <p>Note that we use the centroids (<code>pts_c</code>) to calculate the distances, but the points inside the polygons (<code>pts</code>) from <code>st_point_on_surface()</code> for the plotting.</p>
-<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-6_37f492e32faba212a05bcd855bbb1824">
+<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-6_c6183fc85d68b4f5f00e8099e85981ee">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
@@ -325,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="distance-criteria" class="level3">
 <h3 class="anchored" data-anchor-id="distance-criteria">Distance criteria</h3>
 <p>Next, distance criteria, again calculated from centroids, but visualised using the <code>st_point_on_surface()</code>.</p>
-<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-7_7671e832aee29072d346b9ff7d128680">
+<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-7_21a0d56a7921df830e490124a97b1b44">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
@@ -354,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="graph-based-approaches" class="level3">
 <h3 class="anchored" data-anchor-id="graph-based-approaches">Graph-based approaches</h3>
 <p>Finally, some network-based possibilities, <a href="https://en.wikipedia.org/wiki/Delaunay_triangulation">Delaunay triangulation</a>, <a href="https://en.wikipedia.org/wiki/Gabriel_graph">Gabriel graph</a> and the <a href="https://en.wikipedia.org/wiki/Relative_neighborhood_graph">relative neighbour graph</a>.</p>
-<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-8_06c1cb81efeec9a6d8109892d565b61f">
+<div class="cell" data-fig.dim="[8,3]" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-8_e35737a652d92d03bb4dbbacfd14be8b">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
@@ -381,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig2-09-spatial-weights_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-9_a423fc155014897bde9aae0149076057">
+<div class="cell" data-hash="fig2-09-spatial-weights_cache/html/unnamed-chunk-9_8a107181da964a7394aed29aa85d26ed">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

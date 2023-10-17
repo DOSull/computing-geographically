@@ -3,10 +3,15 @@ title: "Figure 4.3: Many Springfields"
 categories: 
   - figures
   - code
+  - R
   - extras
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 Many of the data preparation steps for this figure were initially carried out in QGIS. Here they have been implemented in _R_ only.

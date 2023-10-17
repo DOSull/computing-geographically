@@ -3,10 +3,15 @@ title: "Figure 4.5: Te Reo Māori toponyms in Aotearoa"
 categories: 
   - figures
   - code
+  - R
   - extras
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 I made an alternative version of this map for some slides. It shows off the little-known multiplication by an affine transform matrix superpower that `sf` somewhat surprisingly admits (it felt like a cheat-code when I came across it [here](https://r-spatial.github.io/sf/articles/sf3.html#affine-transformations)).

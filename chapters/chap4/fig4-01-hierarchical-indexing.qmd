@@ -3,10 +3,15 @@ title: "Figure 4.1: Geohashes and hierarchical indexing"
 categories: 
   - figures
   - code
+  - R
   - extras
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 I made this figure by hand in Inkscape, which was _kind of_ fun, if a little tedious, given all the repetition involved. Here I show what I could have done instead in _R_.

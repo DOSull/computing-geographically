@@ -192,6 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
     <div class="quarto-category">extras</div>
   </div>
   </div>
@@ -219,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-z-order-morton-and-hilbert-curves" class="level2">
 <h2 class="anchored" data-anchor-id="the-z-order-morton-and-hilbert-curves">The Z-order (Morton) and Hilbert curves</h2>
 <p>The first two are general indexing schemes with deep mathematical roots, so unsurprisingly there are <em>R</em> packages for working with them. The <a href="https://github.com/s-u/morton"><code>morton</code> package</a> is only available on github so you will need <code>devtools</code> to install it, while <a href="https://cloud.r-project.org/web/packages/hilbert/index.html"><code>hilbert</code></a> is on CRAN. Because I can, I’ve made these bigger than the labouriously hand-crafted examples in the book.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-2_0db2de97c6042d14f9d022871235128a">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-2_169042b051090ba342734d7aed786124">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(morton)</span>
@@ -237,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>That’s it—why didn’t I think of this earlier? And <code>ggplot::geom_path()</code> provides an easy way to plot the ‘curves’.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-3_b613d4db464df7ab916abcd869dca92a">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-3_42f67a099fa85d24a5008483a4b3e2fb">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -267,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Make a 20km square near Wellington, Aotearoa.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-5_532b0744e7c66ddde0fbebce1517f7cf">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-5_3337c1ae5935884e369ea022bbd4ee9c">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.735e6</span> <span class="sc">+</span> <span class="fl">2e4</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>), </span>
@@ -281,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>A convenience function to wrap <code>hsforr::polyfill()</code> so that we retrieve all hexes within a buffered area of the supplied data.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-6_6205f300b4635fb59e7bc2e9e1690801">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-6_15a0685f1616016d7d3f2b5093afdb64">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_hexes <span class="ot">&lt;-</span> <span class="cf">function</span>(poly, resolution, distance) {</span>
@@ -294,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Then get some hexagons.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-7_ed8ec16754ad30d6ced648521406817f">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-7_7b1a4f69bb36b5652ad37914967132bf">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>h3_4 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">4</span>, <span class="dv">10000</span>)</span>
@@ -306,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And make a map. I’m using <code>maptiles::get_tiles()</code> to provide a base map.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-8_f8b70a7a346b657263cabe6c283c8767">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-8_86d397914c59ac21a448b5044bb7c066">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>basemap <span class="ot">&lt;-</span> <span class="fu">get_tiles</span>(square, <span class="at">zoom =</span> <span class="dv">11</span>, <span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>)</span>
@@ -325,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-9_07592490c24535c9097bf772cb7db329">
+<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-9_2deb8afbf4a8a4594e948006f654aff0">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

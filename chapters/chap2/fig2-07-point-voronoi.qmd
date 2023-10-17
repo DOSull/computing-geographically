@@ -3,10 +3,15 @@ title: "Figure 2.7: Voronoi polygons associated with a set of point locations"
 categories: 
   - figures
   - code
+  - R
   - extras
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 This is most conveniently made using `spatstat`, but I've shown it here making a point pattern into an `sf` dataset and then using `sf::st_voronoi()`. 

@@ -195,6 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
     <div class="quarto-category">extras</div>
   </div>
   </div>
@@ -234,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And a quick map to see what we’re working with.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-3_44b26ac35a2512d499bb7346f75cbcd5">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-3_3da62cb9caa4614cba8ba6cb4ae0b733">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(bldgs) <span class="sc">+</span> </span>
@@ -251,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="interpolate-points-along-the-lines-and-polygon-boundaries">Interpolate points along the lines and polygon boundaries</h2>
 <p>Place points along the boundaries of each of these.</p>
 <p>For the roads we combine all elements into a single line object and assign the same <code>id</code> to every point generated.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-4_0afebf2f1726679e4195cb8efcf3726d">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-4_560eef7fb940fe1d0464d449405ccfb4">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>r_pts <span class="ot">&lt;-</span> roads <span class="sc">%&gt;%</span></span>
@@ -265,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>For the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-5_6c8aa750807865014b7daf2c7ddd6b7b">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-5_ca32cd31ef82565c753c4e5bb2092734">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>b_pts <span class="ot">&lt;-</span> bldgs <span class="sc">%&gt;%</span></span>
@@ -286,14 +287,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-the-point-voronoi-polygons" class="level2">
 <h2 class="anchored" data-anchor-id="make-the-point-voronoi-polygons">Make the point Voronoi polygons</h2>
 <p>Now combine the two into a single point dataset.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-6_93328f865a2369b1da5501fa61458bb9">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-6_35809c6304fe782dd3e66bc721bede32">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>all_pts <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(r_pts, b_pts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now make a Voronoi layer from the points.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-7_d32f06176381a41586b1f3f43d469dbb">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-7_855da73c13dc45243934d4465bff476b">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pts_vor <span class="ot">&lt;-</span> all_pts <span class="sc">%&gt;%</span></span>
@@ -305,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>We need to clip this to the extent of the buildings data.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-8_f0685bc877b617d9c8a5946efbf04eb9">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-8_96ac7bd5fa788dc52878fcd921c3bfce">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>extent <span class="ot">&lt;-</span> bldgs <span class="sc">%&gt;%</span></span>
@@ -326,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="finally-form-the-line-and-polygon-voronois" class="level2">
 <h2 class="anchored" data-anchor-id="finally-form-the-line-and-polygon-voronois">Finally form the line and polygon Voronois</h2>
 <p>Now we dissolve (<code>group_by</code>) on the <code>id</code> attribute.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-9_ae2b398804b9b9c2bef797c3b59632de">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-9_c1a3c3bdcefc86c7c1ebcea18fc58725">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>diss_vor <span class="ot">&lt;-</span> pts_vor <span class="sc">%&gt;%</span></span>
@@ -343,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-a-map" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-map">Make a map</h2>
 <p>Finally, we can make a map, similar to the one in Figure 2.8 in the book.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-10_ff6d7b7b91c7976989c788e68c21fe39">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-10_c10c6b4d472871f602adb1fd578a09ad">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(bldgs, <span class="at">bbox =</span> extent) <span class="sc">+</span></span>
@@ -363,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-11_3da357aa356a3601627763c6cc9b3963">
+<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-11_719f3fa894655eb688b0a60ec2d0be2a">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

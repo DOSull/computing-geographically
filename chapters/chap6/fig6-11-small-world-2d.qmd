@@ -1,0 +1,123 @@
+---
+title: "Figure 6.11: The small world rewiring process in two dimensions"
+categories: 
+  - figures
+  - code
+  - R
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+Here the small world network phenomenon based on 'rewiring' is shown for a two-dimensional lattice. This particular network structure is less studied than might be expected, and can be considered a very simplified model for how even a small number of more rapid connections between places in a transportation network can dramatically alter its overall characteristics. 
+
+```{r}
+library(igraph)
+library(dplyr)
+library(tidyr)
+library(scales)
+library(ggplot2)
+```
+
+```{r}
+plot_graph <- function(G, main = "", layout = layout.grid(G), 
+                       vertex.color = "black") {
+  plot(G, main = main,
+       layout = layout, 
+       vertex.label = NA, vertex.color = vertex.color, vertex.size = 5, 
+       vertex.shape = "circle", vertex.lwd = 0, 
+       edge.color = "black", edge.width = 0.5)
+}
+```
+
+## Sample rewired 2D lattices
+It's somewhat useful to see what a range of rewired lattices look like. Here's a bigger range than in the book, with the rewiring probability increasing roughly 3-fold each time.
+
+```{r fig.width=10, fig.height=7}
+par(mar = rep(1, 4))
+layout(matrix(1:6, nrow = 2, byrow = TRUE))
+
+base_graph <- make_lattice(length = 20, dim = 2, nei = 2)
+
+plot_graph(rewire(base_graph, each_edge(0.003)), main = "p = 0.001")
+plot_graph(rewire(base_graph, each_edge(0.009)), main = "p = 0.005")
+plot_graph(rewire(base_graph, each_edge(0.027)), main = "p = 0.025")
+plot_graph(rewire(base_graph, each_edge(0.083)), main = "p = 0.125")
+plot_graph(rewire(base_graph, each_edge(0.250)), main = "p = 0.625")
+plot_graph(rewire(base_graph, each_edge(0.750)), main = "p = 0.625")
+```
+
+## Looking at a wider range of rewiring outcomes
+Below is code to make the other part of Figure 16.11, which shows how mean clustering coefficient and path lengths vary over a wide range of rewiring probablities. The range of probabilities shown here is different than in the published figure, with more of the samples in the middle range of the plot.
+
+```{r}
+probs          <- 10 ^ rnorm(1000, -3)
+probs          <- probs[which(between(probs, 0, 1))]
+keepers        <- c()
+cluster_coeffs <- c()
+mean_path_lens <- c()
+
+for (i in seq_along(probs)) {
+  the_graph <- rewire(base_graph, each_edge(probs[i]))
+  if (components(the_graph)$no == 1) {
+    cluster_coeffs <- c(cluster_coeffs, 
+                        transitivity(the_graph, type = "average"))
+    mean_path_lens <- c(mean_path_lens, 
+                        mean(distances(the_graph)))
+    keepers        <- c(keepers, i)
+  }
+}
+probs <- probs[keepers]
+
+df <- data.frame(p   = probs, 
+                 cc  = cluster_coeffs, 
+                 mpl = mean_path_lens) %>% 
+  mutate(cc = rescale(cc, to = c(0, 1)), 
+         mpl = rescale(mpl, to = c(0, 1))) %>% 
+  # remove first item, p=0 and not plottable
+  pivot_longer(-p) %>%
+  rename(Metric = name)
+```
+
+## How mean path length and clustering coefficient diverge
+There is wide range of rewiring probabilities where 'small world' characteristic of surprising short mean path lengths in the presence of strong local clustering is evident (note the log-scale on the horizontal axis).
+
+```{r}
+ggplot(df, aes(x = p, y = value, colour = Metric)) + 
+  geom_point(cex = .8, alpha = 0.5) + 
+  scale_x_log10() +
+  scale_colour_brewer(palette = "Dark2", 
+                      labels = c("cluster_coeffs coeff.", "Mean path length")) +
+  xlab("Probability of rewiring") +
+  ylab("Value relative to base lattice")
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

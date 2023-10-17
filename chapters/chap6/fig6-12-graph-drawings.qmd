@@ -1,0 +1,85 @@
+---
+title: "Figure 6.12: A simple graph drawn nine different ways"
+categories: 
+  - figures
+  - code
+  - R
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+The main difference here is that the output is in colour, which might make it easier to see what's going on.
+
+```{r}
+library(igraph)
+library(dplyr)
+library(RColorBrewer)
+library(ggplot2)
+```
+
+```{r}
+plot_graph <- function(G, main = "", layout = layout.grid(G), 
+                       vertex.color = "black") {
+  plot(G, main = main,
+       layout = layout, 
+       vertex.label = NA, vertex.color = vertex.color, vertex.size = 5, 
+       vertex.shape = "circle", vertex.frame.width = 0, 
+       edge.color = "black", edge.width = 0.5)
+}
+```
+
+```{r output.width=10, output.height=10}
+the_graph <- make_lattice(length = 20, dim = 2, nei = 1)
+the_graph <- rewire(the_graph, each_edge(1/400))
+vertex_attr(the_graph, 'centrality') <- centralization.closeness(the_graph)$res
+
+# make a bespoke colour for each vertex based on centrality
+base_pal <- brewer.pal(11, 'RdYlBu')
+pal = colorRampPalette(base_pal)
+graphCol = pal(500)[as.numeric(cut(V(the_graph)$centrality, breaks = 500))]
+
+par(mar = rep(1, 4))
+layout(matrix(1:9, 3, 3, byrow = TRUE))
+
+plot_graph(the_graph, layout = layout_randomly(the_graph), vertex.color = graphCol)
+plot_graph(the_graph, layout = layout.circle(the_graph), vertex.color = graphCol)
+plot_graph(the_graph, layout = layout_with_mds(the_graph), vertex.color = graphCol)
+plot_graph(the_graph, layout = layout_as_tree(the_graph), vertex.color = graphCol)
+plot_graph(the_graph, vertex.color = graphCol)
+plot_graph(the_graph, layout = layout_as_tree(the_graph, circular = TRUE), vertex.color = graphCol)
+plot_graph(the_graph, layout = layout.kamada.kawai(the_graph), vertex.color = graphCol)
+plot_graph(the_graph, layout = layout.drl(the_graph), vertex.color = graphCol)
+plot_graph(the_graph, layout = layout.fruchterman.reingold(the_graph), vertex.color = graphCol)
+```
+
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

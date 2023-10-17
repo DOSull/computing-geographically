@@ -3,9 +3,14 @@ title: "Figure 2.9: A range of spatial weights applied to polygon data"
 categories: 
   - figures
   - code
+  - R
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 This figure is intended to demonstrate the diversity of possible conceptualisations of 'neighbour' that are often deployed in spatial analysis contexts, and represent possible different approaches to relative space. 

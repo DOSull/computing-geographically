@@ -3,9 +3,14 @@ title: "Figure 2.4: Two point patterns in absolute space"
 categories: 
   - figures
   - code
+  - R
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 Although it is labelled 'point patterns in absolute space', the real (ahem) _point_ of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.
@@ -30,7 +35,7 @@ Calculate nearest neighbour distances.
 ```{r}
 nn1 <- nndist(pp1)
 nn2 <- nndist(pp2)
-breaks <- seq(0, max(nn2), length.out = 10)
+breaks <- seq(0, round(max(c(nn1, nn2)), 1), length.out = 10)
 ```
 
 And plot them.

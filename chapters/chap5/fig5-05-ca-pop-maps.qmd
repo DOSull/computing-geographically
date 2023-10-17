@@ -3,9 +3,14 @@ title: "Figure 5.5: Maps of areas with widely varying populations"
 categories: 
   - figures
   - code
+  - R
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 Not too much to say here, except that it would be nice if somebody would develop a better approach to mapping US-wide data. Counties really are a terrible base unit.

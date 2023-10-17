@@ -185,6 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
     <div class="quarto-category">extras</div>
   </div>
   </div>
@@ -211,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>There are a few steps making a <code>spatstat</code> point pattern into a simple features dataset…</p>
-<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-2_83ee820924418b8ca959c1984e30ac0a">
+<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-2_c0b19de49ce7219209631d3701dd3bf0">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">rpoispp</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
@@ -220,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And there are a few more making a point dataset into a Voronoi polygon dataset.</p>
-<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-3_3cbf2f9bbec3e7d8f72ba10fd0763c13">
+<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-3_36d4c33cb846fd7472a68d8b084fe9da">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pp_vor <span class="ot">&lt;-</span> pp <span class="sc">%&gt;%</span></span>
@@ -231,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And finally a map.</p>
-<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-4_8e209ce9855369fab3a72a96aa6fd13e">
+<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-4_e5ecc2f39044e4929db839cc10a027d7">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(pp_vor, <span class="at">bbox =</span> pp <span class="sc">%&gt;%</span> <span class="fu">st_union</span>() <span class="sc">%&gt;%</span> <span class="fu">st_buffer</span>(<span class="fl">0.05</span>)) <span class="sc">+</span> </span>
@@ -244,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig2-07-point-voronoi_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-5_116013e7e5949b11c4a6690cbe417e86">
+<div class="cell" data-hash="fig2-07-point-voronoi_cache/html/unnamed-chunk-5_a44fbad5e7b668b1ce23c78e0bdf3e8a">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

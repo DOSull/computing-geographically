@@ -1,0 +1,68 @@
+---
+title: "Figure 6.10: The small world rewiring process"
+categories: 
+  - figures
+  - code
+  - R
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+The figure in the book shows only three rewiring steps for the sake of space. Here we show 11 with a probability of rewiring at each step of 0.05.
+
+```{r message=FALSE, warning=FALSE}
+library(sf)
+library(dplyr)
+library(tmap)
+library(igraph)
+
+plot_graph <- function(G, main='', vertex.color='black') {
+  plot(G, main = main,
+       layout = layout.circle(G), 
+       vertex.label = NA, vertex.color = vertex.color, vertex.size = 5, 
+       vertex.shape = 'circle', vertex.lwd = 0, 
+       edge.color = 'black', edge.width = 0.5)
+}
+
+par(mar = rep(1, 4))
+layout(matrix(1:12, nrow = 3, byrow = TRUE))
+
+the_graph <- make_lattice(50, dim = 1, circular = TRUE)
+plot_graph(the_graph)
+
+for (i in 1:11) {
+  the_graph <- rewire(the_graph, each_edge(0.05))
+  plot_graph(the_graph)
+}
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

@@ -185,6 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
   </div>
   </div>
 
@@ -201,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>This figure shows how you can’t recover raster information after aggregation.</p>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-1_91ba1caabc20b30b21985c93b63f898d">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-1_e3f0ac279a89a5acb84ca334950c1c34">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
@@ -210,14 +211,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Get the data—you’ll need some of your own data here.</p>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-2_a0c815d276cee0fdd3d91571e884c7f2">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-2_7870669f03a47718cb5055849fefb3be">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"raster-data.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Aggregate and disaggregate by 10</p>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-3_fb3e54510a81e90d637e18f511c665bc">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-3_55b1a9e6611c5459d6b88bacb10b9820">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>z10 <span class="ot">&lt;-</span> z <span class="sc">%&gt;%</span> </span>
@@ -228,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Dissolve to polygons, so we can make smaller image files and control the colouring. This step is <strong>slow</strong>.</p>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-4_5f86eb06dce49e537e95c86348443b12">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-4_0ef72f993e50bd66831e19ea82f46a27">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>z_p <span class="ot">&lt;-</span> z <span class="sc">%&gt;%</span></span>
@@ -245,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Make maps</p>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-5_3591dad7e5a98bd302d8a266951af90b">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-5_40cb99639878358a8e788a0c11f0dda1">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(z_p) <span class="sc">+</span> </span>
@@ -272,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig3-10-raster-resolution_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-6_5572267833420af6344202ace8ecfe7c">
+<div class="cell" data-hash="fig3-10-raster-resolution_cache/html/unnamed-chunk-6_40ef13b8b0c289e440f7aa97b5ca6806">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

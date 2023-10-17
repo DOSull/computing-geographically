@@ -15,6 +15,7 @@ listing:
     - "chapters/chap5/fig5-0*.qmd"
     - "chapters/chap6/links*.qmd"
     - "chapters/chap6/fig6-0*.*"
+    - "chapters/chap6/fig6-1*.*"
     - "chapters/chap7/links*.qmd"
     - "chapters/chap8/links*.qmd"
   sort: false

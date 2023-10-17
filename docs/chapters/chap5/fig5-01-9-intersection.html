@@ -185,6 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
     <div class="quarto-category">extras</div>
   </div>
   </div>
@@ -227,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Map and label these for reference.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-2_5a8aa6c65a5cfacf0991d467d43f42fb">
+<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-2_9e84c9b69d9e31ceb842f5f1eeaafeed">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lines <span class="ot">&lt;-</span> polys <span class="sc">%&gt;%</span> <span class="fu">st_cast</span>(<span class="st">"MULTILINESTRING"</span>) <span class="co"># for placing text labels</span></span>
@@ -250,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Now we can run various tests against the spatial predicates in turn. For example <code>st_disjoint</code> tells us the following.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-3_711840730f4cc33cad3216c582338069">
+<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-3_3e3fab51da90f81f4022bb958a89e146">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>polys <span class="sc">%&gt;%</span> <span class="fu">st_disjoint</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -258,9 +259,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>Sparse geometry binary predicate list of length 7, where the predicate
 was `disjoint'
- 1: 4, 5, 6, 7
- 2: 4, 5, 6, 7
- 3: 6, 7
+ 1: 3, 4, 5, 6, 7
+ 2: 3, 4, 5, 6, 7
+ 3: 1, 2, 6, 7
  4: 1, 2, 6, 7
  5: 1, 2, 6, 7
  6: 1, 2, 3, 4, 5
@@ -269,7 +270,7 @@ was `disjoint'
 </div>
 <p>We can tabulate the result of applying all the spatial predicates to these polygons into a table.</p>
 <p>The details of how this is done don’t matter greatly, but if you are interested click into the code below. The core of it is based on the various <code>st_*</code> functions such as <code>st_intersects</code> or <code>st_contains</code>. These correspond, more or less to the relations identified in Figure 5.1. The spatial predicates available in the <code>sf</code> package in <em>R</em> correspond to those implemented in spatial databases such as <a href="https://postgis.net/">PostGIS</a>.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-4_9e781aa15fe77d27410dab25912d6d74">
+<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-4_f24fe466dbf36a72836d0eb95ec944f9">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>get_spatial_query_as_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(data, predicate) {</span>
@@ -325,10 +326,10 @@ was `disjoint'
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">4 5 6 7</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">3 4 5 6 7</td>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">1 2</td>
-<td style="text-align: left;">1 2 3</td>
+<td style="text-align: left;">1 2</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1 2</td>
 <td style="text-align: left;">1 2</td>
@@ -337,10 +338,10 @@ was `disjoint'
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">4 5 6 7</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">3 4 5 6 7</td>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">1 2</td>
-<td style="text-align: left;">1 2 3</td>
+<td style="text-align: left;">1 2</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1 2</td>
 <td style="text-align: left;">1 2</td>
@@ -349,10 +350,10 @@ was `disjoint'
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">6 7</td>
-<td style="text-align: left;">1 2</td>
+<td style="text-align: left;">1 2 6 7</td>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">1 2 3 4 5</td>
+<td style="text-align: left;">3 4 5</td>
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">3 4 5</td>
 <td style="text-align: left;">3</td>
@@ -411,7 +412,7 @@ was `disjoint'
 </table>
 </div>
 </div>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-5_d319bf821a01e0e5542139c70052d976">
+<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-5_c8b1021071a1eee775efb4dd3c143d4c">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

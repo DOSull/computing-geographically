@@ -185,6 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">figures</div>
     <div class="quarto-category">code</div>
+    <div class="quarto-category">R</div>
   </div>
   </div>
 
@@ -200,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-1_33058b42a21ea97769e3ea4477f80465">
+<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-1_f9bee7f4e5249e161274c26032f7862c">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -210,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Use the supplied <code>World</code> dataset (in lat-lon EPSG 4326) and make projections as required.</p>
-<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-2_8b51ab49446c81d3dc103a483cd6eb4a">
+<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-2_ee8ec7c69f797fe1d7c3a20bcec5ee2b">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"World"</span>) </span>
@@ -223,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>That’s pretty much it. So here are the maps.</p>
-<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-3_0ea91ef604b6a9b07fdd5dec6c768233">
+<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-3_af1b2f4eada84d536325ad217aaf2d30">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(world, <span class="at">bbox =</span> <span class="fu">bb</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">180</span>, <span class="dv">180</span>),</span>
@@ -249,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="fig3-07-platte-carre-and-lcea_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-4_8b608e7e08d0a0c505ddc5d681b5a49c">
+<div class="cell" data-hash="fig3-07-platte-carre-and-lcea_cache/html/unnamed-chunk-4_c84c608e1201f683fe54cbd7d9de287c">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>

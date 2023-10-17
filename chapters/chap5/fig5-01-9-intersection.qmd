@@ -3,10 +3,15 @@ title: "Figure 5.1: The 9-intersection model of topological relations"
 categories: 
   - figures
   - code
+  - R
   - extras
 execute: 
   cache: true
   freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
 ---
 
 This page attempts to show the various [spatial predicates of the 9-intersection model](https://en.wikipedia.org/wiki/DE-9IM#Spatial_predicates) presented in Figure 5.1 in code.
