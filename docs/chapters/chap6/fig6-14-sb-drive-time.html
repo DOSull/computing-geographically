@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.336">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Computing Geographically Bonus Material - Figure 6.14: Relative time map of the Santa Barbara street network</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><em>Computing Geographically</em> Bonus Material</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-chapters" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Chapters</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-chapters">    
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap1/index.html" rel="" target="">
+ <span class="dropdown-text">Building Bridges</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap2/index.html" rel="" target="">
+ <span class="dropdown-text">Location and Space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap3/index.html" rel="" target="">
+ <span class="dropdown-text">Scale and Projection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap4/index.html" rel="" target="">
+ <span class="dropdown-text">Place and Meaning in Space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap5/index.html" rel="" target="">
+ <span class="dropdown-text">Lines and Areas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap6/index.html" rel="" target="">
+ <span class="dropdown-text">Relations, Networks, Flows</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap7/index.html" rel="" target="">
+ <span class="dropdown-text">Time and Dynamics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap8/index.html" rel="" target="">
+ <span class="dropdown-text">Process and Pattern</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../chapters/chap9/index.html" rel="" target="">
+ <span class="dropdown-text">Doing Giscience Doing Geography</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../index-listing.html" rel="" target="">
+ <span class="menu-text">All the pages</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#travel-time-based-reprojection-of-a-network" id="toc-travel-time-based-reprojection-of-a-network" class="nav-link active" data-scroll-target="#travel-time-based-reprojection-of-a-network">Travel time based reprojection of a network</a></li>
+  <li><a href="#download-and-prep-the-street-network" id="toc-download-and-prep-the-street-network" class="nav-link" data-scroll-target="#download-and-prep-the-street-network">Download and prep the street network</a>
+  <ul class="collapse">
+  <li><a href="#some-geography-stuff" id="toc-some-geography-stuff" class="nav-link" data-scroll-target="#some-geography-stuff">Some geography stuff…</a></li>
+  </ul></li>
+  <li><a href="#handling-the-edge-travel-times" id="toc-handling-the-edge-travel-times" class="nav-link" data-scroll-target="#handling-the-edge-travel-times">Handling the edge travel times</a>
+  <ul class="collapse">
+  <li><a href="#calculate-node-distances-from-centre-node" id="toc-calculate-node-distances-from-centre-node" class="nav-link" data-scroll-target="#calculate-node-distances-from-centre-node">Calculate node distances from centre node</a></li>
+  <li><a href="#dictionary-of-x-y-offsets-from-centre-node-indexed-by-node" id="toc-dictionary-of-x-y-offsets-from-centre-node-indexed-by-node" class="nav-link" data-scroll-target="#dictionary-of-x-y-offsets-from-centre-node-indexed-by-node">Dictionary of x y offsets from centre node indexed by node</a></li>
+  <li><a href="#put-all-this-in-a-table-for-safe-keeping" id="toc-put-all-this-in-a-table-for-safe-keeping" class="nav-link" data-scroll-target="#put-all-this-in-a-table-for-safe-keeping">Put all this in a table for safe keeping!</a></li>
+  </ul></li>
+  <li><a href="#now-make-geodataframes-and-maps" id="toc-now-make-geodataframes-and-maps" class="nav-link" data-scroll-target="#now-make-geodataframes-and-maps">Now make <code>GeoDataFrame</code>s and maps</a></li>
+  <li><a href="#plots-that-include-the-edges" id="toc-plots-that-include-the-edges" class="nav-link" data-scroll-target="#plots-that-include-the-edges">Plots that include the edges</a>
+  <ul class="collapse">
+  <li><a href="#standard-map" id="toc-standard-map" class="nav-link" data-scroll-target="#standard-map">Standard map</a></li>
+  <li><a href="#time-based-is-trickier" id="toc-time-based-is-trickier" class="nav-link" data-scroll-target="#time-based-is-trickier">Time based is trickier…</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Figure 6.14: Relative time map of the Santa Barbara street network</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">figures</div>
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">python</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="travel-time-based-reprojection-of-a-network" class="level2">
+<h2 class="anchored" data-anchor-id="travel-time-based-reprojection-of-a-network">Travel time based reprojection of a network</h2>
+<p>This started out as the notebook developed by <a href="https://geoffboeing.com/">Geoff Boeing</a> available <a href="https://github.com/gboeing/osmnx-examples/blob/master/notebooks/13-isolines-isochrones.ipynb">here</a> although by now it has been very heavily modified!</p>
+<p>I was lucky enough to co-advise Geoff as a PhD student at Berkeley, and when he announced that he was going to build <a href="https://github.com/gboeing/osmnx"><code>osmnx</code></a> as <em>part</em> of his project—only a part, mind!—I did the proper thing and expressed concern that he was being overly ambitious. PhD advising is mostly about steering students towards the possible, and reining in their wilder ideas… at least that is the common wisdom. So much for that: Geoff built it and the rest is (niche) history.</p>
+<p>[If I have one criticism of <code>osmnx</code> it is that the code gets updated so often that function names are subject to rapid change. You may find that some of what follows doesn’t work in more recent versions than 1.6.0.]</p>
+<p>Anyway… as usual we need some libraries:</p>
+<div class="cell" data-execution_count="68">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> igraph</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>osmnx.settings.log_console <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>osmnx.settings.use_cache <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="download-and-prep-the-street-network" class="level2">
+<h2 class="anchored" data-anchor-id="download-and-prep-the-street-network">Download and prep the street network</h2>
+<p>What <code>osmnx</code> excels at is pulling (generally messy) street network data and cleaning it up for analysis. Here’s how it works:</p>
+<div class="cell" data-execution_count="69">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure the place, network type, trip times, and travel speed</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">"Santa Barbara, California"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>network_type <span class="op">=</span> <span class="st">"drive"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> osmnx.graph_from_place(place, network_type <span class="op">=</span> network_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The network needs to be connected for any of the following to work reliably, so we extract the largest component and throw away everything else. I can’t vouch for this being the best way to accomplish this, but it seems to work.</p>
+<div class="cell" data-execution_count="70">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> G.to_undirected() <span class="co"># required for extraction of giant component</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Gcc <span class="op">=</span> <span class="bu">sorted</span>(networkx.connected_components(G), key <span class="op">=</span> <span class="bu">len</span>, reverse <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> G.subgraph(Gcc[<span class="dv">0</span>]).copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="some-geography-stuff" class="level3">
+<h3 class="anchored" data-anchor-id="some-geography-stuff">Some geography stuff…</h3>
+<p>This line will project the data to an appropriate UTM projection, and then we can make an appropriately UTM projected <code>geopandas.GeoDataFrame</code>.</p>
+<div class="cell" data-execution_count="71">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> osmnx.project_graph(G)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gdf_nodes <span class="op">=</span> osmnx.graph_to_gdfs(G, edges <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>CRS <span class="op">=</span> gdf_nodes.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Next we make a <a href="https://en.wikipedia.org/wiki/Convex_hull"><em>convex hull</em></a> of the nodes, and determine its centroid, then use this to find the node nearest the centroid. We also make a simple <code>GeoSeries</code> so we can check what we’ve done makes sense.</p>
+<div class="cell" data-execution_count="72">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>convex_hull <span class="op">=</span> gdf_nodes[<span class="st">"geometry"</span>].unary_union.convex_hull</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> convex_hull.centroid.xy</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>centre_node <span class="op">=</span> osmnx.distance.nearest_nodes(G, x[<span class="dv">0</span>], y[<span class="dv">0</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> geopandas.GeoSeries([Point(x[<span class="dv">0</span>], y[<span class="dv">0</span>])])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> geopandas.GeoSeries(Point(G.nodes[centre_node][<span class="st">"x"</span>],</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                               G.nodes[centre_node][<span class="st">"y"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>And we can make a sanity check plot</p>
+<div class="cell" data-execution_count="73">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> gdf_nodes.plot(markersize <span class="op">=</span> <span class="fl">0.75</span>, figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">16</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>geopandas.GeoSeries([convex_hull]).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"#00000000"</span>, ec <span class="op">=</span> <span class="st">"k"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>p1.plot(ax <span class="op">=</span> ax, marker <span class="op">=</span> <span class="st">"o"</span>, markersize <span class="op">=</span> <span class="dv">50</span>, color <span class="op">=</span> <span class="st">"k"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>p2.plot(ax <span class="op">=</span> ax, marker <span class="op">=</span> <span class="st">"x"</span>, markersize <span class="op">=</span> <span class="dv">80</span>, color <span class="op">=</span> <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="fig6-14-sb-drive-time_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="handling-the-edge-travel-times" class="level2">
+<h2 class="anchored" data-anchor-id="handling-the-edge-travel-times">Handling the edge travel times</h2>
+<p>The data in OSM networks is fairly <em>ad hoc</em> in this regard, so the below has been assembled by trial and error. There may be better tools available for cleaning up network data attributes.</p>
+<p>We assume a <code>default_speed</code> of 30 km/h expressed in metres per minute (i.e.&nbsp;500!). Where we find maximum speed information in the data we use that instead.</p>
+<p>We assume a delay at intersections—this might not make total sense, but slows things down on major arterials.</p>
+<p><code>speed_units_per_metre</code> is the maxspeed attribute from OSM and for most jurisdictions is km, so 0.001 per metre.</p>
+<div class="cell" data-execution_count="74">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>default_speed <span class="op">=</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">1000</span> <span class="op">/</span> <span class="dv">60</span> <span class="co"># default driving speed in m / min</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>intersection_delay <span class="op">=</span> <span class="fl">.33</span> <span class="co"># wait time at intersection in minutes</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>units_per_metre <span class="op">=</span> <span class="fl">0.001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Some hackery below to convert appropriately if <code>maxspeed</code> is missing or is a list of some kind or is expressed in mph.</p>
+<div class="cell" data-execution_count="75">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add an edge attribute for time in minutes required to traverse each edge</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> data <span class="kw">in</span> G.edges.values():</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    len_seg <span class="op">=</span> data[<span class="st">"length"</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"time"</span>] <span class="op">=</span> len_seg <span class="op">/</span> default_speed</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"maxspeed"</span> <span class="kw">in</span> data:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        max_speed <span class="op">=</span> data[<span class="st">"maxspeed"</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(max_speed) <span class="kw">is</span> <span class="bu">list</span>:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            max_speed <span class="op">=</span> max_speed[<span class="dv">0</span>]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">";"</span> <span class="kw">in</span> max_speed:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            max_speed <span class="op">=</span> max_speed.split(<span class="st">";"</span>)[<span class="dv">0</span>]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"mph"</span> <span class="kw">in</span> max_speed:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            max_speed <span class="op">=</span> max_speed.split()[<span class="dv">0</span>]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            units_per_metre <span class="op">=</span> <span class="fl">0.0006213712</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> max_speed.isnumeric():</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            max_speed <span class="op">=</span> <span class="bu">float</span>(max_speed)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        data[<span class="st">"time"</span>] <span class="op">=</span> len_seg <span class="op">*</span> units_per_metre <span class="op">/</span> max_speed <span class="op">*</span> <span class="dv">60</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"time"</span>] <span class="op">+=</span> intersection_delay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="calculate-node-distances-from-centre-node" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-node-distances-from-centre-node">Calculate node distances from centre node</h3>
+<p>Now we can determine network travel times from our centre node to every other node. While assembling this notebook I encountered a problem with the <code>networkx</code> function <code>single_source_path_length()</code> function, which can be unreliable with floating point edge weights (in this cast the <code>time</code> attribute). As a workaround I am using <code>igraph</code> instead.</p>
+<div class="cell" data-execution_count="76">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>centre_node_index <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> G.nodes].index(centre_node)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>iG <span class="op">=</span> igraph.Graph.from_networkx(G)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>iG.vs[centre_node_index]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>node_travel_times <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  G.nodes, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  iG.distances([centre_node_index], weights <span class="op">=</span> <span class="st">"time"</span>, mode <span class="op">=</span> <span class="st">"all"</span>)[<span class="dv">0</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We also need the bearings of every node from the centre node.</p>
+<div class="cell" data-execution_count="77">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume that nodes have x and y attributes and these are in a projected</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># coordinate system such that simple trigonometry will give bearing</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bearing(G, n0, n1):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    N0 <span class="op">=</span> G.nodes[n0]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    N1 <span class="op">=</span> G.nodes[n1]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n1, <span class="op">\</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        math.atan2((N1[<span class="st">"y"</span>] <span class="op">-</span> N0[<span class="st">"y"</span>]), (N1[<span class="st">"x"</span>] <span class="op">-</span> N0[<span class="st">"x"</span>]))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                 </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>node_bearings <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  [bearing(G, centre_node, n) <span class="cf">for</span> n <span class="kw">in</span> node_travel_times.keys()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>and… a function to return <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> offsets from the centre node, given their distance and bearing.</p>
+<div class="cell" data-execution_count="78">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dxdy(d, b):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d <span class="op">*</span> math.cos(b), d <span class="op">*</span> math.sin(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="dictionary-of-x-y-offsets-from-centre-node-indexed-by-node" class="level3">
+<h3 class="anchored" data-anchor-id="dictionary-of-x-y-offsets-from-centre-node-indexed-by-node">Dictionary of x y offsets from centre node indexed by node</h3>
+<p>Keep in mind distances are now travel time based, while bearings remain ‘true’, so that less accessible locations are pushed farther from centre, and more accessible ones pulled nearer in the direction of the bearting. Note that all angles here are in radians.</p>
+<div class="cell" data-execution_count="79">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>node_dxdys <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  [(n, dxdy(node_travel_times[n], node_bearings[n])) </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> n <span class="kw">in</span> node_travel_times.keys()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="put-all-this-in-a-table-for-safe-keeping" class="level3">
+<h3 class="anchored" data-anchor-id="put-all-this-in-a-table-for-safe-keeping">Put all this in a table for safe keeping!</h3>
+<div class="cell" data-execution_count="80">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="op">=</span> pandas.DataFrame(data <span class="op">=</span> {<span class="st">"osmid"</span>: <span class="bu">list</span>(node_travel_times.keys())})</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df_nodes[<span class="st">"tx"</span>] <span class="op">=</span> [node_dxdys[i][<span class="dv">0</span>] <span class="cf">for</span> i <span class="kw">in</span> df_nodes.osmid]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df_nodes[<span class="st">"ty"</span>] <span class="op">=</span> [node_dxdys[i][<span class="dv">1</span>] <span class="cf">for</span> i <span class="kw">in</span> df_nodes.osmid]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df_nodes[<span class="st">"x"</span>] <span class="op">=</span> [G.nodes[i][<span class="st">"x"</span>] <span class="cf">for</span> i <span class="kw">in</span> df_nodes.osmid]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_nodes[<span class="st">"y"</span>] <span class="op">=</span> [G.nodes[i][<span class="st">"y"</span>] <span class="cf">for</span> i <span class="kw">in</span> df_nodes.osmid]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df_nodes[<span class="st">"time"</span>] <span class="op">=</span> [node_travel_times[i] <span class="cf">for</span> i <span class="kw">in</span> df_nodes.osmid]</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>df_nodes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="80">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">osmid</th>
+<th data-quarto-table-cell-role="th">tx</th>
+<th data-quarto-table-cell-role="th">ty</th>
+<th data-quarto-table-cell-role="th">x</th>
+<th data-quarto-table-cell-role="th">y</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>164707756</td>
+<td>-10.095840</td>
+<td>0.516131</td>
+<td>248112.235570</td>
+<td>3.813112e+06</td>
+<td>10.109025</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>164707812</td>
+<td>-10.891007</td>
+<td>-0.676010</td>
+<td>247856.180584</td>
+<td>3.812756e+06</td>
+<td>10.911967</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>165442802</td>
+<td>-10.533059</td>
+<td>0.734952</td>
+<td>248000.588151</td>
+<td>3.813176e+06</td>
+<td>10.558668</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1467958591</td>
+<td>-9.136781</td>
+<td>-0.608773</td>
+<td>248676.344687</td>
+<td>3.812796e+06</td>
+<td>9.157039</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>165337776</td>
+<td>-11.392333</td>
+<td>-0.672562</td>
+<td>247771.128942</td>
+<td>3.812761e+06</td>
+<td>11.412169</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Write this out to disk and read it back in. This means you can start here next time if you prefer…</p>
+<div class="cell" data-execution_count="81">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_nodes.to_csv(<span class="st">"nodes.csv"</span>, index <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="op">=</span> pandas.read_csv(<span class="st">"nodes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="now-make-geodataframes-and-maps" class="level2">
+<h2 class="anchored" data-anchor-id="now-make-geodataframes-and-maps">Now make <code>GeoDataFrame</code>s and maps</h2>
+<p>This is pretty simple now we have all the data.</p>
+<div class="cell" data-execution_count="82">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_gdf_xy <span class="op">=</span> geopandas.GeoDataFrame(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> df_nodes[[<span class="st">"time"</span>]], </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> geopandas.GeoSeries(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    [Point(p[<span class="dv">0</span>], p[<span class="dv">1</span>]) <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">zip</span>(df_nodes.x, df_nodes.y)]))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>n_gdf_xy.set_crs(CRS)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>n_gdf_txty <span class="op">=</span> geopandas.GeoDataFrame(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> df_nodes[[<span class="st">"time"</span>]],</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> geopandas.GeoSeries(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    [Point(p[<span class="dv">0</span>], p[<span class="dv">1</span>]) <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">zip</span>(df_nodes.tx, df_nodes.ty)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>And make two maps of the nodes.</p>
+<div class="cell" data-execution_count="83">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize <span class="op">=</span> (<span class="dv">16</span>, <span class="dv">8</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>n_gdf_xy.plot(ax <span class="op">=</span> ax, column <span class="op">=</span> <span class="st">"time"</span>, markersize <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Santa Barbara in geodetic space"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">122</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>n_gdf_txty.plot(ax <span class="op">=</span> ax, column <span class="op">=</span> <span class="st">"time"</span>, markersize <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Santa Barbara in drivetime space"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="83">
+<pre><code>Text(0.5, 1.0, 'Santa Barbara in drivetime space')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="fig6-14-sb-drive-time_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="plots-that-include-the-edges" class="level2">
+<h2 class="anchored" data-anchor-id="plots-that-include-the-edges">Plots that include the edges</h2>
+<section id="standard-map" class="level3">
+<h3 class="anchored" data-anchor-id="standard-map">Standard map</h3>
+<p>The geodetic one is easy—just use the <code>osmnx</code> plotting function</p>
+<div class="cell" data-execution_count="84">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>osmnx.plot_graph(G, node_color <span class="op">=</span> <span class="st">"k"</span>, node_size <span class="op">=</span> <span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">12</span>, <span class="dv">8</span>),</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                           edge_color <span class="op">=</span> <span class="st">"k"</span>, edge_linewidth <span class="op">=</span> <span class="fl">0.5</span>, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                           bgcolor <span class="op">=</span> <span class="st">"w"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="fig6-14-sb-drive-time_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>(&lt;Figure size 1200x800 with 1 Axes&gt;, &lt;Axes: &gt;)</code></pre>
+</div>
+</div>
+</section>
+<section id="time-based-is-trickier" class="level3">
+<h3 class="anchored" data-anchor-id="time-based-is-trickier">Time based is trickier…</h3>
+<p>First we need to make a new graph with the time based positions as the node positions</p>
+<div class="cell" data-execution_count="85">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>G_time <span class="op">=</span> G.copy()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, dxdy <span class="kw">in</span> node_dxdys.items():</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    G_time.nodes()[n][<span class="st">"x"</span>] <span class="op">=</span> dxdy[<span class="dv">0</span>]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    G_time.nodes()[n][<span class="st">"y"</span>] <span class="op">=</span> dxdy[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now… for reasons unclear to me, simply plotting this using <code>osmnx</code> will not work—presumably (yet again!) something to do with projections. Instead we need to make a <code>matplotlib</code> <code>LineCollection</code> and plot that… so here goes…</p>
+<div class="cell" data-execution_count="86">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the plot limits</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>node_xs <span class="op">=</span> [<span class="bu">float</span>(n[<span class="st">"x"</span>]) <span class="cf">for</span> n <span class="kw">in</span> G_time.nodes.values()]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>node_ys <span class="op">=</span> [<span class="bu">float</span>(n[<span class="st">"y"</span>]) <span class="cf">for</span> n <span class="kw">in</span> G_time.nodes.values()]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>W, S, E, N <span class="op">=</span> (<span class="bu">min</span>(node_xs) <span class="op">-</span> <span class="dv">1</span>, <span class="bu">min</span>(node_ys) <span class="op">-</span> <span class="dv">1</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>              <span class="bu">max</span>(node_xs) <span class="op">+</span> <span class="dv">1</span>, <span class="bu">max</span>(node_ys) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>bbox_aspect <span class="op">=</span> (N <span class="op">-</span> S) <span class="op">/</span> (E <span class="op">-</span> W)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>fig_h <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>fig_w <span class="op">=</span> <span class="dv">12</span> <span class="op">/</span> bbox_aspect</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># create the figure and axis</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (fig_w, fig_h))</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(W, E)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(S, N)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> []</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> u, v, data <span class="kw">in</span> G_time.edges.keys():</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    lines.append([(G_time.nodes[u][<span class="st">"x"</span>], G_time.nodes[u][<span class="st">"y"</span>]),</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                  (G_time.nodes[v][<span class="st">"x"</span>], G_time.nodes[v][<span class="st">"y"</span>])])</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.collections <span class="im">import</span> LineCollection</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>ax.add_collection(LineCollection(lines, colors <span class="op">=</span> <span class="st">"k"</span>, linewidth <span class="op">=</span> <span class="fl">.5</span>))</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>(-24.923310674353207,
+ 27.844793379718062,
+ -19.572596660049093,
+ 21.215954647646313)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="fig6-14-sb-drive-time_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<p>© 2023 David O’Sullivan</p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
