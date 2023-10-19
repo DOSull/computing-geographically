@@ -4,7 +4,6 @@ categories:
   - figures
   - code
   - R
-  - extras
 execute: 
   cache: true
   freeze: auto

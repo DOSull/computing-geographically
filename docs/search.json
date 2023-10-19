@@ -18,7 +18,7 @@
     "href": "chapters/chap4/index.html",
     "title": "Chapter 4",
     "section": "",
-    "text": "Links for Chapter 4\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.1: Geohashes and hierarchical indexing\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.3: Many Springfields\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.5: Te Reo Māori toponyms in Aotearoa\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 4\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.1: Geohashes and hierarchical indexing\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.3: Many Springfields\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.5: Te Reo Māori toponyms in Aotearoa\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap4/fig4-03-springfields.html",
@@ -179,14 +179,14 @@
     "href": "chapters/chap2/index.html",
     "title": "Chapter 2",
     "section": "",
-    "text": "This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html",
     "href": "chapters/chap2/fig2-08-non-point-voronoi.html",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "",
-    "text": "This figure was mostly prepared in QGIS, but an R version is provided here to show the steps involved.\nDifferences between thae versions are due to the original being prepared across a wider extent which was then clipped down to the final extent. The input data used here are already clipped to the final extent meaning there are anomalies near the edges.\nCode\nlibrary(sf)\nlibrary(dplyr)\nlibrary(tmap)\n© 2023 David O’Sullivan"
+    "text": "This figure was mostly prepared in QGIS, but an R version is provided here to show the steps involved.\nDifferences between the versions are due to the original being prepared across a wider extent which was then clipped down to the final extent. The input data used here are already clipped to the final extent meaning there may be anomalies near the edges.\nCode\nlibrary(sf)\nlibrary(dplyr)\nlibrary(tmap)\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#load-data",
@@ -200,7 +200,7 @@
     "href": "chapters/chap2/fig2-08-non-point-voronoi.html#interpolate-points-along-the-lines-and-polygon-boundaries",
     "title": "Figure 2.8: Voronoi polygons associated with lines and polygons",
     "section": "Interpolate points along the lines and polygon boundaries",
-    "text": "Interpolate points along the lines and polygon boundaries\nPlace points along the boundaries of each of these.\nFor the roads we combine all elements into a single line object and assign the same id to every point generated.\n\n\nCode\nr_pts &lt;- roads %&gt;%\n  st_union() %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;%\n  mutate(id = \"0\")\n\n\nFor the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.\n\n\nCode\nb_pts &lt;- bldgs %&gt;%\n  st_cast(\"MULTILINESTRING\") %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  # if any perimeter is &lt; 1 then the sampling step fails\n  filter(st_length(.) &gt;= units::as_units(1, \"m\")) %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;%\n  st_join(bldgs, join = st_nearest_feature) %&gt;%\n  mutate(id = full_id) %&gt;%\n  select(id)"
+    "text": "Interpolate points along the lines and polygon boundaries\nPlace points along the boundaries of each of these.\nFor the roads we combine all elements into a single line object and assign the same id to every point generated.\n\n\nCode\nr_pts &lt;- roads %&gt;%\n  st_union() %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geometry = x) %&gt;% # geom column gets misnamed 'x' \n  mutate(id = \"0\")\n\n\nFor the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.\n\n\nCode\nb_pts &lt;- bldgs %&gt;%\n  st_cast(\"MULTILINESTRING\") %&gt;%\n  st_cast(\"LINESTRING\") %&gt;%\n  # if any perimeter is &lt; 1 then the sampling step fails\n  filter(st_length(.) &gt;= units::as_units(1, \"m\")) %&gt;%\n  st_line_sample(density = 1) %&gt;%\n  st_cast(\"POINT\") %&gt;%\n  st_as_sf() %&gt;%\n  rename(geom = x) %&gt;%\n  st_join(bldgs, join = st_nearest_feature) %&gt;%\n  mutate(id = full_id) %&gt;%\n  select(id)"
   },
   {
     "objectID": "chapters/chap2/fig2-08-non-point-voronoi.html#make-the-point-voronoi-polygons",
@@ -305,7 +305,7 @@
     "href": "chapters/chap5/index.html",
     "title": "Chapter 5",
     "section": "",
-    "text": "Links for Chapter 5\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.1: The 9-intersection model of topological relations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.5: Maps of areas with widely varying populations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.6: Simple illustration of the modifiable areal unit problem\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.7: The MAUP aggregation effect\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Links for Chapter 5\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.1: The 9-intersection model of topological relations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.5: Maps of areas with widely varying populations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.6: Simple illustration of the modifiable areal unit problem\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.7: The MAUP aggregation effect\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap5/fig5-05-ca-pop-maps.html",
