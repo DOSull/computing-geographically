@@ -47,16 +47,14 @@ library(units)
 xy <- read.table("traces.csv", sep = " ", header = TRUE)
 ```
 
-We don't need all the time steps in that file, so cut it down a bit and convert into a simple features dataset:
+We don't need all the time steps in that file, so cut it down a bit and convert into a simple features dataset. You'll note that even though these are not real world data (this is a book cover after all) I have to assign a projection, so that some of the later steps in the process will cooperate. The curse of geodetic accuracy strikes again!
 
 ```{r}
 steps <- seq(1, 50, 1)
 
-xy <- xy %>%
-  mutate(x = x + 1.75e6, y = y + 5.5e6) %>%
-  filter(t %in% steps)
-
 xy_sf <- xy %>%
+  mutate(x = x + 1.75e6, y = y + 5.5e6) %>%
+  filter(t %in% steps) %>%
   st_as_sf(coords = c("x", "y"), crs = 2193)
 ```
 
@@ -89,21 +87,15 @@ tm_shape(xy_path) +
 ```
 
 ## Voronoi polygons of the trajectory points
-Probably you can tell that some [Voronoi magic](../chapters/chap2/fig2-07-point-voronoi.qmd) was involved:
+Probably you can tell that some [Voronoi magic](../chapters/chap2/fig2-07-point-voronoi.qmd) was involved, specifically Voronoi polygons of the points along the trajectories, in a manner reminiscent of the [Voronois along the road centre line in Figure 2.8](../chapters/chap2/fig2-08-non-point-voronoi.qmd).
 
 ```{r}
-# it's handy to put this in a function
-voronoi <- function(layer) {
-  layer %>%
-    st_union() %>%
-    st_voronoi() %>%
-    st_cast() %>%
-    st_as_sf(crs = st_crs(layer)) %>%
-    st_join(layer)
-}
-
 xy_vor <- xy_sf %>%
-  voronoi() %>%
+  st_union() %>%
+  st_voronoi() %>%
+  st_cast() %>%
+  st_as_sf(crs = st_crs(xy_sf)) %>%
+  st_join(xy_sf) %>%
   st_intersection(xy_inset) %>%
   distinct(geometry)
 ```
