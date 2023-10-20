@@ -10,4 +10,4 @@ listing:
   type: grid 
 ---
 
-Chapter 3 explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands consideration of map projections, which are also considered.
+Chapter 3 explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands exploration of map projections, which are also considered.
