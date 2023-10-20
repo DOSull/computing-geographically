@@ -1,5 +1,5 @@
 ---
-title: "Figures 8.4: A voter model CA"
+title: "Figure 8.4: A voter model CA"
 categories: 
   - figures
   - code
@@ -95,7 +95,7 @@ vma_df <- voter_model(1:num_states, nr = height, nc = width,
 ## Plotting
 The model code delivers us a dataframe with `x`, `y`, `t`, and `state` attributes, which are most easily plotted using `ggplot2::facet_wrap`.
 
-```{r}
+```{r fig.width=10}
 ggplot(vma_df) + 
   geom_raster(aes(x = x, y = y, fill = state), show.legend = FALSE) + 
   scale_fill_brewer(palette = "Accent") +
