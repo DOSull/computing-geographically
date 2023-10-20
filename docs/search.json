@@ -4,7 +4,7 @@
     "href": "index-listing.html",
     "title": "All the things",
     "section": "",
-    "text": "Use the sort, filter, and categories list to the right to find what you are looking for.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\n\n\n\nLinks for Chapter 1\n\n\n\n\nLinks for Chapter 2\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\nLinks for Chapter 3\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\n\nLinks for Chapter 4\n\n\n\n\nFigure 4.1: Geohashes and hierarchical indexing\n\n\n\n\nFigure 4.3: Many Springfields\n\n\n\n\nFigure 4.5: Te Reo Māori toponyms in Aotearoa\n\n\n\n\nLinks for Chapter 5\n\n\n\n\nFigure 5.1: The 9-intersection model of topological relations\n\n\n\n\nFigure 5.5: Maps of areas with widely varying populations\n\n\n\n\nFigure 5.6: Simple illustration of the modifiable areal unit problem\n\n\n\n\nFigure 5.7: The MAUP aggregation effect\n\n\n\n\nLinks for Chapter 6\n\n\n\n\nFigures 6.5 and 6.6: Reduced world city network viewed various ways\n\n\n\n\nFigure 6.10: The small world rewiring process\n\n\n\n\nFigure 6.11: The small world rewiring process in two dimensions\n\n\n\n\nFigure 6.12: A simple graph drawn nine different ways\n\n\n\n\nFigure 6.14: Relative time map of the Santa Barbara street network\n\n\n\n\nLinks for Chapter 7\n\n\n\n\nLinks for Chapter 8\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Use the sort, filter, and categories list to the right to find what you are looking for.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\n\n\n\nOther stuff\n\n\n\n\nLinks for Chapter 1\n\n\n\n\nLinks for Chapter 2\n\n\n\n\nFigure 2.4: Two point patterns in absolute space\n\n\n\n\nFigure 2.7: Voronoi polygons associated with a set of point locations\n\n\n\n\nFigure 2.8: Voronoi polygons associated with lines and polygons\n\n\n\n\nFigure 2.1: A representation of an absolute space\n\n\n\n\nFigure 2.9: A range of spatial weights applied to polygon data\n\n\n\n\nLinks for Chapter 3\n\n\n\n\nFigure 3.9: Equal area world in a square\n\n\n\n\nFigure 3.7: Two simple world projections\n\n\n\n\nFigure 3.8: A loxodrome on the sphere and projected\n\n\n\n\nLinks for Chapter 4\n\n\n\n\nFigure 4.5: Te Reo Māori toponyms in Aotearoa\n\n\n\n\nFigure 4.3: Many Springfields\n\n\n\n\nFigure 4.1: Geohashes and hierarchical indexing\n\n\n\n\nLinks for Chapter 5\n\n\n\n\nFigure 5.7: The MAUP aggregation effect\n\n\n\n\nFigure 5.1: The 9-intersection model of topological relations\n\n\n\n\nFigure 5.5: Maps of areas with widely varying populations\n\n\n\n\nFigure 5.6: Simple illustration of the modifiable areal unit problem\n\n\n\n\nLinks for Chapter 6\n\n\n\n\nFigures 6.5 and 6.6: Reduced world city network viewed various ways\n\n\n\n\nFigure 6.14: Relative time map of the Santa Barbara street network\n\n\n\n\nFigure 6.10: The small world rewiring process\n\n\n\n\nFigure 6.11: The small world rewiring process in two dimensions\n\n\n\n\nFigure 6.12: A simple graph drawn nine different ways\n\n\n\n\nLinks for Chapter 7\n\n\n\n\nLinks for Chapter 8\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap4/fig4-05-te-reo-names.html",
@@ -551,5 +551,61 @@
     "title": "Computing Geographically",
     "section": "",
     "text": "This website provides a collection of resources for the book Computing Geographically: Bridging Giscience and Geography (Guilford Press, New York).\nIncluded are:\n\nCurrent links for internet sources referenced in the text\nCode samples to create the base graphics for some of the figures\nBackground information on other figures\n\nAccess them either from the drop-down menu by chapter, or from this listing page.\n\n\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "other-stuff/index.html",
+    "href": "other-stuff/index.html",
+    "title": "Other stuff",
+    "section": "",
+    "text": "For now, this is just one page about how I made the cover art. In time I might expand it to cover other aspects of the book, why I wrote it, lost chapters/threads that didn’t make it, a picture of Rosa the cat, ‘how I wrote a book and still lost my job’, and so on.\nBut for now, here’s how I made the cover art.\n© 2023 David O’Sullivan"
+  },
+  {
+    "objectID": "other-stuff/index.html#a-flocking-model",
+    "href": "other-stuff/index.html#a-flocking-model",
+    "title": "Other stuff",
+    "section": "A flocking model",
+    "text": "A flocking model\nThe starting point was a flocking model, which is discussed in Chapter 8 of the book, in §Agent-Based Models, but also makes an appearance in Figure 7.7. This model was previously made for my earlier book Spatial Simulation written with George Perry, which you can find all about here. Specifically this NetLogo model appears in the model zoo, as an implementation of ideas in these papers\n\nCzirók A and T Vicsek. 2000. Collective behavior of interacting self-propelled particles. Physica A: Statistical Mechanics and its Applications 281 17–29.\n\n\nGrégoire G, H Chaté and Y Tu. 2003. Moving and staying together without a leader. Physica D: Nonlinear Phenomena 181 157–70.\n\n\nVicsek T, A Czirók, E Ben-Jacob, I Cohen and O Sochet. 1995. Novel type of phase transition in a system of self-driven particles. Physical Review Letters 75 1226–29.\n\nYou can play with a (rather slow, because the web version is slow) version of that model here. If you download and run it locally, you’ll find some commented out code at the end that implements a save-history procedure that means you can run the model for a bit then get a CSV file with ID, x, y, and t output for the flockers, which is the basis for the cover art."
+  },
+  {
+    "objectID": "other-stuff/index.html#the-space-time-traces",
+    "href": "other-stuff/index.html#the-space-time-traces",
+    "title": "Other stuff",
+    "section": "The space-time traces",
+    "text": "The space-time traces\nSo, after importing some packages, read in one of those output files. There’s an example here, should you wish to make your own alternative cover.\n\n\nCode\nlibrary(sf)\nlibrary(tmap)\nlibrary(dplyr)\nlibrary(units)\n\nxy &lt;- read.table(\"traces.csv\", sep = \" \", header = TRUE)\n\n\nWe don’t need all the time steps in that file, so cut it down a bit and convert into a simple features dataset:\n\n\nCode\nsteps &lt;- seq(1, 50, 1)\n\nxy &lt;- xy %&gt;%\n  mutate(x = x + 1.75e6, y = y + 5.5e6) %&gt;%\n  filter(t %in% steps)\n\nxy_sf &lt;- xy %&gt;%\n  st_as_sf(coords = c(\"x\", \"y\"), crs = 2193)\n\n\nBefore we go any further, we need a ‘frame’ for all the layers we’ll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.\n\n\nCode\nxy_inset &lt;- xy_sf %&gt;%\n  st_bbox() %&gt;%\n  st_as_sfc() %&gt;%\n  st_sf() %&gt;%\n  st_set_crs(2193) %&gt;%\n  st_buffer(-.5)\n\n\nThe underlying basis of the cover art is those traces, which we need to form into a lines dataset and clip to the frame.\n\n\nCode\nxy_path &lt;- xy_sf %&gt;%\n  group_by(who) %&gt;%\n  summarise(do_union = FALSE) %&gt;%\n  st_cast(\"LINESTRING\") %&gt;% \n  st_intersection(xy_inset)\n\n\nSo this is what we’ve got so far:\n\n\nCode\ntm_shape(xy_path) + \n  tm_lines(lwd = 0.5)"
+  },
+  {
+    "objectID": "other-stuff/index.html#voronoi-polygons-of-the-trajectory-points",
+    "href": "other-stuff/index.html#voronoi-polygons-of-the-trajectory-points",
+    "title": "Other stuff",
+    "section": "Voronoi polygons of the trajectory points",
+    "text": "Voronoi polygons of the trajectory points\nProbably you can tell that some Voronoi magic was involved:\n\n\nCode\n# it's handy to put this in a function\nvoronoi &lt;- function(layer) {\n  layer %&gt;%\n    st_union() %&gt;%\n    st_voronoi() %&gt;%\n    st_cast() %&gt;%\n    st_as_sf(crs = st_crs(layer)) %&gt;%\n    st_join(layer)\n}\n\nxy_vor &lt;- xy_sf %&gt;%\n  voronoi() %&gt;%\n  st_intersection(xy_inset) %&gt;%\n  distinct(geometry)\n\n\nAnd here is what we have got so far:\n\n\nCode\ntm_shape(xy_vor) +\n  tm_borders(col = \"blue\", lwd = 0.35) +\n  tm_shape(xy_path) + \n  tm_lines(lwd = 0.5)\n\n\n\n\n\nwhich is already pretty interesting looking."
+  },
+  {
+    "objectID": "other-stuff/index.html#overlapping-voronoi-polygons",
+    "href": "other-stuff/index.html#overlapping-voronoi-polygons",
+    "title": "Other stuff",
+    "section": "Overlapping Voronoi polygons",
+    "text": "Overlapping Voronoi polygons\nThe cover depends on overlapping the Voronoi polygons, which when coloured with some transparency gives the final effect. So some buffering (the original sin of GIS!) required. I decided after much experimentation to make the buffers larger for the bigger polygons.\n\n\nCode\nxy_vor_b &lt;- xy_vor %&gt;%\n  mutate(area = st_area(.), r = as_units(.25, \"m\") + sqrt(area / pi)) %&gt;%\n  st_buffer(.$r) %&gt;%\n  st_intersection(xy_inset)\n\n\nIn itself this is also interesting to look at:\n\n\nCode\ntm_shape(xy_vor_b) + \n  tm_borders(lwd = 0.15)"
+  },
+  {
+    "objectID": "other-stuff/index.html#putting-it-all-together",
+    "href": "other-stuff/index.html#putting-it-all-together",
+    "title": "Other stuff",
+    "section": "Putting it all together",
+    "text": "Putting it all together\nArmed with those three layers, we can do all kinds of interesting compositions. It’s fun to play with the colour palettes, the transparency, the direction of the ramps, and any number of other things. Here’s what I wound up using:\n\n\nCode\ntm_shape(xy_vor_b)  +\n  tm_polygons(col = \"r\", alpha = 0.3, style = \"cont\", lwd = 0,\n              palette = \"-plasma\", legend.show = FALSE) +\n  tm_shape(xy_vor) +\n  tm_borders(col = \"white\", alpha = 0.35, lwd = 0.35) +\n  tm_shape(xy_path) +\n  tm_lines(col = \"white\", palette = \"Blues\", lwd = 1, alpha = 0.5) +\n  tm_layout(frame = FALSE, bg.color = \"white\")"
+  },
+  {
+    "objectID": "other-stuff/index.html#other-computational-art-in-r",
+    "href": "other-stuff/index.html#other-computational-art-in-r",
+    "title": "Other stuff",
+    "section": "Other computational art in R",
+    "text": "Other computational art in R\nComputational ‘generative’ art is a lot of fun. I’d have to rewrite that NetLogo model in R to make this truly an example of generative art in R, but en route to this approach I found some interesting resources here, particularly\n\nhttps://nrennie.rbind.io/portfolio/rtistry/\nhttps://github.com/koenderks/aRtsy\n\nIn the end I preferred the greater control that my own ‘tool-chain’ gave me."
+  },
+  {
+    "objectID": "other-stuff/index.html#the-idea-behind-the-cover",
+    "href": "other-stuff/index.html#the-idea-behind-the-cover",
+    "title": "Other stuff",
+    "section": "The idea behind the cover",
+    "text": "The idea behind the cover\nLoosely speaking the cover mirrors the sequence from ‘simple location’ to ‘world as relational process’ that the book recounts. A set of relationally interacting, moving, simple locations converge to become a society of actual occasions. If you have no idea what I’m on about, you’ll have to read the book…\nIn any case, I like how it looks, and so did the publisher!\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
   }
 ]

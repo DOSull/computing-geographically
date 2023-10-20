@@ -1,0 +1,190 @@
+---
+title: Other stuff
+subtitle: Bits and pieces that might be of interest
+categories:
+  - extras
+  - code
+  - R
+# listing:
+#   categories: true
+#   contents:
+#     - "cover-art.qmd"
+#   sort: false
+#   type: grid
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+For now, this is just one page about how I made the cover art. In time I might expand it to cover other aspects of the book, why I wrote it, lost chapters/threads that didn't make it, a picture of Rosa the cat, 'how I wrote a book and still lost my job', and so on.
+
+But for now, here's how I made the cover art.
+
+## A flocking model
+The starting point was a *flocking model*, which is discussed in Chapter 8 of the book, in &sect;Agent-Based Models, but also makes an appearance in Figure 7.7. This model was previously made for my earlier book _Spatial Simulation_ written with George Perry, which you can find all about [here](https://patternandprocess.org). Specifically [this NetLogo model](https://dosull.github.io/pattern-and-process/chapter-4/4.7.html) appears in the [model zoo](https://dosull.github.io/pattern-and-process/#the-model-zoo), as an implementation of ideas in these papers
+
+> Czirók A and T Vicsek. 2000. Collective behavior of interacting self-propelled particles. _Physica A: Statistical Mechanics and its Applications_ **281** 17–29.
+
+> Grégoire G, H Chaté and Y Tu. 2003. Moving and staying together without a leader. _Physica D: Nonlinear Phenomena_ **181** 157–70.
+
+> Vicsek T, A Czirók, E Ben-Jacob, I Cohen and O Sochet. 1995. Novel type of phase transition in a system of self-driven particles. _Physical Review Letters_ **75** 1226–29.
+
+You can play with a (rather slow, because the web version is slow) version of that model [here](https://southosullivan.com/misc/4.7-flocking.html). If you download and run it locally, you'll find some commented out code at the end that implements a save-history procedure that means you can run the model for a bit then get a CSV file with ID, x, y, and t output for the flockers, which is the basis for the cover art.
+
+## The space-time traces
+So, after importing some packages, read in one of those output files. There's an [example here](traces.csv), should you wish to make your own alternative cover.
+
+```{r}
+library(sf)
+library(tmap)
+library(dplyr)
+library(units)
+
+xy <- read.table("traces.csv", sep = " ", header = TRUE)
+```
+
+We don't need all the time steps in that file, so cut it down a bit and convert into a simple features dataset:
+
+```{r}
+steps <- seq(1, 50, 1)
+
+xy <- xy %>%
+  mutate(x = x + 1.75e6, y = y + 5.5e6) %>%
+  filter(t %in% steps)
+
+xy_sf <- xy %>%
+  st_as_sf(coords = c("x", "y"), crs = 2193)
+```
+
+Before we go any further, we need a 'frame' for all the layers we'll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.
+
+```{r}
+xy_inset <- xy_sf %>%
+  st_bbox() %>%
+  st_as_sfc() %>%
+  st_sf() %>%
+  st_set_crs(2193) %>%
+  st_buffer(-.5)
+```
+
+The underlying basis of the cover art is those traces, which we need to form into a lines dataset and clip to the frame.
+
+```{r}
+xy_path <- xy_sf %>%
+  group_by(who) %>%
+  summarise(do_union = FALSE) %>%
+  st_cast("LINESTRING") %>% 
+  st_intersection(xy_inset)
+```
+
+So this is what we've got so far:
+
+```{r}
+tm_shape(xy_path) + 
+  tm_lines(lwd = 0.5)
+```
+
+## Voronoi polygons of the trajectory points
+Probably you can tell that some [Voronoi magic](../chapters/chap2/fig2-07-point-voronoi.qmd) was involved:
+
+```{r}
+# it's handy to put this in a function
+voronoi <- function(layer) {
+  layer %>%
+    st_union() %>%
+    st_voronoi() %>%
+    st_cast() %>%
+    st_as_sf(crs = st_crs(layer)) %>%
+    st_join(layer)
+}
+
+xy_vor <- xy_sf %>%
+  voronoi() %>%
+  st_intersection(xy_inset) %>%
+  distinct(geometry)
+```
+
+And here is what we have got so far:
+
+```{r}
+tm_shape(xy_vor) +
+  tm_borders(col = "blue", lwd = 0.35) +
+  tm_shape(xy_path) + 
+  tm_lines(lwd = 0.5)
+```
+
+which is already pretty interesting looking.
+
+## Overlapping Voronoi polygons
+The cover depends on overlapping the Voronoi polygons, which when coloured with some transparency gives the final effect. So some buffering (the original sin of GIS!) required. I decided after much experimentation to make the buffers larger for the bigger polygons.
+
+```{R}
+xy_vor_b <- xy_vor %>%
+  mutate(area = st_area(.), r = as_units(.25, "m") + sqrt(area / pi)) %>%
+  st_buffer(.$r) %>%
+  st_intersection(xy_inset)
+```
+
+In itself this is also interesting to look at:
+
+```{R}
+tm_shape(xy_vor_b) + 
+  tm_borders(lwd = 0.15)
+```
+
+## Putting it all together
+Armed with those three layers, we can do all kinds of interesting compositions. It's fun to play with the colour palettes, the transparency, the direction of the ramps, and any number of other things. Here's what I wound up using:
+
+```{R}
+tm_shape(xy_vor_b)  +
+  tm_polygons(col = "r", alpha = 0.3, style = "cont", lwd = 0,
+              palette = "-plasma", legend.show = FALSE) +
+  tm_shape(xy_vor) +
+  tm_borders(col = "white", alpha = 0.35, lwd = 0.35) +
+  tm_shape(xy_path) +
+  tm_lines(col = "white", palette = "Blues", lwd = 1, alpha = 0.5) +
+  tm_layout(frame = FALSE, bg.color = "white")
+```
+
+## Other computational art in _R_
+Computational 'generative' art is a lot of fun. I'd have to rewrite that NetLogo model in _R_ to make this truly an example of generative art in _R_, but _en route_ to this approach I found some interesting resources here, particularly
+
+- https://nrennie.rbind.io/portfolio/rtistry/
+- https://github.com/koenderks/aRtsy
+
+In the end I preferred the greater control that my own 'tool-chain' gave me.
+
+## The idea behind the cover
+Loosely speaking the cover mirrors the sequence from 'simple location' to 'world as relational process' that the book recounts. A set of relationally interacting, moving, simple locations converge to become a society of actual occasions. If you have no idea what I'm on about, you'll have to read the book...
+
+In any case, I like how it looks, and so did the publisher!
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

@@ -4,6 +4,7 @@ listing:
   categories: true
   type: table
   contents: 
+    - "other-stuff/"
     - "chapters/chap1/links*.qmd"
     - "chapters/chap2/links*.qmd"
     - "chapters/chap2/fig2-0*.qmd"
