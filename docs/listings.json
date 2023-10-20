@@ -30,7 +30,9 @@
       "/chapters/chap6/fig6-11-small-world-2d.html",
       "/chapters/chap6/fig6-12-graph-drawings.html",
       "/chapters/chap7/links-7.html",
-      "/chapters/chap8/links-8.html"
+      "/chapters/chap7/fig7-02-7-03-tg-aquarium.html",
+      "/chapters/chap8/links-8.html",
+      "/chapters/chap8/fig8-04-voter-model.html"
     ]
   },
   {
@@ -103,7 +105,8 @@
   {
     "listing": "/chapters/chap8/index.html",
     "items": [
-      "/chapters/chap8/links-8.html"
+      "/chapters/chap8/links-8.html",
+      "/chapters/chap8/fig8-04-voter-model.html"
     ]
   }
 ]

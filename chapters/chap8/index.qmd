@@ -5,6 +5,7 @@ listing:
   categories: true
   contents:
     - "links-8.qmd"
+    - "fig8-0*.qmd"
   sort: false
   type: grid
 ---
