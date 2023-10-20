@@ -92,6 +92,9 @@ vma_df <- voter_model(1:num_states, nr = height, nc = width,
   mutate(state = as.factor(num))
 ```
 
+## Plotting
+The model code delivers us a dataframe with `x`, `y`, `t`, and `state` attributes, which are most easily plotted using `ggplot2::facet_wrap`.
+
 ```{r}
 ggplot(vma_df) + 
   geom_raster(aes(x = x, y = y, fill = state), show.legend = FALSE) + 
