@@ -25,7 +25,7 @@ For now, this is just one page about how I made the cover art. In time I might e
 But for now, here's how I made the cover art.
 
 ## A flocking model
-The starting point was a *flocking model*, which is discussed in Chapter 8 of the book, in &sect;Agent-Based Models, but also makes an appearance in Figure 7.7. This model was previously made for my earlier book _Spatial Simulation_ written with George Perry, which you can find all about [here](https://patternandprocess.org). Specifically [this NetLogo model](https://dosull.github.io/pattern-and-process/chapter-4/4.7.html) appears in the [model zoo](https://dosull.github.io/pattern-and-process/#the-model-zoo), as an implementation of ideas in these papers
+The starting point was a *flocking model*, which is discussed in Chapter 8 of the book, in &sect;**Agent-Based Models**, but also makes an appearance in Figure 7.7. This model was previously made for my earlier book _Spatial Simulation_ written with George Perry, which you can find all about [here](https://patternandprocess.org). Specifically [this NetLogo model](https://dosull.github.io/pattern-and-process/chapter-4/4.7.html) appears in the [model zoo](https://dosull.github.io/pattern-and-process/#the-model-zoo), as an implementation of ideas in these papers
 
 > Czirók A and T Vicsek. 2000. Collective behavior of interacting self-propelled particles. _Physica A: Statistical Mechanics and its Applications_ **281** 17–29.
 
@@ -33,7 +33,7 @@ The starting point was a *flocking model*, which is discussed in Chapter 8 of th
 
 > Vicsek T, A Czirók, E Ben-Jacob, I Cohen and O Sochet. 1995. Novel type of phase transition in a system of self-driven particles. _Physical Review Letters_ **75** 1226–29.
 
-You can play with a (rather slow, because the web version is slow) version of that model [here](https://southosullivan.com/misc/4.7-flocking.html). If you download and run it locally, you'll find some commented out code at the end that implements a save-history procedure that means you can run the model for a bit then get a CSV file with ID, x, y, and t output for the flockers, which is the basis for the cover art.
+You can play with a&mdash;rather slow, because the web version is slow&mdash;version of that model [here](https://southosullivan.com/misc/4.7-flocking.html). If you download and run it locally, you'll find some commented out code at the end that implements a `save-history` procedure that means you can run the model for a bit then get a CSV file with `who`, `x`, `y`, and `t` output for the flockers, which is the basis for the cover art. `who` is NetLogo's endearing default variable name that we would more often think of as 'ID' or similar. It's because the moving things in NetLogo are _turtles_, not mere simple locations. This puts me in mind of Gillian Rose and Torsten Hägerstrand's thoughts on the living bodies at the tips of space-time paths, as discussed in &sect;**Limits to Time Geography** in [Chapter 7](../chapters/chap7/index.qmd).
 
 ## The space-time traces
 So, after importing some packages, read in one of those output files. There's an [example here](traces.csv), should you wish to make your own alternative cover.

@@ -8,3 +8,7 @@ listing:
   sort: false
   type: grid
 ---
+
+I've been [interested in pattern and process for a long time](https://patternandprocess.org). In this book, I approach them the other way around, starting with process, recognising that if the world really is anything, it's processes all the way down, not things at all. This involves engaging some _process philosophy_, which is a wild ride! Recognising pattern can offer us a way into that world. 
+
+Complexity science may be one way for giscience to grapple with these ontological challenges, and it (i.e. complexity science) is where I started my geographical journey, and what drew me into the PhD program at UCL's CASA to work with Mike Batty. So, while this is the last major chapter in the book, it's likely the one where the themes will be most familiar to anyone who has read any of my earlier work!

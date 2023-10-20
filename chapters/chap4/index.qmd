@@ -9,3 +9,5 @@ listing:
   sort: false
   type: grid
 ---
+
+Place and space are in some senses the 'terrible twins' of geography. Unlike space, where geographical thought on the matter has been more or less settled for decades, place is a concept that continues to attract attention. Some of the more interesting developments in giscience grapple with this topic seeing potential for a _platial_ giscience (see [this conference series](https://platialscience.net/)) often drawing on the kinds of fuzzy data that can be derived from geotagged social media. 

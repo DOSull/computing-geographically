@@ -10,4 +10,4 @@ listing:
   type: grid
 ---
 
-This chapter considers geographical theories about space and how space is&mdash;and potentially _could_ be&mdash;represented in giscience.
+The book proper starts with a look at what many consider geography's key distinctive focus, namely space. This is often, in more GIS-adjacent settings understood as _location_, which led me directly to Whitehead's arresting dismissal of _simple location_ as an idea, something to which we return in [Chapter 8](../chap8/index.qmd). This chapter considers geographical theories about space and how space is&mdash;and potentially _could_ be&mdash;represented in giscience. Many of the figures relate to some of the more interesting ways in which giscience represents space. 
