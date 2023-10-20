@@ -249,15 +249,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>We don’t need all the time steps in that file, so cut it down a bit and convert into a simple features dataset. You’ll note that even though these are not real world data (this is a book cover after all) I have to assign a projection, so that some of the later steps in the process will cooperate. The curse of geodetic accuracy strikes again!</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_d1b046795e06d7f09728bce8361be1c9">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_d52ffc46ff8d5511ecb092b32a018a9c">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>xy_sf <span class="ot">&lt;-</span> xy <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> x <span class="sc">+</span> <span class="fl">1.75e6</span>, <span class="at">y =</span> y <span class="sc">+</span> <span class="fl">5.5e6</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(t <span class="sc">%in%</span> steps) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>), <span class="at">crs =</span> <span class="dv">2193</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># these offsets put the geometry near the centre</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># of the projection extent so it's right way up</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> x <span class="sc">+</span> <span class="fl">1.75e6</span>, <span class="at">y =</span> y <span class="sc">+</span> <span class="fl">5.5e6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(t <span class="sc">%in%</span> steps) <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>), <span class="at">crs =</span> <span class="dv">2193</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Before we go any further, we need a ‘frame’ for all the layers we’ll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.</p>

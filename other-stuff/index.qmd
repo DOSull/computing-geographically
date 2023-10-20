@@ -53,6 +53,8 @@ We don't need all the time steps in that file, so cut it down a bit and convert 
 steps <- seq(1, 50, 1)
 
 xy_sf <- xy %>%
+  # these offsets put the geometry near the centre
+  # of the projection extent so it's right way up
   mutate(x = x + 1.75e6, y = y + 5.5e6) %>%
   filter(t %in% steps) %>%
   st_as_sf(coords = c("x", "y"), crs = 2193)

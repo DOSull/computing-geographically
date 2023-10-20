@@ -1,5 +1,5 @@
 ---
-title: "Figure 8.4: The game of life CA"
+title: "Figure 8.3: The game of life CA"
 categories: 
   - figures
   - code
