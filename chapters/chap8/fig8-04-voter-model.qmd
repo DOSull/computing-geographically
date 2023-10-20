@@ -13,7 +13,7 @@ knitr:
     message: false
 ---
 
-The example in the book was made using NetLogo based on this model in [_Spatial Simulation_](https://dosull.github.io/pattern-and-process/chapter-3/3.8.html), but this page provides _R_ code instead.
+The example in the book was made using a NetLogo model based on [this model from _Spatial Simulation_](https://dosull.github.io/pattern-and-process/chapter-3/3.8.html), but this page provides _R_ code instead.
 
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
@@ -24,20 +24,13 @@ library(ggplot2)
 ```
 
 ## Model code
-The model code is in the cell below.
+The model code is in the cell below. It returns a 3D array of cell states, with each 'layer' a new 2D array of cell states.
 
 ```{r}
 #| code-fold: true
-
-num_states <- 3
-width <- 50
-height <- 50
-time_steps <- 15
-
 # random neighbour offset
 random_offset <- function() {
-  i <- sample(1:4, 1)
-  list(c(1, 0), c(-1, 0), c(0, 1), c(0, -1))[[i]]
+  c(1, 0, -1, 0, 0, 1, 0, -1)[0:1 + sample(c(1, 3, 5, 7), 1)]
 }
 
 # get a random cell in a matrix
@@ -73,19 +66,29 @@ init_state <- function(s, nr, nc) {
          ncol = nc, nrow = nr)
 }
 
-voter_model <- function(s = 1:2, nc = 20, nr = 20, 
-                        tmax = 20, seed = NULL) {
+voter_model <- function(states = 1:2, ncol = 20, nrow = 20, 
+                        t_max = 20, seed = NULL) {
   set.seed(seed)
-  result <- array(0, dim = c(nr, nc, tmax))
-  result[, , 1] <- init_state(s, nr, nc)
-  for (gen in 2:tmax) {
+  result <- array(0, dim = c(nrow, ncol, t_max))
+  result[, , 1] <- init_state(states, nrow, ncol)
+  for (gen in 2:t_max) {
     result[, , gen] <- generation(result[, , gen - 1])
   }
   result
 }
+```
 
-vma_df <- voter_model(1:num_states, nr = height, nc = width, 
-                      tmax = time_steps) %>%
+## Run the model
+We run the model and convert it into a  dataframe to make it easier to plot.
+
+```{r}
+num_states <- 3
+width <- 40
+height <- 40
+time_steps <- 100
+
+vma_df <- voter_model(1:num_states, ncol = width, nrow = height, 
+                      t_max = time_steps) %>%
   as.data.table() %>%
   as_tibble() %>%
   rename(x = V1, y = V2, t = V3, num = value) %>%
@@ -93,10 +96,10 @@ vma_df <- voter_model(1:num_states, nr = height, nc = width,
 ```
 
 ## Plotting
-The model code delivers us a dataframe with `x`, `y`, `t`, and `state` attributes, which are most easily plotted using `ggplot2::facet_wrap`.
+The dataframe has attributes `x`, `y`, `t`, and `state`, which are most easily plotted as a sequence of model snapshots using `ggplot2::facet_wrap`.
 
 ```{r fig.width=10}
-ggplot(vma_df) + 
+ggplot(vma_df %>% filter(t %in% 2:21)) + 
   geom_raster(aes(x = x, y = y, fill = state), show.legend = FALSE) + 
   scale_fill_brewer(palette = "Accent") +
   coord_equal() +
@@ -104,6 +107,23 @@ ggplot(vma_df) +
   theme_void() + 
   theme(strip.background = element_blank(),
         strip.text.x = element_blank())
+```
+
+### An animation
+We can also make a movie...
+
+```{r}
+library(gganimate)
+
+anim <- ggplot(vma_df) + 
+  geom_raster(aes(x = x, y = y, fill = state), show.legend = FALSE) + 
+  scale_fill_brewer(palette = "Accent") +
+  coord_equal() +
+  transition_manual(t) + 
+  labs(title = "Step: {frame}") +
+  theme_void()
+        
+animate(anim, nframes = 100, fps = 4)
 ```
 
 ```{r}
