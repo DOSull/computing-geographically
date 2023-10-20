@@ -1,0 +1,140 @@
+---
+title: "Figure 8.4: The game of life CA"
+categories: 
+  - figures
+  - code
+  - R
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+The example in the book was made using a NetLogo model based on [this model from _Spatial Simulation_](https://dosull.github.io/pattern-and-process/chapter-1/1.1.html), but this page provides _R_ code instead.
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(tidyr)
+library(gsignal)
+library(pracma)
+library(data.table)
+library(ggplot2)
+```
+
+## Model code
+The model code is in the cell below. It returns a 3D array of cell states, with each 'layer' a new 2D array of cell states.
+
+```{r}
+#| code-fold: true
+# random neighbour offset
+k <- matrix(c(1, 1, 1,
+              1, 0, 1,
+              1, 1, 1), 3, 3)
+
+wrap_matrix <- function(m) {
+  nr <- nrow(m)
+  nc <- ncol(m)
+  m2 <- pracma::repmat(m, 3, 3)
+  m2[0:(nr + 1) + nr, 0:(nc + 1) + nc]
+}
+
+generation <- function(m) {
+  nr <- nrow(m)
+  nc <- ncol(m)
+  live <- wconv("2d", wrap_matrix(m), k, "same")[1:nr + 1, 1:nc + 1]
+  next_m <- zeros(nr, nc)
+  next_m[which(m == 1 & live %in% 2:3 | m == 0 & live == 3)] <- 1
+  next_m
+}
+
+init_state <- function(density = 0.35, nr, nc) {
+  matrix(as.numeric(runif(nr * nc) < density),
+         ncol = nc, nrow = nr)
+}
+
+life <- function(nc = 20, nr = 20, tmax = 20, 
+                 density = 0.35, seed = NULL) {
+  set.seed(seed)
+  result <- array(0, dim = c(nr, nc, tmax))
+  result[, , 1] <- init_state(density = density, 
+                              nr = nr, nc = nc)
+  for (gen in 2:tmax) {
+    result[, , gen] <- generation(result[, , gen - 1])
+  }
+  result
+}
+```
+
+## Run the model
+We run the model and convert it into a  dataframe to make it easier to plot.
+
+```{r}
+initial_density <- 0.35
+width <- 50
+height <- 50
+time_steps <- 200
+
+life_df <- life(nr = height, nc = width, tmax = time_steps, 
+                density = initial_density) %>%
+  as.data.table() %>%
+  as_tibble() %>%
+  rename(x = V1, y = V2, t = V3, num = value)
+```
+
+## Plotting
+The dataframe has attributes `x`, `y`, `t`, and `state`, which are most easily plotted as a sequence of model snapshots using `ggplot2::facet_wrap`.
+
+```{r fig.width=10, fig.height=5}
+ggplot(life_df %>% dplyr::filter(t >= 30, t <= 47)) + 
+  geom_raster(aes(x = x, y = y, fill = num), show.legend = FALSE) + 
+  coord_equal() +
+  facet_wrap( ~ t, ncol = 6) +
+  theme_void() + 
+  theme(strip.background = element_blank(),
+        strip.text.x = element_blank())
+```
+
+### An animation
+We can also make a movie...
+
+```{r}
+library(gganimate)
+
+anim <- ggplot(life_df) + 
+  geom_raster(aes(x = x, y = y, fill = num), show.legend = FALSE) + 
+  coord_equal() +
+  transition_manual(t) + 
+  labs(title = "Step: {frame}") +
+  theme_void()
+        
+animate(anim, nframes = 100, fps = 5)
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```
