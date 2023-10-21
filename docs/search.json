@@ -655,7 +655,7 @@
     "href": "other-stuff/index.html#other-computational-art-in-r",
     "title": "Other stuff",
     "section": "Other computational art in R",
-    "text": "Other computational art in R\nComputational ‘generative’ art is a lot of fun. I’d have to rewrite that NetLogo model in R to make this truly an example of generative art in R, but en route to this approach I found some interesting resources here, particularly\n\nhttps://nrennie.rbind.io/portfolio/rtistry/\nhttps://github.com/koenderks/aRtsy\n\nIn the end I preferred the greater control that my own ‘tool-chain’ gave me."
+    "text": "Other computational art in R\nComputational ‘generative’ art is a lot of fun. I’d have to rewrite that NetLogo model in R to make this truly an example of generative art in R, but en route to this approach I found some interesting resources here, particularly\n\nNicola Rennie’s ‘Rtistry’\nKoen Derks’s aRtsy package\n\nIn the end I preferred the greater control that my own ‘tool-chain’ gave me."
   },
   {
     "objectID": "other-stuff/index.html#the-idea-behind-the-cover",

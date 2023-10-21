@@ -147,8 +147,8 @@ tm_shape(xy_vor_b)  +
 ## Other computational art in _R_
 Computational 'generative' art is a lot of fun. I'd have to rewrite that NetLogo model in _R_ to make this truly an example of generative art in _R_, but _en route_ to this approach I found some interesting resources here, particularly
 
-- https://nrennie.rbind.io/portfolio/rtistry/
-- https://github.com/koenderks/aRtsy
+- [Nicola Rennie's 'Rtistry'](https://nrennie.rbind.io/portfolio/rtistry/)
+- [Koen Derks's `aRtsy` package](https://github.com/koenderks/aRtsy)
 
 In the end I preferred the greater control that my own 'tool-chain' gave me.
 
