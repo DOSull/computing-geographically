@@ -81,17 +81,17 @@ one_d_ca <- function(rule = 30, n = 64, density = 0.5, t = 192) {
 
 ## Making plots
 ### Figure 8.2
-The matrix format is convenient for computation, and fine for plotting a single model result but that has to be converted to a dataframe to be plotted using `ggplot2`. So here is the pure _R_ version of Figure 8.2:
+The matrix format is convenient for computation, and fine for plotting a single model result but that has to be converted to a dataframe to be plotted using `ggplot2`. So here is the pure _R_ version of Figure 8.2, but with time running from top to bottom, more cells, and more time.
 
-```{r fig.width=10, fig.height=3}
+```{r fig.width=8, fig.height=11}
 library(ggplot2)
 library(reshape2)
 
-one_d_ca(rule = 110) %>%
+one_d_ca(rule = 110, n = 192, density = 0.5, t = 384) %>%
   reshape2::melt(c("t", "x"), value.name = "state") %>%
   mutate(state = as.logical(state)) %>%
   ggplot() +
-    geom_raster(aes(x = t, y = x, fill = state)) + 
+    geom_raster(aes(x = x, y = -t, fill = state)) + 
     scale_fill_brewer(palette = "Paired") +
     coord_equal() +
     theme_void()
