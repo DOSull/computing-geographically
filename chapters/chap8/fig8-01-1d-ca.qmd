@@ -51,7 +51,7 @@ as_binary <- function(n, n_bits = 8) {
 
 rule_description <- function(rule_num) {
   paste(rule_num, 
-        paste(as_binary(234), collapse = ""), 
+        paste(as_binary(rule_num), collapse = ""), 
         sep = ": ")
 }
 

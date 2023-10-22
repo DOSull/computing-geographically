@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="model-code">Model code</h2>
 <p>The 1D elementary CA model code is in the block below. It returns a matrix of cell states, with each system state a row in the matrix.</p>
 <p>The key function is <code>one_d_ca(rule, n, density, t)</code>, which returns a <code>t</code> <span class="math inline">\(\times\)</span> <code>n</code> matrix, with initial density of 1’s given by the <code>density</code> parameter, and the update rule being Wolfram code <code>rule</code>.</p>
-<div class="cell" data-hash="fig8-01-1d-ca_cache/html/unnamed-chunk-1_2739b68496c913e0aa6e5d3d87f44be5">
+<div class="cell" data-hash="fig8-01-1d-ca_cache/html/unnamed-chunk-1_0d2bc197f016ee962793e930e521e9bf">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>rule_description <span class="ot">&lt;-</span> <span class="cf">function</span>(rule_num) {</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(rule_num, </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(<span class="fu">as_binary</span>(<span class="dv">234</span>), <span class="at">collapse =</span> <span class="st">""</span>), </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(<span class="fu">as_binary</span>(rule_num), <span class="at">collapse =</span> <span class="st">""</span>), </span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">": "</span>)</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
