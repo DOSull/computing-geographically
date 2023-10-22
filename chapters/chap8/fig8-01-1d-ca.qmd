@@ -92,7 +92,7 @@ one_d_ca(rule = 110) %>%
   mutate(state = as.logical(state)) %>%
   ggplot() +
     geom_raster(aes(x = t, y = x, fill = state)) + 
-    scale_fill_manual(values = c("white", "black")) +
+    scale_fill_brewer(palette = "Paired") +
     coord_equal() +
     guides(fill = "none") +
     theme_void()
@@ -128,7 +128,7 @@ df$rule <- factor(df$rule, levels = rules,
 
 ggplot(df) +
   geom_raster(aes(x = t, y = x, fill = state)) + 
-  scale_fill_manual(values = c("white", "black")) +
+  scale_fill_brewer(palette = "Paired") +
   coord_equal() +
   guides(fill = "none") +
   facet_wrap( ~ rule, ncol = 4) +
