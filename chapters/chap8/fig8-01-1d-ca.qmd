@@ -94,7 +94,6 @@ one_d_ca(rule = 110) %>%
     geom_raster(aes(x = t, y = x, fill = state)) + 
     scale_fill_brewer(palette = "Paired") +
     coord_equal() +
-    guides(fill = "none") +
     theme_void()
 ```
 
