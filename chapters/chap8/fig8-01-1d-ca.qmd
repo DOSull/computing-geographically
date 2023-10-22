@@ -13,7 +13,7 @@ knitr:
     message: false
 ---
 
-Again, the examples in the book were made using a NetLogo model based on [this one in the NetLogo model library]http://ccl.northwestern.edu/netlogo/models/CA1DElementary). This page provides _R_ code instead.
+Again, the examples in the book were made using a NetLogo model based on [this one in the NetLogo model library](http://ccl.northwestern.edu/netlogo/models/CA1DElementary). This page provides _R_ code instead.
 
 ## Model code
 The 1D elementary CA model code is in the block below. It returns a matrix of cell states, with each system state a row in the matrix.

@@ -557,7 +557,7 @@
     "href": "chapters/chap8/fig8-01-1d-ca.html",
     "title": "Figures 8.1 and 8.2: One-dimensional CA",
     "section": "",
-    "text": "Again, the examples in the book were made using a NetLogo model based on [this one in the NetLogo model library]http://ccl.northwestern.edu/netlogo/models/CA1DElementary). This page provides R code instead.\n© 2023 David O’Sullivan"
+    "text": "Again, the examples in the book were made using a NetLogo model based on this one in the NetLogo model library. This page provides R code instead.\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap8/fig8-01-1d-ca.html#model-code",
