@@ -33,6 +33,7 @@
       "/chapters/chap7/fig7-02-7-03-tg-aquarium.html",
       "/chapters/chap8/links-8.html",
       "/chapters/chap8/fig8-04-voter-model.html",
+      "/chapters/chap8/fig8-01-1d-ca.html",
       "/chapters/chap8/fig8-03-game-of-life.html"
     ]
   },
@@ -107,6 +108,7 @@
     "listing": "/chapters/chap8/index.html",
     "items": [
       "/chapters/chap8/links-8.html",
+      "/chapters/chap8/fig8-01-1d-ca.html",
       "/chapters/chap8/fig8-03-game-of-life.html",
       "/chapters/chap8/fig8-04-voter-model.html"
     ]
