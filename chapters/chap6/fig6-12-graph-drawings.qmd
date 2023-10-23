@@ -33,7 +33,7 @@ plot_graph <- function(G, main = "", layout = layout.grid(G),
 }
 ```
 
-```{r output.width=10, output.height=10}
+```{r output.width=8, output.height=7}
 the_graph <- make_lattice(length = 20, dim = 2, nei = 1)
 the_graph <- rewire(the_graph, each_edge(1/400))
 vertex_attr(the_graph, 'centrality') <- centralization.closeness(the_graph)$res

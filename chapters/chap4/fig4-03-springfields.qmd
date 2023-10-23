@@ -17,7 +17,7 @@ Many of the data preparation steps for this figure were initially carried out in
 
 To understand why this version is different from the published figure, read on...
 
-```{r message=FALSE}
+```{r}
 library(sf)
 library(tmap)
 library(dplyr)
@@ -92,7 +92,7 @@ disc <- disc %>%
 
 The world countries must be cut at the Briesemeister 'cut line' which is where there is a break in the projection, to avoid anomalies when places are projected that cross the line. We figured out where this line is in other work...
 
-```{r warning=FALSE, results=FALSE, message=FALSE}
+```{r}
 data("World")
 
 cut_line <- st_read("briesemeister-cut-corrected.geojson") %>%
@@ -106,7 +106,7 @@ world <- World %>%
 ### Make a graticule 
 A graticule - here we assemble this as linestrings (with many points) because projection of `tm_graticules` output can be problematic, especially if the projection has cuts other than at &pm;180&deg; longitude (and even then it can have issues), or as in this case is in any way unusual.
 
-```{r warning=FALSE, results=FALSE, message=FALSE}
+```{r}
 #| code-fold: true
 get_meridian <- function(longitude) {
   st_linestring(matrix(cbind(longitude, seq(-90, 90, 1)),
@@ -171,7 +171,7 @@ For what it's worth, all these shenanigans are a good example of why more flexib
 
 ## Yeah, OK, _now_ make a map of all those Springfields
 
-```{r fig.size=c(8,4), warning=FALSE}
+```{r fig.width=10, fig.height=5}
 tm_shape(disc) + 
   tm_fill(col = "#eeeeee") + 
   tm_shape(world) + 

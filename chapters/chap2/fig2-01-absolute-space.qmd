@@ -28,7 +28,7 @@ data <- data.frame(x = rnorm(30), y = rnorm(30), z = rnorm(30))
 
 ... and plot them.
 
-```{r}
+```{r fig.width=6, fig.height=6}
 scatter3D(x = data$x, y = data$y, z = data$z, 
           theta = 25, phi = 30, scale = FALSE, 
           xlim = range(data$x) * 1.1, 

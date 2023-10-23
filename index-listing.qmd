@@ -20,7 +20,9 @@ listing:
     - "chapters/chap7/links*.qmd"
     - "chapters/chap7/fig7-0*.qmd"
     - "chapters/chap8/links*.qmd"
-    - "chapters/chap8/fig8-0*.qmd"
+    - "chapters/chap8/fig8-01*.qmd"
+    - "chapters/chap8/fig8-03*.qmd"
+    - "chapters/chap8/fig8-04*.qmd"
   sort: false
   table-striped: true
   table-hover: true

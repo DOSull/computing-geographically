@@ -15,7 +15,7 @@ knitr:
 
 The figure in the book shows only three rewiring steps for the sake of space. Here we show 11 with a probability of rewiring at each step of 0.05.
 
-```{r message=FALSE, warning=FALSE}
+```{r fig.width=10, fig.height=7.5}
 library(sf)
 library(dplyr)
 library(tmap)

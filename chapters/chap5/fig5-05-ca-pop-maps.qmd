@@ -15,7 +15,7 @@ knitr:
 
 Not too much to say here, except that it would be nice if somebody would develop a better approach to mapping US-wide data. Counties really are a terrible base unit.
 
-```{r warning=FALSE, message=FALSE, results=FALSE}
+```{r results=FALSE, fig.width=10, fig.height=7}
 library(sf)
 library(tmap)
 library(dplyr)

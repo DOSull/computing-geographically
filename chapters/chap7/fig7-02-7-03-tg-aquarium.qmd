@@ -19,7 +19,7 @@ library(plotly)
 library(plot3D)
 ```
 
-```{r}
+```{r fig.width=8, fig.height=8}
 time_space_data <- read.csv("tg-day-in-the-life.csv")
 
 locations_0 <- unique(select(time_space_data, x, y)) %>%
@@ -44,7 +44,7 @@ arrows3D(locations_0$x, locations_0$y, locations_0$t,
          add = TRUE, lty = "dashed", lwd = 0.5, col = "black")
 ```
 
-```{r}
+```{r fig.width=8, fig.height=8}
 time_space_data <- read.csv("tg-meeting.csv")
 
 trace <- time_space_data %>% 

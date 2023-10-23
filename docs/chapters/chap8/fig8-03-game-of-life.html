@@ -296,13 +296,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plotting" class="level2">
 <h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
 <p>The dataframe has attributes <code>x</code>, <code>y</code>, <code>t</code>, and <code>state</code>, which are most easily plotted as a sequence of model snapshots using <code>ggplot2::facet_wrap</code>.</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-4_3cfad6c2fc56faa4be895ef29534bf50">
+<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-4_45b39ba23bb513cb0c1d6121e6c6cd71">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(life_df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(t <span class="sc">&gt;=</span> <span class="dv">30</span>, t <span class="sc">&lt;=</span> <span class="dv">47</span>)) <span class="sc">+</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(life_df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(t <span class="sc">&gt;=</span> <span class="dv">30</span>, t <span class="sc">&lt;=</span> <span class="dv">49</span>)) <span class="sc">+</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> num), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> t, <span class="at">ncol =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> t, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="an-animation" class="level3">
 <h3 class="anchored" data-anchor-id="an-animation">An animation</h3>
 <p>We can also make a movie…</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-5_4634ebb7e8af325a8231385faba781b2">
+<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-5_d2826a2c8cc28cd0b7c12ab053edb6e5">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>

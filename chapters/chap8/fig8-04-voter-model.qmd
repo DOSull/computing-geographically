@@ -15,7 +15,7 @@ knitr:
 
 The example in the book was made using a NetLogo model based on [this model from _Spatial Simulation_](https://dosull.github.io/pattern-and-process/chapter-3/3.8.html), but this page provides _R_ code instead.
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 library(dplyr)
 library(tidyr)
 library(pracma)
@@ -98,7 +98,7 @@ vma_df <- voter_model(1:num_states, ncol = width, nrow = height,
 ## Plotting
 The dataframe has attributes `x`, `y`, `t`, and `state`, which are most easily plotted as a sequence of model snapshots using `ggplot2::facet_wrap`.
 
-```{r fig.width=10}
+```{r fig.width=10, fig.height=8}
 ggplot(vma_df %>% filter(t %in% 2:21)) + 
   geom_raster(aes(x = x, y = y, fill = state), show.legend = FALSE) + 
   scale_fill_brewer(palette = "Accent") +
@@ -112,7 +112,7 @@ ggplot(vma_df %>% filter(t %in% 2:21)) +
 ### An animation
 We can also make a movie...
 
-```{r}
+```{r fig.width=8, fig.height=8}
 library(gganimate)
 
 anim <- ggplot(vma_df) + 

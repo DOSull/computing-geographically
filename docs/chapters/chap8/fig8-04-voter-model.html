@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>The example in the book was made using a NetLogo model based on <a href="https://dosull.github.io/pattern-and-process/chapter-3/3.8.html">this model from <em>Spatial Simulation</em></a>, but this page provides <em>R</em> code instead.</p>
-<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-1_4becde7d30852606df9b2fc083b09f42">
+<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-1_4d05fc3cf99a9bd9ea256609f0533868">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -307,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plotting" class="level2">
 <h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
 <p>The dataframe has attributes <code>x</code>, <code>y</code>, <code>t</code>, and <code>state</code>, which are most easily plotted as a sequence of model snapshots using <code>ggplot2::facet_wrap</code>.</p>
-<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-4_8bae150e5c5deae091a08f7bd64d71a0">
+<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-4_0daf3781c453bfef5464a39dc3d6a279">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vma_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(t <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">21</span>)) <span class="sc">+</span> </span>
@@ -326,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="an-animation" class="level3">
 <h3 class="anchored" data-anchor-id="an-animation">An animation</h3>
 <p>We can also make a movie…</p>
-<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-5_6268e6e96b0649c216cf6db4d444858b">
+<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-5_5ec9dc1ecf4f8f34ef5345a5c17a2e16">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>

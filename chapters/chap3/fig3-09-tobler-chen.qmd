@@ -34,7 +34,7 @@ library(dplyr)
 
 Use the supplied `World` dataset (in lat-lon EPSG 4326) and project as required!
 
-```{r}
+```{r fig.width=10, fig.height=9}
 data("World") 
 world_tc <- World %>%
   select(geometry) %>%

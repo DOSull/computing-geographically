@@ -40,7 +40,7 @@ df$h2 <- -hilbert::position(df$n, n = 10)[, 2]
 
 That's it&mdash;why didn't I think of this earlier?  And `ggplot::geom_path()` provides an easy way to plot the 'curves'.
 
-```{r}
+```{r fig.width=10, fig.height=5}
 library(ggplot2)
 
 ggplot(df) + 
@@ -100,7 +100,7 @@ h3_9 <- get_hexes(square, 9, 750)
 
 And make a map. I'm using `maptiles::get_tiles()` to provide a base map.
 
-```{r}
+```{r fig.width=8, fig.height=8}
 basemap <- get_tiles(square, zoom = 11, provider = "CartoDB.Positron")
 
 tm_shape(basemap, bbox = square) + tm_rgb() +
