@@ -18,7 +18,17 @@ language:
   section-title-footnotes: "References"
 ---
 
-At the risk of getting into "[someone is **wrong** on the internet](https://xkcd.com/386/)" conversations, here's why I wrote *giscience* not *GIScience*.
+::: {.callout-note collapse="true"}
+#### Update History
+
+| Date       | Changes                                                                |
+|:-----------|:-----------------------------------------------------------------------|
+| 2023-10-25 | Added update history.                                                  |
+| 2023-10-24 | Initial post.                                                          |
+
+:::
+
+At the risk of getting into "[someone is **wrong** on the internet](https://xkcd.com/386/)" conversations, here's why I used *giscience* not *GIScience* throughout *Computing Geographically*.
 
 ## Words are what we make of them
 Early in the writing of the book, by which I mean as far back as 2018, the 'word' *GIScience* with its excess of upper case letters started to bother me. It looks odd (to me anyway) on the page, and also strangely exceptional. There are not many words like that in this or any other book (*GISer* is an exception, about which more [below](#on-gisers)). In any case, it felt strange to me to use this oddly commercial construction, familiar from the tech world, for a subdiscipline in geography.
@@ -47,14 +57,4 @@ What can I say? My book, my rules!
 
 ## Neither giscience nor GIScience but geographical computing!
 If the book doesn't make it obvious, I'd much prefer us to use _geographical computing_ as a label for whatever it is we are doing when we work with computers while studying geography. Geocomputation for all its virtues is altogether too computational, and as the book argues at some length, giscience is geography anyway!
-
-::: {.callout-note collapse="true"}
-#### Update History
-
-| Date       | Changes                                                                |
-|:-----------|:-----------------------------------------------------------------------|
-| 2023-10-25 | Added update history.                                                  |
-| 2023-10-24 | Initial post.                                                          |
-
-:::
 

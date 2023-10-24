@@ -641,7 +641,7 @@
     "href": "other-stuff/giscience-not-GIScience.html",
     "title": "Giscience? not GIScience?!",
     "section": "",
-    "text": "At the risk of getting into “someone is wrong on the internet” conversations, here’s why I wrote giscience not GIScience.\n© 2023 David O’Sullivan"
+    "text": "Update History\n\n\n\n\n\n\n\n\n\n\n\n\nDate\nChanges\n\n\n\n\n2023-10-25\nAdded update history.\n\n\n2023-10-24\nInitial post.\nAt the risk of getting into “someone is wrong on the internet” conversations, here’s why I used giscience not GIScience throughout Computing Geographically.\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "other-stuff/giscience-not-GIScience.html#words-are-what-we-make-of-them",
@@ -655,7 +655,7 @@
     "href": "other-stuff/giscience-not-GIScience.html#neither-giscience-nor-giscience-but-geographical-computing",
     "title": "Giscience? not GIScience?!",
     "section": "Neither giscience nor GIScience but geographical computing!",
-    "text": "Neither giscience nor GIScience but geographical computing!\nIf the book doesn’t make it obvious, I’d much prefer us to use geographical computing as a label for whatever it is we are doing when we work with computers while studying geography. Geocomputation for all its virtues is altogether too computational, and as the book argues at some length, giscience is geography anyway!\n\n\n\n\n\n\nUpdate History\n\n\n\n\n\n\n\n\n\n\n\n\nDate\nChanges\n\n\n\n\n2023-10-25\nAdded update history.\n\n\n2023-10-24\nInitial post."
+    "text": "Neither giscience nor GIScience but geographical computing!\nIf the book doesn’t make it obvious, I’d much prefer us to use geographical computing as a label for whatever it is we are doing when we work with computers while studying geography. Geocomputation for all its virtues is altogether too computational, and as the book argues at some length, giscience is geography anyway!"
   },
   {
     "objectID": "other-stuff/giscience-not-GIScience.html#footnotes",
@@ -669,14 +669,14 @@
     "href": "other-stuff/about-the-cover.html",
     "title": "About the cover",
     "section": "",
-    "text": "Loosely speaking the cover mirrors the sequence from simple location to world as relational process that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian ‘society of actual occasions’. If you have no idea what I’m on about, you’ll have to read the book…\nIn any case, I like how the artwork looks, and so did the publisher!\nHere’s how I made it (flipped to landscape mode so you get bigger pictures).\n© 2023 David O’Sullivan"
+    "text": "Update History\n\n\n\n\n\n\n\n\n\n\n\n\nDate\nChanges\n\n\n\n\n2023-10-25\nRemoved offsetting to centre of NZTM projection. Added Update history.\n\n\n2023-10-24\nInverted coordinates to make landscape images.\n\n\n2023-10-19\nInitial post.\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "other-stuff/about-the-cover.html#the-idea-behind-the-cover",
     "href": "other-stuff/about-the-cover.html#the-idea-behind-the-cover",
     "title": "About the cover",
-    "section": "",
-    "text": "Loosely speaking the cover mirrors the sequence from simple location to world as relational process that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian ‘society of actual occasions’. If you have no idea what I’m on about, you’ll have to read the book…\nIn any case, I like how the artwork looks, and so did the publisher!\nHere’s how I made it (flipped to landscape mode so you get bigger pictures)."
+    "section": "The idea behind the cover",
+    "text": "The idea behind the cover\nLoosely speaking the cover mirrors the sequence from simple location to world as relational process that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian ‘society of actual occasions’. If you have no idea what I’m on about, you’ll have to read the book…\nIn any case, I like how the artwork looks, and so did the publisher!\nHere’s how I made it (flipped to landscape mode so you get bigger pictures)."
   },
   {
     "objectID": "other-stuff/about-the-cover.html#a-flocking-model",
@@ -718,6 +718,6 @@
     "href": "other-stuff/about-the-cover.html#other-computational-art-in-r",
     "title": "About the cover",
     "section": "Other computational art in R",
-    "text": "Other computational art in R\nComputational ‘generative’ art is a lot of fun. I’d have to rewrite that NetLogo model in R to make this truly an example of generative art in R, but en route to this approach I found some interesting resources here, particularly\n\nNicola Rennie’s ‘Rtistry’\nKoen Derks’s aRtsy package\n\nIn the end I preferred the greater control that my own ‘tool-chain’ gave me.\n\n\n\n\n\n\nUpdate History\n\n\n\n\n\n\n\n\n\n\n\n\nDate\nChanges\n\n\n\n\n2023-10-25\nRemoved offsetting to centre of NZTM projection. Added Update history.\n\n\n2023-10-24\nInverted coordinates to make landscape images.\n\n\n2023-10-19\nInitial post.\n\n\n\n\n\n\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
+    "text": "Other computational art in R\nComputational ‘generative’ art is a lot of fun. I’d have to rewrite that NetLogo model in R to make this truly an example of generative art in R, but en route to this approach I found some interesting resources here, particularly\n\nNicola Rennie’s ‘Rtistry’\nKoen Derks’s aRtsy package\n\nIn the end I preferred the greater control that my own ‘tool-chain’ gave me.\n\n\nCode\n# License (MIT)\n#\n# Copyright (c) 2023 David O'Sullivan\n#\n# Permission is hereby granted, free of charge, to any person\n# obtaining a copy of this software and associated documentation\n# files (the \"Software\"), to deal in the Software without restriction,\n# including without limitation the rights to use, copy, modify, merge,\n# publish, distribute, sublicense, and/or sell copies of the Software,\n# and to  permit persons to whom the Software is furnished to do so,\n# subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included\n# in all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL\n# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n# DEALINGS IN THE SOFTWARE."
   }
 ]

@@ -17,6 +17,17 @@ knitr:
     message: false
 ---
 
+::: {.callout-note collapse="true"}
+#### Update History
+
+| Date       | Changes                                                                |
+|:-----------|:-----------------------------------------------------------------------|
+| 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history. |
+| 2023-10-24 | Inverted coordinates to make landscape images.                         |
+| 2023-10-19 | Initial post.                                                          |
+
+:::
+
 ## The idea behind the cover
 Loosely speaking the cover mirrors the sequence from _simple location_ to _world as relational process_ that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian 'society of actual occasions'. If you have no idea what I'm on about, you'll have to read the book...
 
@@ -148,17 +159,6 @@ Computational 'generative' art is a lot of fun. I'd have to rewrite that NetLogo
 - [Koen Derks's `aRtsy` package](https://github.com/koenderks/aRtsy)
 
 In the end I preferred the greater control that my own 'tool-chain' gave me.
-
-::: {.callout-note collapse="true"}
-#### Update History
-
-| Date       | Changes                                                                |
-|:-----------|:-----------------------------------------------------------------------|
-| 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history. |
-| 2023-10-24 | Inverted coordinates to make landscape images.                         |
-| 2023-10-19 | Initial post.                                                          |
-
-:::
 
 ```{r}
 #| code-fold: true
