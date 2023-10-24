@@ -1,0 +1,14 @@
+{
+  "hash": "ab2c4bcb06ea3a398aef850a895c5a26",
+  "result": {
+    "markdown": "---\ntitle: Odds and ends\nsubtitle: Bits and pieces that might be of interest\ncategories:\n  - extras\nlisting:\n  categories: true\n  contents: other-stuff\n  sort: \"date desc\"\n  type: default\nexecute: \n  cache: true\n  freeze: auto\nknitr:\n  opts_chunk: \n    warning: false\n    message: false\n---\n\n\nThis section is a collection of 'bonus material' reflecting on aspects of the book, and ongoing concerns, which don't really fall under a single chapter.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

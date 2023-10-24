@@ -1,0 +1,48 @@
+---
+title: "Giscience? not GIScience?!"
+subtitle: Just don't anyone say geospatial
+description: "Thoughts on the terms giscience, GIScience, and geographic(al) information science. Also: GISer"
+date: "10/24/2023"
+categories:
+  - extras
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+image: "https://imgs.xkcd.com/comics/duty_calls.png"
+language:
+  section-title-footnotes: "References"
+---
+
+At the risk of getting into "[someone is **wrong** on the internet](https://xkcd.com/386/)" conversations, here's why I wrote *giscience* not *GIScience*.
+
+## Words are what we make of them
+Early in the writing of the book, by which I mean as far back as 2018, the 'word' *GIScience* with its excess of upper case letters started to bother me. It looks odd (to me anyway) on the page, and also strangely exceptional. There are not many words like that in this or any other book (*GISer* is an exception, about which more [below](#on-gisers)). In any case, it felt strange to me to use this oddly commercial construction, familiar from the tech world, for a subdiscipline in geography.
+
+And I was going to be using the word, or whatever that collection of letters is, a lot, so if it bothered me, I had to find a solution.
+
+One option was simply not to abbreviate *geographical information science*&mdash;or is it *geographic information science*? That might be the correct answer. But oh my! It would likely add a couple of pages to the book to no great purpose, and it's such a mouthful!
+
+Tentatively (and somewhat reluctantly), I experimented with treating *giscience* as a normal word, and after a while it looked right to me, and I even started to like it. I decided to stick with that choice and I am happy with it. If it bothers some people, I think that's their problem not mine. Language changes and evolves all the time. In this instance, I am being intentional about my part in that change. I note that *GIScience* at the time of writing (late 2023), unlike *GIS*, has yet to make it into the Oxford English Dictionary. That, at the very least, leaves things up for grabs, when it comes to 'correct' usage. 
+
+There is a slightly tongue-in-cheek footnote on the very first page proper (after a footnote about GIS) discussing some of this, and even suggesting that we pronounce giscience to rhyme with omniscience. If it's not obvious, I don't expect anybody to do this. I also really don't care if readers mentally edit giscience to read GIScience (does the latter involve inner YELLING?) or if they expand the contraction to geographic(al) information science every time they see it in print.
+
+And of course, it's not up to me how readers read the book (&sect;**How to Read the Book** notwithstanding), or how they go on from there. Capitalise that word as you see fit! Giscience works for me.
+
+### On *geographic(al) information science*
+A significant motive for the geographical information science coinage was a quest for academic respectability^[Goodchild MF. 1992. Geographical information science. *International Journal of Geographical Information Systems* **6**(1) 31–45.] following the funding by the US National _Science_ Foundation of the National Center for Geographic Information and Analysis. This made all kinds of sense at the time. I remember as a PhD student hearing the argument pithily summarised with the phrase (attributed perhaps apocryphally to Stan Openshaw), "they aren't any *Excel* conferences, so why would they be GIS ones?" Well quite. Stan was an advocate for *geocomputation* and that's a label that I would be happier with, although its usefulness is a bit accidental, depending as it does on the the brevity of the 'geo-' prefix as Helen Couclelis has pointed out^[Couclelis H. 1998. Geocomputation in context. In *Geocomputation: A Primer*, PA Longley, SM Brooks, R McDonnell, and WD Macmillan (eds), 17–29. Wiley.].
+
+Since that coinage 'geographical information science' has often been associated with a boundary policing anxiety to distinguish geographical information science (a _real_ science) from geographical information systems (just people using a particular software platform). I understand the distinction people are attempting to make when they insist on the difference, but it is a distinction that is ambiguous at best, incoherent at worst, and often simply impossible to make. As a long-time associate editor at _International Journal of Geographical Information Science_, one time co-editor of _Transactions in GIS_, frequent member of the Program Committee of the _GIScience_ conference series, and erstwhile Professor of Geography and uh... ~~Geographic(al) Information~~ Geospatial Science, I have rarely found the distinction useful.
+
+The other problem with geographical information science (for me at least) is that it attaches giscience too closely to computer science and information science. That might be a more comfortable home for some. Geoinformatics departments and schools seem particularly common in Europe, and that's great: a lot of good work is done in those settings, and some of it shows up throughout the book. The problem with being close to computer science is being absorbed into that much larger, and, let's face it, for the most part more technically accomplished community, and losing sight of the geographical aspects of giscience. A central concern of _Computing Geographically_ is that giscience should not lose that connection.
+
+### On *GISers*
+But, I hear you ask, what about *GISer*? Well yeah... about that. I really *like* the term GISer. And for whatever reason, probably its lack of pretense, it doesn't bother me like GIScience does. Anyone who engages geography using computers and georeferenced data can be a GISer. There is no requirement to be advancing some nebulous science of how to do geographical computing implied in being a GISer. GISer is somehow democratic and inclusive, where giscience (however it is capitalised) is not.
+
+What can I say? My book, my rules!
+
+## Neither giscience nor GIScience but geographical computing!
+If the book doesn't make it obvious, I'd much prefer us to use _geographical computing_ as a label for whatever it is we are doing when we work with computers while studying geography. Geocomputation for all its virtues is altogether too computational, and as the book argues at some length, giscience is geography anyway!

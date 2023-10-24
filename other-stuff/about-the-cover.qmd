@@ -1,16 +1,12 @@
 ---
-title: Other stuff
-subtitle: Bits and pieces that might be of interest
+title: About the cover
+subtitle: And how to make your own
+description: "An explanation of how the I made the cover art"
+date: "10/14/2023"
 categories:
   - extras
   - code
   - R
-# listing:
-#   categories: true
-#   contents:
-#     - "cover-art.qmd"
-#   sort: false
-#   type: grid
 execute: 
   cache: true
   freeze: auto
@@ -20,9 +16,12 @@ knitr:
     message: false
 ---
 
-For now, this is just one page about how I made the cover art. In time I might expand it to cover other aspects of the book, why I wrote it, lost chapters/threads that didn't make it, a picture of Rosa the cat, 'how I wrote a book and still lost my job', and so on.
+## The idea behind the cover
+Loosely speaking the cover mirrors the sequence from _simple location_ to _world as relational process_ that the book recounts. A set of relationally interacting, moving, simple locations converge to become Whitehead-ian 'society of actual occasions'. If you have no idea what I'm on about, you'll have to read the book...
 
-But for now, here's how I made the cover art.
+In any case, I like how the artwork looks, and so did the publisher!
+
+Here's how I made it (flipped to landscape mode so you get bigger pictures).
 
 ## A flocking model
 The starting point was a *flocking model*, which is discussed in Chapter 8 of the book, in &sect;**Agent-Based Models**, but also makes an appearance in Figure 7.7. This model was previously made for my earlier book _Spatial Simulation_ written with George Perry, which you can find all about [here](https://patternandprocess.org). Specifically [this NetLogo model](https://dosull.github.io/pattern-and-process/chapter-4/4.7.html) appears in the [model zoo](https://dosull.github.io/pattern-and-process/#the-model-zoo), as an implementation of ideas in these papers
@@ -57,7 +56,7 @@ xy_sf <- xy %>%
   # of the projection extent so it's right way up
   mutate(x = x + 1.75e6, y = y + 5.5e6) %>%
   filter(t %in% steps) %>%
-  st_as_sf(coords = c("x", "y"), crs = 2193)
+  st_as_sf(coords = c("y", "x"), crs = 2193)
 ```
 
 Before we go any further, we need a 'frame' for all the layers we'll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.
@@ -151,11 +150,6 @@ Computational 'generative' art is a lot of fun. I'd have to rewrite that NetLogo
 - [Koen Derks's `aRtsy` package](https://github.com/koenderks/aRtsy)
 
 In the end I preferred the greater control that my own 'tool-chain' gave me.
-
-## The idea behind the cover
-Loosely speaking the cover mirrors the sequence from 'simple location' to 'world as relational process' that the book recounts. A set of relationally interacting, moving, simple locations converge to become a society of actual occasions. If you have no idea what I'm on about, you'll have to read the book...
-
-In any case, I like how it looks, and so did the publisher!
 
 ```{r}
 #| code-fold: true

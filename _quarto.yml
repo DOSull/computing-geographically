@@ -27,8 +27,8 @@ website:
             file: "chapters/chap8/index.qmd"
           - text: "Doing Giscience Doing Geography"
             file: "chapters/chap9/index.qmd"
-      - text: Other stuff
-        file: "other-stuff/index.qmd"
+      - text: Odds and ends
+        file: "posts.qmd"
       - text: All the pages
         file: "index-listing.qmd"
   page-navigation: true
@@ -41,3 +41,4 @@ format:
     toc: true
     # mainfont: "Libre Baskerville"
     code-fold: show
+ 

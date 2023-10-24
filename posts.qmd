@@ -1,0 +1,20 @@
+---
+title: Odds and ends
+subtitle: Bits and pieces that might be of interest
+categories:
+  - extras
+listing:
+  categories: true
+  contents: other-stuff
+  sort: "date desc"
+  type: default
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+This section is a collection of 'bonus material' reflecting on aspects of the book, and ongoing concerns, which don't really fall under a single chapter.
