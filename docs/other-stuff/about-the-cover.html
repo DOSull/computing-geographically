@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-14">
+<meta name="dcterms.date" content="2023-10-19">
 <meta name="description" content="An explanation of how the I made the cover art">
 
 <title>Computing Geographically Bonus Material - About the cover</title>
@@ -221,10 +221,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 14, 2023</p>
+      <p class="date">October 19, 2023</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">October 25, 2023</p>
+    </div>
+  </div>
     
   </div>
   
@@ -233,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="the-idea-behind-the-cover" class="level2">
 <h2 class="anchored" data-anchor-id="the-idea-behind-the-cover">The idea behind the cover</h2>
-<p>Loosely speaking the cover mirrors the sequence from <em>simple location</em> to <em>world as relational process</em> that the book recounts. A set of relationally interacting, moving, simple locations converge to become Whitehead-ian ‘society of actual occasions’. If you have no idea what I’m on about, you’ll have to read the book…</p>
+<p>Loosely speaking the cover mirrors the sequence from <em>simple location</em> to <em>world as relational process</em> that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian ‘society of actual occasions’. If you have no idea what I’m on about, you’ll have to read the book…</p>
 <p>In any case, I like how the artwork looks, and so did the publisher!</p>
 <p>Here’s how I made it (flipped to landscape mode so you get bigger pictures).</p>
 </section>
@@ -266,17 +272,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>We don’t need all the time steps in that file, so cut it down a bit and convert into a simple features dataset. You’ll note that even though these are not real world data (this is a book cover after all) I have to assign a projection, so that some of the later steps in the process will cooperate. The curse of geodetic accuracy strikes again!</p>
-<div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-2_59ad52828be94d3bc0b7517b174d909d">
+<div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-2_b452fdf19a2880eb63bafa0eb60b1610">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>xy_sf <span class="ot">&lt;-</span> xy <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># these offsets put the geometry near the centre</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># of the projection extent so it's right way up</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> x <span class="sc">+</span> <span class="fl">1.75e6</span>, <span class="at">y =</span> y <span class="sc">+</span> <span class="fl">5.5e6</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(t <span class="sc">%in%</span> steps) <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"y"</span>, <span class="st">"x"</span>), <span class="at">crs =</span> <span class="dv">2193</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(t <span class="sc">%in%</span> steps) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"y"</span>, <span class="st">"x"</span>), <span class="at">crs =</span> <span class="dv">2193</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Before we go any further, we need a ‘frame’ for all the layers we’ll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.</p>
@@ -397,6 +400,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://github.com/koenderks/aRtsy">Koen Derks’s <code>aRtsy</code> package</a></li>
 </ul>
 <p>In the end I preferred the greater control that my own ‘tool-chain’ gave me.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Update History
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 85%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2023-10-25</td>
+<td style="text-align: left;">Removed offsetting to centre of NZTM projection. Added Update history.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023-10-24</td>
+<td style="text-align: left;">Inverted coordinates to make landscape images.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2023-10-19</td>
+<td style="text-align: left;">Initial post.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-11_4e7a5c1df7a3b1b7d84015cd102e9bdd">
 <details>
 <summary>Code</summary>

@@ -2,7 +2,8 @@
 title: About the cover
 subtitle: And how to make your own
 description: "An explanation of how the I made the cover art"
-date: "10/14/2023"
+date: "10/19/2023"
+date-modified: "10/25/2023"
 categories:
   - extras
   - code
@@ -17,7 +18,7 @@ knitr:
 ---
 
 ## The idea behind the cover
-Loosely speaking the cover mirrors the sequence from _simple location_ to _world as relational process_ that the book recounts. A set of relationally interacting, moving, simple locations converge to become Whitehead-ian 'society of actual occasions'. If you have no idea what I'm on about, you'll have to read the book...
+Loosely speaking the cover mirrors the sequence from _simple location_ to _world as relational process_ that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian 'society of actual occasions'. If you have no idea what I'm on about, you'll have to read the book...
 
 In any case, I like how the artwork looks, and so did the publisher!
 
@@ -52,9 +53,6 @@ We don't need all the time steps in that file, so cut it down a bit and convert 
 steps <- seq(1, 50, 1)
 
 xy_sf <- xy %>%
-  # these offsets put the geometry near the centre
-  # of the projection extent so it's right way up
-  mutate(x = x + 1.75e6, y = y + 5.5e6) %>%
   filter(t %in% steps) %>%
   st_as_sf(coords = c("y", "x"), crs = 2193)
 ```
@@ -150,6 +148,17 @@ Computational 'generative' art is a lot of fun. I'd have to rewrite that NetLogo
 - [Koen Derks's `aRtsy` package](https://github.com/koenderks/aRtsy)
 
 In the end I preferred the greater control that my own 'tool-chain' gave me.
+
+::: {.callout-note collapse="true"}
+#### Update History
+
+| Date       | Changes                                                                |
+|:-----------|:-----------------------------------------------------------------------|
+| 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history. |
+| 2023-10-24 | Inverted coordinates to make landscape images.                         |
+| 2023-10-19 | Initial post.                                                          |
+
+:::
 
 ```{r}
 #| code-fold: true

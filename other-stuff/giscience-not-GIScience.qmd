@@ -3,6 +3,7 @@ title: "Giscience? not GIScience?!"
 subtitle: Just don't anyone say geospatial
 description: "Thoughts on the terms giscience, GIScience, and geographic(al) information science. Also: GISer"
 date: "10/24/2023"
+date-modified: "10/25/2023"
 categories:
   - extras
 execute: 
@@ -46,3 +47,14 @@ What can I say? My book, my rules!
 
 ## Neither giscience nor GIScience but geographical computing!
 If the book doesn't make it obvious, I'd much prefer us to use _geographical computing_ as a label for whatever it is we are doing when we work with computers while studying geography. Geocomputation for all its virtues is altogether too computational, and as the book argues at some length, giscience is geography anyway!
+
+::: {.callout-note collapse="true"}
+#### Update History
+
+| Date       | Changes                                                                |
+|:-----------|:-----------------------------------------------------------------------|
+| 2023-10-25 | Added update history.                                                  |
+| 2023-10-24 | Initial post.                                                          |
+
+:::
+
