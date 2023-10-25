@@ -18,8 +18,8 @@ This page produces a coloured version of Figure 5.7 which may be a little easier
 ```{r message=FALSE, warning=FALSE}
 library(MASS)
 library(ggplot2)
-library(ggpubr)
 library(tidyverse)
+library(colorspace)
 ```
 
 ## Data
@@ -73,29 +73,45 @@ We also make some plotting functions so we don't have to repeat a lot of code. T
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
-add_df_plots <- function(g, df, colour, alpha_pts = 0.5, 
-                         alpha_ellipse_fill = 0.25, polygon = TRUE) {
-  g <- g + 
-    geom_point(data = df, aes(x = x, y = y),
-               colour = colour, alpha = alpha_pts, pch = 16, size = 1)
-  if (polygon) {
-    g <- g + 
-      stat_ellipse(data = df, aes(x = x, y = y),
-                   geom = "polygon", alpha = alpha_ellipse_fill, fill = colour)
-  } else {
-    g <- g + 
-      stat_ellipse(data = df, aes(x = x, y = y), colour = colour, linewidth = 0.35)
+add_ellipses <- function(g, dfs, cols, alphas, filled_polygons) {
+  for (i in seq_along(dfs)) {
+    if (filled_polygons[i]) {
+      g <- g + stat_ellipse(
+                 data = dfs[[i]], aes(x = x, y = y), geom = "polygon", 
+                 alpha = alphas[i], fill = cols[i])
+    } else {
+      g <- g + stat_ellipse(
+                 data = dfs[[i]], aes(x = x, y = y), colour = cols[i], 
+                 linewidth = 0.35)
+    }
   }
-  g + geom_smooth(data = df, aes(x = x, y = y),
-                  method = lm, se = FALSE, colour = colour, linewidth = 0.5)
+  g
 }
 
-three_plots <- function(df1, df2, df3) {
+add_points <- function(g, dfs, cols, alphas) {
+  for (i in seq_along(dfs)) {
+    g <- g + geom_point(data = dfs[[i]], aes(x = x, y = y), 
+               colour = cols[i], alpha = alphas[i], pch = 16, size = 1)
+  }
+  g
+}
+
+add_lines <- function(g, dfs, cols) {
+  for (i in seq_along(dfs)) {
+    g <- g + geom_smooth(data = dfs[[i]], aes(x = x, y = y), method = lm,
+               se = FALSE, colour = darken(cols[i]), linewidth = 0.75)
+  }
+  g
+}
+
+three_plots <- function(dfs, cols = c("black", "forestgreen", "magenta")) {
   g <- ggplot()
-  g <- add_df_plots(g, df1, "black", alpha_pts = 0.2, polygon = FALSE)
-  g <- add_df_plots(g, df2, "forestgreen")
-  g <- add_df_plots(g, df3, "violet")
-  g + coord_equal() + theme_void()
+  g <- add_ellipses(g, dfs, cols, alpha = rep(0.25, 3), filled_polygons = c(F, T, T))
+  g <- add_points(g, dfs, cols, alphas = c(0.2, 0.5, 0.5))
+  g <- add_lines(g, dfs, cols)
+  g + 
+    coord_equal() + 
+    theme_void()
 }
 ```
 
@@ -111,7 +127,7 @@ df_sim <- df %>%
 df_diff <- df %>%
   agg_different()
 
-three_plots(df, df_sim, df_diff)
+three_plots(list(df, df_sim, df_diff))
 ```
 
 When we aggregate similar observations (the green ellipse) the correlation is increased, while aggregating different observations inverts the correlation (the violet ellipse)! The initial correlation is seen in the unfilled black ellipse.
@@ -125,7 +141,7 @@ df_sim <- df %>%
 df_diff <- df %>%
   agg_different()
 
-three_plots(df, df_sim, df_diff)
+three_plots(list(df, df_sim, df_diff))
 ```
 
 What do we take from this in a geographical setting? Well, if indeed "near things are more related than distant things", then in many situations where data are aggregated spatially based on proximity positive correlations are likely to be 'enhanced', and we may even see correlations where none exist at the individual level.
