@@ -14,5 +14,5 @@ The Bostonography neighborhoods web map is unfortunately no longer working (wort
 The Nominatim geocoder is available at [nominatim.openstreetmap.org](https://nominatim.openstreetmap.org/ui/search.html).
 
 ### Figure 4.5
-Chris McDowall's notes on the te reo Māori placenames map are at [github.com/fogonwater/we-are-here](https://github.com/fogonwater/we-are-here/tree/master/8_heart_memory#801-ingoa-w%C4%81hi-o-aotearoa--place-names-of-new-zealand). Te Hiku Media's ngā-kupu tools for detecting Māori words in text at at [github.com/TeHikuMedia/nga-kupu](https://github.com/TeHikuMedia/nga-kupu).
+Chris McDowall's notes on the te reo Māori placenames map are at [github.com/fogonwater/we-are-here](https://github.com/fogonwater/we-are-here/tree/master/8_heart_memory#801-ingoa-w%C4%81hi-o-aotearoa--place-names-of-new-zealand). Te Hiku Media's ngā-kupu tools for detecting Māori words in text are at [github.com/TeHikuMedia/nga-kupu](https://github.com/TeHikuMedia/nga-kupu).
 
