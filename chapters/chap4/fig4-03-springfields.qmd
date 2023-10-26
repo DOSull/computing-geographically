@@ -1,5 +1,5 @@
 ---
-title: "Figure 4.3: Many Springfields"
+title: "Figure 4.3 Many Springfields"
 categories: 
   - figures
   - code

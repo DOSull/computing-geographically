@@ -1,5 +1,5 @@
 ---
-title: "Figures 8.1 and 8.2: One-dimensional CA"
+title: "Figures 8.1 and 8.2 One-dimensional CA"
 categories: 
   - figures
   - code

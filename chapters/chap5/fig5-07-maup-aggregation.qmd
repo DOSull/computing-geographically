@@ -1,5 +1,5 @@
 ---
-title: "Figure 5.7: The MAUP aggregation effect"
+title: "Figure 5.7 The MAUP aggregation effect"
 categories: 
   - figures
   - code

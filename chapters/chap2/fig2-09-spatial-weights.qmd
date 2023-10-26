@@ -1,5 +1,5 @@
 ---
-title: "Figure 2.9: A range of spatial weights applied to polygon data"
+title: "Figure 2.9 A range of spatial weights applied to polygon data"
 categories: 
   - figures
   - code

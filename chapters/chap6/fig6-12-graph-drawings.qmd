@@ -1,5 +1,5 @@
 ---
-title: "Figure 6.12: A simple graph drawn nine different ways"
+title: "Figure 6.12 A simple graph drawn nine different ways"
 categories: 
   - figures
   - code

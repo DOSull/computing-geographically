@@ -7,18 +7,5 @@ image: "../../links.png"
 ---
 
 ## Links 
-### Footnote 3 
-The Degree Confluence Project is at [confluence.org](https://confluence.org/).
-
-### Footnote 5
-Find out more about 'Null Island' (i.e., 0&deg;N 0&deg;E) at its [wikipedia page](https://en.wikipedia.org/wiki/Null_Island).
-
-### Footnote 6
-The original announcement of geohash is in this blogpost by Greg Niemeyer: [blog.labix.org/2008/02/26/geohashorg-is-public](https://blog.labix.org/2008/02/26/geohashorg-is-public). You can generate geohash codes at the website [http://geohash.org](http://geohash.org) (yes `http`, not `https`).
-
-### Footnote 7 
-Google's S2 index is explained at [s2geometry.io](https://s2geometry.io/).
-
-### Footnote 8 
-Uber's H3 index is described at [h3geo.org](https://h3geo.org/).
-
+### Footnote 9
+Lewis Carroll's _Sylvie and Bruno Concluded_ is out of copyright and freely available. See for example, this [ebook](https://standardebooks.org/ebooks/lewis-carroll/sylvie-and-bruno) (the one-to-one map appears in Chapter XI). Unfortunately Borges's and Eco's more recent examples are not freely available.

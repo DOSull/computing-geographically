@@ -1,5 +1,5 @@
 ---
-title: "Figure 3.7: Two simple world projections"
+title: "Figure 3.7 Two simple world projections"
 categories: 
   - figures
   - code

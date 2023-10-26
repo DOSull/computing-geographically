@@ -14,6 +14,7 @@ listing:
     - "chapters/chap4/fig4-0*.qmd"
     - "chapters/chap5/links*.qmd"
     - "chapters/chap5/fig5-0*.qmd"
+    - "chapters/chap5/fig5-1*.qmd"
     - "chapters/chap6/links*.qmd"
     - "chapters/chap6/fig6-0*.*"
     - "chapters/chap6/fig6-1*.*"

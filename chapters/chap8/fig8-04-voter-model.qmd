@@ -1,5 +1,5 @@
 ---
-title: "Figure 8.4: A voter model CA"
+title: "Figure 8.4 A voter model CA"
 categories: 
   - figures
   - code

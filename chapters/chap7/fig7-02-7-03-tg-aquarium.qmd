@@ -1,5 +1,5 @@
 ---
-title: "Figures 7.2 and 7.3: Goings on in the space-time aquarium"
+title: "Figures 7.2 and 7.3 Goings on in the space-time aquarium"
 categories: 
   - figures
   - code

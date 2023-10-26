@@ -1,5 +1,5 @@
 ---
-title: "Figure 4.5: Te Reo Māori toponyms in Aotearoa"
+title: "Figure 4.5 Te Reo Māori toponyms in Aotearoa"
 categories: 
   - figures
   - code

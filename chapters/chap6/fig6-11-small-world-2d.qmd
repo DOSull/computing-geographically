@@ -1,5 +1,5 @@
 ---
-title: "Figure 6.11: The small world rewiring process in two dimensions"
+title: "Figure 6.11 The small world rewiring process in two dimensions"
 categories: 
   - figures
   - code

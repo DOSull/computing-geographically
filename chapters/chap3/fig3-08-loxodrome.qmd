@@ -1,5 +1,5 @@
 ---
-title: "Figure 3.8: A loxodrome on the sphere and projected"
+title: "Figure 3.8 A loxodrome on the sphere and projected"
 categories: 
   - figures
   - code

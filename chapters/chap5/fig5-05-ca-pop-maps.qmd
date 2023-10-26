@@ -1,5 +1,5 @@
 ---
-title: "Figure 5.5: Maps of areas with widely varying populations"
+title: "Figure 5.5 Maps of areas with widely varying populations"
 categories: 
   - figures
   - code

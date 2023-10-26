@@ -1,5 +1,5 @@
 ---
-title: "Figure 3.9: Equal area world in a square"
+title: "Figure 3.9 Equal area world in a square"
 categories: 
   - figures
   - code

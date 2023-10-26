@@ -1,5 +1,5 @@
 ---
-title: "Figure 6.10: The small world rewiring process"
+title: "Figure 6.10 The small world rewiring process"
 categories: 
   - figures
   - code
