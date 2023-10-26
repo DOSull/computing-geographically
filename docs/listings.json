@@ -3,6 +3,7 @@
     "listing": "/index-listing.html",
     "items": [
       "/other-stuff/giscience-not-GIScience.html",
+      "/other-stuff/rosa-support-cat.html",
       "/other-stuff/about-the-cover.html",
       "/chapters/chap1/links-1.html",
       "/chapters/chap2/links-2.html",
@@ -119,6 +120,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/other-stuff/rosa-support-cat.html",
       "/other-stuff/giscience-not-GIScience.html",
       "/other-stuff/about-the-cover.html"
     ]

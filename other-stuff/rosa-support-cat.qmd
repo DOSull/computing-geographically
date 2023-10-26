@@ -1,0 +1,33 @@
+---
+title: "Rosa, support cat"
+subtitle: "Because: internet"
+description: "Writing is hard"
+date: "10/27/2023"
+# date-modified: "10/25/2023"
+categories:
+  - extras
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+language:
+  section-title-footnotes: "References"
+---
+
+::: {.callout-note collapse="true"}
+#### Update History
+
+| Date       | Changes                                                                |
+|:-----------|:-----------------------------------------------------------------------|
+| 2023-10-27 | Initial post.                                                          |
+
+:::
+
+I know it sounds a bit daft, but I don't know if I would have finished writing this book if it were not for Rosa Luxemburg-Parks, pictured below. Ever-present in the room I was writing in, she insisted on me getting to my desk at a sensible time every morning, and then just hung out, mostly dozing, and _not_ clambering all over the keyboard or doing any of those other cats-on-the-internet things.
+
+![](rosa-hard-at-work.jpg)
+
+That's all.
