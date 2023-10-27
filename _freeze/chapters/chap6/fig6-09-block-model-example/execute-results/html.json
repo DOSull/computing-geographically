@@ -1,0 +1,14 @@
+{
+  "hash": "3dafe2a95b890821ad3d56c8a3cdcab2",
+  "result": {
+    "markdown": "---\ntitle: \"Figure 6.9 Another look at the trade network as a block model\"\ncategories: \n  - figures\n  - extras\nexecute: \n  cache: true\n  freeze: auto\nknitr:\n  opts_chunk: \n    warning: false\n    message: false\n---\n\n\nHere is a larger version of the figure from the book where you can more easily make out all the countries' names.\n\n![](fig6-09-block-model-example-bw-vertical.png)",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

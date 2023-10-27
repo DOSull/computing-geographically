@@ -7,6 +7,7 @@ listing:
     - "links-6.qmd"
     - "fig6-05-6-06-world-cities-network.ipynb"
     - "fig6-07-world-trade-colour.qmd"
+    - "fig6-09-block-model-example.qmd"
     - "fig6-10-small-world-1d.qmd"
     - "fig6-11-small-world-2d.qmd"
     - "fig6-12-graph-drawings.qmd"

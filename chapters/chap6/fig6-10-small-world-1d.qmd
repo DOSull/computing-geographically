@@ -13,7 +13,7 @@ knitr:
     message: false
 ---
 
-The figure in the book shows only three rewiring steps for the sake of space. Here we show 11 with a probability of rewiring at each step of 0.05.
+The figure in the book shows only three rewiring steps for the sake of space. Here we show 11 with increasing probability of rewiring at each step of 0.05.
 
 ```{r fig.width=10, fig.height=7.5}
 library(sf)

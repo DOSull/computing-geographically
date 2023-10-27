@@ -18,6 +18,7 @@ listing:
     - "chapters/chap6/links-6.qmd"
     - "chapters/chap6/fig6-05-6-06-world-cities-network.ipynb"
     - "chapters/chap6/fig6-07-world-trade-colour.qmd"
+    - "chapters/chap6/fig6-09-block-model-example.qmd"
     - "chapters/chap6/fig6-10-small-world-1d.qmd"
     - "chapters/chap6/fig6-11-small-world-2d.qmd"
     - "chapters/chap6/fig6-12-graph-drawings.qmd"
