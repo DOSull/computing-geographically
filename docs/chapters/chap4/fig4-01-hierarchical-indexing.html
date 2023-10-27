@@ -215,13 +215,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>I made this figure by hand in Inkscape, which was <em>kind of</em> fun, if a little tedious, given all the repetition involved. Here I show what I could have done instead in <em>R</em>.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-1_e3632ff87d814df0036ffa2c554d56b3">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="the-z-order-morton-and-hilbert-curves" class="level2">
 <h2 class="anchored" data-anchor-id="the-z-order-morton-and-hilbert-curves">The Z-order (Morton) and Hilbert curves</h2>
 <p>The first two are general indexing schemes with deep mathematical roots, so unsurprisingly there are <em>R</em> packages for working with them. The <a href="https://github.com/s-u/morton"><code>morton</code> package</a> is only available on github so you will need <code>devtools</code> to install it, while <a href="https://cloud.r-project.org/web/packages/hilbert/index.html"><code>hilbert</code></a> is on CRAN. Because I can, I’ve made these bigger than the labouriously hand-crafted examples in the book.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-2_169042b051090ba342734d7aed786124">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(morton)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hilbert)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -234,9 +239,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># just use base R to make these</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>h1 <span class="ot">&lt;-</span> hilbert<span class="sc">::</span><span class="fu">position</span>(df<span class="sc">$</span>n, <span class="at">n =</span> <span class="dv">10</span>)[, <span class="dv">1</span>] <span class="sc">+</span> <span class="dv">33</span> <span class="co"># an offset</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>h2 <span class="ot">&lt;-</span> <span class="sc">-</span>hilbert<span class="sc">::</span><span class="fu">position</span>(df<span class="sc">$</span>n, <span class="at">n =</span> <span class="dv">10</span>)[, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>That’s it—why didn’t I think of this earlier? And <code>ggplot::geom_path()</code> provides an easy way to plot the ‘curves’.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-3_f494ac2b99432e5b6b7682bd7d9de458">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> </span>
@@ -244,6 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="fu">aes</span>(<span class="at">x =</span> h1, <span class="at">y =</span> h2), <span class="at">linewidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span> </span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span> </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
 </div>
@@ -254,13 +263,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you like hexagons, you’ll love the <a href="https://github.com/crazycapivara/h3forr"><code>h3forr</code> package</a>, which provides a spatial data friendly API for the H3 indexing scheme. There is an official H3 API for <em>R</em> but it focuses on the indexes and makes it harder work to fill spaces with hexagons, unlike the <a href="https://github.com/crazycapivara/h3forr">h3forr::polyfill()</a> function.</p>
 <p>Anyway, here goes:</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-4_51fe978638c1e0cd584d8c833ef07eb5">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(h3forr)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Make a 20km square near Wellington, Aotearoa.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-5_3337c1ae5935884e369ea022bbd4ee9c">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.735e6</span> <span class="sc">+</span> <span class="fl">2e4</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>), </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="fl">5.425e6</span> <span class="sc">+</span> <span class="fl">2e4</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
@@ -269,9 +283,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sfc</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>(<span class="at">crs =</span> <span class="dv">2193</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">4326</span>) <span class="co"># polyfill needs lat-lon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>A convenience function to wrap <code>hsforr::polyfill()</code> so that we retrieve all hexes within a buffered area of the supplied data.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-6_15a0685f1616016d7d3f2b5093afdb64">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_hexes <span class="ot">&lt;-</span> <span class="cf">function</span>(poly, resolution, distance) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  poly <span class="sc">%&gt;%</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_buffer</span>(distance) <span class="sc">%&gt;%</span></span>
@@ -279,18 +296,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">h3_to_geo_boundary</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geo_boundary_to_sf</span>()</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Then get some hexagons.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-7_7b1a4f69bb36b5652ad37914967132bf">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>h3_4 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">4</span>, <span class="dv">10000</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>h3_5 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">5</span>, <span class="dv">5000</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>h3_6 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">6</span>, <span class="dv">2500</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>h3_7 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">7</span>, <span class="dv">1500</span>)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>h3_8 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">8</span>, <span class="dv">1000</span>)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>h3_9 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">9</span>, <span class="dv">750</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>And make a map. I’m using <code>maptiles::get_tiles()</code> to provide a base map.</p>
 <div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-8_691fe2becf1d912f46685fb949fade4f">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>basemap <span class="ot">&lt;-</span> <span class="fu">get_tiles</span>(square, <span class="at">zoom =</span> <span class="dv">11</span>, <span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(basemap, <span class="at">bbox =</span> square) <span class="sc">+</span> <span class="fu">tm_rgb</span>() <span class="sc">+</span></span>
@@ -302,6 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(h3_9) <span class="sc">+</span> <span class="fu">tm_borders</span>(<span class="at">lwd =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_credits</span>(<span class="fu">get_credit</span>(<span class="st">"CartoDB.Positron"</span>), <span class="at">bg.color =</span> <span class="st">"white"</span>,</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"RIGHT"</span>, <span class="st">"BOTTOM"</span>), <span class="at">bg.alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="768"></p>
 </div>

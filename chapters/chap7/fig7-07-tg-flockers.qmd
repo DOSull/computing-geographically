@@ -1,0 +1,70 @@
+---
+title: "Figure 7.7 Coordination in space-time paths"
+categories: 
+  - figures
+  - code
+  - R
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+This page shows a different set of 'flockers' converging in space-time&mdash;in fact the same ones that are used on the ['make your own cover' page](../../other-stuff/about-the-cover.qmd). I've provided two plots here, both in colour, and one an interactive 3D plot so you can have a proper look.
+
+```{r}
+library(dplyr)
+library(gg3D)
+library(plotly)
+
+flockers <- read.table('traces.csv', sep=' ', header = TRUE)
+```
+
+It's worth noting that `plotly` rescales all the coordinates here (because I ask it to with `asp = 1`) but that's probably best for giving a general impression of the patterns.
+
+```{r fig.width=10, fig.height=8}
+plot_ly(group_by(flockers, who), 
+        x = ~x, y = ~y, z = ~t, color = ~who, colors = "magma",
+        type = 'scatter3d', mode = 'lines', asp = 1, lwd = 0.5)
+```
+
+Not nearly as much fun is the static plot (like the "library in a theme park", as [my favourite cricketer once said](https://www.stuff.co.nz/sport/cricket/64593956/kane-williamson-says-batting-with-brendon-mccullum-like-being-library-in-a-theme-park)).
+
+```{r fig.width=10, fig.height=8}
+ggplot(flockers, aes(x = x, y = y, z = t, group = who, color = who)) +
+  stat_3D(theta = 135, phi = 35, geom = "path",
+          linewidth = 0.35, alpha = 0.75) +
+  scale_color_viridis_c(option = "A") +
+  coord_equal() +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```

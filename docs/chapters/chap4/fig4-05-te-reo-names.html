@@ -208,6 +208,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>I made an alternative version of this map for some slides. It shows off the little-known multiplication by an affine transform matrix superpower that <code>sf</code> somewhat surprisingly admits (it felt like a cheat-code when I came across it <a href="https://r-spatial.github.io/sf/articles/sf3.html#affine-transformations">here</a>).</p>
 <div class="cell" data-hash="fig4-05-te-reo-names_cache/html/unnamed-chunk-1_ce022c961f1d7c919839fd1b954354ec">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -219,6 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>nz <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"nz-2193.gpkg"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_cast</span>(<span class="st">"POLYGON"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geom =</span> geom <span class="sc">*</span> rotation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `nz-2193' from data source 
   `/Users/osullid3/Documents/code/computing-geographically/chapters/chap4/nz-2193.gpkg' 
@@ -229,10 +232,13 @@ Dimension:     XY
 Bounding box:  xmin: 1089973 ymin: 4748123 xmax: 2089535 ymax: 6194308
 Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>toponyms <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"placenames.gpkg"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">maori =</span> reo <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geom =</span> geom <span class="sc">*</span> rotation) <span class="sc">%&gt;%</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">st_filter</span>(nz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `placenames' from data source 
   `/Users/osullid3/Documents/code/computing-geographically/chapters/chap4/placenames.gpkg' 
@@ -243,12 +249,15 @@ Dimension:     XY
 Bounding box:  xmin: 502051.1 ymin: 4460560 xmax: 2239532 ymax: 6638458
 Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"#eee8d5"</span>) <span class="sc">+</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(toponyms <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(id)) <span class="sc">+</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">col =</span> <span class="st">"maori"</span>, <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"slategrey"</span>, <span class="st">"red"</span>), <span class="at">size =</span> <span class="fl">0.005</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>, <span class="at">inner.margins =</span> <span class="fl">0.05</span>, <span class="at">bg.color =</span> <span class="st">"#002b36"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig4-05-te-reo-names_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="960"></p>
 </div>

@@ -209,25 +209,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Although it is labelled ‘point patterns in absolute space’, the real (ahem) <em>point</em> of this figure is that spatial analysis often works, in effect, with a relative concept of space, since it is based on notions as here, such as the distances between points.</p>
 <p>If you want point patterns, you need <a href="https://github.com/spatstat">the fantastic <code>spatstat</code></a> by Adrian Baddeley, Ege Rubak, and Rolf Turner.</p>
 <div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-1_d9665f150ebc01b59e617d6630096509">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Make a couple of point patterns, one evenly-space using <em>sequential spatial inhibition</em>, and one clustered using a <em>Thomas process</em>. For the latter, see</p>
 <blockquote class="blockquote">
 <p>Thomas M. 1949. A generalisation of Poisson’s binomial limit for use in ecology. <em>Biometrika</em> <strong>36</strong>, 18–25.</p>
 </blockquote>
 <div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-2_76500446864586cb031d5b516acd1617">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pp1 <span class="ot">&lt;-</span> <span class="fu">rSSI</span>(<span class="fl">0.07</span>, <span class="at">n =</span> <span class="dv">105</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pp2 <span class="ot">&lt;-</span> <span class="fu">rThomas</span>(<span class="dv">10</span>, <span class="fl">0.03</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Calculate nearest neighbour distances.</p>
 <div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-3_f8fdb61d81f461cc0b042c7043928422">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nn1 <span class="ot">&lt;-</span> <span class="fu">nndist</span>(pp1)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">nndist</span>(pp2)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>max_d <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">max</span>(<span class="fu">c</span>(nn1, nn2)) <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">/</span> <span class="dv">10</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, max_d, <span class="at">length.out =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>And plot them.</p>
 <div class="cell" data-hash="fig2-04-ppa-relative-space_cache/html/unnamed-chunk-4_3beb3a3d606fdffd6b3a007d9c8a7634">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mai =</span> <span class="fu">rep</span>(<span class="fl">0.3</span>, <span class="dv">4</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -235,6 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(nn1, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> <span class="st">"Distance"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>, <span class="at">breaks =</span> breaks)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pp2, <span class="at">main =</span> <span class="st">""</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(nn2, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> <span class="st">"Distance"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig2-04-ppa-relative-space_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>

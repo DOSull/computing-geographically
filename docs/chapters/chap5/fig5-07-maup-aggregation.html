@@ -220,10 +220,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This page produces a coloured version of Figure 5.7 which may be a little easier to read. It also uses standard deviation ellipses to make things a bit clearer (I hope).</p>
 <div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-1_1a303b15237f517dd2593d4092fdf454">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
@@ -231,6 +234,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="make-a-correlated-dataset">Make a correlated dataset</h3>
 <p>Using the <code>MASS::mvrnorm()</code> function we can create a dataframe with <code>x</code> and <code>y</code> variables with some requested correlation. We also reorder by the sum of the two variables (in effect from lower-left to upper-right), and number the observations on that basis. This allows us to aggregate observations that are broadly similar or broadly different.</p>
 <div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-2_70a6d4006df75b54e91e0e6a978a73c6">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>get_correlated_df <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">cor =</span> <span class="fl">0.5</span>) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate a multivariate normal distribution</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mu is the mean centre, Sigma is the covariance matrix</span></span>
@@ -241,6 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(x <span class="sc">+</span> y) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>())</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="aggregator-functions" class="level3">
@@ -248,6 +254,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Next two functions that aggregate either similar or different observations. This is a fairly crude approach but it works. <code>agg_similar()</code> uses integer division to create a ‘grouper’ variable that goes eight 0s, then eight 1s, then eight 2s, and so on up to eight 127s. When <code>group_by</code> is applied using this variable, sets of 8 similar observations are aggregated and the mean taken to give a new dataset.</p>
 <p>Conversely, if the grouper variable is based on the remainder from division by 128, we get 8 sequences of 0, 1, 2, 3,… 127, and when these are aggregated into groups, each will consist of eight observations at widely separated positions in the sequence (i.e., with very different values).</p>
 <div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-3_663dab116b77f3ae15b1797ae846401c">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aggregate similar observations</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>agg_similar <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
@@ -269,6 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>grouper) <span class="sc">%&gt;%</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
@@ -326,6 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>So now make some datsets and see what we get.</p>
 <p>First a dataset with approximate correlation between <code>x</code> and <code>y</code> of 0.5. We then aggregate it two ways and plot the results.</p>
 <div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-5_83f77c0fdd352fb10a6625f4d55ddb29">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get_correlated_df</span>(<span class="fl">0.5</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_sim <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">agg_similar</span>()</span>
@@ -333,6 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">agg_different</span>()</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">three_plots</span>(<span class="fu">list</span>(df, df_sim, df_diff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -340,6 +352,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When we aggregate similar observations (the green ellipse) the correlation is increased, while aggregating different observations inverts the correlation (the violet ellipse)! The initial correlation is seen in the unfilled black ellipse.</p>
 <p>The effect is even more remarkable for uncorrelated data:</p>
 <div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-6_a88a48c6123992ab8e7b22689ef8dd26">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get_correlated_df</span>(<span class="dv">0</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_sim <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">agg_similar</span>()</span>
@@ -347,6 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">agg_different</span>()</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">three_plots</span>(<span class="fu">list</span>(df, df_sim, df_diff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>

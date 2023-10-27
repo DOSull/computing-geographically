@@ -39,4 +39,5 @@ format:
     theme: journal
     css: styles.css
     toc: true
+    code-fold: show
  

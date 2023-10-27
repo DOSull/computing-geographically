@@ -240,6 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>[If I have one criticism of <code>osmnx</code> it is that the code gets updated so often that function names are subject to rapid change. You may find that some of what follows doesn’t work in more recent versions than 1.6.0.]</p>
 <p>Anyway… as usual we need some libraries:</p>
 <div class="cell" data-execution_count="1">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -250,49 +252,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>osmnx.settings.log_console <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>osmnx.settings.use_cache <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="download-and-prep-the-street-network" class="level2">
 <h2 class="anchored" data-anchor-id="download-and-prep-the-street-network">Download and prep the street network</h2>
 <p>What <code>osmnx</code> excels at is pulling (generally messy) street network data and cleaning it up for analysis. Here’s how it works:</p>
 <div class="cell" data-execution_count="2">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure the place, network type, trip times, and travel speed</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">"Santa Barbara, California"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>network_type <span class="op">=</span> <span class="st">"drive"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> osmnx.graph_from_place(place, network_type <span class="op">=</span> network_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>The network needs to be connected for any of the following to work reliably, so we extract the largest component and throw away everything else. I can’t vouch for this being the best way to accomplish this, but it seems to work.</p>
 <div class="cell" data-execution_count="3">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> G.to_undirected() <span class="co"># required for extraction of giant component</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Gcc <span class="op">=</span> <span class="bu">sorted</span>(networkx.connected_components(G), key <span class="op">=</span> <span class="bu">len</span>, reverse <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> G.subgraph(Gcc[<span class="dv">0</span>]).copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="some-geography-stuff" class="level3">
 <h3 class="anchored" data-anchor-id="some-geography-stuff">Some geography stuff…</h3>
 <p>This line will project the data to an appropriate UTM projection, and then we can make an appropriately UTM projected <code>geopandas.GeoDataFrame</code>.</p>
 <div class="cell" data-execution_count="4">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> osmnx.project_graph(G)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gdf_nodes <span class="op">=</span> osmnx.graph_to_gdfs(G, edges <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>CRS <span class="op">=</span> gdf_nodes.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Next we make a <a href="https://en.wikipedia.org/wiki/Convex_hull"><em>convex hull</em></a> of the nodes, and determine its centroid, then use this to find the node nearest the centroid. We also make a simple <code>GeoSeries</code> so we can check what we’ve done makes sense.</p>
 <div class="cell" data-execution_count="5">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>convex_hull <span class="op">=</span> gdf_nodes[<span class="st">"geometry"</span>].unary_union.convex_hull</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> convex_hull.centroid.xy</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>centre_node <span class="op">=</span> osmnx.distance.nearest_nodes(G, x[<span class="dv">0</span>], y[<span class="dv">0</span>])</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> geopandas.GeoSeries([Point(x[<span class="dv">0</span>], y[<span class="dv">0</span>])])</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> geopandas.GeoSeries(Point(G.nodes[centre_node][<span class="st">"x"</span>],</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                               G.nodes[centre_node][<span class="st">"y"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>And we can make a sanity check plot</p>
 <div class="cell" data-execution_count="6">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> gdf_nodes.plot(markersize <span class="op">=</span> <span class="fl">0.75</span>, figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">16</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>geopandas.GeoSeries([convex_hull]).plot(ax <span class="op">=</span> ax, fc <span class="op">=</span> <span class="st">"#00000000"</span>, ec <span class="op">=</span> <span class="st">"k"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>p1.plot(ax <span class="op">=</span> ax, marker <span class="op">=</span> <span class="st">"o"</span>, markersize <span class="op">=</span> <span class="dv">50</span>, color <span class="op">=</span> <span class="st">"k"</span>)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>p2.plot(ax <span class="op">=</span> ax, marker <span class="op">=</span> <span class="st">"x"</span>, markersize <span class="op">=</span> <span class="dv">80</span>, color <span class="op">=</span> <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>&lt;Axes: &gt;</code></pre>
 </div>
@@ -309,12 +327,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We assume a delay at intersections—this might not make total sense, but slows things down on major arterials.</p>
 <p><code>speed_units_per_metre</code> is the maxspeed attribute from OSM and for most jurisdictions is km, so 0.001 per metre.</p>
 <div class="cell" data-execution_count="7">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>default_speed <span class="op">=</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">1000</span> <span class="op">/</span> <span class="dv">60</span> <span class="co"># default driving speed in m / min</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>intersection_delay <span class="op">=</span> <span class="fl">.33</span> <span class="co"># wait time at intersection in minutes</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>units_per_metre <span class="op">=</span> <span class="fl">0.001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Some hackery below to convert appropriately if <code>maxspeed</code> is missing or is a list of some kind or is expressed in mph.</p>
 <div class="cell" data-execution_count="8">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add an edge attribute for time in minutes required to traverse each edge</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> data <span class="kw">in</span> G.edges.values():</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    len_seg <span class="op">=</span> data[<span class="st">"length"</span>]</span>
@@ -332,11 +355,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            max_speed <span class="op">=</span> <span class="bu">float</span>(max_speed)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        data[<span class="st">"time"</span>] <span class="op">=</span> len_seg <span class="op">*</span> units_per_metre <span class="op">/</span> max_speed <span class="op">*</span> <span class="dv">60</span></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"time"</span>] <span class="op">+=</span> intersection_delay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="calculate-node-distances-from-centre-node" class="level3">
 <h3 class="anchored" data-anchor-id="calculate-node-distances-from-centre-node">Calculate node distances from centre node</h3>
 <p>Now we can determine network travel times from our centre node to every other node. While assembling this notebook I encountered a problem with the <code>networkx</code> function <code>single_source_path_length()</code> function, which can be unreliable with floating point edge weights (in this cast the <code>time</code> attribute). As a workaround I am using <code>igraph</code> instead.</p>
 <div class="cell" data-execution_count="9">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>centre_node_index <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> G.nodes].index(centre_node)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>iG <span class="op">=</span> igraph.Graph.from_networkx(G)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>iG.vs[centre_node_index]</span>
@@ -344,9 +370,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>node_travel_times <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  G.nodes, </span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  iG.distances([centre_node_index], weights <span class="op">=</span> <span class="st">"time"</span>, mode <span class="op">=</span> <span class="st">"all"</span>)[<span class="dv">0</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>We also need the bearings of every node from the centre node.</p>
 <div class="cell" data-execution_count="10">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume that nodes have x and y attributes and these are in a projected</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># coordinate system such that simple trigonometry will give bearing</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bearing(G, n0, n1):</span>
@@ -357,25 +386,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                 </span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>node_bearings <span class="op">=</span> <span class="bu">dict</span>(</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  [bearing(G, centre_node, n) <span class="cf">for</span> n <span class="kw">in</span> node_travel_times.keys()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>and… a function to return <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> offsets from the centre node, given their distance and bearing.</p>
 <div class="cell" data-execution_count="11">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dxdy(d, b):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d <span class="op">*</span> math.cos(b), d <span class="op">*</span> math.sin(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="dictionary-of-x-y-offsets-from-centre-node-indexed-by-node" class="level3">
 <h3 class="anchored" data-anchor-id="dictionary-of-x-y-offsets-from-centre-node-indexed-by-node">Dictionary of x y offsets from centre node indexed by node</h3>
 <p>Keep in mind distances are now travel time based, while bearings remain ‘true’, so that less accessible locations are pushed farther from centre, and more accessible ones pulled nearer in the direction of the bearting. Note that all angles here are in radians.</p>
 <div class="cell" data-execution_count="12">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>node_dxdys <span class="op">=</span> <span class="bu">dict</span>(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  [(n, dxdy(node_travel_times[n], node_bearings[n])) </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> n <span class="kw">in</span> node_travel_times.keys()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="put-all-this-in-a-table-for-safe-keeping" class="level3">
 <h3 class="anchored" data-anchor-id="put-all-this-in-a-table-for-safe-keeping">Put all this in a table for safe keeping!</h3>
 <div class="cell" data-execution_count="13">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="op">=</span> pandas.DataFrame(data <span class="op">=</span> {<span class="st">"osmid"</span>: <span class="bu">list</span>(node_travel_times.keys())})</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -386,6 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df_nodes[<span class="st">"time"</span>] <span class="op">=</span> [node_travel_times[i] <span class="cf">for</span> i <span class="kw">in</span> df_nodes.osmid]</span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>df_nodes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
@@ -456,8 +495,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Write this out to disk and read it back in. This means you can start here next time if you prefer…</p>
 <div class="cell" data-execution_count="14">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_nodes.to_csv(<span class="st">"nodes.csv"</span>, index <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="op">=</span> pandas.read_csv(<span class="st">"nodes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
@@ -465,6 +507,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="now-make-geodataframes-and-maps">Now make <code>GeoDataFrame</code>s and maps</h2>
 <p>This is pretty simple now we have all the data.</p>
 <div class="cell" data-execution_count="15">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_gdf_xy <span class="op">=</span> geopandas.GeoDataFrame(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> df_nodes[[<span class="st">"time"</span>]], </span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> geopandas.GeoSeries(</span>
@@ -475,9 +519,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> df_nodes[[<span class="st">"time"</span>]],</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  geometry <span class="op">=</span> geopandas.GeoSeries(</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    [Point(p[<span class="dv">0</span>], p[<span class="dv">1</span>]) <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">zip</span>(df_nodes.tx, df_nodes.ty)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>And make two maps of the nodes.</p>
 <div class="cell" data-execution_count="16">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize <span class="op">=</span> (<span class="dv">16</span>, <span class="dv">8</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
@@ -487,6 +534,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">122</span>)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>n_gdf_txty.plot(ax <span class="op">=</span> ax, column <span class="op">=</span> <span class="st">"time"</span>, markersize <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Santa Barbara in drivetime space"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>Text(0.5, 1.0, 'Santa Barbara in drivetime space')</code></pre>
 </div>
@@ -501,9 +549,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="standard-map">Standard map</h3>
 <p>The geodetic one is easy—just use the <code>osmnx</code> plotting function</p>
 <div class="cell" data-execution_count="17">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>osmnx.plot_graph(G, node_color <span class="op">=</span> <span class="st">"k"</span>, node_size <span class="op">=</span> <span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">12</span>, <span class="dv">8</span>),</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                           edge_color <span class="op">=</span> <span class="st">"k"</span>, edge_linewidth <span class="op">=</span> <span class="fl">0.5</span>, </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                           bgcolor <span class="op">=</span> <span class="st">"w"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="fig6-14-sb-drive-time_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
@@ -516,14 +567,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="time-based-is-trickier">Time based is trickier…</h3>
 <p>First we need to make a new graph with the time based positions as the node positions</p>
 <div class="cell" data-execution_count="18">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>G_time <span class="op">=</span> G.copy()</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, dxdy <span class="kw">in</span> node_dxdys.items():</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    G_time.nodes()[n][<span class="st">"x"</span>] <span class="op">=</span> dxdy[<span class="dv">0</span>]</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    G_time.nodes()[n][<span class="st">"y"</span>] <span class="op">=</span> dxdy[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Now… for reasons unclear to me, simply plotting this using <code>osmnx</code> will not work—presumably (yet again!) something to do with projections. Instead we need to make a <code>matplotlib</code> <code>LineCollection</code> and plot that… so here goes…</p>
 <div class="cell" data-execution_count="19">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the plot limits</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>node_xs <span class="op">=</span> [<span class="bu">float</span>(n[<span class="st">"x"</span>]) <span class="cf">for</span> n <span class="kw">in</span> G_time.nodes.values()]</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>node_ys <span class="op">=</span> [<span class="bu">float</span>(n[<span class="st">"y"</span>]) <span class="cf">for</span> n <span class="kw">in</span> G_time.nodes.values()]</span>
@@ -548,6 +604,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.collections <span class="im">import</span> LineCollection</span>
 <span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>ax.add_collection(LineCollection(lines, colors <span class="op">=</span> <span class="st">"k"</span>, linewidth <span class="op">=</span> <span class="fl">.5</span>))</span>
 <span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>(-24.923310674353207,
  27.844793379718062,

@@ -216,13 +216,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Here the small world network phenomenon based on ‘rewiring’ is shown for a two-dimensional lattice. This particular network structure is less studied than might be expected, and can be considered a very simplified model for how even a small number of more rapid connections between places in a transportation network can dramatically alter its overall characteristics.</p>
 <div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-1_4d4d7622376124f8d41dca9c3eb6196a">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-2_1a806d86a78bb2bc7db5be6a1cac9285">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_graph <span class="ot">&lt;-</span> <span class="cf">function</span>(G, <span class="at">main =</span> <span class="st">""</span>, <span class="at">layout =</span> <span class="fu">layout.grid</span>(G), </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">vertex.color =</span> <span class="st">"black"</span>) {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(G, <span class="at">main =</span> main,</span>
@@ -231,11 +236,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">vertex.shape =</span> <span class="st">"circle"</span>, <span class="at">vertex.lwd =</span> <span class="dv">0</span>, </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"black"</span>, <span class="at">edge.width =</span> <span class="fl">0.5</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="sample-rewired-2d-lattices" class="level2">
 <h2 class="anchored" data-anchor-id="sample-rewired-2d-lattices">Sample rewired 2D lattices</h2>
 <p>It’s somewhat useful to see what a range of rewired lattices look like. Here’s a bigger range than in the book, with the rewiring probability increasing roughly 3-fold each time.</p>
 <div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-3_c16ff2c98d14c5e58764b909d6f1284c">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -247,6 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.083</span>)), <span class="at">main =</span> <span class="st">"p = 0.125"</span>)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.250</span>)), <span class="at">main =</span> <span class="st">"p = 0.625"</span>)</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.750</span>)), <span class="at">main =</span> <span class="st">"p = 0.625"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
 </div>
@@ -256,6 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="looking-at-a-wider-range-of-rewiring-outcomes">Looking at a wider range of rewiring outcomes</h2>
 <p>Below is code to make the other part of Figure 16.11, which shows how mean clustering coefficient and path lengths vary over a wide range of rewiring probablities. The range of probabilities shown here is different than in the published figure, with more of the samples in the middle range of the plot.</p>
 <div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-4_d2393ed8bfdb82daf4023650b381b6a3">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>probs          <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">^</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>probs          <span class="ot">&lt;-</span> probs[<span class="fu">which</span>(<span class="fu">between</span>(probs, <span class="dv">0</span>, <span class="dv">1</span>))]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>keepers        <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
@@ -282,12 +293,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove first item, p=0 and not plottable</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>p) <span class="sc">%&gt;%</span></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Metric =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="how-mean-path-length-and-clustering-coefficient-diverge" class="level2">
 <h2 class="anchored" data-anchor-id="how-mean-path-length-and-clustering-coefficient-diverge">How mean path length and clustering coefficient diverge</h2>
 <p>There is wide range of rewiring probabilities where ‘small world’ characteristic of surprising short mean path lengths in the presence of strong local clustering is evident (note the log-scale on the horizontal axis).</p>
 <div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-5_4fb00afebab451cd4fd116be512c76a7">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> value, <span class="at">colour =</span> Metric)) <span class="sc">+</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
@@ -295,6 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"cluster_coeffs coeff."</span>, <span class="st">"Mean path length"</span>)) <span class="sc">+</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Probability of rewiring"</span>) <span class="sc">+</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Value relative to base lattice"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
