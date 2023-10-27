@@ -1,0 +1,17 @@
+---
+title: "Figure 6.7 World trade network communities"
+categories: 
+  - figures
+  - extras
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+Here is a colour version of this figure, which is a lot easier to make sense of than the black and white version in print.
+
+![](trade.png)

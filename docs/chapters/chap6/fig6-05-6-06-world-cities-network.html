@@ -251,11 +251,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is dataset 11 from the site linked <a href="../../chapters/chap6/links-6.html#footnote-6">here</a> and shows the numbers of offices of 100 major firms that exist in a collection of 315 cities. The network we build is based on shared offices of firms, i.e.&nbsp;if two cities both have offices of the same firm, then we consider them related. To avoid a very dense network, we require the presence of a firm in a city to have been rated at least 4 (on a 5 point scale) in the dataset.</p>
 <p>First we read the data and have a look at it.</p>
 <div class="cell" data-execution_count="2">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wcn <span class="op">=</span> pandas.read_csv(<span class="st">"da11-1.csv"</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>wcn.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -466,8 +463,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="the-geography">The geography</h2>
 <p>Below, we use the previous functions to form the graph, and then add longitude-latitude coordinates for each city to the nodes.</p>
 <div class="cell" data-execution_count="4">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Gnx <span class="op">=</span> make_network_from_incidence_table(cut_table_at(wcn, <span class="dv">4</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>wcn_ll <span class="op">=</span> pandas.read_csv(<span class="st">"wcn-cities-ll.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span>
@@ -477,14 +472,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> wcn_ll.loc[name][<span class="st">"LATITUDE"</span>]</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    Gnx.nodes[name][<span class="st">"lat"</span>] <span class="op">=</span> lat</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    Gnx.nodes[name][<span class="st">"lon"</span>] <span class="op">=</span> lon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="a-bad-map" class="level3">
 <h3 class="anchored" data-anchor-id="a-bad-map">A bad map</h3>
 <p>At this point, we can make up a naïve map (i.e.&nbsp;Figure 6.5a), simply connecting the end point coordinates of each edge in the graph with straight lines.</p>
 <div class="cell" data-execution_count="5">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>city_to_city <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> Gnx.edges():</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    p1 <span class="op">=</span> Point(Gnx.nodes[e[<span class="dv">0</span>]][<span class="st">"lon"</span>], Gnx.nodes[e[<span class="dv">0</span>]][<span class="st">"lat"</span>])</span>
@@ -513,7 +505,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>city_to_city_gdf.to_crs(moll).plot(ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">"k"</span>, </span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                                   alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span>)</span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>(-19844105.265762024,
  19844105.265762024,

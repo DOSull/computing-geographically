@@ -207,23 +207,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>A simple visualisation of geo-atoms in absolute space</p>
 <div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-1_cf2b0b77f71041bb691e315bf68cc9ee">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plot3D)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>There isn’t a lot to this. Just make a bunch of random numbers…</p>
 <div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-2_83adbcea833157657e4a43f8a1c0530a">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">z =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>… and plot them.</p>
 <div class="cell" data-hash="fig2-01-absolute-space_cache/html/unnamed-chunk-3_6e32347af6b1bcbb46e7e7dbb87096e7">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3D</span>(<span class="at">x =</span> data<span class="sc">$</span>x, <span class="at">y =</span> data<span class="sc">$</span>y, <span class="at">z =</span> data<span class="sc">$</span>z, </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">theta =</span> <span class="dv">25</span>, <span class="at">phi =</span> <span class="dv">30</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>, </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlim =</span> <span class="fu">range</span>(data<span class="sc">$</span>x) <span class="sc">*</span> <span class="fl">1.1</span>, </span>
@@ -232,7 +224,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"#999999"</span>, <span class="at">bty =</span> <span class="st">"u"</span>, <span class="at">type =</span> <span class="st">"h"</span>, </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">asp =</span> <span class="dv">1</span>, <span class="at">col.axis =</span> <span class="st">"#333333"</span>, <span class="at">col.panel =</span> <span class="st">"#eeeeee"</span>, </span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.grid =</span> <span class="st">"#666666"</span>, <span class="at">lwd.grid =</span> <span class="fl">0.2</span>, <span class="at">nticks =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig2-01-absolute-space_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="576"></p>
 </div>

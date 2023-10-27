@@ -207,8 +207,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>The figure in the book shows only three rewiring steps for the sake of space. Here we show 11 with a probability of rewiring at each step of 0.05.</p>
 <div class="cell" data-hash="fig6-10-small-world-1d_cache/html/unnamed-chunk-1_0a54802a99d3100c0180ee6f5ef8950f">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
@@ -232,7 +230,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  the_graph <span class="ot">&lt;-</span> <span class="fu">rewire</span>(the_graph, <span class="fu">each_edge</span>(<span class="fl">0.05</span>))</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_graph</span>(the_graph)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig6-10-small-world-1d_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="960"></p>
 </div>

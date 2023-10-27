@@ -221,14 +221,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Many of the data preparation steps for this figure were initially carried out in QGIS. Here they have been implemented in <em>R</em> only.</p>
 <p>To understand why this version is different from the published figure, read on…</p>
 <div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-1_4ef68157ebffd1ac8772b095c413f456">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(units)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="get-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-data">Get data</h2>
@@ -280,34 +277,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Recently, I unearthed a <code>proj</code> string at Michael Minn’s website, in <a href="https://michaelminn.net/tutorials/gis-projections-world/world-projections.r">the <em>R</em> code</a> for <a href="https://michaelminn.net/tutorials/gis-projections-world/index.html">this page</a> that produces the Briesemeister projection. (However… I suspect that code is no longer entirely valid as the <code>+M</code> parameter included in that string no longer seems to have any effect on the output and the linked <code>proj</code> manual is v4.3, which is a long way out of date.)</p>
 <p>Anyway, here’s the string we are using—but even this is not the full story as we will <a href="#as-it-turns-out">see later</a>.</p>
 <div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-3_6777ea4f58dc2882ad93189a7d2c92d6">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bries <span class="ot">&lt;-</span> <span class="st">"+proj=ob_tran +o_proj=hammer +o_lon_p=0 +o_lat_p=45 +lon_0=10"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="dealing-with-that-weird-projection" class="level3">
 <h3 class="anchored" data-anchor-id="dealing-with-that-weird-projection">Dealing with that weird projection</h3>
 <p>A world ‘disc’ for the background. Make this by buffering a point and stretching it to an ellipse with the Hammer projection extent.</p>
 <div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-4_0b65dd6421dec50dcaf1cbcdc4f1c83f">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>disc <span class="ot">&lt;-</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_buffer</span>(<span class="dv">1</span>, <span class="at">nQuadSegs =</span> <span class="dv">90</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>disc <span class="ot">&lt;-</span> disc <span class="sc">*</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">18040096</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">9020048</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>disc <span class="ot">&lt;-</span> disc <span class="sc">%&gt;%</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sfc</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>(<span class="at">crs =</span> bries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The world countries must be cut at the Briesemeister ‘cut line’ which is where there is a break in the projection, to avoid anomalies when places are projected that cross the line. We figured out where this line is in other work…</p>
 <div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-5_f1f527232057622e46b8ca4cb3d90c45">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"World"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cut_line <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"briesemeister-cut-corrected.geojson"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_buffer</span>(<span class="dv">1000</span>) <span class="co"># metres!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `briesemeister-cut-corrected' from data source 
   `/Users/osullid3/Documents/code/computing-geographically/chapters/chap4/briesemeister-cut-corrected.geojson' 
@@ -318,12 +306,9 @@ Dimension:     XY
 Bounding box:  xmin: -170 ymin: -89.99058 xmax: 10 ymax: 44.21063
 Geodetic CRS:  WGS 84</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> World <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_difference</span>(cut_line) <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(bries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="make-a-graticule" class="level3">
@@ -378,8 +363,6 @@ Geodetic CRS:  WGS 84</code></pre>
 </blockquote>
 <p>for details. So let’s also do that here (this really is bonus material). We could use the <code>+proj=affine</code> transformation with appropriate settings, but I’ve had issues getting <code>GDAL</code> and <code>tmap</code> to cooperate with pipeline projected data. Instead, we’ll just use the weird matrix post-multiplication of geometries trick that <code>sf</code> allows to apply the required stretch. Unfortunately this does not update the CRS information, making these data layers useless for almost any other purpose.</p>
 <div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-7_6920b486ab916a9899408bd54dbcade5">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>stretch_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">sqrt</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">8</span>), <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">sqrt</span>(<span class="dv">8</span><span class="sc">/</span><span class="dv">7</span>)), <span class="dv">2</span>, <span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>disc <span class="ot">&lt;-</span> disc <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> geometry <span class="sc">*</span> stretch_mat)</span>
@@ -392,7 +375,6 @@ Geodetic CRS:  WGS 84</code></pre>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>springfields <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"all-results-Springfield.geojson"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(bries) <span class="sc">%&gt;%</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> geometry <span class="sc">*</span> stretch_mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>For what it’s worth, all these shenanigans are a good example of why more flexibility in the projection architectures of contemporary platforms would be welcome, something discussed in <a href="../../chapters/chap3/index.html">Chapter 3</a>.</p>
 </section>
@@ -400,8 +382,6 @@ Geodetic CRS:  WGS 84</code></pre>
 <section id="yeah-ok-now-make-a-map-of-all-those-springfields" class="level2">
 <h2 class="anchored" data-anchor-id="yeah-ok-now-make-a-map-of-all-those-springfields">Yeah, OK, <em>now</em> make a map of all those Springfields</h2>
 <div class="cell" data-hash="fig4-03-springfields_cache/html/unnamed-chunk-8_fbdaeb428bf25bd5020d9db88b441d42">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(disc) <span class="sc">+</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"#eeeeee"</span>) <span class="sc">+</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(world) <span class="sc">+</span> </span>
@@ -411,7 +391,6 @@ Geodetic CRS:  WGS 84</code></pre>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(graticule) <span class="sc">+</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig4-03-springfields_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="960"></p>
 </div>

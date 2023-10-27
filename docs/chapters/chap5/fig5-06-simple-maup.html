@@ -208,13 +208,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I’ve remade this one in colour, because I think it’s a bit easier to see this way.</p>
 <p>Some libraries:</p>
 <div class="cell" data-hash="fig5-06-simple-maup_cache/html/unnamed-chunk-1_91a850f8e69614d772d19627d2194c8a">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We need to make a grid of values, with a clear gradient in one direction. The code for making geometries in <em>R</em> is ugly, so I’ve hidden it.</p>
 <div class="cell" data-hash="fig5-06-simple-maup_cache/html/unnamed-chunk-2_6a14afe446e3f6214ea97754e0d9066c">
@@ -246,22 +243,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Anyway… we have a 10 by 10 grid of squares with values that increase from left to right:</p>
 <div class="cell" data-hash="fig5-06-simple-maup_cache/html/unnamed-chunk-3_6bdf4239efd65a882702efc424ad569e">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>brks <span class="ot">&lt;-</span> .<span class="dv">5</span> <span class="sc">+</span> (<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">/</span> <span class="dv">10</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(poly_sf) <span class="sc">+</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"val"</span>, <span class="at">palette =</span> <span class="st">"Spectral"</span>, <span class="at">breaks =</span> brks, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig5-06-simple-maup_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Now we aggregate into columns and rows, taking the mean value of our variable in each case.</p>
 <div class="cell" data-hash="fig5-06-simple-maup_cache/html/unnamed-chunk-4_0381a950a6364e7a2d7d4c6cb3ff54a2">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>column_sf <span class="ot">&lt;-</span> poly_sf <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">val =</span> <span class="fu">mean</span>(val)) </span>
@@ -269,12 +261,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>rows_sf <span class="ot">&lt;-</span> poly_sf <span class="sc">%&gt;%</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(y) <span class="sc">%&gt;%</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">val =</span> <span class="fu">mean</span>(val))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>And now we can make maps of the results. The column-wise aggregation emphasizes the gradient, while the row-wise aggregation erases it completely, since every row has a similar set of values ranging from low to high, and when these are combined each row ends up pretty much the same.</p>
 <div class="cell" data-hash="fig5-06-simple-maup_cache/html/unnamed-chunk-5_92feab95bcee75cb1d350a79d22cd445">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(column_sf) <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"val"</span>, <span class="at">palette =</span> <span class="st">"Spectral"</span>, <span class="at">breaks =</span> brks, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>)</span>
@@ -284,7 +273,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_arrange</span>(<span class="fu">list</span>(m1, m2), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig5-06-simple-maup_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>

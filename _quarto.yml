@@ -39,6 +39,4 @@ format:
     theme: journal
     css: styles.css
     toc: true
-    # mainfont: "Libre Baskerville"
-    code-fold: show
  

@@ -290,8 +290,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="figure-8.2">Figure 8.2</h3>
 <p>The matrix format is convenient for computation, and fine for plotting a single model result but that has to be converted to a dataframe to be plotted using <code>ggplot2</code>. So here is the pure <em>R</em> version of Figure 8.2, but with time running from top to bottom, more cells, and more time.</p>
 <div class="cell" data-hash="fig8-01-1d-ca_cache/html/unnamed-chunk-2_7d7bbe25d94aaded5259d2cb30555c61">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -303,7 +301,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Paired"</span>) <span class="sc">+</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig8-01-1d-ca_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="768"></p>
 </div>
@@ -313,8 +310,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="figure-8.1">Figure 8.1</h3>
 <p>And here are the results for all Wolfram’s elementary 1D CA.</p>
 <div class="cell" data-hash="fig8-01-1d-ca_cache/html/unnamed-chunk-3_f55fc4364929145c4bce690a84762108">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convenience function to return a dataframe instead of a matrix</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>get_df <span class="ot">&lt;-</span> <span class="cf">function</span>(rule, <span class="at">n =</span> <span class="dv">64</span>, <span class="at">density =</span> <span class="fl">0.5</span>, <span class="at">t =</span> <span class="dv">192</span>) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">one_d_ca</span>(<span class="at">rule =</span> rule, <span class="at">n =</span> n, <span class="at">density =</span> density, <span class="at">t =</span> t) <span class="sc">%&gt;%</span></span>
@@ -346,7 +341,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> rule, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig8-01-1d-ca_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
 </div>

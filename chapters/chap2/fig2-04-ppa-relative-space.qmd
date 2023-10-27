@@ -35,13 +35,15 @@ Calculate nearest neighbour distances.
 ```{r}
 nn1 <- nndist(pp1)
 nn2 <- nndist(pp2)
-breaks <- seq(0, round(max(c(nn1, nn2)), 1), length.out = 10)
+max_d <- ceiling(max(c(nn1, nn2)) * 10) / 10
+breaks <- seq(0, max_d, length.out = 10)
 ```
 
 And plot them.
 
 ```{r}
-par(mfrow = c(2, 2), mai = rep(0.3, 4))
+par(mai = rep(0.3, 4))
+layout(matrix(1:4, 2, 2, byrow = TRUE))
 
 plot(pp1, main = "")
 hist(nn1, main = "", xlab = "Distance", ylab = "Frequency", breaks = breaks)

@@ -217,8 +217,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This page produces a coloured version of Figure 5.10 which is easier to read (but may not show the same clusters).</p>
 <div class="cell" data-hash="fig5-10-san-fran-clusters_cache/html/unnamed-chunk-1_14d0dc6a2a8610a18ca72452cd911169">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
@@ -226,23 +224,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmaptools)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HatchedPolygons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The data are as used in <a href="http://lucguillemot.github.io/bayareageodemo/">Luc Guillemot’s website example</a>.</p>
 <div class="cell" data-hash="fig5-10-san-fran-clusters_cache/html/unnamed-chunk-2_8b44613db10ef9052f164c76c103f6b8">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sf_demog <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"sf_clustering_data.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="data-cleanup" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleanup">Data cleanup</h3>
 <p>There are some NA data which we will show as hatched areas so some work is required on that, and to prepare the hatched polygons using the <code>hatched.SpatialPolygons</code> function from the <a href="https://statnmap.github.io/HatchedPolygons/"><code>HatchedPolygons</code> package</a>.</p>
 <div class="cell" data-hash="fig5-10-san-fran-clusters_cache/html/unnamed-chunk-3_61bc47e6880e8452937f554ca9b8d222">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nas <span class="ot">&lt;-</span> sf_demog <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_union</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_difference</span>(sf_demog <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> <span class="fu">st_union</span>()) <span class="sc">%&gt;%</span></span>
@@ -253,7 +245,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>all_areas <span class="ot">&lt;-</span> sf_demog <span class="sc">%&gt;%</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_union</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 </section>
@@ -261,8 +252,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="run-the-clustering">Run the clustering</h2>
 <p><em>k</em>-means clustering in <em>R</em> using the base <code>kmeans</code> function is straightforward, but requires a non-spatial version of the dataset. We also remove the ID columns and the <code>cluster</code> assignment from the data (since we don’t want to do clustering and include a variable that already designates a cluster).</p>
 <div class="cell" data-hash="fig5-10-san-fran-clusters_cache/html/unnamed-chunk-4_b3ce2d33cc74b0506b6070059200b6c1">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sf_demog <span class="ot">&lt;-</span> sf_demog <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -271,12 +260,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="sc">-</span>cluster)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(sf_demog.d, <span class="at">centers =</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Next we append the cluster result to the original spatial dataset so we can map it.</p>
 <div class="cell" data-hash="fig5-10-san-fran-clusters_cache/html/unnamed-chunk-5_097cab1fc16068bf5878b4fb003aa400">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sf_demog<span class="sc">$</span>k9 <span class="ot">&lt;-</span> km<span class="sc">$</span>cluster <span class="sc">%&gt;%</span> <span class="fu">as.factor</span>()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(all_areas, <span class="at">bbox =</span> <span class="fu">bb</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">1.82e6</span>, <span class="fl">1.87e6</span>), </span>
@@ -288,7 +274,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"k9"</span>, <span class="at">style =</span> <span class="st">"cat"</span>, <span class="at">palette =</span> <span class="st">"Set2"</span>,</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">border.col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.show =</span> <span class="cn">FALSE</span>, <span class="at">bg.color =</span> <span class="st">"#ddeeff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="fig5-10-san-fran-clusters_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="960"></p>
 </div>

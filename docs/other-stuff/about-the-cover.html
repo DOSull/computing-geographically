@@ -302,57 +302,42 @@ Update History
 <h2 class="anchored" data-anchor-id="the-space-time-traces">The space-time traces</h2>
 <p>So, after importing some packages, read in one of those output files. There’s an <a href="traces.csv">example here</a>, should you wish to make your own alternative cover.</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-1_718dfebf7df1152fa54ecf3f8e4e7824">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(units)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"traces.csv"</span>, <span class="at">sep =</span> <span class="st">" "</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We don’t need all the time steps in that file, so cut it down a bit and convert into a simple features dataset. You’ll note that even though these are not real world data (this is a book cover after all) I have to assign a projection, so that some of the later steps in the process will cooperate. The curse of geodetic accuracy strikes again!</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-2_b452fdf19a2880eb63bafa0eb60b1610">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>xy_sf <span class="ot">&lt;-</span> xy <span class="sc">%&gt;%</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(t <span class="sc">%in%</span> steps) <span class="sc">%&gt;%</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"y"</span>, <span class="st">"x"</span>), <span class="at">crs =</span> <span class="dv">2193</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Before we go any further, we need a ‘frame’ for all the layers we’ll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-3_3c1218a977f7bbff741532f4406585c2">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>xy_inset <span class="ot">&lt;-</span> xy_sf <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_bbox</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sfc</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="dv">2193</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_buffer</span>(<span class="sc">-</span>.<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The underlying basis of the cover art is those traces, which we need to form into a lines dataset and clip to the frame.</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-4_af3e6e0f1c256bd9bbb9a7e69e0a2474">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>xy_path <span class="ot">&lt;-</span> xy_sf <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(who) <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">do_union =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_cast</span>(<span class="st">"LINESTRING"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_intersection</span>(xy_inset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>So this is what we’ve got so far:</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-5_211ee60bffcd8c95504ef3dea9b69d44">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(xy_path) <span class="sc">+</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">lwd =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="about-the-cover_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -362,8 +347,6 @@ Update History
 <h2 class="anchored" data-anchor-id="voronoi-polygons-of-the-trajectory-points">Voronoi polygons of the trajectory points</h2>
 <p>Probably you can tell that some <a href="../chapters/chap2/fig2-07-point-voronoi.html">Voronoi magic</a> was involved, specifically Voronoi polygons of the points along the trajectories, in a manner reminiscent of the <a href="../chapters/chap2/fig2-08-non-point-voronoi.html">Voronois along the road centre line in Figure 2.8</a>.</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-6_8bca3d72758e39b948f1fd1695dac206">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xy_vor <span class="ot">&lt;-</span> xy_sf <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_union</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_voronoi</span>() <span class="sc">%&gt;%</span></span>
@@ -372,17 +355,13 @@ Update History
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_join</span>(xy_sf) <span class="sc">%&gt;%</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_intersection</span>(xy_inset) <span class="sc">%&gt;%</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>And here is what we have got so far:</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-7_9262bd0543f5a91182a1a2c5c9d1b4b3">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(xy_vor) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(xy_path) <span class="sc">+</span> </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">lwd =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="about-the-cover_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -393,21 +372,15 @@ Update History
 <h2 class="anchored" data-anchor-id="overlapping-voronoi-polygons">Overlapping Voronoi polygons</h2>
 <p>The cover depends on overlapping the Voronoi polygons, which when coloured with some transparency gives the final effect. So some buffering (the original sin of GIS!) required. I decided after much experimentation to make the buffers larger for the bigger polygons.</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-8_80562949b28d611be38d209151a85b34">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>xy_vor_b <span class="ot">&lt;-</span> xy_vor <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area =</span> <span class="fu">st_area</span>(.), <span class="at">r =</span> <span class="fu">as_units</span>(.<span class="dv">25</span>, <span class="st">"m"</span>) <span class="sc">+</span> <span class="fu">sqrt</span>(area <span class="sc">/</span> pi)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_buffer</span>(.<span class="sc">$</span>r) <span class="sc">%&gt;%</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_intersection</span>(xy_inset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>In itself this is also interesting to look at:</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-9_14c997b496cfebdafb39ca5b10eb2c17">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(xy_vor_b) <span class="sc">+</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">lwd =</span> <span class="fl">0.15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="about-the-cover_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -417,8 +390,6 @@ Update History
 <h2 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h2>
 <p>Armed with those three layers, we can do all kinds of interesting compositions. It’s fun to play with the colour palettes, the transparency, the direction of the ramps, and any number of other things. Here’s what I wound up using:</p>
 <div class="cell" data-hash="about-the-cover_cache/html/unnamed-chunk-10_7f02b5b9796d7f6482f382a3c23fa1f3">
-<details open="">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(xy_vor_b)  <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"r"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">style =</span> <span class="st">"cont"</span>, <span class="at">lwd =</span> <span class="dv">0</span>,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">palette =</span> <span class="st">"-plasma"</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
@@ -427,7 +398,6 @@ Update History
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(xy_path) <span class="sc">+</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">palette =</span> <span class="st">"Blues"</span>, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>, <span class="at">bg.color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="about-the-cover_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
