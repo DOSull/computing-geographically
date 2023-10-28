@@ -10,6 +10,7 @@ listing:
     - "chapters/chap2/fig2-0*.qmd"
     - "chapters/chap3/links*.qmd"
     - "chapters/chap3/fig3-0*.qmd"
+    - "chapters/chap3/fig3-1*.qmd"
     - "chapters/chap4/links*.qmd"
     - "chapters/chap4/fig4-0*.qmd"
     - "chapters/chap5/links*.qmd"

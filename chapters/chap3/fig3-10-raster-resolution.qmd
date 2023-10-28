@@ -37,42 +37,23 @@ z_dash <- z10 %>%
   resample(z)
 ```
 
-Dissolve to polygons, so we can make smaller image files and control the colouring. This step is **slow**.
+Make maps. For the images in the book, I dissolved the raster layers to polygons to create smaller SVG outputs that I was better able to control in making final graphics. For online, I don't need to worry about that.
 
 ```{r}
-z_p <- z %>%
-  as.polygons(dissolve = FALSE) %>%
-  as("Spatial")
+m1 <- tm_shape(z) + 
+  tm_raster(breaks = seq(180, 280, 10), 
+            palette = "BrBG") + 
+  tm_layout(frame = FALSE, legend.show = FALSE)
 
-z10_p <- z10 %>%
-  as.polygons(dissolve = FALSE) %>%
-  as("Spatial")
+m2 <- tm_shape(z10) + 
+  tm_raster(breaks = seq(180, 280, 10), 
+            palette = "BrBG") + 
+  tm_layout(frame = FALSE, legend.show = FALSE)
 
-z_dash_p <- z_dash %>%
-  as.polygons(dissolve = FALSE) %>%
-  as("Spatial")
-```
-
-Make maps
-
-```{r}
-m1 <- tm_shape(z_p) + 
-  tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
-          palette = "BrBG", style = "fixed") + 
-  tm_legend(show = FALSE) + 
-  tm_layout(inner.margins = 0, frame = FALSE)
-
-m2 <- tm_shape(z10_p) + 
-  tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
-          palette = "BrBG", style = "fixed") + 
-  tm_legend(show = FALSE) + 
-  tm_layout(inner.margins = 0, frame = FALSE)
-
-m3 <- tm_shape(z_dash_p) + 
-  tm_fill(col = "Band 1", breaks = seq(180, 280, 10), 
-          palette = "BrBG", style = "fixed") + 
-  tm_legend(show = FALSE) + 
-  tm_layout(inner.margins = 0, frame = FALSE)
+m3 <- tm_shape(z_dash) + 
+  tm_raster(breaks = seq(180, 280, 10), 
+            palette = "BrBG", style = "fixed") + 
+  tm_layout(frame = FALSE, legend.show = FALSE)
 
 tmap_arrange(m1, m2, m3)
 ```
