@@ -3,7 +3,7 @@ title: Links for Chapter 7
 subtitle: Time and Dynamics
 categories:
   - links
-image: "links.png"
+image: "links-7.png"
 ---
 
 ## Links 

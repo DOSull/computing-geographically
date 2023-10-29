@@ -10,9 +10,7 @@ This website provides a collection of resources for the book [_Computing Geograp
 
 Included are:
 
-+ Current links for internet sources referenced in the text
 + Code samples to create the base graphics for some of the figures
 + Background information on other figures
++ Current links for internet sources referenced in the text
 + Some other odds and ends
-
-Access them either from the drop-down menu by chapter, or from this [listing page](index-listing.qmd).

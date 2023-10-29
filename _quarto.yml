@@ -7,7 +7,7 @@ website:
   favicon: favicon.ico
   navbar: 
     left:
-      - text: Chapters
+      - text: Figures
         menu:
           - text: "1. Building Bridges"
             file: "chapters/chap1/index.qmd"
@@ -27,10 +27,26 @@ website:
             file: "chapters/chap8/index.qmd"
           - text: "9. Doing Giscience Doing Geography"
             file: "chapters/chap9/index.qmd"
+      - text: Links
+        menu:
+          - text: "1. Building Bridges"
+            file: "links/links-1.qmd"
+          - text: "2. Location and Space"
+            file: "links/links-2.qmd"
+          - text: "3. Scale and Projection"
+            file: "links/links-3.qmd"
+          - text: "4. Place and Meaning in Space"
+            file: "links/links-4.qmd"
+          - text: "5. Lines and Areas"
+            file: "links/links-5.qmd"
+          - text: "6. Relations, Networks, Flows"
+            file: "links/links-6.qmd"
+          - text: "7. Time and Dynamics"
+            file: "links/links-7.qmd"
+          - text: "8. Process and Pattern"
+            file: "links/links-8.qmd"
       - text: Odds and ends
         file: "posts.qmd"
-      - text: All the pages
-        file: "index-listing.qmd"
   page-navigation: true
   body-footer: "&copy; 2023 David O'Sullivan"
 
