@@ -3,7 +3,7 @@ title: Links for Chapter 3
 subtitle: Scale and Projection
 categories:
   - links
-image: "../../links.png"
+image: "links.png"
 ---
 
 ## Links 
