@@ -1,0 +1,30 @@
+---
+title: "All the things"
+listing:
+  categories: true
+  type: table
+  contents:
+    - "**/links-1.qmd"
+    - "**/links-2.qmd"
+    - "**/fig2*.qmd"
+    - "**/links-3.qmd"
+    - "**/fig3-0*.qmd"
+    - "**/fig3-1*.qmd"
+    - "**/links-4.qmd"
+    - "**/fig4*.qmd"
+    - "**/links-5.qmd"
+    - "**/fig5-0*.qmd"
+    - "**/fig5-1*.qmd"
+    - "**/links-6.qmd"
+    - "**/fig6-0*.{qmd,ipynb}"
+    - "**/fig6-1*.{qmd,ipynb}"
+    - "**/links-7.qmd"
+    - "**/fig7*.qmd"
+    - "**/links-8.qmd"
+    - "**/fig8*.qmd"
+  sort: false
+  fields: 
+    - title
+---
+
+Use the sort, filter, and categories list to the right to find what you are looking for.

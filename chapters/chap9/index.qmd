@@ -3,8 +3,6 @@ title: Chapter 9
 subtitle: Doing Giscience Doing Geography
 listing:
   categories: true
-  contents:
-    - "links-9.qmd"
   sort: false
   type: grid
 ---

@@ -5,7 +5,7 @@ listing:
   categories: true
   contents:
     - "links-2.qmd"
-    - "fig2-0*.qmd"
+    - "fig*.qmd"
   sort: false
   type: grid
 ---

@@ -1,0 +1,36 @@
+---
+title: Links for Chapter 4
+subtitle: Place and Meaning in Space
+categories:
+  - links
+image: "links-4.png"
+---
+
+## Links 
+### Footnote 3 
+The Degree Confluence Project is at [confluence.org](https://confluence.org/).
+
+### Footnote 5
+Find out more about 'Null Island' (i.e., 0&deg;N 0&deg;E) at its [wikipedia page](https://en.wikipedia.org/wiki/Null_Island).
+
+### Footnote 6
+The original announcement of geohash is in this blogpost by Greg Niemeyer: [blog.labix.org/2008/02/26/geohashorg-is-public](https://blog.labix.org/2008/02/26/geohashorg-is-public). You can generate geohash codes at the website [http://geohash.org](http://geohash.org) (yes `http`, not `https`).
+
+### Footnote 7 
+Google's S2 index is explained at [s2geometry.io](https://s2geometry.io/).
+
+### Footnote 8 
+Uber's H3 index is described at [h3geo.org](https://h3geo.org/).
+
+### Footnote 15
+_The Wire_ opens with a comment on place, albeit a very big place: America, which is more of an idea than a place. Inevitably, [this link](https://www.youtube.com/watch?v=LYgKmOJT_gM) will break quickly, but it's worth your time. 
+
+### Figure 4.2
+The Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won't work: [bostonography.com/hoods](https://bostonography.com/hoods/)). This [blogpost](https://bostonography.com/2012/crowdsourced-neighborhood-boundaries-part-one-consensus/) explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at [this link](https://openaccess.wgtn.ac.nz/articles/thesis/Crowdsourcing_Neighbourhood_Delineations_in_Wellington_New_Zealand/17147960).
+
+### Figure 4.3
+The Nominatim geocoder is available at [nominatim.openstreetmap.org](https://nominatim.openstreetmap.org/ui/search.html).
+
+### Figure 4.5
+Chris McDowall's notes on the te reo Māori placenames map are at [github.com/fogonwater/we-are-here](https://github.com/fogonwater/we-are-here/tree/master/8_heart_memory#801-ingoa-w%C4%81hi-o-aotearoa--place-names-of-new-zealand). Te Hiku Media's ngā-kupu tools for detecting Māori words in text are at [github.com/TeHikuMedia/nga-kupu](https://github.com/TeHikuMedia/nga-kupu).
+
