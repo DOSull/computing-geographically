@@ -25,7 +25,7 @@ An example of this is shown below, again an Aotearoa New Zealand population cart
 
 ![](nz-cartogram.png)
 
-However, this example however, was produced in an unusual way. I first used _ScapeToad_ to make a population-based cartogram, but at the same time transformed a set of hex-grid points. This gives me a set of mappings of coordinate pairs in a geodetic coordinate space (in this case New Zealand Transverse Mercator NZTM), and the corresponding coordinate locations in 'population cartogram space'. Using these it is possible to interpolate any points in NZTM coordinates into the cartogram coordinate space. The mapping is the same information that is provided by _ScapeToad_'s transformation grid (pictured in Figure 2.3 in the book), but with more detail.
+However, this example was produced in an unusual way. I first used _ScapeToad_ to make a population-based cartogram, but at the same time transformed a set of hex-grid points. This gives me a set of mappings of coordinate pairs in a geodetic coordinate space (in this case New Zealand Transverse Mercator NZTM), and the corresponding coordinate locations in 'population cartogram space'. Using these it is possible to interpolate any points in NZTM coordinates into the cartogram coordinate space. The mapping is the same information that is provided by _ScapeToad_'s transformation grid (pictured in Figure 2.3 in the book), but with more detail.
 
 ## Making a cartogram the complicated (but reusable) way
 Here's some _R_ code that does all this in a very rough and ready way using a triangulation-based interpolator from the `akima` package. I say more at the end of the page about [embedding this approach in GIS](#embedding-this-in-gis).
