@@ -1,7 +1,6 @@
 ---
-title: "Figure 2.2 Three views of Aoteraroa New Zealand data"
+title: "Figures 2.2 and 2.3 and more on cartograms"
 categories: 
-  - figures
   - code
   - R
   - extra
