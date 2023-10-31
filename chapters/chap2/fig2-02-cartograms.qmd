@@ -127,7 +127,6 @@ Clearly the above example is not entirely satisfactory. It can only transform po
 
 > Bergmann LR and D O’Sullivan. 2017. [Computing with many spaces: Generalizing projections for the digital geohumanities and GIScience](https://dx.doi.org/10.1145/3149858.3149866). In *Proceedings of the 1st ACM SIGSPATIAL Workshop on Geospatial Humanities*, 31–38. ACM Press.
 
-
 Specifically `proj`'s [`tinshift` transformation](https://proj.org/en/9.3/operations/transformations/tinshift.html) provides for _exactly_ the transformation carried out above. It requires a JSON file with the triangulation information precomputed. That's how I made the example at the top of this page. With 'tinshift' JSON file, the following GDAL command line will carry out the required transformation between NZTM and a population cartogram based on 2018 census data:
 
     ogr2ogr -skipfailures -ct "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=tinshift +file=tinshift.json +step +proj=axisswap +order=2,1" <output GPKG> <input GPKG>
