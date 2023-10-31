@@ -15,7 +15,9 @@ knitr:
 
 The cartograms in Figure 2.2 were made using *ScapeToad* (linked [here](links-2.qmd#footnote-6)). They are examples of Gastner-Newman cartograms, popularised by [Danny Dorling](http://dannydorling.org/) at the [World Mapper website](https://worldmapper.org/). I'm not really in love with this style of cartogram, although I do appreciate the impact they've had in making the notion of _cartograms_ more widely known. Furthermore, there aren't many other cartogram styles that have been automated even to the limited extent that this one has.
 
-The broader point, made several times in the book is the arbitrary nature of the preference for geodetic accuracy in map projections.It would be preferable if standard geospatial platforms could support *any* mapping of geocentric (latitude-longitude) coordinates to other two dimensional coordinate systems, as defined by end-users.
+The broader point, made several times in the book is the arbitrary nature of the preference for geodetic accuracy in map projections.It would be preferable if standard geospatial platforms could support *any* mapping of geocentric (latitude-longitude) coordinates to other two dimensional coordinate systems, as defined by end-users. For more on this, see
+
+> Bergmann LR and D O’Sullivan. 2017. [Computing with many spaces: Generalizing projections for the digital geohumanities and GIScience](https://dx.doi.org/10.1145/3149858.3149866). In *Proceedings of the 1st ACM SIGSPATIAL Workshop on Geospatial Humanities*, 31–38. ACM Press.
 
 In fact, the machinery to do so exists in most GIS in the tools used to georeference imagery. However, these tools typically only enable warping inputs so that they conform with already known coordinate reference systems, although the underlying mathematics of mapping points between two coordinate systems could in principle allow user-defined coordinates, with potential benefits for the exploration of multiple geographies.
 
@@ -123,9 +125,7 @@ tm_shape(nz) +
 ```
 
 ## Embedding this in GIS
-Clearly the above example is not entirely satisfactory. It can only transform points and a lot of additional code would be required to add that capability. _In principle_ however, it is not difficult to include this capability in GIS or other standard platforms, using capabilities already present in the `proj` tools for coordinate transformation that underpin today's geospatial software. This is something [Luke Bergmann](https://geog.ubc.ca/profile/luke-bergmann/) and I have been exploring for a while, see:
-
-> Bergmann LR and D O’Sullivan. 2017. [Computing with many spaces: Generalizing projections for the digital geohumanities and GIScience](https://dx.doi.org/10.1145/3149858.3149866). In *Proceedings of the 1st ACM SIGSPATIAL Workshop on Geospatial Humanities*, 31–38. ACM Press.
+Clearly the above example is not entirely satisfactory. It can only transform points and a lot of additional code would be required to add that capability. _In principle_ however, it is not difficult to include this capability in GIS or other standard platforms, using capabilities already present in the `proj` tools for coordinate transformation that underpin today's geospatial software. This is something [Luke Bergmann](https://geog.ubc.ca/profile/luke-bergmann/) and I have been exploring for a while.
 
 Specifically `proj`'s [`tinshift` transformation](https://proj.org/en/9.3/operations/transformations/tinshift.html) provides for _exactly_ the transformation carried out above. It requires a JSON file with the triangulation information precomputed. That's how I made the example at the top of this page. With 'tinshift' JSON file, the following GDAL command line will carry out the required transformation between NZTM and a population cartogram based on 2018 census data:
 
