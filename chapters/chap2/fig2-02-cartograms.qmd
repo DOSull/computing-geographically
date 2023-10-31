@@ -134,7 +134,7 @@ Specifically `proj`'s [`tinshift` transformation](https://proj.org/en/9.3/operat
 
 Unfortunately, for reasons we don't fully understand the additional `axisswap` transformation is required, either side of the `tinshift` operation requiring a projection 'pipeline' to be used. The `-skipfailures` option prevents the program failing if a polygon becomes invalid as a result of the transformation.
 
-Here's [a JSON file]() for the New Zealand population cartogram, if you want to try it for yourself.
+Here's [a JSON file](nz-cartogram.json) for the New Zealand population cartogram, if you want to try it for yourself.
 
 This might not be the most elegant way to project any geospatial data into a cartogram space, but it is already available in existing tools!
 
