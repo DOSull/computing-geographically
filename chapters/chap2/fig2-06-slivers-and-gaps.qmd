@@ -1,0 +1,90 @@
+---
+title: "Figures 2.6 Slivers and gaps in a polygon layer"
+categories: 
+  - code
+  - R
+  - extra
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+---
+
+Here is how slivers and gaps can happen...
+
+Read in some polygons.
+
+```{r results=FALSE}
+library(sf)
+library(tmap)
+library(dplyr)
+
+polygons <- st_read("some-polygons.gpkg")
+```
+
+Simplify them without due care and attention, and _voila_! 
+
+```{r fig.width=8, fig.height=5}
+m1 <- tm_shape(polygons) +
+  tm_fill(col = "name", alpha = 0.5) +
+  tm_layout(
+    title = "Source polygons", frame = FALSE,
+    legend.show = FALSE)
+
+m2 <- tm_shape(polygons %>% 
+                 st_simplify(dTolerance = 100)) +
+  tm_fill(col = "name", alpha = 0.5) +
+  tm_layout(
+    title = "Source polygons", frame = FALSE,
+    legend.show = FALSE)
+
+tmap_arrange(m1, m2, ncol = 2)
+```
+
+By contrast if we use the simplification function from `rmapshaper` topology is preserved, even with pretty dramatic simplification (here retaining only 25% of polygon vertices.)
+
+```{r fig.width=8, fig.height=5}
+library(rmapshaper)
+
+m3 <- tm_shape(polygons %>% ms_simplify(keep = 0.25)) +
+  tm_fill(col = "name", alpha = 0.5) +
+  tm_layout(
+    title = "Topology preserved", frame = FALSE,
+    legend.show = FALSE)
+
+tmap_arrange(m1, m3, ncol = 2)
+```
+
+The `rmapshaper::topojson_write` function also allows you to write your polygons out to the topology preserving [TopoJSON format](https://github.com/topojson/topojson).
+
+`rmapshaper` is associated with the excellent [MapShaper tool](http://www.mapshaper.org/).
+
+```{r}
+#| code-fold: true
+# License (MIT)
+#
+# Copyright (c) 2023 David O'Sullivan
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to  permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+```
+
