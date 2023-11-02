@@ -32,15 +32,15 @@ deg2num<-function(lat_deg, lon_deg, zoom){
 lon <- 174.74526
 lat <- -41.31087
 
-df <- data.frame(zoom = 0:19, tile_name = "")
+tile_names <- c()
 for (zoom in 0:19) {
   xy <- deg2num(lat, lon, zoom)
   tile_name <- str_glue("{zoom}/{xy[1]}/{xy[2]}")
-  df$tile_name[zoom + 1] <- tile_name
+  tile_names <- c(tile_names, tile_name)
   osm_tile_url <- str_glue("https://tile.openstreetmap.org/{tile_name}.png")
   download.file(osm_tile_url, str_glue("tiles/{zoom}.png"), mode = 'wb')
 }
-df <- df %>%
+df <- data.frame(zoom = 0:19, tile_name = tile_names) %>%
   mutate(left = zoom %% 5, bottom = 3 - zoom %/% 5, 
          right = left + 1, top = bottom + 1)
 ```

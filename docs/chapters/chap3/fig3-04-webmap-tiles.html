@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>The code below retrieves an OSM tile from level 0 all the way down to level 19 for the latitude-longitude coordinates of the <a href="https://maps.app.goo.gl/UzNcVcqZ2axZKhdy9">Broolyn Wind Turbine</a> in Wellington.</p>
-<div class="cell" data-hash="fig3-04-webmap-tiles_cache/html/unnamed-chunk-1_c3119993a70d2eb17f5b8016b6e192bf">
+<div class="cell" data-hash="fig3-04-webmap-tiles_cache/html/unnamed-chunk-1_ee877b664b8788cc5a70b1402adb446f">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -226,15 +226,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>lon <span class="ot">&lt;-</span> <span class="fl">174.74526</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>lat <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">41.31087</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zoom =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">tile_name =</span> <span class="st">""</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tile_names <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (zoom <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>) {</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">deg2num</span>(lat, lon, zoom)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  tile_name <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(<span class="st">"{zoom}/{xy[1]}/{xy[2]}"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>tile_name[zoom <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> tile_name</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  tile_names <span class="ot">&lt;-</span> <span class="fu">c</span>(tile_names, tile_name)</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  osm_tile_url <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(<span class="st">"https://tile.openstreetmap.org/{tile_name}.png"</span>)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(osm_tile_url, <span class="fu">str_glue</span>(<span class="st">"tiles/{zoom}.png"</span>), <span class="at">mode =</span> <span class="st">'wb'</span>)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zoom =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">tile_name =</span> tile_names) <span class="sc">%&gt;%</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">left =</span> zoom <span class="sc">%%</span> <span class="dv">5</span>, <span class="at">bottom =</span> <span class="dv">3</span> <span class="sc">-</span> zoom <span class="sc">%/%</span> <span class="dv">5</span>, </span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">right =</span> left <span class="sc">+</span> <span class="dv">1</span>, <span class="at">top =</span> bottom <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
