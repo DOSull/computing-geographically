@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>The code below retrieves an OSM tile from level 0 all the way down to level 19 for the latitude-longitude coordinates of the <a href="https://maps.app.goo.gl/UzNcVcqZ2axZKhdy9">Broolyn Wind Turbine</a> in Wellington.</p>
-<div class="cell" data-hash="fig3-04-webmap-tiles_cache/html/unnamed-chunk-1_46735c1606ae13a78b158799be19297e">
+<div class="cell" data-hash="fig3-04-webmap-tiles_cache/html/unnamed-chunk-1_c3119993a70d2eb17f5b8016b6e192bf">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -226,15 +226,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>lon <span class="ot">&lt;-</span> <span class="fl">174.74526</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>lat <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">41.31087</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (zoom <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>) {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">deg2num</span>(lat, lon, zoom)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  osm_tile_url <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(<span class="st">"https://tile.openstreetmap.org/{zoom}/{xy[1]}/{xy[2]}.png"</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(osm_tile_url, <span class="fu">str_glue</span>(<span class="st">"tiles/{zoom}.png"</span>), <span class="at">mode =</span> <span class="st">'wb'</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zoom =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">tile_name =</span> <span class="st">""</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (zoom <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>) {</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">deg2num</span>(lat, lon, zoom)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  tile_name <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(<span class="st">"{zoom}/{xy[1]}/{xy[2]}"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>tile_name[zoom <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> tile_name</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  osm_tile_url <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(<span class="st">"https://tile.openstreetmap.org/{tile_name}.png"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(osm_tile_url, <span class="fu">str_glue</span>(<span class="st">"tiles/{zoom}.png"</span>), <span class="at">mode =</span> <span class="st">'wb'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">left =</span> zoom <span class="sc">%%</span> <span class="dv">5</span>, <span class="at">bottom =</span> <span class="dv">3</span> <span class="sc">-</span> zoom <span class="sc">%/%</span> <span class="dv">5</span>, </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">right =</span> left <span class="sc">+</span> <span class="dv">1</span>, <span class="at">top =</span> bottom <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Here they all are (there is probably a better way to do this, but sometimes in <em>R</em> it’s easier just to write the code).</p>
-<div class="cell" data-hash="fig3-04-webmap-tiles_cache/html/unnamed-chunk-2_24c96c14601c1d7da8811c9109fa3b60">
+<div class="cell" data-hash="fig3-04-webmap-tiles_cache/html/unnamed-chunk-2_69b30267a28f44fb83db6f2d5da95811">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
@@ -242,10 +248,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mai =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>))</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>), <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"n"</span>, <span class="at">asp =</span> <span class="dv">1</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>) {</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  img <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="fu">str_glue</span>(<span class="st">"tiles/{i}.png"</span>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rasterImage</span>(img, i <span class="sc">%%</span> <span class="dv">5</span>, <span class="dv">3</span> <span class="sc">-</span> (i <span class="sc">%/%</span> <span class="dv">5</span>), i <span class="sc">%%</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">1</span>, <span class="dv">4</span> <span class="sc">-</span> (i <span class="sc">%/%</span> <span class="dv">5</span>))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  img <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="fu">str_glue</span>(<span class="st">"tiles/{df$zoom[i]}.png"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rasterImage</span>(img, df<span class="sc">$</span>left[i], df<span class="sc">$</span>bottom[i], df<span class="sc">$</span>right[i], df<span class="sc">$</span>top[i])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(df<span class="sc">$</span>left <span class="sc">+</span> <span class="fl">0.01</span>, df<span class="sc">$</span>bottom <span class="sc">+</span> <span class="fl">0.01</span>, df<span class="sc">$</span>tile_name, <span class="at">adj =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">cex =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="fig3-04-webmap-tiles_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="960"></p>

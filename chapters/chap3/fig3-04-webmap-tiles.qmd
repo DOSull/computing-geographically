@@ -32,11 +32,17 @@ deg2num<-function(lat_deg, lon_deg, zoom){
 lon <- 174.74526
 lat <- -41.31087
 
+df <- data.frame(zoom = 0:19, tile_name = "")
 for (zoom in 0:19) {
   xy <- deg2num(lat, lon, zoom)
-  osm_tile_url <- str_glue("https://tile.openstreetmap.org/{zoom}/{xy[1]}/{xy[2]}.png")
+  tile_name <- str_glue("{zoom}/{xy[1]}/{xy[2]}")
+  df$tile_name[zoom + 1] <- tile_name
+  osm_tile_url <- str_glue("https://tile.openstreetmap.org/{tile_name}.png")
   download.file(osm_tile_url, str_glue("tiles/{zoom}.png"), mode = 'wb')
 }
+df <- df %>%
+  mutate(left = zoom %% 5, bottom = 3 - zoom %/% 5, 
+         right = left + 1, top = bottom + 1)
 ```
 
 Here they all are (there is probably a better way to do this, but sometimes in _R_ it's easier just to write the code).
@@ -47,10 +53,12 @@ library(png)
 par(mai = rep(0, 4))
 plot(1, xlim = c(0, 5), ylim = c(0, 4), xlab = "", ylab = "", 
      type = "n", asp = 1, axes = FALSE)
-for (i in 0:19) {
-  img <- readPNG(str_glue("tiles/{i}.png"))
-  rasterImage(img, i %% 5, 3 - (i %/% 5), i %% 5 + 1, 4 - (i %/% 5))
+
+for (i in 1:20) {
+  img <- readPNG(str_glue("tiles/{df$zoom[i]}.png"))
+  rasterImage(img, df$left[i], df$bottom[i], df$right[i], df$top[i])
 }
+text(df$left + 0.01, df$bottom + 0.01, df$tile_name, adj = c(0, 0), cex = 0.75)
 ```
 All tiles &copy; [OpenStreetMap](https://openstreetmap.org/copyright) contributors, data under the ODbL.
 
