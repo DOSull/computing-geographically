@@ -22,18 +22,29 @@ knitr:
 
 | Date       | Changes                                                                |
 |:-----------|:-----------------------------------------------------------------------|
+| 2023-11-04 | Added small image of the final cover to preamble. |
 | 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history. |
 | 2023-10-24 | Inverted coordinates to make landscape images.                         |
 | 2023-10-19 | Initial post.                                                          |
 
 :::
 
+:::: {.columns}
+
+::: {.column width=67.5%}
 ## The idea behind the cover
 Loosely speaking the cover mirrors the sequence from _simple location_ to _world as relational process_ that the book recounts. A set of relationally interacting, moving, simple locations converge to become a Whitehead-ian 'society of actual occasions'. If you have no idea what I'm on about, you'll have to read the book...
 
 In any case, I like how the artwork looks, and so did the publisher!
 
 Here's how I made it (flipped to landscape mode so you get bigger pictures).
+:::
+
+::: {.column width=32.5%}
+![](../cg-cover.jpg)
+:::
+
+::::
 
 ## A flocking model
 The starting point was a *flocking model*, which is discussed in Chapter 8 of the book, in &sect;**Agent-Based Models**, but also makes an appearance in Figure 7.7. This model was previously made for my earlier book _Spatial Simulation_ written with George Perry, which you can find all about [here](https://patternandprocess.org). Specifically [this NetLogo model](https://dosull.github.io/pattern-and-process/chapter-4/4.7.html) appears in the [model zoo](https://dosull.github.io/pattern-and-process/#the-model-zoo), as an implementation of ideas in these papers
