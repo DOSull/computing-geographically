@@ -218,20 +218,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>The example in the book was made using a NetLogo model based on <a href="https://dosull.github.io/pattern-and-process/chapter-3/3.8.html">this model from <em>Spatial Simulation</em></a>, but this page provides <em>R</em> code instead.</p>
-<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-1_4d05fc3cf99a9bd9ea256609f0533868">
+<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-1_096e171f2c15f991e9eab9a7567d75d9">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pracma)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="model-code" class="level2">
 <h2 class="anchored" data-anchor-id="model-code">Model code</h2>
 <p>The model code is in the cell below. It returns a 3D array of cell states, with each ‘layer’ a new 2D array of cell states.</p>
-<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-2_27712f871997674209a5176d63a88f58">
+<div class="cell" data-hash="fig8-04-voter-model_cache/html/unnamed-chunk-2_edc81e0da7a80e3e5dc388dd808e3250">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random neighbour offset</span></span>
@@ -259,29 +258,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(m)</span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># return a wrapped version of matrix m</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>wrap_matrix <span class="ot">&lt;-</span> <span class="cf">function</span>(m, dx, dy) {</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  m2 <span class="ot">&lt;-</span> pracma<span class="sc">::</span><span class="fu">repmat</span>(m, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  m2[<span class="fu">seq_len</span>(<span class="fu">nrow</span>(m)) <span class="sc">+</span> <span class="fu">nrow</span>(m) <span class="sc">-</span> dy, </span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>     <span class="fu">seq_len</span>(<span class="fu">ncol</span>(m)) <span class="sc">+</span> <span class="fu">ncol</span>(m) <span class="sc">-</span> dx]</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># initialise random matrix</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>init_state <span class="ot">&lt;-</span> <span class="cf">function</span>(s, nr, nc) {</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="fu">sample</span>(s, nr <span class="sc">*</span> nc, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">ncol =</span> nc, <span class="at">nrow =</span> nr)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>voter_model <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">states =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">20</span>, </span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                        <span class="at">t_max =</span> <span class="dv">20</span>, <span class="at">seed =</span> <span class="cn">NULL</span>) {</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(seed)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">0</span>, <span class="at">dim =</span> <span class="fu">c</span>(nrow, ncol, t_max))</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  result[, , <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">init_state</span>(states, nrow, ncol)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (gen <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>t_max) {</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    result[, , gen] <span class="ot">&lt;-</span> <span class="fu">generation</span>(result[, , gen <span class="sc">-</span> <span class="dv">1</span>])</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  result</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># initialise random matrix</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>init_state <span class="ot">&lt;-</span> <span class="cf">function</span>(s, nr, nc) {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="fu">sample</span>(s, nr <span class="sc">*</span> nc, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">ncol =</span> nc, <span class="at">nrow =</span> nr)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>voter_model <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">states =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">20</span>, </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                        <span class="at">t_max =</span> <span class="dv">20</span>, <span class="at">seed =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(seed)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">0</span>, <span class="at">dim =</span> <span class="fu">c</span>(nrow, ncol, t_max))</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  result[, , <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">init_state</span>(states, nrow, ncol)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (gen <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>t_max) {</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    result[, , gen] <span class="ot">&lt;-</span> <span class="fu">generation</span>(result[, , gen <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  result</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
