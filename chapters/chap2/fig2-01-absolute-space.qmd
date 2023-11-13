@@ -39,8 +39,6 @@ scatter3D(x = data$x, y = data$y, z = data$z,
           col.grid = "#666666", lwd.grid = 0.2, nticks = 6)
 ```
 
-
-
 ```{r}
 #| code-fold: true
 # License (MIT)

@@ -11,6 +11,7 @@ This website provides a collection of resources for the book [_Computing Geograp
 Included are:
 
 + Current links for internet sources referenced in the text
-+ Code samples to create the base graphics for some of the figures
++ High resolution copies of all the figures from the book as published
++ Code samples to create alternative (often colour) versions of some of the figures
 + Background information on other figures
 + Some other odds and ends

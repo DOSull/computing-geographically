@@ -27,6 +27,8 @@ website:
             file: "chapters/chap8/index.qmd"
           - text: "9. Doing Giscience Doing Geography"
             file: "chapters/chap9/index.qmd"
+      - text: The figures
+        file: "the-figures/index.qmd"
       - text: Odds and ends
         file: "posts.qmd"
       - text: All the pages
