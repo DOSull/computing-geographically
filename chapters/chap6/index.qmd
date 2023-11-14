@@ -11,4 +11,4 @@ listing:
   type: grid
 ---
 
-In this chapter the focus is squarely on _networks_ (which mathematicians insist of calling _graphs_) and their potential for more relational understandings of space in giscience. As much of the code associated with the figures in this chapter shows, handling such structure elegantly is not something existing geospatial tools do well.
+In this chapter the focus is squarely on _networks_ (which mathematicians confusingly insist on calling _graphs_) and their potential for more relational understandings of space in giscience. As much of the code associated with the figures in this chapter shows, handling such structure elegantly is not something existing geospatial tools do well.

@@ -9,4 +9,4 @@ listing:
   type: grid
 ---
 
-Chapter 1 sets out the overall plan of the book, putting in the context of my own history with doing giscience in relation (often distant) with the rest of geography.
+Chapter 1 sets out the overall plan of the book, putting it in the context of my own history with doing giscience in (often distant) relation to the rest of geography.
