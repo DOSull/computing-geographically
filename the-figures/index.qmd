@@ -13,7 +13,7 @@ fig-cap-location: top
 ---
 
 ## All the figures!
-Below you will find high resolution copies of all the figures from the book, as published. Download using right-click **Save Link As...** 
+Below you will find high resolution copies of all the figures from the book, as published. Download using right-click **Save Link As...** (**Link** is important: you'll get a low resolution thumbnail if you do **Save Image As...**). 
 
 Note that Figure 5.2 is available from wikimedia.commons at [this link](https://upload.wikimedia.org/wikipedia/commons/9/9e/Diagrametic_Sketch_Map_of_Cooch_behar_district_showing_enclaves.jpg). 
  
