@@ -6,7 +6,7 @@ categories:
 listing:
   categories: true
   contents: other-stuff
-  sort: "date desc"
+  sort: date desc
   type: default
 execute: 
   cache: true
