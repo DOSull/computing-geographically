@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-world-is-not-flat" id="toc-the-world-is-not-flat" class="nav-link" data-scroll-target="#the-world-is-not-flat">The world is not flat</a></li>
   <li><a href="#make-geodesic-datasets-between-the-cities" id="toc-make-geodesic-datasets-between-the-cities" class="nav-link" data-scroll-target="#make-geodesic-datasets-between-the-cities">Make geodesic datasets between the cities</a></li>
   </ul></li>
-  <li><a href="#mollweide-fail-maps" id="toc-mollweide-fail-maps" class="nav-link" data-scroll-target="#mollweide-fail-maps">Mollweide fail maps</a></li>
+  <li><a href="#better-mollweide-maps" id="toc-better-mollweide-maps" class="nav-link" data-scroll-target="#better-mollweide-maps">Better Mollweide maps</a></li>
   <li><a href="#orthographic-not-so-fail-maps" id="toc-orthographic-not-so-fail-maps" class="nav-link" data-scroll-target="#orthographic-not-so-fail-maps">Orthographic not so fail maps</a></li>
   </ul>
 </nav>
@@ -581,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> LineString((p.x, p.y) <span class="cf">for</span> p <span class="kw">in</span> points) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Next, a function that takes geodesic and breaks itat any point where there is large apparent jump between consecutive points. Here we use the naïve distance measurement based on the coordinates. This will mean the line is broken at the antimeridian.</p>
+<p>Next, a function that takes geodesic and breaks it at any point where there is large apparent jump between consecutive points. Here we use the naïve distance measurement based on the coordinates. This will mean the line is broken at the antimeridian.</p>
 <div class="cell" data-execution_count="8">
 <details>
 <summary>Code</summary>
@@ -638,9 +638,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="mollweide-fail-maps" class="level2">
-<h2 class="anchored" data-anchor-id="mollweide-fail-maps">Mollweide fail maps</h2>
-<p>More maps that don’t quite work. The first of these doesn’t break the great circle links at the anti-meridian (dateline) so we get ‘parallels’ from one side of the map to the other when one crosses the anti-meridian. The second</p>
+<section id="better-mollweide-maps" class="level2">
+<h2 class="anchored" data-anchor-id="better-mollweide-maps">Better Mollweide maps</h2>
+<p>The first of these doesn’t quite work, because it doesn’t break the great circle links at the anti-meridian (dateline) so we get ‘parallels’ from one side of the map to the other when one crosses the anti-meridian. The second uses the geodesics that have been broken at the anti-meridian, so is ‘correct’.</p>
 <div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
