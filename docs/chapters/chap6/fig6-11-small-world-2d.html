@@ -245,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sample-rewired-2d-lattices" class="level2">
 <h2 class="anchored" data-anchor-id="sample-rewired-2d-lattices">Sample rewired 2D lattices</h2>
 <p>It’s somewhat useful to see what a range of rewired lattices look like. Here’s a bigger range than in the book, with the rewiring probability increasing roughly 3-fold each time.</p>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-3_c16ff2c98d14c5e58764b909d6f1284c">
+<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-3_9df32adfb192d73ad6f3f7d3a11f0348">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
@@ -253,12 +253,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>base_graph <span class="ot">&lt;-</span> <span class="fu">make_lattice</span>(<span class="at">length =</span> <span class="dv">20</span>, <span class="at">dim =</span> <span class="dv">2</span>, <span class="at">nei =</span> <span class="dv">2</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.003</span>)), <span class="at">main =</span> <span class="st">"p = 0.001"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.009</span>)), <span class="at">main =</span> <span class="st">"p = 0.005"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.027</span>)), <span class="at">main =</span> <span class="st">"p = 0.025"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.083</span>)), <span class="at">main =</span> <span class="st">"p = 0.125"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.250</span>)), <span class="at">main =</span> <span class="st">"p = 0.625"</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.750</span>)), <span class="at">main =</span> <span class="st">"p = 0.625"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.003</span>)), <span class="at">main =</span> <span class="st">"p = 0.003"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.009</span>)), <span class="at">main =</span> <span class="st">"p = 0.009"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.027</span>)), <span class="at">main =</span> <span class="st">"p = 0.027"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.083</span>)), <span class="at">main =</span> <span class="st">"p = 0.083"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.250</span>)), <span class="at">main =</span> <span class="st">"p = 0.25"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="fu">rewire</span>(base_graph, <span class="fu">each_edge</span>(<span class="fl">0.750</span>)), <span class="at">main =</span> <span class="st">"p = 0.75"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>

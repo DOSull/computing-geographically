@@ -43,12 +43,12 @@ layout(matrix(1:6, nrow = 2, byrow = TRUE))
 
 base_graph <- make_lattice(length = 20, dim = 2, nei = 2)
 
-plot_graph(rewire(base_graph, each_edge(0.003)), main = "p = 0.001")
-plot_graph(rewire(base_graph, each_edge(0.009)), main = "p = 0.005")
-plot_graph(rewire(base_graph, each_edge(0.027)), main = "p = 0.025")
-plot_graph(rewire(base_graph, each_edge(0.083)), main = "p = 0.125")
-plot_graph(rewire(base_graph, each_edge(0.250)), main = "p = 0.625")
-plot_graph(rewire(base_graph, each_edge(0.750)), main = "p = 0.625")
+plot_graph(rewire(base_graph, each_edge(0.003)), main = "p = 0.003")
+plot_graph(rewire(base_graph, each_edge(0.009)), main = "p = 0.009")
+plot_graph(rewire(base_graph, each_edge(0.027)), main = "p = 0.027")
+plot_graph(rewire(base_graph, each_edge(0.083)), main = "p = 0.083")
+plot_graph(rewire(base_graph, each_edge(0.250)), main = "p = 0.25")
+plot_graph(rewire(base_graph, each_edge(0.750)), main = "p = 0.75")
 ```
 
 ## Looking at a wider range of rewiring outcomes
