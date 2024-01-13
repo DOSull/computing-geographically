@@ -21,7 +21,7 @@ library(tidyr)
 ```
 
 ## The Z-order (Morton) and Hilbert curves
-The first two are general indexing schemes with deep mathematical roots, so unsurprisingly there are _R_ packages for working with them. The [`morton` package](https://github.com/s-u/morton) is only available on github so you will need `devtools` to install it, while [`hilbert`](https://cloud.r-project.org/web/packages/hilbert/index.html) is on CRAN. Because I can, I've made these bigger than the labouriously hand-crafted examples in the book.
+The first two are general indexing schemes with deep mathematical roots, so unsurprisingly there are _R_ packages for working with them. The [`morton` package](https://github.com/s-u/morton) is only available on github so you will need `devtools` to install it, while [`hilbert`](https://cloud.r-project.org/web/packages/hilbert/index.html) is on CRAN. Because I can, I've made these bigger than the laboriously hand-crafted examples in the book.
 
 ```{R}
 library(morton)

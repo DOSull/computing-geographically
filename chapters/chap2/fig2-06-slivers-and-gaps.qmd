@@ -38,7 +38,7 @@ m2 <- tm_shape(polygons %>%
                  st_simplify(dTolerance = 100)) +
   tm_fill(col = "name", alpha = 0.5) +
   tm_layout(
-    title = "Source polygons", frame = FALSE,
+    title = "Source polygons simplified", frame = FALSE,
     legend.show = FALSE)
 
 tmap_arrange(m1, m2, ncol = 2)
