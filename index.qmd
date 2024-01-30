@@ -1,5 +1,5 @@
 ---
-title: "_Computing Geographically_"
+title: "Computing Geographically"
 subtitle: "Bonus Material"
 about:
   template: solana
