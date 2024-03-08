@@ -1,7 +1,48 @@
 [
   {
-    "listing": "/chapters/chap9/index.html",
-    "items": []
+    "listing": "/chapters/chap8/index.html",
+    "items": [
+      "/chapters/chap8/links-8.html",
+      "/chapters/chap8/fig8-01-1d-ca.html",
+      "/chapters/chap8/fig8-03-game-of-life.html",
+      "/chapters/chap8/fig8-04-voter-model.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap6/index.html",
+    "items": [
+      "/chapters/chap6/links-6.html",
+      "/chapters/chap6/fig6-05-6-06-world-cities-network.html",
+      "/chapters/chap6/fig6-07-world-trade-colour.html",
+      "/chapters/chap6/fig6-10-small-world-1d.html",
+      "/chapters/chap6/fig6-11-small-world-2d.html",
+      "/chapters/chap6/fig6-12-graph-drawings.html",
+      "/chapters/chap6/fig6-14-sb-drive-time.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap5/index.html",
+    "items": [
+      "/chapters/chap5/links-5.html",
+      "/chapters/chap5/fig5-01-9-intersection.html",
+      "/chapters/chap5/fig5-05-ca-pop-maps.html",
+      "/chapters/chap5/fig5-06-simple-maup.html",
+      "/chapters/chap5/fig5-07-maup-aggregation.html",
+      "/chapters/chap5/fig5-10-san-fran-clusters.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap2/index.html",
+    "items": [
+      "/chapters/chap2/links-2.html",
+      "/chapters/chap2/fig2-01-absolute-space.html",
+      "/chapters/chap2/fig2-02-cartograms.html",
+      "/chapters/chap2/fig2-04-ppa-relative-space.html",
+      "/chapters/chap2/fig2-06-slivers-and-gaps.html",
+      "/chapters/chap2/fig2-07-point-voronoi.html",
+      "/chapters/chap2/fig2-08-non-point-voronoi.html",
+      "/chapters/chap2/fig2-09-spatial-weights.html"
+    ]
   },
   {
     "listing": "/chapters/chap3/index.html",
@@ -12,6 +53,15 @@
       "/chapters/chap3/fig3-08-loxodrome.html",
       "/chapters/chap3/fig3-09-tobler-chen.html",
       "/chapters/chap3/fig3-10-raster-resolution.html"
+    ]
+  },
+  {
+    "listing": "/chapters/chap4/index.html",
+    "items": [
+      "/chapters/chap4/links-4.html",
+      "/chapters/chap4/fig4-01-hierarchical-indexing.html",
+      "/chapters/chap4/fig4-03-springfields.html",
+      "/chapters/chap4/fig4-05-te-reo-names.html"
     ]
   },
   {
@@ -60,34 +110,6 @@
     ]
   },
   {
-    "listing": "/chapters/chap2/index.html",
-    "items": [
-      "/chapters/chap2/links-2.html",
-      "/chapters/chap2/fig2-01-absolute-space.html",
-      "/chapters/chap2/fig2-02-cartograms.html",
-      "/chapters/chap2/fig2-04-ppa-relative-space.html",
-      "/chapters/chap2/fig2-06-slivers-and-gaps.html",
-      "/chapters/chap2/fig2-07-point-voronoi.html",
-      "/chapters/chap2/fig2-08-non-point-voronoi.html",
-      "/chapters/chap2/fig2-09-spatial-weights.html"
-    ]
-  },
-  {
-    "listing": "/chapters/chap1/index.html",
-    "items": [
-      "/chapters/chap1/links-1.html"
-    ]
-  },
-  {
-    "listing": "/chapters/chap4/index.html",
-    "items": [
-      "/chapters/chap4/links-4.html",
-      "/chapters/chap4/fig4-01-hierarchical-indexing.html",
-      "/chapters/chap4/fig4-03-springfields.html",
-      "/chapters/chap4/fig4-05-te-reo-names.html"
-    ]
-  },
-  {
     "listing": "/chapters/chap7/index.html",
     "items": [
       "/chapters/chap7/links-7.html",
@@ -97,35 +119,9 @@
     ]
   },
   {
-    "listing": "/chapters/chap5/index.html",
+    "listing": "/chapters/chap1/index.html",
     "items": [
-      "/chapters/chap5/links-5.html",
-      "/chapters/chap5/fig5-01-9-intersection.html",
-      "/chapters/chap5/fig5-05-ca-pop-maps.html",
-      "/chapters/chap5/fig5-06-simple-maup.html",
-      "/chapters/chap5/fig5-07-maup-aggregation.html",
-      "/chapters/chap5/fig5-10-san-fran-clusters.html"
-    ]
-  },
-  {
-    "listing": "/chapters/chap6/index.html",
-    "items": [
-      "/chapters/chap6/links-6.html",
-      "/chapters/chap6/fig6-05-6-06-world-cities-network.html",
-      "/chapters/chap6/fig6-07-world-trade-colour.html",
-      "/chapters/chap6/fig6-10-small-world-1d.html",
-      "/chapters/chap6/fig6-11-small-world-2d.html",
-      "/chapters/chap6/fig6-12-graph-drawings.html",
-      "/chapters/chap6/fig6-14-sb-drive-time.html"
-    ]
-  },
-  {
-    "listing": "/chapters/chap8/index.html",
-    "items": [
-      "/chapters/chap8/links-8.html",
-      "/chapters/chap8/fig8-01-1d-ca.html",
-      "/chapters/chap8/fig8-03-game-of-life.html",
-      "/chapters/chap8/fig8-04-voter-model.html"
+      "/chapters/chap1/links-1.html"
     ]
   },
   {

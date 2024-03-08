@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -95,6 +102,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -102,9 +136,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title"><em>Computing Geographically</em> Bonus Material</span>
     </a>
@@ -116,64 +150,64 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-chapters" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-chapters" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Chapters</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-chapters">    
         <li>
-    <a class="dropdown-item" href="./chapters/chap1/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap1/index.html">
  <span class="dropdown-text">1. Building Bridges</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap2/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap2/index.html">
  <span class="dropdown-text">2. Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap3/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap3/index.html">
  <span class="dropdown-text">3. Scale and Projection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap4/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap4/index.html">
  <span class="dropdown-text">4. Place and Meaning in Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap5/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap5/index.html">
  <span class="dropdown-text">5. Lines and Areas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap6/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap6/index.html">
  <span class="dropdown-text">6. Relations, Networks, Flows</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap7/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap7/index.html">
  <span class="dropdown-text">7. Time and Dynamics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap8/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap8/index.html">
  <span class="dropdown-text">8. Process and Pattern</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap9/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap9/index.html">
  <span class="dropdown-text">9. Doing Giscience Doing Geography</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./the-figures/index.html" rel="" target="">
- <span class="menu-text">Figures</span></a>
+    <a class="nav-link" href="./the-figures/index.html"> 
+<span class="menu-text">Figures</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" rel="" target="" aria-current="page">
- <span class="menu-text">Odds and ends</span></a>
+    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+<span class="menu-text">Odds and ends</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index-listing.html" rel="" target="">
- <span class="menu-text">All the pages</span></a>
+    <a class="nav-link" href="./index-listing.html"> 
+<span class="menu-text">All the pages</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -206,7 +240,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>This section is a collection of ‘bonus material’ reflecting on aspects of the book, and ongoing concerns, which don’t really fall under a single chapter.</p>
 
@@ -215,115 +251,109 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="extras" data-listing-date-sort="1705057200000" data-listing-file-modified-sort="1705182997081" data-listing-date-modified-sort="1705921200000" data-listing-reading-time-sort="9">
+<div class="quarto-post image-right" data-index="0" data-categories="extras" data-listing-date-sort="1705057200000" data-listing-file-modified-sort="1705182997000" data-listing-date-modified-sort="1705921200000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1667">
 <div class="thumbnail">
-<p><a href="./other-stuff/thinking-geographically.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./other-stuff/thinking-geographically.html" class="no-external"></a></p><a href="./other-stuff/thinking-geographically.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./other-stuff/thinking-geographically.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./other-stuff/thinking-geographically.html">
 <h3 class="no-anchor listing-title">
-Thinking geographically
+<a href="./other-stuff/thinking-geographically.html" class="no-external">Thinking geographically</a>
 </h3>
 <div class="listing-subtitle">
-Where ideas come from
+<a href="./other-stuff/thinking-geographically.html" class="no-external">Where ideas come from</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('extras'); return false;">
 extras
 </div>
 </div>
-<a href="./other-stuff/thinking-geographically.html">
 <div class="listing-description">
-<p>I just remembered some important sources of inspiration for the book and wanted to acknowledge them</p>
+<a href="./other-stuff/thinking-geographically.html" class="no-external">I just remembered some important sources of inspiration for the book and wanted to acknowledge them</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./other-stuff/thinking-geographically.html">
+<a href="./other-stuff/thinking-geographically.html" class="no-external">
 <div class="listing-date">
 Jan 13, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="extras" data-listing-date-sort="1698318000000" data-listing-file-modified-sort="1698362017104" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="1" data-categories="extras" data-listing-date-sort="1698318000000" data-listing-file-modified-sort="1698362017000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
 <div class="thumbnail">
-<p><a href="./other-stuff/rosa-support-cat.html"> <p class="card-img-top"><img src="other-stuff/rosa-hard-at-work.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./other-stuff/rosa-support-cat.html" class="no-external"></a></p><a href="./other-stuff/rosa-support-cat.html" class="no-external">
+<p class="card-img-top"><img src="other-stuff/rosa-hard-at-work.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./other-stuff/rosa-support-cat.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./other-stuff/rosa-support-cat.html">
 <h3 class="no-anchor listing-title">
-Rosa, support cat
+<a href="./other-stuff/rosa-support-cat.html" class="no-external">Rosa, support cat</a>
 </h3>
 <div class="listing-subtitle">
-Because: internet
+<a href="./other-stuff/rosa-support-cat.html" class="no-external">Because: internet</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('extras'); return false;">
 extras
 </div>
 </div>
-<a href="./other-stuff/rosa-support-cat.html">
 <div class="listing-description">
-<p>Writing is hard</p>
+<a href="./other-stuff/rosa-support-cat.html" class="no-external">Writing is hard</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./other-stuff/rosa-support-cat.html">
+<a href="./other-stuff/rosa-support-cat.html" class="no-external">
 <div class="listing-date">
 Oct 27, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="extras" data-listing-date-sort="1698058800000" data-listing-file-modified-sort="1705001658683" data-listing-date-modified-sort="1698145200000" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="2" data-categories="extras" data-listing-date-sort="1698058800000" data-listing-file-modified-sort="1705001658000" data-listing-date-modified-sort="1698145200000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1198">
 <div class="thumbnail">
-<p><a href="./other-stuff/giscience-not-GIScience.html"> <img src="https://imgs.xkcd.com/comics/duty_calls.png" class="thumbnail-image"> </a></p>
+<p><a href="./other-stuff/giscience-not-GIScience.html" class="no-external"></a></p><a href="./other-stuff/giscience-not-GIScience.html" class="no-external">
+<p><img src="https://imgs.xkcd.com/comics/duty_calls.png" class="thumbnail-image"></p>
+</a><p><a href="./other-stuff/giscience-not-GIScience.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./other-stuff/giscience-not-GIScience.html">
 <h3 class="no-anchor listing-title">
-Giscience? not GIScience?!
+<a href="./other-stuff/giscience-not-GIScience.html" class="no-external">Giscience? not GIScience?!</a>
 </h3>
 <div class="listing-subtitle">
-Just don’t anyone say geospatial
+<a href="./other-stuff/giscience-not-GIScience.html" class="no-external">Just don’t anyone say geospatial</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('extras'); return false;">
 extras
 </div>
 </div>
-<a href="./other-stuff/giscience-not-GIScience.html">
 <div class="listing-description">
-<p>Thoughts on the terms giscience, GIScience, and geographic(al) information science. Also: GISer</p>
+<a href="./other-stuff/giscience-not-GIScience.html" class="no-external">Thoughts on the terms giscience, GIScience, and geographic(al) information science. Also: GISer</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./other-stuff/giscience-not-GIScience.html">
+<a href="./other-stuff/giscience-not-GIScience.html" class="no-external">
 <div class="listing-date">
 Oct 24, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="extras,code,R" data-listing-date-sort="1697626800000" data-listing-file-modified-sort="1699041477822" data-listing-date-modified-sort="1698145200000" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="3" data-categories="extras,code,R" data-listing-date-sort="1697626800000" data-listing-file-modified-sort="1699041477000" data-listing-date-modified-sort="1698145200000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1304">
 <div class="thumbnail">
-<p><a href="./other-stuff/about-the-cover.html"> <p class="card-img-top"><img src="cg-cover.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./other-stuff/about-the-cover.html" class="no-external"></a></p><a href="./other-stuff/about-the-cover.html" class="no-external">
+<p class="card-img-top"><img src="cg-cover.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./other-stuff/about-the-cover.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./other-stuff/about-the-cover.html">
 <h3 class="no-anchor listing-title">
-About the cover
+<a href="./other-stuff/about-the-cover.html" class="no-external">About the cover</a>
 </h3>
 <div class="listing-subtitle">
-And how to make your own
+<a href="./other-stuff/about-the-cover.html" class="no-external">And how to make your own</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('extras'); return false;">
 extras
@@ -335,14 +365,12 @@ code
 R
 </div>
 </div>
-<a href="./other-stuff/about-the-cover.html">
 <div class="listing-description">
-<p>An explanation of how the I made the cover art</p>
+<a href="./other-stuff/about-the-cover.html" class="no-external">An explanation of how the I made the cover art</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./other-stuff/about-the-cover.html">
+<a href="./other-stuff/about-the-cover.html" class="no-external">
 <div class="listing-date">
 Oct 19, 2023
 </div>
@@ -433,10 +461,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -446,8 +491,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -459,7 +513,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -503,6 +680,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -528,6 +706,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -588,6 +792,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

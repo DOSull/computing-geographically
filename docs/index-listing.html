@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -96,6 +103,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -103,9 +137,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title"><em>Computing Geographically</em> Bonus Material</span>
     </a>
@@ -117,64 +151,64 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-chapters" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-chapters" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Chapters</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-chapters">    
         <li>
-    <a class="dropdown-item" href="./chapters/chap1/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap1/index.html">
  <span class="dropdown-text">1. Building Bridges</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap2/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap2/index.html">
  <span class="dropdown-text">2. Location and Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap3/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap3/index.html">
  <span class="dropdown-text">3. Scale and Projection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap4/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap4/index.html">
  <span class="dropdown-text">4. Place and Meaning in Space</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap5/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap5/index.html">
  <span class="dropdown-text">5. Lines and Areas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap6/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap6/index.html">
  <span class="dropdown-text">6. Relations, Networks, Flows</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap7/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap7/index.html">
  <span class="dropdown-text">7. Time and Dynamics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap8/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap8/index.html">
  <span class="dropdown-text">8. Process and Pattern</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./chapters/chap9/index.html" rel="" target="">
+    <a class="dropdown-item" href="./chapters/chap9/index.html">
  <span class="dropdown-text">9. Doing Giscience Doing Geography</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./the-figures/index.html" rel="" target="">
- <span class="menu-text">Figures</span></a>
+    <a class="nav-link" href="./the-figures/index.html"> 
+<span class="menu-text">Figures</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html" rel="" target="">
- <span class="menu-text">Odds and ends</span></a>
+    <a class="nav-link" href="./posts.html"> 
+<span class="menu-text">Odds and ends</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index-listing.html" rel="" target="" aria-current="page">
- <span class="menu-text">All the pages</span></a>
+    <a class="nav-link active" href="./index-listing.html" aria-current="page"> 
+<span class="menu-text">All the pages</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -203,7 +237,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Use the sort, filter, and categories list to the right to find what you are looking for.</p>
 
@@ -227,7 +263,6 @@ ul.task-list li input[type="checkbox"] {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -237,208 +272,207 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="links" data-listing-file-modified-sort="1698617577234" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 1" data-listing-filename-sort="links-1.qmd">
+<tr data-index="0" data-categories="links" data-listing-file-modified-sort="1698617577000" data-listing-reading-time-sort="1" data-listing-word-count-sort="52" data-listing-title-sort="Links for Chapter 1" data-listing-filename-sort="links-1.qmd">
 <td>
 <a href="./chapters/chap1/links-1.html" class="title listing-title">Links for Chapter 1</a>
 </td>
 </tr>
-<tr data-index="1" data-categories="links" data-listing-file-modified-sort="1698629946878" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 2" data-listing-filename-sort="links-2.qmd">
+<tr data-index="1" data-categories="links" data-listing-file-modified-sort="1698629946000" data-listing-reading-time-sort="1" data-listing-word-count-sort="104" data-listing-title-sort="Links for Chapter 2" data-listing-filename-sort="links-2.qmd">
 <td>
 <a href="./chapters/chap2/links-2.html" class="title listing-title">Links for Chapter 2</a>
 </td>
 </tr>
-<tr data-index="2" data-categories="figures,code,R" data-listing-file-modified-sort="1699916113004" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.1 A representation of an absolute space" data-listing-filename-sort="fig2-01-absolute-space.qmd">
+<tr data-index="2" data-categories="figures,code,R" data-listing-file-modified-sort="1699916113000" data-listing-reading-time-sort="2" data-listing-word-count-sort="339" data-listing-title-sort="Figure 2.1 A representation of an absolute space" data-listing-filename-sort="fig2-01-absolute-space.qmd">
 <td>
 <a href="./chapters/chap2/fig2-01-absolute-space.html" class="title listing-title">Figure 2.1 A representation of an absolute space</a>
 </td>
 </tr>
-<tr data-index="3" data-categories="code,R,extra" data-listing-file-modified-sort="1699255147005" data-listing-reading-time-sort="7" data-listing-title-sort="Figures 2.2 and 2.3 and more on cartograms" data-listing-filename-sort="fig2-02-cartograms.qmd">
+<tr data-index="3" data-categories="code,R,extra" data-listing-file-modified-sort="1699255147000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1312" data-listing-title-sort="Figures 2.2 and 2.3 and more on cartograms" data-listing-filename-sort="fig2-02-cartograms.qmd">
 <td>
 <a href="./chapters/chap2/fig2-02-cartograms.html" class="title listing-title">Figures 2.2 and 2.3 and more on cartograms</a>
 </td>
 </tr>
-<tr data-index="4" data-categories="figures,code,R" data-listing-file-modified-sort="1698383878116" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.4 Two point patterns in absolute space" data-listing-filename-sort="fig2-04-ppa-relative-space.qmd">
+<tr data-index="4" data-categories="figures,code,R" data-listing-file-modified-sort="1698383878000" data-listing-reading-time-sort="2" data-listing-word-count-sort="341" data-listing-title-sort="Figure 2.4 Two point patterns in absolute space" data-listing-filename-sort="fig2-04-ppa-relative-space.qmd">
 <td>
 <a href="./chapters/chap2/fig2-04-ppa-relative-space.html" class="title listing-title">Figure 2.4 Two point patterns in absolute space</a>
 </td>
 </tr>
-<tr data-index="5" data-categories="code,R,extra" data-listing-file-modified-sort="1705183387542" data-listing-reading-time-sort="2" data-listing-title-sort="Figures 2.6 Slivers and gaps in a polygon layer" data-listing-filename-sort="fig2-06-slivers-and-gaps.qmd">
+<tr data-index="5" data-categories="code,R,extra" data-listing-file-modified-sort="1705183387000" data-listing-reading-time-sort="2" data-listing-word-count-sort="365" data-listing-title-sort="Figures 2.6 Slivers and gaps in a polygon layer" data-listing-filename-sort="fig2-06-slivers-and-gaps.qmd">
 <td>
 <a href="./chapters/chap2/fig2-06-slivers-and-gaps.html" class="title listing-title">Figures 2.6 Slivers and gaps in a polygon layer</a>
 </td>
 </tr>
-<tr data-index="6" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 2.7 Voronoi polygons associated with a set of point locations" data-listing-filename-sort="fig2-07-point-voronoi.qmd">
+<tr data-index="6" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="2" data-listing-word-count-sort="298" data-listing-title-sort="Figure 2.7 Voronoi polygons associated with a set of point locations" data-listing-filename-sort="fig2-07-point-voronoi.qmd">
 <td>
 <a href="./chapters/chap2/fig2-07-point-voronoi.html" class="title listing-title">Figure 2.7 Voronoi polygons associated with a set of point locations</a>
 </td>
 </tr>
-<tr data-index="7" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 2.8 Voronoi polygons associated with lines and polygons" data-listing-filename-sort="fig2-08-non-point-voronoi.qmd">
+<tr data-index="7" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="4" data-listing-word-count-sort="655" data-listing-title-sort="Figure 2.8 Voronoi polygons associated with lines and polygons" data-listing-filename-sort="fig2-08-non-point-voronoi.qmd">
 <td>
 <a href="./chapters/chap2/fig2-08-non-point-voronoi.html" class="title listing-title">Figure 2.8 Voronoi polygons associated with lines and polygons</a>
 </td>
 </tr>
-<tr data-index="8" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972537" data-listing-reading-time-sort="5" data-listing-title-sort="Figure 2.9 A range of spatial weights applied to polygon data" data-listing-filename-sort="fig2-09-spatial-weights.qmd">
+<tr data-index="8" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="5" data-listing-word-count-sort="917" data-listing-title-sort="Figure 2.9 A range of spatial weights applied to polygon data" data-listing-filename-sort="fig2-09-spatial-weights.qmd">
 <td>
 <a href="./chapters/chap2/fig2-09-spatial-weights.html" class="title listing-title">Figure 2.9 A range of spatial weights applied to polygon data</a>
 </td>
 </tr>
-<tr data-index="9" data-categories="links" data-listing-file-modified-sort="1698617596514" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 3" data-listing-filename-sort="links-3.qmd">
+<tr data-index="9" data-categories="links" data-listing-file-modified-sort="1698617596000" data-listing-reading-time-sort="1" data-listing-word-count-sort="38" data-listing-title-sort="Links for Chapter 3" data-listing-filename-sort="links-3.qmd">
 <td>
 <a href="./chapters/chap3/links-3.html" class="title listing-title">Links for Chapter 3</a>
 </td>
 </tr>
-<tr data-index="10" data-categories="code,R,extras" data-listing-file-modified-sort="1698900289412" data-listing-reading-time-sort="3" data-listing-title-sort="Figure 3.4 ~~Three~~ twenty levels of web map hierarchy" data-listing-filename-sort="fig3-04-webmap-tiles.qmd">
+<tr data-index="10" data-categories="code,R,extras" data-listing-file-modified-sort="1698900289000" data-listing-reading-time-sort="3" data-listing-word-count-sort="411" data-listing-title-sort="Figure 3.4 ~~Three~~ twenty levels of web map hierarchy" data-listing-filename-sort="fig3-04-webmap-tiles.qmd">
 <td>
 <a href="./chapters/chap3/fig3-04-webmap-tiles.html" class="title listing-title">Figure 3.4 <del>Three</del> twenty levels of web map hierarchy</a>
 </td>
 </tr>
-<tr data-index="11" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.7 Two simple world projections" data-listing-filename-sort="fig3-07-platte-carre-and-lcea.qmd">
+<tr data-index="11" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="2" data-listing-word-count-sort="377" data-listing-title-sort="Figure 3.7 Two simple world projections" data-listing-filename-sort="fig3-07-platte-carre-and-lcea.qmd">
 <td>
 <a href="./chapters/chap3/fig3-07-platte-carre-and-lcea.html" class="title listing-title">Figure 3.7 Two simple world projections</a>
 </td>
 </tr>
-<tr data-index="12" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="6" data-listing-title-sort="Figure 3.8 A loxodrome on the sphere and projected" data-listing-filename-sort="fig3-08-loxodrome.qmd">
+<tr data-index="12" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1087" data-listing-title-sort="Figure 3.8 A loxodrome on the sphere and projected" data-listing-filename-sort="fig3-08-loxodrome.qmd">
 <td>
 <a href="./chapters/chap3/fig3-08-loxodrome.html" class="title listing-title">Figure 3.8 A loxodrome on the sphere and projected</a>
 </td>
 </tr>
-<tr data-index="13" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="3" data-listing-title-sort="Figure 3.9 Equal area world in a square" data-listing-filename-sort="fig3-09-tobler-chen.qmd">
+<tr data-index="13" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="3" data-listing-word-count-sort="402" data-listing-title-sort="Figure 3.9 Equal area world in a square" data-listing-filename-sort="fig3-09-tobler-chen.qmd">
 <td>
 <a href="./chapters/chap3/fig3-09-tobler-chen.html" class="title listing-title">Figure 3.9 Equal area world in a square</a>
 </td>
 </tr>
-<tr data-index="14" data-categories="figures,code,R" data-listing-file-modified-sort="1698536150740" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 3.10 Raster aggregation and disaggregation" data-listing-filename-sort="fig3-10-raster-resolution.qmd">
+<tr data-index="14" data-categories="figures,code,R" data-listing-file-modified-sort="1698536150000" data-listing-reading-time-sort="2" data-listing-word-count-sort="354" data-listing-title-sort="Figure 3.10 Raster aggregation and disaggregation" data-listing-filename-sort="fig3-10-raster-resolution.qmd">
 <td>
 <a href="./chapters/chap3/fig3-10-raster-resolution.html" class="title listing-title">Figure 3.10 Raster aggregation and disaggregation</a>
 </td>
 </tr>
-<tr data-index="15" data-categories="links" data-listing-file-modified-sort="1698617609677" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 4" data-listing-filename-sort="links-4.qmd">
+<tr data-index="15" data-categories="links" data-listing-file-modified-sort="1698617609000" data-listing-reading-time-sort="1" data-listing-word-count-sort="190" data-listing-title-sort="Links for Chapter 4" data-listing-filename-sort="links-4.qmd">
 <td>
 <a href="./chapters/chap4/links-4.html" class="title listing-title">Links for Chapter 4</a>
 </td>
 </tr>
-<tr data-index="16" data-categories="figures,code,R" data-listing-file-modified-sort="1705183696967" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 4.1 Geohashes and hierarchical indexing" data-listing-filename-sort="fig4-01-hierarchical-indexing.qmd">
+<tr data-index="16" data-categories="figures,code,R" data-listing-file-modified-sort="1705183696000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669" data-listing-title-sort="Figure 4.1 Geohashes and hierarchical indexing" data-listing-filename-sort="fig4-01-hierarchical-indexing.qmd">
 <td>
 <a href="./chapters/chap4/fig4-01-hierarchical-indexing.html" class="title listing-title">Figure 4.1 Geohashes and hierarchical indexing</a>
 </td>
 </tr>
-<tr data-index="17" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972536" data-listing-reading-time-sort="6" data-listing-title-sort="Figure 4.3 Many Springfields" data-listing-filename-sort="fig4-03-springfields.qmd">
+<tr data-index="17" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1089" data-listing-title-sort="Figure 4.3 Many Springfields" data-listing-filename-sort="fig4-03-springfields.qmd">
 <td>
 <a href="./chapters/chap4/fig4-03-springfields.html" class="title listing-title">Figure 4.3 Many Springfields</a>
 </td>
 </tr>
-<tr data-index="18" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972536" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 4.5 Te Reo Māori toponyms in Aotearoa" data-listing-filename-sort="fig4-05-te-reo-names.qmd">
+<tr data-index="18" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="2" data-listing-word-count-sort="375" data-listing-title-sort="Figure 4.5 Te Reo Māori toponyms in Aotearoa" data-listing-filename-sort="fig4-05-te-reo-names.qmd">
 <td>
 <a href="./chapters/chap4/fig4-05-te-reo-names.html" class="title listing-title">Figure 4.5 Te Reo Māori toponyms in Aotearoa</a>
 </td>
 </tr>
-<tr data-index="19" data-categories="links" data-listing-file-modified-sort="1698617621853" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 5" data-listing-filename-sort="links-5.qmd">
+<tr data-index="19" data-categories="links" data-listing-file-modified-sort="1698617621000" data-listing-reading-time-sort="1" data-listing-word-count-sort="96" data-listing-title-sort="Links for Chapter 5" data-listing-filename-sort="links-5.qmd">
 <td>
 <a href="./chapters/chap5/links-5.html" class="title listing-title">Links for Chapter 5</a>
 </td>
 </tr>
-<tr data-index="20" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972504" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 5.1 The 9-intersection model of topological relations" data-listing-filename-sort="fig5-01-9-intersection.qmd">
+<tr data-index="20" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="4" data-listing-word-count-sort="686" data-listing-title-sort="Figure 5.1 The 9-intersection model of topological relations" data-listing-filename-sort="fig5-01-9-intersection.qmd">
 <td>
 <a href="./chapters/chap5/fig5-01-9-intersection.html" class="title listing-title">Figure 5.1 The 9-intersection model of topological relations</a>
 </td>
 </tr>
-<tr data-index="21" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972504" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 5.5 Maps of areas with widely varying populations" data-listing-filename-sort="fig5-05-ca-pop-maps.qmd">
+<tr data-index="21" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="2" data-listing-word-count-sort="373" data-listing-title-sort="Figure 5.5 Maps of areas with widely varying populations" data-listing-filename-sort="fig5-05-ca-pop-maps.qmd">
 <td>
 <a href="./chapters/chap5/fig5-05-ca-pop-maps.html" class="title listing-title">Figure 5.5 Maps of areas with widely varying populations</a>
 </td>
 </tr>
-<tr data-index="22" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972501" data-listing-reading-time-sort="3" data-listing-title-sort="Figure 5.6 Simple illustration of the modifiable areal unit problem" data-listing-filename-sort="fig5-06-simple-maup.qmd">
+<tr data-index="22" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="3" data-listing-word-count-sort="518" data-listing-title-sort="Figure 5.6 Simple illustration of the modifiable areal unit problem" data-listing-filename-sort="fig5-06-simple-maup.qmd">
 <td>
 <a href="./chapters/chap5/fig5-06-simple-maup.html" class="title listing-title">Figure 5.6 Simple illustration of the modifiable areal unit problem</a>
 </td>
 </tr>
-<tr data-index="23" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972504" data-listing-reading-time-sort="6" data-listing-title-sort="Figure 5.7 The MAUP aggregation effect" data-listing-filename-sort="fig5-07-maup-aggregation.qmd">
+<tr data-index="23" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1105" data-listing-title-sort="Figure 5.7 The MAUP aggregation effect" data-listing-filename-sort="fig5-07-maup-aggregation.qmd">
 <td>
 <a href="./chapters/chap5/fig5-07-maup-aggregation.html" class="title listing-title">Figure 5.7 The MAUP aggregation effect</a>
 </td>
 </tr>
-<tr data-index="24" data-categories="figures,code,R" data-listing-file-modified-sort="1698302442566" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 5.10 Simple regionalization of San Francisco Bay Area" data-listing-filename-sort="fig5-10-san-fran-clusters.qmd">
+<tr data-index="24" data-categories="figures,code,R" data-listing-file-modified-sort="1698302442000" data-listing-reading-time-sort="4" data-listing-word-count-sort="615" data-listing-title-sort="Figure 5.10 Simple regionalization of San Francisco Bay Area" data-listing-filename-sort="fig5-10-san-fran-clusters.qmd">
 <td>
 <a href="./chapters/chap5/fig5-10-san-fran-clusters.html" class="title listing-title">Figure 5.10 Simple regionalization of San Francisco Bay Area</a>
 </td>
 </tr>
-<tr data-index="25" data-categories="links" data-listing-file-modified-sort="1698617629978" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 6" data-listing-filename-sort="links-6.qmd">
+<tr data-index="25" data-categories="links" data-listing-file-modified-sort="1698617629000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="Links for Chapter 6" data-listing-filename-sort="links-6.qmd">
 <td>
 <a href="./chapters/chap6/links-6.html" class="title listing-title">Links for Chapter 6</a>
 </td>
 </tr>
-<tr data-index="26" data-categories="figures,code,python" data-listing-file-modified-sort="1705189787743" data-listing-reading-time-sort="3" data-listing-title-sort="Figures 6.5 and 6.6 Reduced world city network viewed various ways" data-listing-filename-sort="fig6-05-6-06-world-cities-network.ipynb">
+<tr data-index="26" data-categories="figures,code,python" data-listing-file-modified-sort="1705189787000" data-listing-reading-time-sort="3" data-listing-word-count-sort="452" data-listing-title-sort="Figures 6.5 and 6.6 Reduced world city network viewed various ways" data-listing-filename-sort="fig6-05-6-06-world-cities-network.ipynb">
 <td>
 <a href="./chapters/chap6/fig6-05-6-06-world-cities-network.html" class="title listing-title">Figures 6.5 and 6.6 Reduced world city network viewed various ways</a>
 </td>
 </tr>
-<tr data-index="27" data-categories="figures,extras" data-listing-file-modified-sort="1700205329829" data-listing-reading-time-sort="1" data-listing-title-sort="Figure 6.7 World trade network communities" data-listing-filename-sort="fig6-07-world-trade-colour.qmd">
+<tr data-index="27" data-categories="figures,extras" data-listing-file-modified-sort="1700205329000" data-listing-reading-time-sort="1" data-listing-word-count-sort="25" data-listing-title-sort="Figure 6.7 World trade network communities" data-listing-filename-sort="fig6-07-world-trade-colour.qmd">
 <td>
 <a href="./chapters/chap6/fig6-07-world-trade-colour.html" class="title listing-title">Figure 6.7 World trade network communities</a>
 </td>
 </tr>
-<tr data-index="28" data-categories="figures,code,R" data-listing-file-modified-sort="1698436928496" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 6.10 The small world rewiring process" data-listing-filename-sort="fig6-10-small-world-1d.qmd">
+<tr data-index="28" data-categories="figures,code,R" data-listing-file-modified-sort="1698436928000" data-listing-reading-time-sort="2" data-listing-word-count-sort="290" data-listing-title-sort="Figure 6.10 The small world rewiring process" data-listing-filename-sort="fig6-10-small-world-1d.qmd">
 <td>
 <a href="./chapters/chap6/fig6-10-small-world-1d.html" class="title listing-title">Figure 6.10 The small world rewiring process</a>
 </td>
 </tr>
-<tr data-index="29" data-categories="figures,code,R" data-listing-file-modified-sort="1705186424609" data-listing-reading-time-sort="5" data-listing-title-sort="Figure 6.11 The small world rewiring process in two dimensions" data-listing-filename-sort="fig6-11-small-world-2d.qmd">
+<tr data-index="29" data-categories="figures,code,R" data-listing-file-modified-sort="1705186424000" data-listing-reading-time-sort="5" data-listing-word-count-sort="803" data-listing-title-sort="Figure 6.11 The small world rewiring process in two dimensions" data-listing-filename-sort="fig6-11-small-world-2d.qmd">
 <td>
 <a href="./chapters/chap6/fig6-11-small-world-2d.html" class="title listing-title">Figure 6.11 The small world rewiring process in two dimensions</a>
 </td>
 </tr>
-<tr data-index="30" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972504" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 6.12 A simple graph drawn nine different ways" data-listing-filename-sort="fig6-12-graph-drawings.qmd">
+<tr data-index="30" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="2" data-listing-word-count-sort="374" data-listing-title-sort="Figure 6.12 A simple graph drawn nine different ways" data-listing-filename-sort="fig6-12-graph-drawings.qmd">
 <td>
 <a href="./chapters/chap6/fig6-12-graph-drawings.html" class="title listing-title">Figure 6.12 A simple graph drawn nine different ways</a>
 </td>
 </tr>
-<tr data-index="31" data-categories="figures,code,python" data-listing-file-modified-sort="1705186933703" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 6.14 Relative time map of the Santa Barbara street network" data-listing-filename-sort="fig6-14-sb-drive-time.ipynb">
+<tr data-index="31" data-categories="figures,code,python" data-listing-file-modified-sort="1705186933000" data-listing-reading-time-sort="4" data-listing-word-count-sort="658" data-listing-title-sort="Figure 6.14 Relative time map of the Santa Barbara street network" data-listing-filename-sort="fig6-14-sb-drive-time.ipynb">
 <td>
 <a href="./chapters/chap6/fig6-14-sb-drive-time.html" class="title listing-title">Figure 6.14 Relative time map of the Santa Barbara street network</a>
 </td>
 </tr>
-<tr data-index="32" data-categories="links" data-listing-file-modified-sort="1698617636752" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 7" data-listing-filename-sort="links-7.qmd">
+<tr data-index="32" data-categories="links" data-listing-file-modified-sort="1698617636000" data-listing-reading-time-sort="1" data-listing-word-count-sort="27" data-listing-title-sort="Links for Chapter 7" data-listing-filename-sort="links-7.qmd">
 <td>
 <a href="./chapters/chap7/links-7.html" class="title listing-title">Links for Chapter 7</a>
 </td>
 </tr>
-<tr data-index="33" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="3" data-listing-title-sort="Figures 7.2 and 7.3 Goings on in the space-time aquarium" data-listing-filename-sort="fig7-02-7-03-tg-aquarium.qmd">
+<tr data-index="33" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="3" data-listing-word-count-sort="499" data-listing-title-sort="Figures 7.2 and 7.3 Goings on in the space-time aquarium" data-listing-filename-sort="fig7-02-7-03-tg-aquarium.qmd">
 <td>
 <a href="./chapters/chap7/fig7-02-7-03-tg-aquarium.html" class="title listing-title">Figures 7.2 and 7.3 Goings on in the space-time aquarium</a>
 </td>
 </tr>
-<tr data-index="34" data-categories="figures,code,R" data-listing-file-modified-sort="1698445982086" data-listing-reading-time-sort="3" data-listing-title-sort="Figure 7.6 Space-time paths for 100 Beijing taxis" data-listing-filename-sort="fig7-06-tg-beijing-taxis.qmd">
+<tr data-index="34" data-categories="figures,code,R" data-listing-file-modified-sort="1698445982000" data-listing-reading-time-sort="3" data-listing-word-count-sort="404" data-listing-title-sort="Figure 7.6 Space-time paths for 100 Beijing taxis" data-listing-filename-sort="fig7-06-tg-beijing-taxis.qmd">
 <td>
 <a href="./chapters/chap7/fig7-06-tg-beijing-taxis.html" class="title listing-title">Figure 7.6 Space-time paths for 100 Beijing taxis</a>
 </td>
 </tr>
-<tr data-index="35" data-categories="figures,code,R" data-listing-file-modified-sort="1698445823747" data-listing-reading-time-sort="2" data-listing-title-sort="Figure 7.7 Coordination in space-time paths" data-listing-filename-sort="fig7-07-tg-flockers.qmd">
+<tr data-index="35" data-categories="figures,code,R" data-listing-file-modified-sort="1698445823000" data-listing-reading-time-sort="2" data-listing-word-count-sort="378" data-listing-title-sort="Figure 7.7 Coordination in space-time paths" data-listing-filename-sort="fig7-07-tg-flockers.qmd">
 <td>
 <a href="./chapters/chap7/fig7-07-tg-flockers.html" class="title listing-title">Figure 7.7 Coordination in space-time paths</a>
 </td>
 </tr>
-<tr data-index="36" data-categories="links" data-listing-file-modified-sort="1698617644016" data-listing-reading-time-sort="1" data-listing-title-sort="Links for Chapter 8" data-listing-filename-sort="links-8.qmd">
+<tr data-index="36" data-categories="links" data-listing-file-modified-sort="1698617644000" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="Links for Chapter 8" data-listing-filename-sort="links-8.qmd">
 <td>
 <a href="./chapters/chap8/links-8.html" class="title listing-title">Links for Chapter 8</a>
 </td>
 </tr>
-<tr data-index="37" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972532" data-listing-reading-time-sort="5" data-listing-title-sort="Figures 8.1 and 8.2 One-dimensional CA" data-listing-filename-sort="fig8-01-1d-ca.qmd">
+<tr data-index="37" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="5" data-listing-word-count-sort="883" data-listing-title-sort="Figures 8.1 and 8.2 One-dimensional CA" data-listing-filename-sort="fig8-01-1d-ca.qmd">
 <td>
 <a href="./chapters/chap8/fig8-01-1d-ca.html" class="title listing-title">Figures 8.1 and 8.2 One-dimensional CA</a>
 </td>
 </tr>
-<tr data-index="38" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972540" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 8.3 The game of life CA" data-listing-filename-sort="fig8-03-game-of-life.qmd">
+<tr data-index="38" data-categories="figures,code,R" data-listing-file-modified-sort="1698301972000" data-listing-reading-time-sort="4" data-listing-word-count-sort="691" data-listing-title-sort="Figure 8.3 The game of life CA" data-listing-filename-sort="fig8-03-game-of-life.qmd">
 <td>
 <a href="./chapters/chap8/fig8-03-game-of-life.html" class="title listing-title">Figure 8.3 The game of life CA</a>
 </td>
 </tr>
-<tr data-index="39" data-categories="figures,code,R" data-listing-file-modified-sort="1699306520144" data-listing-reading-time-sort="4" data-listing-title-sort="Figure 8.4 A voter model CA" data-listing-filename-sort="fig8-04-voter-model.qmd">
+<tr data-index="39" data-categories="figures,code,R" data-listing-file-modified-sort="1699306520000" data-listing-reading-time-sort="4" data-listing-word-count-sort="679" data-listing-title-sort="Figure 8.4 A voter model CA" data-listing-filename-sort="fig8-04-voter-model.qmd">
 <td>
 <a href="./chapters/chap8/fig8-04-voter-model.html" class="title listing-title">Figure 8.4 A voter model CA</a>
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -526,10 +560,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -539,8 +590,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -552,7 +612,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -596,6 +779,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -621,6 +805,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -681,6 +891,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
