@@ -111,8 +111,11 @@ anim <- ggplot(life_df) +
   labs(title = "Step: {frame}") +
   theme_void()
         
-animate(anim, nframes = 100, fps = 5)
+anim <- animate(anim, nframes = 100, fps = 5)
+anim_save("life.gif", anim)
 ```
+
+![](life.gif)
 
 ```{r}
 #| code-fold: true

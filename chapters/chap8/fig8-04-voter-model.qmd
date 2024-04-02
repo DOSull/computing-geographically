@@ -116,8 +116,11 @@ anim <- ggplot(vma_df) +
   labs(title = "Step: {frame}") +
   theme_void()
         
-animate(anim, nframes = 100, fps = 4)
+anim <- animate(anim, nframes = 100, fps = 4)
+anim_save("voter.gif", anim)
 ```
+
+![](voter.gif)
 
 ```{r}
 #| code-fold: true
