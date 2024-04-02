@@ -17,7 +17,7 @@ Find out more about 'Null Island' (i.e., 0&deg;N 0&deg;E) at its [wikipedia page
 The original announcement of geohash is in this blogpost by Greg Niemeyer: [blog.labix.org/2008/02/26/geohashorg-is-public](https://blog.labix.org/2008/02/26/geohashorg-is-public). You can generate geohash codes at the website [http://geohash.org](http://geohash.org) (yes `http`, not `https`).
 
 ### Footnote 7 
-Google's S2 index is explained at [s2geometry.io](http://s2geometry.io/) (yes `http`, not `https`).
+Google's S2 index is explained at [http://s2geometry.io](http://s2geometry.io/) (yes `http`, not `https`).
 
 ### Footnote 8 
 Uber's H3 index is described at [h3geo.org](https://h3geo.org/).
