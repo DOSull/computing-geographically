@@ -1,5 +1,6 @@
 ---
 title: "Figures 2.6 Slivers and gaps in a polygon layer"
+lightbox: true
 categories: 
   - code
   - R

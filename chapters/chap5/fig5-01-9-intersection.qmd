@@ -1,5 +1,6 @@
 ---
 title: "Figure 5.1 The 9-intersection model of topological relations"
+lightbox: true
 categories: 
   - figures
   - code

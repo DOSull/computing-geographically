@@ -1,5 +1,6 @@
 ---
 title: "Figure 2.9 A range of spatial weights applied to polygon data"
+lightbox: true
 categories: 
   - figures
   - code

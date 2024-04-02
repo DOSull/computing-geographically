@@ -1,5 +1,6 @@
 ---
 title: "Figure 6.12 A simple graph drawn nine different ways"
+lightbox: true
 categories: 
   - figures
   - code

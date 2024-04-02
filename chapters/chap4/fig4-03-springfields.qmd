@@ -1,5 +1,6 @@
 ---
 title: "Figure 4.3 Many Springfields"
+lightbox: true
 categories: 
   - figures
   - code

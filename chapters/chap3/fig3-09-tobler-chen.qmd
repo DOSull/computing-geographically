@@ -1,5 +1,6 @@
 ---
 title: "Figure 3.9 Equal area world in a square"
+lightbox: true
 categories: 
   - figures
   - code

@@ -1,5 +1,6 @@
 ---
 title: "Figure 7.7 Coordination in space-time paths"
+lightbox: true
 categories: 
   - figures
   - code

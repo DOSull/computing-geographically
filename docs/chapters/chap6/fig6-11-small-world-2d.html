@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -228,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Here the small world network phenomenon based on ‘rewiring’ is shown for a two-dimensional lattice. This particular network structure is less studied than might be expected, and can be considered a very simplified model for how even a small number of more rapid connections between places in a transportation network can dramatically alter its overall characteristics.</p>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-1_4d4d7622376124f8d41dca9c3eb6196a">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
@@ -238,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-2_1a806d86a78bb2bc7db5be6a1cac9285">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_graph <span class="ot">&lt;-</span> <span class="cf">function</span>(G, <span class="at">main =</span> <span class="st">""</span>, <span class="at">layout =</span> <span class="fu">layout.grid</span>(G), </span>
@@ -254,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sample-rewired-2d-lattices" class="level2">
 <h2 class="anchored" data-anchor-id="sample-rewired-2d-lattices">Sample rewired 2D lattices</h2>
 <p>It’s somewhat useful to see what a range of rewired lattices look like. Here’s a bigger range than in the book, with the rewiring probability increasing roughly 3-fold each time.</p>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-3_9df32adfb192d73ad6f3f7d3a11f0348">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
@@ -272,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+<p><a href="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -281,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="looking-at-a-wider-range-of-rewiring-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="looking-at-a-wider-range-of-rewiring-outcomes">Looking at a wider range of rewiring outcomes</h2>
 <p>Below is code to make the other part of Figure 16.11, which shows how mean clustering coefficient and path lengths vary over a wide range of rewiring probablities. The range of probabilities shown here is different than in the published figure, with more of the samples in the middle range of the plot.</p>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-4_d2393ed8bfdb82daf4023650b381b6a3">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>probs          <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">^</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
@@ -316,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="how-mean-path-length-and-clustering-coefficient-diverge" class="level2">
 <h2 class="anchored" data-anchor-id="how-mean-path-length-and-clustering-coefficient-diverge">How mean path length and clustering coefficient diverge</h2>
 <p>There is wide range of rewiring probabilities where ‘small world’ characteristic of surprising short mean path lengths in the presence of strong local clustering is evident (note the log-scale on the horizontal axis).</p>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-5_4fb00afebab451cd4fd116be512c76a7">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> value, <span class="at">colour =</span> Metric)) <span class="sc">+</span> </span>
@@ -330,12 +333,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig6-11-small-world-2d_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell" data-hash="fig6-11-small-world-2d_cache/html/unnamed-chunk-6_de7adb22978907706986119ed0516203">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -777,6 +780,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

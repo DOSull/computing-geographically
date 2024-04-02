@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -232,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This page produces a coloured version of Figure 5.7 which may be a little easier to read. It also uses standard deviation ellipses to make things a bit clearer (I hope).</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-1_1a303b15237f517dd2593d4092fdf454">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
@@ -246,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-a-correlated-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="make-a-correlated-dataset">Make a correlated dataset</h3>
 <p>Using the <code>MASS::mvrnorm()</code> function we can create a dataframe with <code>x</code> and <code>y</code> variables with some requested correlation. We also reorder by the sum of the two variables (in effect from lower-left to upper-right), and number the observations on that basis. This allows us to aggregate observations that are broadly similar or broadly different.</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-2_70a6d4006df75b54e91e0e6a978a73c6">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>get_correlated_df <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">cor =</span> <span class="fl">0.5</span>) {</span>
@@ -266,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="aggregator-functions">Aggregator functions</h3>
 <p>Next two functions that aggregate either similar or different observations. This is a fairly crude approach but it works. <code>agg_similar()</code> uses integer division to create a ‘grouper’ variable that goes eight 0s, then eight 1s, then eight 2s, and so on up to eight 127s. When <code>group_by</code> is applied using this variable, sets of 8 similar observations are aggregated and the mean taken to give a new dataset.</p>
 <p>Conversely, if the grouper variable is based on the remainder from division by 128, we get 8 sequences of 0, 1, 2, 3,… 127, and when these are aggregated into groups, each will consist of eight observations at widely separated positions in the sequence (i.e., with very different values).</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-3_663dab116b77f3ae15b1797ae846401c">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aggregate similar observations</span></span>
@@ -297,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plotting-functions" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-functions">Plotting functions</h2>
 <p>We also make some plotting functions so we don’t have to repeat a lot of code. These add three plots based on a dataset. A scatterplot of the points, a standard deviation ellipse, and a best fit line. This will make sense when you see the plots.</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-4_9cf5914e4d49a5d39f004063d89c7420">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>add_ellipses <span class="ot">&lt;-</span> <span class="cf">function</span>(g, dfs, cols, alphas, filled_polygons) {</span>
@@ -347,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="finally-the-plots">Finally the plots</h2>
 <p>So now make some datsets and see what we get.</p>
 <p>First a dataset with approximate correlation between <code>x</code> and <code>y</code> of 0.5. We then aggregate it two ways and plot the results.</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-5_83f77c0fdd352fb10a6625f4d55ddb29">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get_correlated_df</span>(<span class="fl">0.5</span>)</span>
@@ -361,14 +364,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>When we aggregate similar observations (the green ellipse) the correlation is increased, while aggregating different observations inverts the correlation (the violet ellipse)! The initial correlation is seen in the unfilled black ellipse.</p>
 <p>The effect is even more remarkable for uncorrelated data:</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-6_a88a48c6123992ab8e7b22689ef8dd26">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get_correlated_df</span>(<span class="dv">0</span>)</span>
@@ -382,13 +385,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig5-07-maup-aggregation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>What do we take from this in a geographical setting? Well, if indeed “near things are more related than distant things”, then in many situations where data are aggregated spatially based on proximity positive correlations are likely to be ‘enhanced’, and we may even see correlations where none exist at the individual level.</p>
-<div class="cell" data-hash="fig5-07-maup-aggregation_cache/html/unnamed-chunk-7_87129c132688cfd3348353a6374f0254">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -830,6 +833,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

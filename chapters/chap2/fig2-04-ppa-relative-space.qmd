@@ -1,5 +1,6 @@
 ---
 title: "Figure 2.4 Two point patterns in absolute space"
+lightbox: true
 categories: 
   - figures
   - code

@@ -1,5 +1,6 @@
 ---
 title: "Figure 3.8 A loxodrome on the sphere and projected"
+lightbox: true
 categories: 
   - figures
   - code

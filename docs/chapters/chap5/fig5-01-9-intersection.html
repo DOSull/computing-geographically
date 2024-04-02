@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -221,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This page attempts to show the various <a href="https://en.wikipedia.org/wiki/DE-9IM#Spatial_predicates">spatial predicates of the 9-intersection model</a> presented in Figure 5.1 in code.</p>
 <p>First we make some shapes, and map them.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-1_46466b7cd8d8d90817d3ceeda472e239">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -245,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Map and label these for reference.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-2_9e84c9b69d9e31ceb842f5f1eeaafeed">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lines <span class="ot">&lt;-</span> polys <span class="sc">%&gt;%</span> <span class="fu">st_cast</span>(<span class="st">"MULTILINESTRING"</span>) <span class="co"># for placing text labels</span></span>
@@ -266,13 +269,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig5-01-9-intersection_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="768"></p>
+<p><a href="fig5-01-9-intersection_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig5-01-9-intersection_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="768"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Now we can run various tests against the spatial predicates in turn. For example <code>st_disjoint</code> tells us the following.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-3_3e3fab51da90f81f4022bb958a89e146">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>polys <span class="sc">%&gt;%</span> <span class="fu">st_disjoint</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -291,7 +294,7 @@ was `disjoint'
 </div>
 <p>We can tabulate the result of applying all the spatial predicates to these polygons into a table.</p>
 <p>The details of how this is done don’t matter greatly, but if you are interested click into the code below. The core of it is based on the various <code>st_*</code> functions such as <code>st_intersects</code> or <code>st_contains</code>. These correspond, more or less to the relations identified in Figure 5.1. The spatial predicates available in the <code>sf</code> package in <em>R</em> correspond to those implemented in spatial databases such as <a href="https://postgis.net/">PostGIS</a>.</p>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-4_f24fe466dbf36a72836d0eb95ec944f9">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>get_spatial_query_as_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(data, predicate) {</span>
@@ -433,7 +436,7 @@ was `disjoint'
 </table>
 </div>
 </div>
-<div class="cell" data-hash="fig5-01-9-intersection_cache/html/unnamed-chunk-5_c8b1021071a1eee775efb4dd3c143d4c">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -874,6 +877,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

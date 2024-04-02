@@ -1,5 +1,6 @@
 ---
 title: "Figure 6.10 The small world rewiring process"
+lightbox: true
 categories: 
   - figures
   - code

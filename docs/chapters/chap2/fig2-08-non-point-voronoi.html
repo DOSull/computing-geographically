@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -231,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This figure was mostly prepared in QGIS, but an <em>R</em> version is provided here to show the steps involved.</p>
 <p>Differences between the versions are due to the original being prepared across a wider extent which was then clipped down to the final extent. The input data used here are already clipped to the final extent meaning there may be anomalies near the edges.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-1_6e12e2f7d70af97f7b021b406a16c2f7">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -242,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load data</h2>
 <p>You’ll need your own roads and buildings data. Mine came from OpenStreetMap via the <a href="https://plugins.qgis.org/plugins/QuickOSM/">QGIS QuickOSM plugin</a>.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-2_6160ae83f770c8fff23e61dafb2a4589">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"final-roads.gpkg"</span>) <span class="sc">%&gt;%</span></span>
@@ -252,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And a quick map to see what we’re working with.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-3_3da62cb9caa4614cba8ba6cb4ae0b733">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(bldgs) <span class="sc">+</span> </span>
@@ -263,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -273,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="interpolate-points-along-the-lines-and-polygon-boundaries">Interpolate points along the lines and polygon boundaries</h2>
 <p>Place points along the boundaries of each of these.</p>
 <p>For the roads we combine all elements into a single line object and assign the same <code>id</code> to every point generated.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-4_13c43966f13c3faf1586baaa55107f10">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>r_pts <span class="ot">&lt;-</span> roads <span class="sc">%&gt;%</span></span>
@@ -287,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>For the buildings we wish to retain the building IDs, so we do a join based on the nearest feature in the buildings dataset.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-5_2b419a1e4c0933ea3996aee53b451696">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>b_pts <span class="ot">&lt;-</span> bldgs <span class="sc">%&gt;%</span></span>
@@ -308,14 +311,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-the-point-voronoi-polygons" class="level2">
 <h2 class="anchored" data-anchor-id="make-the-point-voronoi-polygons">Make the point Voronoi polygons</h2>
 <p>Now combine the two into a single point dataset.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-6_35809c6304fe782dd3e66bc721bede32">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>all_pts <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(r_pts, b_pts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now make a Voronoi layer from the points.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-7_855da73c13dc45243934d4465bff476b">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pts_vor <span class="ot">&lt;-</span> all_pts <span class="sc">%&gt;%</span></span>
@@ -327,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>We need to clip this to the extent of the buildings data.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-8_96ac7bd5fa788dc52878fcd921c3bfce">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>extent <span class="ot">&lt;-</span> bldgs <span class="sc">%&gt;%</span></span>
@@ -343,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -352,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="finally-form-the-line-and-polygon-voronois" class="level2">
 <h2 class="anchored" data-anchor-id="finally-form-the-line-and-polygon-voronois">Finally form the line and polygon Voronois</h2>
 <p>Now we dissolve (<code>group_by</code>) on the <code>id</code> attribute.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-9_c1a3c3bdcefc86c7c1ebcea18fc58725">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>diss_vor <span class="ot">&lt;-</span> pts_vor <span class="sc">%&gt;%</span></span>
@@ -364,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -373,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-a-map" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-map">Make a map</h2>
 <p>Finally, we can make a map, similar to the one in Figure 2.8 in the book.</p>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-10_c10c6b4d472871f602adb1fd578a09ad">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(bldgs, <span class="at">bbox =</span> extent) <span class="sc">+</span></span>
@@ -392,12 +395,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="fig2-08-non-point-voronoi_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell" data-hash="fig2-08-non-point-voronoi_cache/html/unnamed-chunk-11_719f3fa894655eb688b0a60ec2d0be2a">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -839,6 +842,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

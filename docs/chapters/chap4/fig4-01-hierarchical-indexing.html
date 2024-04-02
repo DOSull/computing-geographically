@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -227,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>I made this figure by hand in Inkscape, which was <em>kind of</em> fun, if a little tedious, given all the repetition involved. Here I show what I could have done instead in <em>R</em>.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-1_e3632ff87d814df0036ffa2c554d56b3">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -237,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-z-order-morton-and-hilbert-curves" class="level2">
 <h2 class="anchored" data-anchor-id="the-z-order-morton-and-hilbert-curves">The Z-order (Morton) and Hilbert curves</h2>
 <p>The first two are general indexing schemes with deep mathematical roots, so unsurprisingly there are <em>R</em> packages for working with them. The <a href="https://github.com/s-u/morton"><code>morton</code> package</a> is only available on github so you will need <code>devtools</code> to install it, while <a href="https://cloud.r-project.org/web/packages/hilbert/index.html"><code>hilbert</code></a> is on CRAN. Because I can, I’ve made these bigger than the laboriously hand-crafted examples in the book.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-2_169042b051090ba342734d7aed786124">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(morton)</span>
@@ -255,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>That’s it—why didn’t I think of this earlier? And <code>ggplot::geom_path()</code> provides an easy way to plot the ‘curves’.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-3_f494ac2b99432e5b6b7682bd7d9de458">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -269,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+<p><a href="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -279,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="h3-hexagons">H3 hexagons</h2>
 <p>If you like hexagons, you’ll love the <a href="https://github.com/crazycapivara/h3forr"><code>h3forr</code> package</a>, which provides a spatial data friendly API for the H3 indexing scheme. There is an official H3 API for <em>R</em> but it focuses on the indexes and makes it harder work to fill spaces with hexagons, unlike the <a href="https://github.com/crazycapivara/h3forr">h3forr::polyfill()</a> function.</p>
 <p>Anyway, here goes:</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-4_51fe978638c1e0cd584d8c833ef07eb5">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(h3forr)</span>
@@ -289,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Make a 20km square near Wellington, Aotearoa.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-5_3337c1ae5935884e369ea022bbd4ee9c">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.735e6</span> <span class="sc">+</span> <span class="fl">2e4</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>), </span>
@@ -303,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>A convenience function to wrap <code>hsforr::polyfill()</code> so that we retrieve all hexes within a buffered area of the supplied data.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-6_15a0685f1616016d7d3f2b5093afdb64">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_hexes <span class="ot">&lt;-</span> <span class="cf">function</span>(poly, resolution, distance) {</span>
@@ -316,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Then get some hexagons.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-7_7b1a4f69bb36b5652ad37914967132bf">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>h3_4 <span class="ot">&lt;-</span> <span class="fu">get_hexes</span>(square, <span class="dv">4</span>, <span class="dv">10000</span>)</span>
@@ -328,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>And make a map. I’m using <code>maptiles::get_tiles()</code> to provide a base map.</p>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-8_691fe2becf1d912f46685fb949fade4f">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>basemap <span class="ot">&lt;-</span> <span class="fu">get_tiles</span>(square, <span class="at">zoom =</span> <span class="dv">11</span>, <span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>)</span>
@@ -346,12 +349,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="768"></p>
+<p><a href="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig4-01-hierarchical-indexing_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="768"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell" data-hash="fig4-01-hierarchical-indexing_cache/html/unnamed-chunk-9_2deb8afbf4a8a4594e948006f654aff0">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -793,6 +796,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

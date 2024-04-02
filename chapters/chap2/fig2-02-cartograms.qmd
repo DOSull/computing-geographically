@@ -1,5 +1,6 @@
 ---
 title: "Figures 2.2 and 2.3 and more on cartograms"
+lightbox: true
 categories: 
   - code
   - R

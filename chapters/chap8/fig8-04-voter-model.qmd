@@ -1,5 +1,6 @@
 ---
 title: "Figure 8.4 A voter model CA"
+lightbox: true
 categories: 
   - figures
   - code

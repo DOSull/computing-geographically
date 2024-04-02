@@ -1,5 +1,6 @@
 ---
 title: "Figure 2.1 A representation of an absolute space"
+lightbox: true
 categories: 
   - figures
   - code

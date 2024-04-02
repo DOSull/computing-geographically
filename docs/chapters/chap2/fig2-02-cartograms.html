@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -267,13 +270,13 @@ window.Quarto = {
 </blockquote>
 <p>In fact, the machinery to do so exists in most GIS in the tools used to georeference imagery. However, these tools typically only enable warping inputs so that they conform with already known coordinate reference systems, although the underlying mathematics of mapping points between two coordinate systems could in principle allow user-defined coordinates, with potential benefits for the exploration of multiple geographies.</p>
 <p>An example of this is shown below, again an Aotearoa New Zealand population cartogram.</p>
-<p><img src="nz-cartogram.png" class="img-fluid"></p>
+<p><a href="nz-cartogram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="nz-cartogram.png" class="img-fluid"></a></p>
 <p>However, this example was produced in an unusual way. I first used <em>ScapeToad</em> to make a population-based cartogram, but at the same time transformed a set of hex-grid points. This gives me a set of mappings of coordinate pairs in a geodetic coordinate space (in this case New Zealand Transverse Mercator NZTM), and the corresponding coordinate locations in ‘population cartogram space’. Using these it is possible to interpolate any points in NZTM coordinates into the cartogram coordinate space. The mapping is the same information that is provided by <em>ScapeToad</em>’s transformation grid (pictured in Figure 2.3 in the book), but with more detail.</p>
 <section id="making-a-cartogram-the-complicated-but-reusable-way" class="level2">
 <h2 class="anchored" data-anchor-id="making-a-cartogram-the-complicated-but-reusable-way">Making a cartogram the complicated (but reusable) way</h2>
 <p>Here’s some <em>R</em> code that does all this in a very rough and ready way using a triangulation-based interpolator from the <code>akima</code> package. I say more at the end of the page about <a href="#embedding-this-in-gis">embedding this approach in GIS</a>.</p>
 <p>First we read in a New Zealand coastline polygon, which we are going to transform, hex grid centres in NZTM, and the same hex grid centres transformed by <em>ScapeToad</em> based on a population cartogram.</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-1_96c97baf3fe982619b0ce6efc25ec80d">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
@@ -289,7 +292,7 @@ window.Quarto = {
 </details>
 </div>
 <p>And here is a map of the three layers.</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-2_a77bc8cabdd4c3f4707de43a8c6b4fe0">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(hex_pts) <span class="sc">+</span> </span>
@@ -303,7 +306,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig2-02-cartograms_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
+<p><a href="fig2-02-cartograms_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig2-02-cartograms_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></a></p>
 </figure>
 </div>
 </div>
@@ -313,7 +316,7 @@ window.Quarto = {
 <section id="build-a-transformation-table" class="level2">
 <h2 class="anchored" data-anchor-id="build-a-transformation-table">Build a transformation table</h2>
 <p>Next we build a ‘transformation’ table with the <span class="math inline">\((x_1, y_1)\)</span> and <span class="math inline">\((x_2, y_2)\)</span> pairs of corresponding coordinate pairs in the NZTM and population cartogram spaces.</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-3_2edd967c802b3dcdea4d38ff3029851e">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x1y1 <span class="ot">&lt;-</span> hex_pts <span class="sc">%&gt;%</span></span>
@@ -332,7 +335,7 @@ window.Quarto = {
 </details>
 </div>
 <p>Here is what that looks like:</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-4_221df9804107c1d2234d2e9008fe2bb9">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(transform), <span class="at">format =</span> <span class="st">"html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -395,7 +398,7 @@ window.Quarto = {
 <section id="the-points-to-be-transformed" class="level3">
 <h3 class="anchored" data-anchor-id="the-points-to-be-transformed">The points to be transformed</h3>
 <p>The simple interpolator we are using can only transform points, so we convert the coastline data to points.</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-5_91faefd6f68de5b651ceac41af752774">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nz_coast_pts <span class="ot">&lt;-</span> nz <span class="sc">%&gt;%</span></span>
@@ -412,7 +415,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="the-interpolation">The interpolation</h2>
 <p>Each coordinate (i.e.&nbsp;<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) is separately interpolated. The interpolator is provided with the <span class="math inline">\((x, y, z)\)</span> information from the <code>transform</code> dataframe which for the <span class="math inline">\(x\)</span> coordinate are <span class="math inline">\((x_1, y_1, x_2)\)</span> and for the <span class="math inline">\(y\)</span> coordinate <span class="math inline">\((x_1, y_1, y_2)\)</span>. What is done with these data is that the input <span class="math inline">\((x_1, y_1)\)</span> coordinates are triangulated giving in effect a <a href="https://en.wikipedia.org/wiki/Triangulated_irregular_network"><em>triangulated irregular network</em></a> surface for each coordinate in NZTM (map) space. Any point inside a given triangle can then have its coordinate in the transformed cartogram space interpolated from the known coordinate values in that space at the vertices of its triangle.</p>
 <p>Anyway, using <code>akima::interpp</code> here is how we can do that.</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-6_f5c77e0d206d2d30e0e9a799f74a6c7d">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>nz_coast_carto_x <span class="ot">&lt;-</span> <span class="fu">interpp</span>(<span class="at">x =</span> transform<span class="sc">$</span>x1, <span class="at">y =</span> transform<span class="sc">$</span>y1, <span class="at">z =</span> transform<span class="sc">$</span>x2, </span>
@@ -422,7 +425,7 @@ window.Quarto = {
 </details>
 </div>
 <p>Then we make these up into a spatial dataframe, and map them. The original coast outline is in blue, the transformed coast points in red.</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-7_fa6bf917380e7a25af53aaf4a16dce6c">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nz_coast_carto <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> nz_coast_carto_x, </span>
@@ -438,7 +441,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig2-02-cartograms_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
+<p><a href="fig2-02-cartograms_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="fig2-02-cartograms_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></a></p>
 </figure>
 </div>
 </div>
@@ -452,7 +455,7 @@ window.Quarto = {
 <p>Unfortunately, for reasons we don’t fully understand the additional <code>axisswap</code> transformation is required, either side of the <code>tinshift</code> operation requiring a projection ‘pipeline’ to be used. The <code>-skipfailures</code> option prevents the command failing completely if a polygon becomes invalid as a result of the transformation.</p>
 <p>Here’s <a href="nz-cartogram.json">a JSON file</a> for the New Zealand population cartogram, if you want to try it for yourself.</p>
 <p>This might not be the most elegant way to project any geospatial data into a cartogram space, but it is already available in existing tools!</p>
-<div class="cell" data-hash="fig2-02-cartograms_cache/html/unnamed-chunk-8_faf4fc0f22ef0e1019f20fa3fb34fc27">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -894,6 +897,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

@@ -1,5 +1,6 @@
 ---
 title: "Figure 3.10 Raster aggregation and disaggregation"
+lightbox: true
 categories: 
   - figures
   - code

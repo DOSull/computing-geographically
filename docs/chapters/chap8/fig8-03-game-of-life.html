@@ -74,6 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -231,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The example in the book was made using a NetLogo model based on <a href="https://dosull.github.io/pattern-and-process/chapter-1/1.1.html">this model from <em>Spatial Simulation</em></a>, but this page provides <em>R</em> code instead.</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-1_bae48a081521958237b32d64f90091cb">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -245,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="model-code" class="level2">
 <h2 class="anchored" data-anchor-id="model-code">Model code</h2>
 <p>The model code is in the cell below. It returns a 3D array of cell states, with each ‘layer’ a new 2D array of cell states.</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-2_5a30906b62fc3b2956f92358563bc7c5">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random neighbour offset</span></span>
@@ -291,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="run-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="run-the-model">Run the model</h2>
 <p>We run the model and convert it into a dataframe to make it easier to plot.</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-3_c59449685b4da10550de3de514c89be3">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>initial_density <span class="ot">&lt;-</span> <span class="fl">0.35</span></span>
@@ -310,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plotting" class="level2">
 <h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
 <p>The dataframe has attributes <code>x</code>, <code>y</code>, <code>t</code>, and <code>state</code>, which are most easily plotted as a sequence of model snapshots using <code>ggplot2::facet_wrap</code>.</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-4_45b39ba23bb513cb0c1d6121e6c6cd71">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(life_df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(t <span class="sc">&gt;=</span> <span class="dv">30</span>, t <span class="sc">&lt;=</span> <span class="dv">49</span>)) <span class="sc">+</span> </span>
@@ -324,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="fig8-03-game-of-life_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+<p><a href="fig8-03-game-of-life_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig8-03-game-of-life_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -332,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="an-animation" class="level3">
 <h3 class="anchored" data-anchor-id="an-animation">An animation</h3>
 <p>We can also make a movie…</p>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-5_d2826a2c8cc28cd0b7c12ab053edb6e5">
+<div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
@@ -346,15 +349,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">nframes =</span> <span class="dv">100</span>, <span class="at">fps =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="fig8-03-game-of-life_files/figure-html/unnamed-chunk-5-1.gif" class="img-fluid figure-img"></p>
-</figure>
 </div>
-</div>
-</div>
-<div class="cell" data-hash="fig8-03-game-of-life_cache/html/unnamed-chunk-6_be7df6a22f34dbc67a5f719319b63f40">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># License (MIT)</span></span>
@@ -797,6 +793,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

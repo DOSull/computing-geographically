@@ -1,5 +1,6 @@
 ---
 title: "Figure 3.4 ~~Three~~ twenty levels of web map hierarchy"
+lightbox: true
 categories: 
   - code
   - R

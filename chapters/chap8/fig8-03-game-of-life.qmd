@@ -1,5 +1,6 @@
 ---
 title: "Figure 8.3 The game of life CA"
+lightbox: true
 categories: 
   - figures
   - code

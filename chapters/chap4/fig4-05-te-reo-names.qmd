@@ -1,5 +1,6 @@
 ---
 title: "Figure 4.5 Te Reo Māori toponyms in Aotearoa"
+lightbox: true
 categories: 
   - figures
   - code

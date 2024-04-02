@@ -1,5 +1,6 @@
 ---
 title: "Figures 7.2 and 7.3 Goings on in the space-time aquarium"
+lightbox: true
 categories: 
   - figures
   - code

@@ -1,5 +1,6 @@
 ---
 title: "Figure 7.6 Space-time paths for 100 Beijing taxis"
+lightbox: true
 categories: 
   - figures
   - code

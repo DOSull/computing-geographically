@@ -1,5 +1,6 @@
 ---
 title: "Figure 4.1 Geohashes and hierarchical indexing"
+lightbox: true
 categories: 
   - figures
   - code

@@ -1,5 +1,6 @@
 ---
 title: "Figure 6.7 World trade network communities"
+lightbox: true
 categories: 
   - figures
   - extras

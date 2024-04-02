@@ -1,5 +1,6 @@
 ---
 title: "Figure 5.6 Simple illustration of the modifiable areal unit problem"
+lightbox: true
 categories: 
   - figures
   - code
