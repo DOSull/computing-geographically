@@ -1,5 +1,6 @@
 ---
 title: "Figure 5.10 Simple regionalization of San Francisco Bay Area"
+lightbox: true
 categories: 
   - figures
   - code
@@ -16,13 +17,12 @@ knitr:
 This page produces a coloured version of Figure 5.10 which is easier to read (but may not show the same clusters).
 
 ```{r message=FALSE, warning=FALSE}
-library(sf)
-library(dplyr)
 library(tidyr)
-library(tmap)
-library(tmaptools)
-library(stringr)
-library(HatchedPolygons)
+library(dplyr)
+library(sf)
+library(ggplot2)
+library(ggpattern)
+library(cols4all)
 ```
 
 ## Data
@@ -33,19 +33,12 @@ sf_demog <- st_read("sf_clustering_data.gpkg")
 ```
 
 ### Data cleanup
-There are some NA data which we will show as hatched areas so some work is required on that, and to prepare the hatched polygons using the `hatched.SpatialPolygons` function from the [`HatchedPolygons` package](https://statnmap.github.io/HatchedPolygons/).
+There are some NA data which we will show as hatched areas using the [`ggpattern` package](https://github.com/trevorld/ggpattern) so some work is required on that.
 
 ```{r}
-nas <- sf_demog %>%
-  st_union() %>%
-  st_difference(sf_demog %>% drop_na() %>% st_union()) %>%
-  as("Spatial") %>%
-  hatched.SpatialPolygons(density = 0.0035, angle = 45) %>%
-  st_as_sf() %>%
-  st_set_crs(st_crs(sf_demog))
-
-all_areas <- sf_demog %>%
-  st_union()
+nas <- sf_demog |>
+  st_union() |>
+  st_difference(sf_demog |> drop_na() |> st_union())
 ```
 
 ## Run the clustering
@@ -67,30 +60,32 @@ Next we append the cluster result to the original spatial dataset so we can map 
 ```{r fig.width=10, fig.height=6}
 sf_demog$k9 <- km$cluster %>% as.factor()
 
-tm_shape(all_areas, bbox = bb(xlim = c(1.82e6, 1.87e6), 
-                              ylim = c(6.3e5, 6.6e5))) + 
-  tm_fill(col = "white") +
-  tm_shape(nas) +
-  tm_lines(col = "black", lwd = 0.5) + 
-  tm_shape(sf_demog) + 
-  tm_polygons(col = "k9", style = "cat", palette = "Set2",
-              border.col = "white", lwd = 0.35) +
-  tm_layout(legend.show = FALSE, bg.color = "#ddeeff")
+ggplot(nas) + 
+  geom_sf_pattern(fill = "white", lwd = 0, 
+                  pattern_fill = "black", pattern_density = 0.04, 
+                  pattern_angle = 45, pattern_spacing = 0.012) + 
+  geom_sf(data = sf_demog, aes(fill = k9)) +
+  scale_fill_brewer(palette = "Paired") +
+  guides(fill = "none") +
+  coord_sf(xlim = c(1.82e6, 1.87e6), ylim = c(6.3e5, 6.6e5)) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = "#bbddff"))
 ```
 
 And for comparison, below is the regionalization from Luc Guillemot's more complex clustering method. The colours don't match up (they are just colours!) but you can see that the overall regionalisation result is broadly similar, even though we have requested only 9 clusters from the _k_-means analysis.
 
 ```{r fig.width=10, fig.height=6}
 #| code-fold: true
-tm_shape(all_areas, bbox = bb(xlim = c(1.82e6, 1.87e6), 
-                              ylim = c(6.3e5, 6.6e5))) + 
-  tm_fill(col = "white") +
-  tm_shape(nas) +
-  tm_lines(col = "black", lwd = 0.5) + 
-  tm_shape(sf_demog) + 
-  tm_polygons(col = "cluster", style = "cat", palette = "Set2",
-              border.col = "white", lwd = 0.35) +
-  tm_layout(legend.show = FALSE, bg.color = "#ddeeff")
+ggplot(nas) + 
+  geom_sf_pattern(fill = "white", lwd = 0, 
+                  pattern_fill = "black", pattern_density = 0.04, 
+                  pattern_angle = 45, pattern_spacing = 0.012) + 
+  geom_sf(data = sf_demog, aes(fill = as.factor(cluster))) +
+  scale_fill_discrete_c4a_cat(palette = "20") +
+  guides(fill = "none") +
+  coord_sf(xlim = c(1.82e6, 1.87e6), ylim = c(6.3e5, 6.6e5)) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = "#bbddff"))
 ```
 
 ```{r}
