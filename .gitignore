@@ -1,7 +1,10 @@
-/.quarto/
+.quarto/
 .DS_Store
 *cache*/
 .Rhistory
 .RData
 __scratch__/
 _the-figures/
+_freeze/
+
+/.quarto/
