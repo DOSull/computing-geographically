@@ -13,6 +13,7 @@ knitr:
   opts_chunk: 
     warning: false
     message: false
+image: "glad-logo.png"
 language:
   section-title-footnotes: "References"
 ---
@@ -20,14 +21,17 @@ language:
 ::: {.callout-note collapse="true"}
 #### Update History
 
-| Date       | Changes                                                                |
-|:-----------|:-----------------------------------------------------------------------|
-| 2024-01-14 | Corrected some typos, and minor edits for flow.                        |
-| 2024-01-13 | Initial post.                                                          |
+| Date       | Changes                                               |
+|:-----------|:------------------------------------------------------|
+| 2024-04-25 | Added GLaD podcast logo and link to episode.          |
+| 2024-01-14 | Corrected some typos, and minor edits for flow.       |
+| 2024-01-13 | Initial post.                                         |
 
 :::
 
 I'm due to be on the [Geography, Life, and Data (GLaD) podcast](https://gladpodcast.podbean.com/) and an obvious question I've been asked to think about is how I landed on the list of 'big ideas' that form the themes for the seven core chapters in the book. Doing so, I recalled an important source of inspiration that has somehow evaded mention in the book itself. One thought leads to another and I also recalled a couple of related notions---phrases as much as anything, although there is more to them than that---which also nudged me in the direction the book eventually took me.
+
+**Update**: here's the podcast episode: [Computing geographically with David O'Sullivan](https://gladpodcast.podbean.com/e/episode-13-computing-geographically-with-david-osullivan/).
 
 Anyway, I thought since the book is almost upon us (I'm told by [Guilford](https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938) that 12 copies are on their way as I write) that I'd provide some insights on where it came from.
 

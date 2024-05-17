@@ -22,7 +22,7 @@ knitr:
 
 | Date       | Changes                                                                |
 |:-----------|:-----------------------------------------------------------------------|
-| 2023-11-04 | Added small image of the final cover to preamble. |
+| 2023-11-04 | Added small image of the final cover to preamble.                      |
 | 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history. |
 | 2023-10-24 | Inverted coordinates to make landscape images.                         |
 | 2023-10-19 | Initial post.                                                          |
@@ -74,29 +74,29 @@ We don't need all the time steps in that file, so cut it down a bit and convert 
 ```{r}
 steps <- seq(1, 50, 1)
 
-xy_sf <- xy %>%
-  filter(t %in% steps) %>%
+xy_sf <- xy |>
+  filter(t %in% steps) |>
   st_as_sf(coords = c("y", "x"), crs = 2193)
 ```
 
 Before we go any further, we need a 'frame' for all the layers we'll be using, so this is made from the extent of the included points, inset a little. Insetting avoids some otherwise strange edge effects.
 
 ```{r}
-xy_inset <- xy_sf %>%
-  st_bbox() %>%
-  st_as_sfc() %>%
-  st_sf() %>%
-  st_set_crs(2193) %>%
+xy_inset <- xy_sf |>
+  st_bbox() |>
+  st_as_sfc() |>
+  st_sf() |>
+  st_set_crs(2193) |>
   st_buffer(-.5)
 ```
 
 The underlying basis of the cover art is those traces, which we need to form into a lines dataset and clip to the frame.
 
 ```{r}
-xy_path <- xy_sf %>%
-  group_by(who) %>%
-  summarise(do_union = FALSE) %>%
-  st_cast("LINESTRING") %>% 
+xy_path <- xy_sf |>
+  group_by(who) |>
+  summarise(do_union = FALSE) |>
+  st_cast("LINESTRING") |> 
   st_intersection(xy_inset)
 ```
 
@@ -111,13 +111,14 @@ tm_shape(xy_path) +
 Probably you can tell that some [Voronoi magic](../chapters/chap2/fig2-07-point-voronoi.qmd) was involved, specifically Voronoi polygons of the points along the trajectories, in a manner reminiscent of the [Voronois along the road centre line in Figure 2.8](../chapters/chap2/fig2-08-non-point-voronoi.qmd).
 
 ```{r}
-xy_vor <- xy_sf %>%
-  st_union() %>%
-  st_voronoi() %>%
-  st_cast() %>%
-  st_as_sf(crs = st_crs(xy_sf)) %>%
-  st_join(xy_sf) %>%
-  st_intersection(xy_inset) %>%
+xy_vor <- xy_sf |>
+  st_union() |>
+  st_voronoi() |>
+  st_cast() |>
+  data.frame() |>
+  st_as_sf() |>
+  st_join(xy_sf) |>
+  st_intersection(xy_inset) |>
   distinct(geometry)
 ```
 
@@ -136,9 +137,10 @@ which is already pretty interesting looking.
 The cover depends on overlapping the Voronoi polygons, which when coloured with some transparency gives the final effect. So some buffering (the original sin of GIS!) required. I decided after much experimentation to make the buffers larger for the bigger polygons.
 
 ```{R}
-xy_vor_b <- xy_vor %>%
-  mutate(area = st_area(.), r = as_units(.25, "m") + sqrt(area / pi)) %>%
-  st_buffer(.$r) %>%
+xy_vor_b <- xy_vor |>
+  mutate(area = st_area(geometry), r = as_units(.25, "m") + sqrt(area / pi)) %>%
+  ## Note we need the tidyverse pipe here for the . placeholder
+  st_buffer(dist = .$r) |>
   st_intersection(xy_inset)
 ```
 
