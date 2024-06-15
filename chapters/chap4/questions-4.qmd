@@ -1,0 +1,9 @@
+---
+title: Questions for discussion 4
+subtitle: Place and Meaning in Space
+categories:
+  - questions
+image: "q4.webp"
+language:
+  section-title-footnotes: "References"
+---

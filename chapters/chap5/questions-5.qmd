@@ -1,0 +1,9 @@
+---
+title: Questions for discussion 5
+subtitle: Lines and Areas
+categories:
+  - questions
+image: "q5.webp"
+language:
+  section-title-footnotes: "References"
+---

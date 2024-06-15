@@ -1,0 +1,33 @@
+---
+title: Questions for discussion 3
+subtitle: Scale and Projection
+categories:
+  - questions
+image: "q3.webp"
+language:
+  section-title-footnotes: "References"
+---
+
+**Have you come across any studies that range across the 10 to 15 orders of magnitude referenced on pages 46-47?**
+
+What topics might demand consideration of such a wide range of scales? And what would the challenges be of studying such topics? How does working with scale hierarchies in this context help?
+
+<hr>
+
+**All things considered, does it really only make sense to think of scale as socially constructed?**
+Does scale really exist independent of human observation?
+
+<hr>
+
+**Would geography be better off 'without scale'?**
+Some of the leading protagonists in the 'scale debates' of the 1990s, eventually argued for an abandonment of the concept of scale.^[Marston SA, JP Jones III, and K Woodward. 2005. Human geography without scale. *Transactions of the Institute of British Geographers* **30**(4) 416–432.] What would be the implications of such a move?
+
+<hr>
+
+**Zoomable web-maps are maps without scale. Discuss!**
+Also for discussion: explicitly relating scale and map projection in the way it is done in this chapter might strike some as a bit of a reach. What do you think?
+
+<hr>
+
+**Is map generalization just 'lying with maps'?**
+Mark Monmonier suggests in _How to Lie with Maps_ that cartographica generalisation is unavoidable and inevitably makes maps misleading.^[Monmonier MS. 2018. [*How to Lie with Maps*](https://press.uchicago.edu/ucp/books/book/chicago/H/bo27400568.html). 3rd edition. Chicago: The University of Chicago Press.] Is lying an appropriate framework for thinking about map generalisation?

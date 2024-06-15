@@ -1,0 +1,9 @@
+---
+title: Questions for discussion 7
+subtitle: Time and Dynamics
+categories:
+  - questions
+image: "q7.webp"
+language:
+  section-title-footnotes: "References"
+---

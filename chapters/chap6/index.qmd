@@ -7,6 +7,7 @@ listing:
     - "links-6.qmd"
     - "fig6-0*.{qmd,ipynb}"
     - "fig6-1*.{qmd,ipynb}"
+    # - "questions-6.qmd"
   sort: false
   type: grid
 ---

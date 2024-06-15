@@ -1,0 +1,9 @@
+---
+title: Questions for discussion 6
+subtitle: Relations, Networks, Flows
+categories:
+  - questions
+image: "q6.webp"
+language:
+  section-title-footnotes: "References"
+---

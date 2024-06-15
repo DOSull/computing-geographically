@@ -1,0 +1,46 @@
+---
+title: "There are no silly questions"
+subtitle: "Well... maybe there are _some_"
+description: "Some ideas for discussion prompts if you are using the book in a seminar or class... or even if you're not"
+date: "06/16/2024"
+categories:
+  - extras
+  - questions
+execute: 
+  cache: true
+  freeze: auto
+knitr:
+  opts_chunk: 
+    warning: false
+    message: false
+language:
+  section-title-footnotes: "References"
+draft: false
+---
+
+::: {.callout-note collapse="true"}
+#### Update History
+
+| Date       | Changes                                                |
+|:-----------|:-------------------------------------------------------|
+| 2024-06-16 | Initial post. Questions for chapters 1, 2, and 3 added |
+
+:::
+
+<a href="https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Rodin_1.jpg"><img src="the-thinker.jpg" style="width:250px; float:right; padding:0px 15px 15px 0px"></a> This post is simply to direct your attention to the 'Questions for discussion' pages that I've started adding to each chapter section. I've added some questions for Chapters [1](../chapters/chap1/questions-1.qmd), [2](../chapters/chap2/questions-2.qmd) and [3](../chapters/chap3/questions-3.qmd) so far, with more to come. The preview images for the pages are from [A Glossary of Gestures for Critical Discussion](https://criticalhandgestures.tumblr.com/).
+
+Here, I present some overall questions about the whole book.
+
+**Is 'bridging' the right metaphor?**
+Others have been suggested, the much more uncomfortable sounding 'straddling' for example.^[Schuurman N. 1999. An interview with Michael Goodchild, January 6, 1998, Santa Barbara, California. *Environment and Planning D: Society and Space* **17**(1) 3–15. doi: [10.1068/d170003](https://dx.doi.org/10.1068/d170003).] Consider what a need to bridge implies.
+
+<hr>
+
+**Is the 'bridge' in this book a two-way street?**
+Is anyone building from the other side?
+
+<hr>
+
+Back in the first chapter, I suggested that the chapter order could have been reversed, working from the world out there in all its magnificent processual, dynamic, connected complexity, and peeling away to layers to show we got to the 'geoatom', so... 
+
+**Having got to the end of the book, would that have worked better, do you think?**

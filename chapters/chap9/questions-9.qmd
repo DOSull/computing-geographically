@@ -1,0 +1,9 @@
+---
+title: Questions for discussion 9
+subtitle: Doing Giscience Doing Geography
+categories:
+  - questions
+image: "q9.webp"
+language:
+  section-title-footnotes: "References"
+---

@@ -1,0 +1,35 @@
+---
+title: Questions for discussion 2
+subtitle: Location and Space
+categories:
+  - questions
+image: "q2.webp"
+language:
+  section-title-footnotes: "References"
+---
+
+**If not the _geoatom_ then what?**
+It's all very well criticising geoatoms as a basis for computing geographically. What other would be better?
+
+<hr>
+
+**Is the 'raster-vector debate' really the damp squib I suggest?**
+Specificallly on page 27, I suggest that
+
+> seen through the lens of absolute, relative, and relational models of space, the two views [i.e., vector and raster] are essentially the same, both depending on a fixed coordinate frame within which points or cells can be referenced.
+
+Do you agree? Or do you think there's something to Helen Couclelis's contention^[Couclelis H. 1992. [People manipulate objects (but cultivate fields): Beyond the raster-vector debate in GIS](http://link.springer.com/chapter/10.1007/3-540-55966-3_3). In AU Frank, I Campari, and U Formentini (eds) *Theories and Methods of Spatio-Temporal Reasoning in Geographic Space*, pages 65–77. Lecture Notes in Computer Science 639. Springer.] that these two perspectives align with the longstanding ontological question of 
+
+> whether the world consists of a collection of objects or is a continuously measurable field of values (my paraphrase, page 27)
+
+<hr>
+
+**So if spatial analysis represents space relationally, does it really matter if GIS tools do not?**
+
+This question opens up a can of worms that has troubled giscience since... well... since forever.^[Goodchild  MF and R Haining. 1992. Integrating GIS and spatial data analysis: problems and possibilities. *International Journal of Geographical Information Systems* **6** 407–423.] Such concerns go right to the heart of how giscience _qua_ science is meaningfully distinct from geographical information systems. Indeed spatial analysis is arguably not one but two ('spatial statistics' and 'analytical tools') of the eight topic headings listed in the 'founding document' of giscience.^[Goodchild MF. 1992. Geographical information science. *International Journal of Geographical Information Systems* **6**(1) 31–45.]
+
+<hr>
+
+**Which of the prospectively relative or relational approaches to representing geographical data described on pages 33-43 seem most promising?**
+
+And a follow up question: do any of them seem likely to become cornerstones of widely used platforms? If so, which ones, and if not, why not?
