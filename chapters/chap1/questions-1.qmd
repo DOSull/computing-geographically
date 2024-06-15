@@ -1,6 +1,6 @@
 ---
-title: Questions for discussion 1
-subtitle: Building Bridges
+title: Questions for discussion
+subtitle: Chapter 1 Building Bridges
 categories:
   - questions
 image: "q1.webp"
@@ -8,7 +8,9 @@ language:
   section-title-footnotes: "References"
 ---
 
-Some of these might be more easily considered when you have read the whole book, or at least a bit more of it than the first chapter... See also [the overall questions page](../../other-stuff/questions-for-discussion.qmd).
+Some of these might be more easily considered when you have read the whole book, or at least a bit more of it than the first chapter. See also the [overall questions page](../../other-stuff/questions-for-discussion.qmd).
+
+<hr>
 
 **Is the premise of the book correct?**
 
@@ -24,7 +26,7 @@ Am I too harsh in my assessment of the limitations of critical GIS?
 
 The big question (at least for me):
 
-**How have giscience and geography come to be so separare?**
+**How have giscience and geography come to be so separate?**
 
 I mention in the preamble (page 2) that my original plan was 
 

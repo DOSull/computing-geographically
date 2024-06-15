@@ -6,7 +6,6 @@ categories:
 image: "links-8.png"
 ---
 
-## Links 
 ### Figure 8.4
 The XKCD comic marking the passing of John Conway is at [xkcd.com](https://xkcd.com/2293).
 

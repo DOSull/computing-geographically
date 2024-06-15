@@ -1,6 +1,6 @@
 ---
-title: Questions for discussion 2
-subtitle: Location and Space
+title: Questions for discussion
+subtitle: Chapter 2 Location and Space
 categories:
   - questions
 image: "q2.webp"
@@ -8,13 +8,19 @@ language:
   section-title-footnotes: "References"
 ---
 
+As this chapter argues, the nature of space is fundamental to geography and to giscience.
+
+<hr>
+
 **If not the _geoatom_ then what?**
-It's all very well criticising geoatoms as a basis for computing geographically. What other would be better?
+
+It's all very well criticising geoatoms as a basis for computing geographically. What other approach would be better?
 
 <hr>
 
 **Is the 'raster-vector debate' really the damp squib I suggest?**
-Specificallly on page 27, I suggest that
+
+Specifically on page 27, I suggest that
 
 > seen through the lens of absolute, relative, and relational models of space, the two views [i.e., vector and raster] are essentially the same, both depending on a fixed coordinate frame within which points or cells can be referenced.
 

@@ -6,7 +6,6 @@ categories:
 image: "links-7.png"
 ---
 
-## Links 
 ### Footnote 2
 The 'timebliography' of representations of time in giscience is available at [http://spaceandtime.wsiabato.info/](http://spaceandtime.wsiabato.info/) (yes `http`, not `https`).
 

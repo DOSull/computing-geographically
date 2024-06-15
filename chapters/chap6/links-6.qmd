@@ -6,7 +6,6 @@ categories:
 image: "links-6.png"
 ---
 
-## Links 
 ### Footnote 5
 The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in [integer sequence A000522](https://oeis.org/A000522).
 

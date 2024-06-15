@@ -6,7 +6,6 @@ categories:
 image: "links-2.png"
 ---
 
-## Links 
 ### Footnote 1 
 As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: [esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview](https://www.esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview). 
 

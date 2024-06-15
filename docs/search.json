@@ -184,9 +184,9 @@
   {
     "objectID": "chapters/chap1/questions-1.html",
     "href": "chapters/chap1/questions-1.html",
-    "title": "Questions for discussion 1",
+    "title": "Questions for discussion",
     "section": "",
-    "text": "Some of these might be more easily considered when you have read the whole book, or at least a bit more of it than the first chapter… See also the overall questions page.\nIs the premise of the book correct?\nIn other words: are geography and giscience really as estranged as I suggest?\n\nWhat about critical GIS? Isn’t it already doing this work?\nAm I too harsh in my assessment of the limitations of critical GIS?\n\nThe big question (at least for me):\nHow have giscience and geography come to be so separare?\nI mention in the preamble (page 2) that my original plan was\n\nI originally planned for this opening chapter to be a historical account of the relationship between giscience and geography. It would open on a couple of my intellectual heroes from early in geography’s quantitative revolution, showing how their work was deeply engaged with geography, and contrast that with how distanced from geography giscience and GIS have become. Then, somehow or other I was going to explain how this distance had grown.\n\nWhat happened? Do any of the capsule explanations that follow this quote seem more plausible than the others? I know, this is an unfair question: I ducked answering it completely. That just makes it all the more worth thinking about.\n\nAnd finally, a silly question:\nWho were those two intellectual heroes I chickened out of writing up?!\n\n\n\n© 2023 David O’Sullivan"
+    "text": "Some of these might be more easily considered when you have read the whole book, or at least a bit more of it than the first chapter. See also the overall questions page.\n\nIs the premise of the book correct?\nIn other words: are geography and giscience really as estranged as I suggest?\n\nWhat about critical GIS? Isn’t it already doing this work?\nAm I too harsh in my assessment of the limitations of critical GIS?\n\nThe big question (at least for me):\nHow have giscience and geography come to be so separate?\nI mention in the preamble (page 2) that my original plan was\n\nI originally planned for this opening chapter to be a historical account of the relationship between giscience and geography. It would open on a couple of my intellectual heroes from early in geography’s quantitative revolution, showing how their work was deeply engaged with geography, and contrast that with how distanced from geography giscience and GIS have become. Then, somehow or other I was going to explain how this distance had grown.\n\nWhat happened? Do any of the capsule explanations that follow this quote seem more plausible than the others? I know, this is an unfair question: I ducked answering it completely. That just makes it all the more worth thinking about.\n\nAnd finally, a silly question:\nWho were those two intellectual heroes I chickened out of writing up?!\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap6/fig6-05-6-06-world-cities-network.html",
@@ -284,14 +284,7 @@
     "href": "chapters/chap5/links-5.html",
     "title": "Links for Chapter 5",
     "section": "",
-    "text": "This Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. There’s an interactive map at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap5/links-5.html#links",
-    "href": "chapters/chap5/links-5.html#links",
-    "title": "Links for Chapter 5",
-    "section": "",
-    "text": "This Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\n\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. There’s an interactive map at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\n\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org."
+    "text": "Figure 5.2\nThis Figure is a section of the map of the Cooch Behar enclave complex, available at commons.wikimedia.org. Highly detailed maps of the enclave complex are available in Brendan Whyte’s PhD thesis available here.\n\n\nFigure 5.10\nThe data for this Figure are at the link noted in the Figure caption github.com/lucguillemot/bayareageodemo. There’s an interactive map at lucguillemot.github.io/bayareageodemo/. The map was designed by the very talented Luc Guillemot.\n\n\nFootnote 17\nThe Manaaki Whenua Landcare Research’s Land Environments of New Zealand website is at landcareresearch.co.nz/tools-and-resources/mapping/lenz/. Input data layers on which the LENZ classification was based are available at lris.scinfo.org.\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap5/index.html",
@@ -438,21 +431,21 @@
     "href": "chapters/chap3/index.html",
     "title": "Chapter 3",
     "section": "",
-    "text": "Chapter 3 explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands exploration of map projections, which are also considered.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 3\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.4 Three twenty levels of web map hierarchy\n\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.7 Two simple world projections\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.8 A loxodrome on the sphere and projected\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.9 Equal area world in a square\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.10 Raster aggregation and disaggregation\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions for discussion 3\n\n\n\nquestions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Chapter 3 explores geographical thinking and giscience perspectives on scale. Thinking about cartographic scale inevitably demands exploration of map projections, which are also considered.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 3\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.4 Three twenty levels of web map hierarchy\n\n\n\ncode\n\n\nR\n\n\nextras\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.7 Two simple world projections\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.8 A loxodrome on the sphere and projected\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.9 Equal area world in a square\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3.10 Raster aggregation and disaggregation\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions for discussion\n\n\n\nquestions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap3/questions-3.html",
     "href": "chapters/chap3/questions-3.html",
-    "title": "Questions for discussion 3",
+    "title": "Questions for discussion",
     "section": "",
-    "text": "Have you come across any studies that range across the 10 to 15 orders of magnitude referenced on pages 46-47?\nWhat topics might demand consideration of such a wide range of scales? And what would the challenges be of studying such topics? How does working with scale hierarchies in this context help?\nAll things considered, does it really only make sense to think of scale as socially constructed? Does scale really exist independent of human observation?\nWould geography be better off ‘without scale’? Some of the leading protagonists in the ‘scale debates’ of the 1990s, eventually argued for an abandonment of the concept of scale.1 What would be the implications of such a move?\nZoomable web-maps are maps without scale. Discuss! Also for discussion: explicitly relating scale and map projection in the way it is done in this chapter might strike some as a bit of a reach. What do you think?\nIs map generalization just ‘lying with maps’? Mark Monmonier suggests in How to Lie with Maps that cartographica generalisation is unavoidable and inevitably makes maps misleading.2 Is lying an appropriate framework for thinking about map generalisation?\n© 2023 David O’Sullivan"
+    "text": "Is scale all in our heads?\nHave you come across any studies that range across the 10 to 15 orders of magnitude referenced on pages 46-47?\nWhat topics might demand consideration of such a wide range of scales? And what would the challenges be of studying such topics? How does working with scale hierarchies in this context help?\nAll things considered, does it really only make sense to think of scale as socially constructed? Does scale really exist independent of human observation? Note that this is also an inference we might draw from the giscience perspectives on scale presented by Montello1 and Couclelis2, discussed on pages 57-60.\nWould geography be better off ‘without scale’? Some of the leading protagonists in the ‘scale debates’ of the 1990s, eventually argued for an abandonment of the concept of scale.3 What would be the implications of such a move?\nZoomable web-maps are maps without scale. Discuss! Also for discussion: explicitly relating scale and map projection in the way it is done in this chapter might strike some as a bit of a reach. What do you think?\nIs map generalization just ‘lying with maps’? Mark Monmonier suggests in How to Lie with Maps that cartographica generalisation is unavoidable and inevitably makes maps misleading.4 Is lying an appropriate framework for thinking about map generalisation?\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap3/questions-3.html#footnotes",
     "href": "chapters/chap3/questions-3.html#footnotes",
-    "title": "Questions for discussion 3",
+    "title": "Questions for discussion",
     "section": "References",
-    "text": "References\n\n\nMarston SA, JP Jones III, and K Woodward. 2005. Human geography without scale. Transactions of the Institute of British Geographers 30(4) 416–432.↩︎\nMonmonier MS. 2018. How to Lie with Maps. 3rd edition. Chicago: The University of Chicago Press.↩︎"
+    "text": "References\n\n\nMontello DR. 1993. Scale and multiple psychologies of space. In AU Frank and I Campari (eds) Spatial Information Theory: A Theoretical Basis for GIS, pages 312-321. Lecture Notes in Computer Science 716. Springer.↩︎\nCouclelis H. 1992. People manipulate objects (but cultivate fields): Beyond the raster-vector debate in GIS. In AU Frank, I Campari, and U Formentini (eds) Theories and Methods of Spatio-Temporal Reasoning in Geographic Space, pages 65–77. Lecture Notes in Computer Science 639. Springer.↩︎\nMarston SA, JP Jones III, and K Woodward. 2005. Human geography without scale. Transactions of the Institute of British Geographers 30(4) 416–432.↩︎\nMonmonier MS. 2018. How to Lie with Maps. 3rd edition. Chicago: The University of Chicago Press.↩︎"
   },
   {
     "objectID": "chapters/chap4/fig4-01-hierarchical-indexing.html",
@@ -508,14 +501,14 @@
     "href": "chapters/chap4/questions-4.html",
     "title": "Questions for discussion 4",
     "section": "",
-    "text": "© 2023 David O’Sullivan"
+    "text": "Giscience has questions…\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "index-listing.html",
     "href": "index-listing.html",
     "title": "All the things",
     "section": "",
-    "text": "Use the sort, filter, and categories list to the right to find what you are looking for.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\n\n\n\n\nLinks for Chapter 1\n\n\n\n\nQuestions for discussion 1\n\n\n\n\nLinks for Chapter 2\n\n\n\n\nQuestions for discussion 2\n\n\n\n\nFigure 2.1 A representation of an absolute space\n\n\n\n\nFigures 2.2 and 2.3 and more on cartograms\n\n\n\n\nFigure 2.4 Two point patterns in absolute space\n\n\n\n\nFigures 2.6 Slivers and gaps in a polygon layer\n\n\n\n\nFigure 2.7 Voronoi polygons associated with a set of point locations\n\n\n\n\nFigure 2.8 Voronoi polygons associated with lines and polygons\n\n\n\n\nFigure 2.9 A range of spatial weights applied to polygon data\n\n\n\n\nLinks for Chapter 3\n\n\n\n\nQuestions for discussion 3\n\n\n\n\nFigure 3.4 Three twenty levels of web map hierarchy\n\n\n\n\nFigure 3.7 Two simple world projections\n\n\n\n\nFigure 3.8 A loxodrome on the sphere and projected\n\n\n\n\nFigure 3.9 Equal area world in a square\n\n\n\n\nFigure 3.10 Raster aggregation and disaggregation\n\n\n\n\nLinks for Chapter 4\n\n\n\n\nQuestions for discussion 4\n\n\n\n\nFigure 4.1 Geohashes and hierarchical indexing\n\n\n\n\nFigure 4.3 Many Springfields\n\n\n\n\nFigure 4.5 Te Reo Māori toponyms in Aotearoa\n\n\n\n\nLinks for Chapter 5\n\n\n\n\nQuestions for discussion 5\n\n\n\n\nFigure 5.1 The 9-intersection model of topological relations\n\n\n\n\nFigure 5.5 Maps of areas with widely varying populations\n\n\n\n\nFigure 5.6 Simple illustration of the modifiable areal unit problem\n\n\n\n\nFigure 5.7 The MAUP aggregation effect\n\n\n\n\nFigure 5.10 Simple regionalization of San Francisco Bay Area\n\n\n\n\nLinks for Chapter 6\n\n\n\n\nQuestions for discussion 6\n\n\n\n\nFigures 6.5 and 6.6 Reduced world city network viewed various ways\n\n\n\n\nFigure 6.7 World trade network communities\n\n\n\n\nFigure 6.10 The small world rewiring process\n\n\n\n\nFigure 6.11 The small world rewiring process in two dimensions\n\n\n\n\nFigure 6.12 A simple graph drawn nine different ways\n\n\n\n\nFigure 6.14 Relative time map of the Santa Barbara street network\n\n\n\n\nLinks for Chapter 7\n\n\n\n\nQuestions for discussion 7\n\n\n\n\nFigures 7.2 and 7.3 Goings on in the space-time aquarium\n\n\n\n\nFigure 7.6 Space-time paths for 100 Beijing taxis\n\n\n\n\nFigure 7.7 Coordination in space-time paths\n\n\n\n\nLinks for Chapter 8\n\n\n\n\nQuestions for discussion 8\n\n\n\n\nFigures 8.1 and 8.2 One-dimensional CA\n\n\n\n\nFigure 8.3 The game of life CA\n\n\n\n\nFigure 8.4 A voter model CA\n\n\n\n\nQuestions for discussion 9\n\n\n\n\n\nNo matching items\n\n\n  \n\n© 2023 David O’Sullivan"
+    "text": "Use the sort, filter, and categories list to the right to find what you are looking for.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\n\n\n\n\nLinks for Chapter 1\n\n\n\n\nQuestions for discussion\n\n\n\n\nLinks for Chapter 2\n\n\n\n\nQuestions for discussion\n\n\n\n\nFigure 2.1 A representation of an absolute space\n\n\n\n\nFigures 2.2 and 2.3 and more on cartograms\n\n\n\n\nFigure 2.4 Two point patterns in absolute space\n\n\n\n\nFigures 2.6 Slivers and gaps in a polygon layer\n\n\n\n\nFigure 2.7 Voronoi polygons associated with a set of point locations\n\n\n\n\nFigure 2.8 Voronoi polygons associated with lines and polygons\n\n\n\n\nFigure 2.9 A range of spatial weights applied to polygon data\n\n\n\n\nLinks for Chapter 3\n\n\n\n\nQuestions for discussion\n\n\n\n\nFigure 3.4 Three twenty levels of web map hierarchy\n\n\n\n\nFigure 3.7 Two simple world projections\n\n\n\n\nFigure 3.8 A loxodrome on the sphere and projected\n\n\n\n\nFigure 3.9 Equal area world in a square\n\n\n\n\nFigure 3.10 Raster aggregation and disaggregation\n\n\n\n\nLinks for Chapter 4\n\n\n\n\nQuestions for discussion 4\n\n\n\n\nFigure 4.1 Geohashes and hierarchical indexing\n\n\n\n\nFigure 4.3 Many Springfields\n\n\n\n\nFigure 4.5 Te Reo Māori toponyms in Aotearoa\n\n\n\n\nLinks for Chapter 5\n\n\n\n\nQuestions for discussion 5\n\n\n\n\nFigure 5.1 The 9-intersection model of topological relations\n\n\n\n\nFigure 5.5 Maps of areas with widely varying populations\n\n\n\n\nFigure 5.6 Simple illustration of the modifiable areal unit problem\n\n\n\n\nFigure 5.7 The MAUP aggregation effect\n\n\n\n\nFigure 5.10 Simple regionalization of San Francisco Bay Area\n\n\n\n\nLinks for Chapter 6\n\n\n\n\nQuestions for discussion 6\n\n\n\n\nFigures 6.5 and 6.6 Reduced world city network viewed various ways\n\n\n\n\nFigure 6.7 World trade network communities\n\n\n\n\nFigure 6.10 The small world rewiring process\n\n\n\n\nFigure 6.11 The small world rewiring process in two dimensions\n\n\n\n\nFigure 6.12 A simple graph drawn nine different ways\n\n\n\n\nFigure 6.14 Relative time map of the Santa Barbara street network\n\n\n\n\nLinks for Chapter 7\n\n\n\n\nQuestions for discussion 7\n\n\n\n\nFigures 7.2 and 7.3 Goings on in the space-time aquarium\n\n\n\n\nFigure 7.6 Space-time paths for 100 Beijing taxis\n\n\n\n\nFigure 7.7 Coordination in space-time paths\n\n\n\n\nLinks for Chapter 8\n\n\n\n\nQuestions for discussion 8\n\n\n\n\nFigures 8.1 and 8.2 One-dimensional CA\n\n\n\n\nFigure 8.3 The game of life CA\n\n\n\n\nFigure 8.4 A voter model CA\n\n\n\n\nQuestions for discussion 9\n\n\n\n\n\nNo matching items\n\n\n  \n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap4/fig4-05-te-reo-names.html",
@@ -536,14 +529,7 @@
     "href": "chapters/chap4/links-4.html",
     "title": "Links for Chapter 4",
     "section": "",
-    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at http://s2geometry.io (yes http, not https).\n\n\n\nUber’s H3 index is described at h3geo.org.\n\n\n\nThe Wire opens with a comment on place, albeit a very big place: America, which is more of an idea than a place. Inevitably, this link will break quickly, but it’s worth your time.\n\n\n\nThe Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\n\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\n\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text are at github.com/TeHikuMedia/nga-kupu.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap4/links-4.html#links",
-    "href": "chapters/chap4/links-4.html#links",
-    "title": "Links for Chapter 4",
-    "section": "",
-    "text": "The Degree Confluence Project is at confluence.org.\n\n\n\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\n\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\n\nGoogle’s S2 index is explained at http://s2geometry.io (yes http, not https).\n\n\n\nUber’s H3 index is described at h3geo.org.\n\n\n\nThe Wire opens with a comment on place, albeit a very big place: America, which is more of an idea than a place. Inevitably, this link will break quickly, but it’s worth your time.\n\n\n\nThe Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\n\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\n\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text are at github.com/TeHikuMedia/nga-kupu."
+    "text": "Footnote 3\nThe Degree Confluence Project is at confluence.org.\n\n\nFootnote 5\nFind out more about ‘Null Island’ (i.e., 0°N 0°E) at its wikipedia page.\n\n\nFootnote 6\nThe original announcement of geohash is in this blogpost by Greg Niemeyer: blog.labix.org/2008/02/26/geohashorg-is-public. You can generate geohash codes at the website http://geohash.org (yes http, not https).\n\n\nFootnote 7\nGoogle’s S2 index is explained at http://s2geometry.io (yes http, not https).\n\n\nFootnote 8\nUber’s H3 index is described at h3geo.org.\n\n\nFootnote 15\nThe Wire opens with a comment on place, albeit a very big place: America, which is more of an idea than a place. Inevitably, this link will break quickly, but it’s worth your time.\n\n\nFigure 4.2\nThe Bostonography neighborhoods web map is unfortunately no longer working (worth a try, but likely won’t work: bostonography.com/hoods). This blogpost explains the idea, which someone really should revive in other places, as did Hayden Rickard in his Masters thesis, cited in the text and viewable at this link.\n\n\nFigure 4.3\nThe Nominatim geocoder is available at nominatim.openstreetmap.org.\n\n\nFigure 4.5\nChris McDowall’s notes on the te reo Māori placenames map are at github.com/fogonwater/we-are-here. Te Hiku Media’s ngā-kupu tools for detecting Māori words in text are at github.com/TeHikuMedia/nga-kupu.\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap3/fig3-04-webmap-tiles.html",
@@ -564,14 +550,7 @@
     "href": "chapters/chap3/links-3.html",
     "title": "Links for Chapter 3",
     "section": "",
-    "text": "Lewis Carroll’s Sylvie and Bruno Concluded is out of copyright and freely available. See for example, this ebook (the one-to-one map appears in Chapter XI). Unfortunately Borges’s and Eco’s more recent examples are not freely available.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap3/links-3.html#links",
-    "href": "chapters/chap3/links-3.html#links",
-    "title": "Links for Chapter 3",
-    "section": "",
-    "text": "Lewis Carroll’s Sylvie and Bruno Concluded is out of copyright and freely available. See for example, this ebook (the one-to-one map appears in Chapter XI). Unfortunately Borges’s and Eco’s more recent examples are not freely available."
+    "text": "Footnote 9\nLewis Carroll’s Sylvie and Bruno Concluded is out of copyright and freely available. See for example, this ebook (the one-to-one map appears in Chapter XI). Unfortunately Borges’s and Eco’s more recent examples are not freely available.\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap3/fig3-07-platte-carre-and-lcea.html",
@@ -618,14 +597,14 @@
   {
     "objectID": "chapters/chap2/questions-2.html",
     "href": "chapters/chap2/questions-2.html",
-    "title": "Questions for discussion 2",
+    "title": "Questions for discussion",
     "section": "",
-    "text": "If not the geoatom then what? It’s all very well criticising geoatoms as a basis for computing geographically. What other would be better?\nIs the ‘raster-vector debate’ really the damp squib I suggest? Specificallly on page 27, I suggest that\nDo you agree? Or do you think there’s something to Helen Couclelis’s contention1 that these two perspectives align with the longstanding ontological question of\nSo if spatial analysis represents space relationally, does it really matter if GIS tools do not?\nThis question opens up a can of worms that has troubled giscience since… well… since forever.2 Such concerns go right to the heart of how giscience qua science is meaningfully distinct from geographical information systems. Indeed spatial analysis is arguably not one but two (‘spatial statistics’ and ‘analytical tools’) of the eight topic headings listed in the ‘founding document’ of giscience.3\nWhich of the prospectively relative or relational approaches to representing geographical data described on pages 33-43 seem most promising?\nAnd a follow up question: do any of them seem likely to become cornerstones of widely used platforms? If so, which ones, and if not, why not?\n© 2023 David O’Sullivan"
+    "text": "As this chapter argues, the nature of space is fundamental to geography and to giscience.\nIf not the geoatom then what?\nIt’s all very well criticising geoatoms as a basis for computing geographically. What other approach would be better?\nIs the ‘raster-vector debate’ really the damp squib I suggest?\nSpecifically on page 27, I suggest that\nDo you agree? Or do you think there’s something to Helen Couclelis’s contention1 that these two perspectives align with the longstanding ontological question of\nSo if spatial analysis represents space relationally, does it really matter if GIS tools do not?\nThis question opens up a can of worms that has troubled giscience since… well… since forever.2 Such concerns go right to the heart of how giscience qua science is meaningfully distinct from geographical information systems. Indeed spatial analysis is arguably not one but two (‘spatial statistics’ and ‘analytical tools’) of the eight topic headings listed in the ‘founding document’ of giscience.3\nWhich of the prospectively relative or relational approaches to representing geographical data described on pages 33-43 seem most promising?\nAnd a follow up question: do any of them seem likely to become cornerstones of widely used platforms? If so, which ones, and if not, why not?\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap2/questions-2.html#footnotes",
     "href": "chapters/chap2/questions-2.html#footnotes",
-    "title": "Questions for discussion 2",
+    "title": "Questions for discussion",
     "section": "References",
     "text": "References\n\n\nCouclelis H. 1992. People manipulate objects (but cultivate fields): Beyond the raster-vector debate in GIS. In AU Frank, I Campari, and U Formentini (eds) Theories and Methods of Spatio-Temporal Reasoning in Geographic Space, pages 65–77. Lecture Notes in Computer Science 639. Springer.↩︎\nGoodchild MF and R Haining. 1992. Integrating GIS and spatial data analysis: problems and possibilities. International Journal of Geographical Information Systems 6 407–423.↩︎\nGoodchild MF. 1992. Geographical information science. International Journal of Geographical Information Systems 6(1) 31–45.↩︎"
   },
@@ -634,21 +613,14 @@
     "href": "chapters/chap2/index.html",
     "title": "Chapter 2",
     "section": "",
-    "text": "The book proper starts with a look at what many consider geography’s key distinctive focus, namely space. This is often, in more GIS-adjacent settings understood as location, which led me directly to Whitehead’s arresting dismissal of simple location as an idea, something to which we return in Chapter 8. This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience. Many of the figures relate to some of the more interesting ways in which giscience represents space.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1 A representation of an absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigures 2.2 and 2.3 and more on cartograms\n\n\n\ncode\n\n\nR\n\n\nextra\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4 Two point patterns in absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigures 2.6 Slivers and gaps in a polygon layer\n\n\n\ncode\n\n\nR\n\n\nextra\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7 Voronoi polygons associated with a set of point locations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8 Voronoi polygons associated with lines and polygons\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9 A range of spatial weights applied to polygon data\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions for discussion 2\n\n\n\nquestions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "The book proper starts with a look at what many consider geography’s key distinctive focus, namely space. This is often, in more GIS-adjacent settings understood as location, which led me directly to Whitehead’s arresting dismissal of simple location as an idea, something to which we return in Chapter 8. This chapter considers geographical theories about space and how space is—and potentially could be—represented in giscience. Many of the figures relate to some of the more interesting ways in which giscience represents space.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 2\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1 A representation of an absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigures 2.2 and 2.3 and more on cartograms\n\n\n\ncode\n\n\nR\n\n\nextra\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.4 Two point patterns in absolute space\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigures 2.6 Slivers and gaps in a polygon layer\n\n\n\ncode\n\n\nR\n\n\nextra\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7 Voronoi polygons associated with a set of point locations\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.8 Voronoi polygons associated with lines and polygons\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.9 A range of spatial weights applied to polygon data\n\n\n\nfigures\n\n\ncode\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions for discussion\n\n\n\nquestions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap2/links-2.html",
     "href": "chapters/chap2/links-2.html",
     "title": "Links for Chapter 2",
     "section": "",
-    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap2/links-2.html#links",
-    "href": "chapters/chap2/links-2.html#links",
-    "title": "Links for Chapter 2",
-    "section": "",
-    "text": "As marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\n\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\n\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\n\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\n\nYou can experiment with the GeoJSON format at geojson.io.\n\n\n\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\n\nThe PostGIS project home page: osgeo.org/projects/postgis/"
+    "text": "Footnote 1\nAs marketing copy, this one is always already out of date. As of September 2023, the most direct reference to location on the Esri website is to be found here: esri.com/en-us/arcgis/products/spatial-analytics-data-science/overview.\n\n\nFootnote 6\nScapeToad is still at http://scapetoad.choros.place/ (yes http, not https).\n\n\nFootnote 8\nThe TopoJSON format specification is at github.com/topojson/topojson-specification.\n\n\nFootnote 9\nThe GeoJSON format specification is at datatracker.ietf.org/doc/html/rfc7946\n\n\nFootnote 10\nYou can experiment with the GeoJSON format at geojson.io.\n\n\nFootnote 11\nDavid Theobald’s bewildered comment about the rendering speed of shapefiles is in an article in ArcUser entitled ‘Understanding topology and shapefiles’: esri.com/news/arcuser/0401/topo.html.\n\n\nFootnote 14\nThe PostGIS project home page: osgeo.org/projects/postgis/\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap2/fig2-01-absolute-space.html",
@@ -746,14 +718,7 @@
     "href": "chapters/chap7/links-7.html",
     "title": "Links for Chapter 7",
     "section": "",
-    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap7/links-7.html#links",
-    "href": "chapters/chap7/links-7.html#links",
-    "title": "Links for Chapter 7",
-    "section": "",
-    "text": "The ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\n\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample."
+    "text": "Footnote 2\nThe ‘timebliography’ of representations of time in giscience is available at http://spaceandtime.wsiabato.info/ (yes http, not https).\n\n\nFigure 7.6\nThe taxi trajectory dataset is available at microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample.\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap6/fig6-14-sb-drive-time.html",
@@ -809,14 +774,7 @@
     "href": "chapters/chap6/links-6.html",
     "title": "Links for Chapter 6",
     "section": "",
-    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee Footnote 6 above.\n\n\n\nSee Footnote 6 above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee Figure 6.7 above.\n\n\n\nSee Footnote 6 above.\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap6/links-6.html#links",
-    "href": "chapters/chap6/links-6.html#links",
-    "title": "Links for Chapter 6",
-    "section": "",
-    "text": "The number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\n\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\n\nSee Footnote 6 above.\n\n\n\nSee Footnote 6 above.\n\n\n\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\n\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\n\nSee Figure 6.7 above.\n\n\n\nSee Footnote 6 above."
+    "text": "Footnote 5\nThe number of possible shortest paths, i.e., pairs of vertices, choosable from a graph of any given size is given by the numbers in integer sequence A000522.\n\n\nFootnote 6\nThe World City Network basic data set is available at the Globalisation and World Cities Research Network website. These data are used in figures 6.5, 6.6, and 6.13.\n\n\nFigure 6.5\nSee Footnote 6 above.\n\n\nFigure 6.6\nSee Footnote 6 above.\n\n\nFootnote 8\nStirling numbers of the 2nd kind are in integer sequence A008277. You can obtain values of these numbers at this web page.\n\n\nFigure 6.7\nThe trade data used in this Figure and in Figure 6.9 are version 3 of the trade data currently available from the Correlates of War website.\n\n\nFigure 6.9\nSee Figure 6.7 above.\n\n\nFigure 6.13\nSee Footnote 6 above.\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap6/fig6-11-small-world-2d.html",
@@ -858,7 +816,7 @@
     "href": "chapters/chap1/index.html",
     "title": "Chapter 1",
     "section": "",
-    "text": "Chapter 1 sets out the overall plan of the book, putting it in the context of my own history with doing giscience in (often distant) relation to the rest of geography.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 1\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions for discussion 1\n\n\n\nquestions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
+    "text": "Chapter 1 sets out the overall plan of the book, putting it in the context of my own history with doing giscience in (often distant) relation to the rest of geography.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks for Chapter 1\n\n\n\nlinks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions for discussion\n\n\n\nquestions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap8/fig8-04-voter-model.html",
@@ -893,14 +851,7 @@
     "href": "chapters/chap8/links-8.html",
     "title": "Links for Chapter 8",
     "section": "",
-    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!\n© 2023 David O’Sullivan"
-  },
-  {
-    "objectID": "chapters/chap8/links-8.html#links",
-    "href": "chapters/chap8/links-8.html#links",
-    "title": "Links for Chapter 8",
-    "section": "",
-    "text": "The XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\n\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!"
+    "text": "Figure 8.4\nThe XKCD comic marking the passing of John Conway is at xkcd.com.\n\n\nFootnote 14\nCosma Shalizi’s notes on D’Arcy Thompson are at http://bactra.org/notebooks/darcy-thompson.html (yes http, not https). Attention preservation notice: Cosma Shalizi’s website is a rabbithole!\n\n\n\n\n© 2023 David O’Sullivan"
   },
   {
     "objectID": "chapters/chap8/questions-8.html",

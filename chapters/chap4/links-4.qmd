@@ -6,7 +6,6 @@ categories:
 image: "links-4.png"
 ---
 
-## Links 
 ### Footnote 3 
 The Degree Confluence Project is at [confluence.org](https://confluence.org/).
 

@@ -1,12 +1,16 @@
 ---
-title: Questions for discussion 3
-subtitle: Scale and Projection
+title: Questions for discussion
+subtitle: Chapter 3 Scale and Projection
 categories:
   - questions
 image: "q3.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+Is scale all in our heads?
+
+<hr>
 
 **Have you come across any studies that range across the 10 to 15 orders of magnitude referenced on pages 46-47?**
 
@@ -15,7 +19,8 @@ What topics might demand consideration of such a wide range of scales? And what 
 <hr>
 
 **All things considered, does it really only make sense to think of scale as socially constructed?**
-Does scale really exist independent of human observation?
+Does scale really exist independent of human observation? Note that this is also an inference we might draw from the giscience perspectives on scale presented by Montello^[Montello DR. 1993. [Scale and multiple psychologies of space](https://link.springer.com/chapter/10.1007/3-540-57207-4_21). In AU Frank and I Campari (eds) *Spatial Information Theory: A Theoretical Basis for GIS*, pages 312-321. Lecture
+Notes in Computer Science 716. Springer.] and Couclelis^[Couclelis H. 1992. [People manipulate objects (but cultivate fields): Beyond the raster-vector debate in GIS](http://link.springer.com/chapter/10.1007/3-540-55966-3_3). In AU Frank, I Campari, and U Formentini (eds) *Theories and Methods of Spatio-Temporal Reasoning in Geographic Space*, pages 65–77. Lecture Notes in Computer Science 639. Springer.], discussed on pages 57-60.
 
 <hr>
 
