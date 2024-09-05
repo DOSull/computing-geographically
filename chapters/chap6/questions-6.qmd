@@ -1,9 +1,15 @@
 ---
-title: Questions for discussion 6
-subtitle: Relations, Networks, Flows
+title: Questions for discussion
+subtitle: Chapter 6 Relations, Networks, Flows
 categories:
   - questions
 image: "q6.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+
+
+<hr>
+
+**Is everything a network?**

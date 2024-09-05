@@ -11,3 +11,25 @@ language:
 Giscience has questions...
 
 <hr>
+
+**What are the possibilities and limitations of a system of addressing like what3words?^[Not including providing cute just-so solutions to puzzles in comedy dramas. See [this clip from _The Outlaws_ S3 ](https://www.youtube.com/watch?v=c6HLjNsdWLo)]**
+
+What might be the pros and cons of the non-hierarchical nature of what3words addressing scheme?
+
+<hr>
+
+**Think about the neighbourhood you live in. Where does it begin and end?** 
+
+How do you know when you've arrived 'home'?
+
+<hr>
+
+**Does the in place/out conception of place still apply with respect to graffiti post-[Banksy](https://en.wikipedia.org/wiki/Banksy)?**
+
+![Banksy mural in Beit SahourZaBanker, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons](512px-Bethlehem_Banksy.jpg)
+
+<br>
+
+**On pages 106-7 I suggest that atlases and story maps with their narrative tendencies may be better vehicles for conveying a sense of place than more traditionaly GIS approaches. Discuss.**
+
+This prompt probably works best if you collect together a bunch of example atlases and/or story maps to consider.

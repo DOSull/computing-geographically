@@ -28,14 +28,16 @@ The big question (at least for me):
 
 **How have giscience and geography come to be so separate?**
 
-I mention in the preamble (page 2) that my original plan was 
+I mention in the preamble (page 2) that 
 
 > I originally planned for this opening chapter to be a historical account of the relationship between giscience and geography. It would open on a couple of my intellectual heroes from early in geography’s quantitative revolution, showing how their work was deeply engaged with geography, and contrast that with how distanced from geography giscience and GIS have become. Then, somehow or other I was going to explain how this distance had grown. 
 
-What happened? Do any of the capsule explanations that follow this quote seem more plausible than the others? I *know*, this is an unfair question: I ducked answering it completely. That just makes it all the more worth thinking about.
+What happened? Do any of the capsule explanations that follow this quote seem more plausible than the others? I *know*, this is an unfair question: I ducked answering it completely. But that just makes it all the more worth thinking about.
 
 <hr>
 
 And finally, a silly question:
 
 **Who were those two intellectual heroes I chickened out of writing up?!**
+
+No clues.

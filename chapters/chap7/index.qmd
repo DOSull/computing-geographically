@@ -6,7 +6,7 @@ listing:
   contents:
     - "links-7.qmd"
     - "fig7-0*.qmd"
-    # - "questions-7.qmd"
+    - "questions-7.qmd"
   sort: false
   type: grid
 ---

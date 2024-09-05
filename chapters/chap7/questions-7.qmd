@@ -7,3 +7,13 @@ image: "q7.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+It's about time...
+
+<hr>
+
+**Have the cartographic origins of GIS (and by extension giscience) doomed it to struggling to adequately handle time and change?**
+
+<hr>
+
+**What distinguishes contemporary approaches to 'place'  from Hartshorne's regional geography?**

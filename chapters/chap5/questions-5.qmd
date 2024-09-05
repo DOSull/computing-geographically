@@ -7,3 +7,13 @@ image: "q5.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+<hr>
+
+**Considering examples discussed in this chapter (e.g.,airports) or other examples of 'strange' geographies, what changes to standard ways of representing areas on maps or in data might these call for?**
+
+<hr>
+
+**What are the implications of adopting Smith's approach to spatial data where areas cannot overlap?**
+
+When would such an approach break down?
