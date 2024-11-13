@@ -6,7 +6,7 @@ about:
   image: cg-cover.jpg
 ---
 
-This website provides a collection of resources for the book [_Computing Geographically: Bridging Giscience and Geography_](https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938) (Guilford Press, New York).
+This website provides a collection of resources for the book O'Sullivan D. 2024. [_Computing Geographically: Bridging Giscience and Geography_](https://www.guilford.com/books/Computing-Geographically/David-O'Sullivan/9781462553938) (Guilford Press, New York).
 
 Included are:
 
