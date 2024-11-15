@@ -33,7 +33,8 @@ Here's some _R_ code that does all this in a very rough and ready way using a tr
 
 First we read in a New Zealand coastline polygon, which we are going to transform, hex grid centres in NZTM, and the same hex grid centres transformed by _ScapeToad_ based on a population cartogram. 
 
-```{r results=FALSE}
+```{r}
+#| results: false
 library(sf)
 library(dplyr)
 library(tmap)
@@ -42,7 +43,7 @@ library(knitr)
 
 nz <- st_read("nz.gpkg")
 hex_pts <- st_read("hex-centres.gpkg")
-hex_pts_carto <- st_read("hex-centres-carto.gpkg") %>%
+hex_pts_carto <- st_read("hex-centres-carto.gpkg") |>
   st_set_crs(st_crs(hex_pts))
 ```
 
@@ -51,9 +52,9 @@ And here is a map of the three layers.
 ```{r fig.width=5, fig.height=7}
 #| code-fold: true
 tm_shape(hex_pts) + 
-  tm_dots(size = 0.0005) +
+  tm_dots(size = 0.02) +
   tm_shape(hex_pts_carto) +
-  tm_dots(col = "red", size = 0.0005) +
+  tm_dots(fill = "red", size = 0.02) +
   tm_shape(nz) +
   tm_borders(col = "blue") +
   tm_layout(frame = FALSE)
@@ -65,16 +66,16 @@ The black dots are the hex grid centres in NZTM, and the red dots are where they
 Next we build a 'transformation' table with the $(x_1, y_1)$ and $(x_2, y_2)$ pairs of corresponding coordinate pairs in the NZTM and population cartogram spaces.
 
 ```{r}
-x1y1 <- hex_pts %>%
-  st_coordinates() %>%
-  as_tibble() %>%
-  select(1:2) %>% 
+x1y1 <- hex_pts |>
+  st_coordinates() |>
+  as_tibble() |>
+  select(1:2) |> 
   rename(x1 = X, y1 = Y)
 
-x2y2 <- hex_pts_carto %>%
-  st_coordinates() %>%
-  as_tibble() %>%
-  select(1:2) %>% 
+x2y2 <- hex_pts_carto |>
+  st_coordinates() |>
+  as_tibble() |>
+  select(1:2) |> 
   rename(x2 = X, y2 = Y)
 
 transform <- bind_cols(x1y1, x2y2)
@@ -91,11 +92,11 @@ kable(head(transform), format = "html")
 The simple interpolator we are using can only transform points, so we convert the coastline data to points.
 
 ```{r}
-nz_coast_pts <- nz %>%
-  st_cast("MULTIPOINT") %>%
-  st_coordinates() %>%
-  as_tibble() %>%
-  select(1:2) %>%
+nz_coast_pts <- nz |>
+  st_cast("MULTIPOINT") |>
+  st_coordinates() |>
+  as_tibble() |>
+  select(1:2) |>
   rename(x = X, y = Y)
 ```
 
@@ -105,23 +106,25 @@ Each coordinate (i.e. $x$ and $y$) is separately interpolated. The interpolator 
 Anyway, using `akima::interpp` here is how we can do that.
 
 ```{r}
-nz_coast_carto_x <- interpp(x = transform$x1, y = transform$y1, z = transform$x2, 
-                            xo = nz_coast_pts$x, yo = nz_coast_pts$y)$z
-nz_coast_carto_y <- interpp(x = transform$x1, y = transform$y1, z = transform$y2, 
-                            xo = nz_coast_pts$x, yo = nz_coast_pts$y)$z
+nz_coast_carto_x <- interpp(
+  x = transform$x1, y = transform$y1, z = transform$x2,
+  xo = nz_coast_pts$x, yo = nz_coast_pts$y)$z
+nz_coast_carto_y <- interpp(
+  x = transform$x1, y = transform$y1, z = transform$y2,
+  xo = nz_coast_pts$x, yo = nz_coast_pts$y)$z
 ```
 
 Then we make these up into a spatial dataframe, and map them. The original coast outline is in blue, the transformed coast points in red. 
 
 ```{r fig.width=5, fig.height=7}
-nz_coast_carto <- data.frame(x = nz_coast_carto_x, 
-                             y = nz_coast_carto_y) %>%
+nz_coast_carto <- tibble(x = nz_coast_carto_x, 
+                         y = nz_coast_carto_y) |>
   st_as_sf(coords = c("x", "y"), crs = 2193)
 
 tm_shape(nz) + 
   tm_borders(col = "blue", lwd = 0.35) +
   tm_shape(nz_coast_carto) +
-  tm_dots(col = "red", size = 0.005) +
+  tm_dots(fill = "red", size = 0.02) +
   tm_layout(frame = FALSE)
 ```
 
