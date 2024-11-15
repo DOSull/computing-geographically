@@ -37,7 +37,7 @@ First we read in a New Zealand coastline polygon, which we are going to transfor
 #| results: false
 library(sf)
 library(dplyr)
-library(tmap)
+library(ggplot2)
 library(akima)
 library(knitr)
 
@@ -51,13 +51,11 @@ And here is a map of the three layers.
 
 ```{r fig.width=5, fig.height=7}
 #| code-fold: true
-tm_shape(hex_pts) + 
-  tm_dots(size = 0.02) +
-  tm_shape(hex_pts_carto) +
-  tm_dots(fill = "red", size = 0.02) +
-  tm_shape(nz) +
-  tm_borders(col = "blue") +
-  tm_layout(frame = FALSE)
+ggplot(hex_pts) +
+  geom_sf(size = 0.0001) +
+  geom_sf(data = hex_pts_carto, colour = "red", size = 0.0001) +
+  geom_sf(data = nz, colour = "blue", fill = "#00000000") +
+  theme_void()
 ```
 
 The black dots are the hex grid centres in NZTM, and the red dots are where they ended up when transformed according to the population cartogram.
@@ -121,11 +119,10 @@ nz_coast_carto <- tibble(x = nz_coast_carto_x,
                          y = nz_coast_carto_y) |>
   st_as_sf(coords = c("x", "y"), crs = 2193)
 
-tm_shape(nz) + 
-  tm_borders(col = "blue", lwd = 0.35) +
-  tm_shape(nz_coast_carto) +
-  tm_dots(fill = "red", size = 0.02) +
-  tm_layout(frame = FALSE)
+ggplot(nz) +
+  geom_sf(colour = "blue", fill = "#00000000") +
+  geom_sf(data = nz_coast_carto, colour = "red", size = 0.0001) +
+  theme_void()
 ```
 
 ## Embedding this in GIS
