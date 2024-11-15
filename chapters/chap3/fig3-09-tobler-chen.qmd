@@ -28,6 +28,7 @@ In any case, this is simply a standard cylindrical equal-area projection with st
 
 ```{r message=FALSE}
 library(sf)
+library(tmap) # for its world dataset
 library(ggplot2)
 library(tmaptools)
 library(dplyr)
@@ -58,7 +59,7 @@ world_tc <- World %>%
   st_transform("+proj=cea lat_ts=55.654")
 
 ggplot(world_tc) +
-  geom_sf(fill = "#aaeecc") +
+  geom_sf(fill = "#aaeecc", colour = NA) +
   coord_sf(label_graticule = "", expand = FALSE) +
   scale_x_continuous(breaks = -12:12 * 15) +
   scale_y_continuous(breaks = -6:6 * 15)

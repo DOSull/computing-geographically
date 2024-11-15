@@ -16,6 +16,7 @@ knitr:
 
 ```{r message=FALSE}
 library(sf)
+library(tmap) # for its world dataset
 library(ggplot2)
 library(tmaptools)
 library(dplyr)
@@ -53,7 +54,7 @@ That's pretty much it. So here are the maps.
 
 ```{r fig.width=10, fig.height=5}
 ggplot(world) +
-  geom_sf(fill = "#aaeecc") +
+  geom_sf(fill = "#aaeecc", colour = NA) +
   coord_sf(label_graticule = "", expand = FALSE) +
   scale_x_continuous(breaks = -12:12 * 15) +
   scale_y_continuous(breaks = -6:6 * 15)
@@ -61,7 +62,7 @@ ggplot(world) +
 
 ```{r fig.width=10, fig.height=3.3}
 ggplot(world_lcea) +
-  geom_sf(fill = "#aaeecc") +
+  geom_sf(fill = "#aaeecc", colour = NA) +
   coord_sf(label_graticule = "", expand = FALSE) +
   scale_x_continuous(breaks = -12:12 * 15) +
   scale_y_continuous(breaks = -6:6 * 15)
