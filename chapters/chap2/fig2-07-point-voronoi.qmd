@@ -19,7 +19,7 @@ This is most conveniently made using `spatstat`, but I've shown it here making a
 ```{r message=FALSE, warning=FALSE, results=FALSE}
 library(spatstat)
 library(sf)
-library(tmap)
+library(ggplot2)
 ```
 
 There are a few steps making a `spatstat` point pattern into a simple features dataset...
@@ -43,11 +43,11 @@ pp_vor <- pp %>%
 And finally a map.
 
 ```{r warning=FALSE}
-tm_shape(pp_vor, bbox = pp %>% st_union() %>% st_buffer(0.05)) + 
-  tm_polygons(border.col = "white") +
-  tm_shape(pp) + 
-  tm_bubbles(col = "white", alpha = 0, border.col = "black", size = 0.1) +
-  tm_layout(frame = FALSE)
+ggplot(pp_vor) +
+  geom_sf(fill = "#dddddd", color = "white", lwd = 0.5) +
+  geom_sf(data = pp, colour = "black", shape = 1, size = 2) +
+  coord_sf(xlim = c(-0.05, 1.05), ylim = c(-0.05, 1.05), expand = FALSE) +
+  theme_void()
 ```
 
 ```{r}
