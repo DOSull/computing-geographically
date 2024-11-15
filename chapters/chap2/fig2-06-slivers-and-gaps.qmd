@@ -20,7 +20,8 @@ Read in some polygons.
 
 ```{r results=FALSE}
 library(sf)
-library(tmap)
+library(ggplot2)
+library(cols4all)
 library(dplyr)
 
 polygons <- st_read("some-polygons.gpkg")
@@ -29,20 +30,22 @@ polygons <- st_read("some-polygons.gpkg")
 Simplify them without due care and attention, and _voila_! 
 
 ```{r fig.width=8, fig.height=5}
-m1 <- tm_shape(polygons) +
-  tm_fill(col = "name", alpha = 0.5) +
-  tm_layout(
-    title = "Source polygons", frame = FALSE,
-    legend.show = FALSE)
-
-m2 <- tm_shape(polygons %>% 
-                 st_simplify(dTolerance = 100)) +
-  tm_fill(col = "name", alpha = 0.5) +
-  tm_layout(
-    title = "Source polygons simplified", frame = FALSE,
-    legend.show = FALSE)
-
-tmap_arrange(m1, m2, ncol = 2)
+all_polys_1 <- bind_rows(
+  polygons |> 
+    mutate(source = "Source polygons"),
+  polygons |> 
+    st_simplify(dTolerance = 100) |> 
+    mutate(source = "Source polygons simplified")
+)
+ggplot(all_polys_1) +
+  geom_sf(aes(fill = name), alpha = 0.35, lwd = 0) +
+  scale_fill_discrete_c4a_cat(palette = "palette36") +
+  guides(fill = "none") +
+  facet_wrap( ~ source) +
+  theme_void() +
+  theme(
+    strip.text = element_text(size = 16, 
+                              margin = margin(3, 0, 3, 0, "pt")))
 ```
 
 By contrast if we use the simplification function from `rmapshaper` topology is preserved, even with pretty dramatic simplification (here retaining only 25% of polygon vertices.)
@@ -50,13 +53,22 @@ By contrast if we use the simplification function from `rmapshaper` topology is 
 ```{r fig.width=8, fig.height=5}
 library(rmapshaper)
 
-m3 <- tm_shape(polygons %>% ms_simplify(keep = 0.25)) +
-  tm_fill(col = "name", alpha = 0.5) +
-  tm_layout(
-    title = "Topology preserved", frame = FALSE,
-    legend.show = FALSE)
-
-tmap_arrange(m1, m3, ncol = 2)
+all_polys_2 <- bind_rows(
+  polygons |> 
+    mutate(source = "Source polygons"),
+  polygons |> 
+    ms_simplify(keep = 0.25) |> 
+    mutate(source = "Topology preserved")
+)
+ggplot(all_polys_2) +
+  geom_sf(aes(fill = name), alpha = 0.35, lwd = 0) +
+  scale_fill_discrete_c4a_cat(palette = "palette36") +
+  guides(fill = "none") +
+  facet_wrap( ~ source) +
+  theme_void() +
+  theme(
+    strip.text = element_text(size = 16, 
+                              margin = margin(3, 0, 3, 0, "pt")))
 ```
 
 The `rmapshaper::topojson_write` function also allows you to write your polygons out to the topology preserving [TopoJSON format](https://github.com/topojson/topojson).
