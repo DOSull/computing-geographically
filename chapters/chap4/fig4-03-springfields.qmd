@@ -20,7 +20,8 @@ To understand why this version is different from the published figure, read on..
 
 ```{r}
 library(sf)
-library(tmap)
+library(tmap) # for its world map
+library(ggplot2)
 library(dplyr)
 library(stringr)
 library(units)
@@ -173,15 +174,12 @@ For what it's worth, all these shenanigans are a good example of why more flexib
 ## Yeah, OK, _now_ make a map of all those Springfields
 
 ```{r fig.width=10, fig.height=5}
-tm_shape(disc) + 
-  tm_fill(col = "#eeeeee") + 
-  tm_shape(world) + 
-  tm_fill(col = "white") +
-  tm_shape(springfields) +
-  tm_dots(col = "red", size = 0.15, alpha = 0.15) +
-  tm_shape(graticule) +
-  tm_lines(col = "gray", lwd = 0.5) +
-  tm_layout(frame = FALSE)
+ggplot() + 
+  geom_sf(data = disc, fill = "#eeeeee", colour = NA) +
+  geom_sf(data = world, fill = "white", colour = NA) +
+  geom_sf(data = springfields, colour = "red", size = 0.5) +
+  geom_sf(data = graticule, colour = "gray", lwd = 0.15) +
+  theme_void()
 ```
 
 ```{r}

@@ -16,9 +16,25 @@ knitr:
 
 ```{r message=FALSE}
 library(sf)
-library(tmap)
+library(ggplot2)
 library(tmaptools)
 library(dplyr)
+```
+
+Set up some theme stuff for the maps.
+
+```{r}
+#| code-fold: true
+
+theme_set(theme_void())
+theme_update(
+  plot.margin = unit(c(0, 0, 0, 0), "pt"),
+  plot.background = element_rect(fill = "#ddeeff"),
+  panel.background = element_rect(fill = NA),
+  panel.border = element_rect(fill = NA, linewidth = 0.5),
+  panel.grid = element_line(colour = "black", linewidth = 0.05),
+  panel.ontop = TRUE
+)
 ```
 
 Use the supplied `World` dataset (in lat-lon EPSG 4326) and make projections as required.
@@ -36,21 +52,19 @@ world_lcea <- world %>%
 That's pretty much it. So here are the maps.
 
 ```{r fig.width=10, fig.height=5}
-tm_shape(world, bbox = bb(xlim = c(-180, 180),
-                          ylim = c(-90, 90))) +
-  tm_fill(col = "#aaeecc") +
-  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),
-                labels.show = FALSE, lwd = 0.5) +
-  tm_layout(inner.margins = 0, bg.color = "#ddeeff")
+ggplot(world) +
+  geom_sf(fill = "#aaeecc") +
+  coord_sf(label_graticule = "", expand = FALSE) +
+  scale_x_continuous(breaks = -12:12 * 15) +
+  scale_y_continuous(breaks = -6:6 * 15)
 ```
 
-```{r fig.width=10, fig.height=3}
-tm_shape(world_lcea, bbox = bb(xlim = c(-180, 180),
-                               ylim = c(-90, 90))) +
-  tm_fill(col = "#aaeecc") +
-  tm_graticules(x = seq(-180, 180, 15), y = seq(-90, 90, 15),
-                labels.show = FALSE, lwd = 0.5) +
-  tm_layout(inner.margins = 0, bg.color = "#ddeeff")
+```{r fig.width=10, fig.height=3.3}
+ggplot(world_lcea) +
+  geom_sf(fill = "#aaeecc") +
+  coord_sf(label_graticule = "", expand = FALSE) +
+  scale_x_continuous(breaks = -12:12 * 15) +
+  scale_y_continuous(breaks = -6:6 * 15)
 ```
 
 ```{r}

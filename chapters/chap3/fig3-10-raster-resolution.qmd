@@ -19,6 +19,7 @@ This figure shows how you can't recover raster information after aggregation.
 ```{r message=FALSE}
 library(terra)
 library(tmap)
+library(cols4all)
 library(dplyr)
 ```
 
@@ -42,18 +43,21 @@ Make maps. For the images in the book, I dissolved the raster layers to polygons
 
 ```{r}
 m1 <- tm_shape(z) + 
-  tm_raster(breaks = seq(180, 280, 10), 
-            palette = "BrBG") + 
+  tm_raster(
+    col.scale = tm_scale(breaks = seq(180, 280, 10),
+                         values = "brewer.br_bg")) + 
   tm_layout(frame = FALSE, legend.show = FALSE)
 
 m2 <- tm_shape(z10) + 
-  tm_raster(breaks = seq(180, 280, 10), 
-            palette = "BrBG") + 
+  tm_raster(
+    col.scale = tm_scale(breaks = seq(180, 280, 10),
+                         values = "brewer.br_bg")) + 
   tm_layout(frame = FALSE, legend.show = FALSE)
 
 m3 <- tm_shape(z_dash) + 
-  tm_raster(breaks = seq(180, 280, 10), 
-            palette = "BrBG", style = "fixed") + 
+  tm_raster(
+    col.scale = tm_scale(breaks = seq(180, 280, 10),
+                         values = "brewer.br_bg")) + 
   tm_layout(frame = FALSE, legend.show = FALSE)
 
 tmap_arrange(m1, m2, m3)

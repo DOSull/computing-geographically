@@ -18,9 +18,13 @@ I made an alternative version of this map for some slides. It shows off the litt
 
 ```{r fig.width=10, fig.height=6}
 library(sf)
-library(tmap)
+library(ggplot2)
 library(dplyr)
+```
 
+Here's the superpower in action where we make an affine rotation matrix and multiply the geometries in the dataset by it. You can use similar operations to translate geometries, although keeping everything lined up can be tricky.
+
+```{r}
 ang <- 40 * pi / 180
 rotation <- matrix(c(cos(ang), -sin(ang), 
                      sin(ang),  cos(ang)), 2, 2, byrow = TRUE)
@@ -33,13 +37,19 @@ toponyms <- st_read("placenames.gpkg") %>%
   mutate(maori = reo > 0) %>%
   mutate(geom = geom * rotation) %>%
 st_filter(nz)
+```
 
-tm_shape(nz) + 
-  tm_fill(col = "#eee8d5") + 
-  tm_shape(toponyms %>% arrange(id)) +
-  tm_dots(col = "maori", palette = c("slategrey", "red"), size = 0.005, alpha = 0.2,
-          legend.show = FALSE) +
-  tm_layout(frame = FALSE, inner.margins = 0.05, bg.color = "#002b36")
+
+And now a map with colour choices in large measure dictated by [the slides](https://southosullivan.com/talks/UCanterbury-seminar-2023/) I was making this map for.
+
+```{r}
+ggplot() +
+  geom_sf(data = nz, fill = "#eee8d5") +
+  geom_sf(data = toponyms |> arrange(id), aes(colour = maori), size = 0.01, alpha = 0.2) +
+  scale_colour_manual(values = c("slategrey", "red")) +
+  guides(colour = "none") +
+  theme_void() +
+  theme(panel.background = element_rect(fill = "#002b36"))
 ```
 
 As noted in the book, the materials for this figure draw on the [amazing work of Chris McDowall and Tim Denee](https://github.com/fogonwater/we-are-here/) in their [_We Are Here_ atlas](https://www.masseypress.ac.nz/books/we-are-here/), the [Toitū Te Whenua &ndash; Land Information New Zealand](https://www.linz.govt.nz/) [gazetteer of placenames](https://data.linz.govt.nz/layer/51681-nz-place-names-nzgb/), and on [Te Hiku Media](https://tehiku.nz/)'s [Ngā-kupu tools](https://github.com/TeHikuMedia/nga-kupu).  
