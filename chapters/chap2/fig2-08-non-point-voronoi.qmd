@@ -22,26 +22,28 @@ Differences between the versions are due to the original being prepared across a
 ```{r message=FALSE, warning=FALSE, results=FALSE}
 library(sf)
 library(dplyr)
-library(tmap)
+library(ggplot2)
 ```
 
 ## Load data
 You'll need your own roads and buildings data. Mine came from OpenStreetMap via the [QGIS QuickOSM plugin](https://plugins.qgis.org/plugins/QuickOSM/).
 
 ```{r message=FALSE, warning=FALSE, results=FALSE}
-roads <- st_read("final-roads.gpkg") %>%
+roads <- st_read("final-roads.gpkg") |>
   select(full_id, osm_id)
-bldgs <- st_read("final-buildings.gpkg") %>%
+bldgs <- st_read("final-buildings.gpkg") |>
   select(full_id, osm_id)
 ```
 
 And a quick map to see what we're working with.
 
 ```{r}
-tm_shape(bldgs) + 
-  tm_fill() + 
-  tm_shape(roads) + 
-  tm_lines()
+ggplot(bldgs) +
+  geom_sf() +
+  geom_sf(data = roads) +
+  coord_sf(expand = FALSE) +
+  theme_void() +
+  theme(panel.border = element_rect(fill = NA, linewidth = 1.5))
 ```
 
 ## Interpolate points along the lines and polygon boundaries
@@ -50,13 +52,13 @@ Place points along the boundaries of each of these.
 For the roads we combine all elements into a single line object and assign the same `id` to every point generated.
 
 ```{r warning=FALSE}
-r_pts <- roads %>%
-  st_union() %>%
-  st_cast("LINESTRING") %>%
-  st_line_sample(density = 1) %>%
-  st_cast("POINT") %>%
-  st_as_sf() %>%
-  rename(geometry = x) %>% # geom column gets misnamed 'x' 
+r_pts <- roads |>
+  st_union() |>
+  st_cast("LINESTRING") |>
+  st_line_sample(density = 1) |>
+  st_cast("POINT") |>
+  st_as_sf() |>
+  rename(geometry = x) |> # geom column gets misnamed 'x' 
   mutate(id = "0")
 ```
 
@@ -64,16 +66,16 @@ For the buildings we wish to retain the building IDs, so we do a join based on t
 
 ```{r warning=FALSE}
 b_pts <- bldgs %>%
-  st_cast("MULTILINESTRING") %>%
+  st_cast("MULTILINESTRING") |>
   st_cast("LINESTRING") %>%
   # if any perimeter is < 1 then the sampling step fails
   filter(st_length(.) >= units::as_units(1, "m")) %>%
-  st_line_sample(density = 1) %>%
-  st_cast("POINT") %>%
-  st_as_sf() %>%
-  rename(geom = x) %>%
-  st_join(bldgs, join = st_nearest_feature) %>%
-  mutate(id = full_id) %>%
+  st_line_sample(density = 1) |>
+  st_cast("POINT") |>
+  st_as_sf() |>
+  rename(geometry = x) |>
+  st_join(bldgs, join = st_nearest_feature) |>
+  mutate(id = full_id) |>
   select(id)
 ```
 
@@ -87,23 +89,23 @@ all_pts <- bind_rows(r_pts, b_pts)
 Now make a Voronoi layer from the points.
 
 ```{r warning=FALSE}
-pts_vor <- all_pts %>%
-  st_union() %>%
-  st_voronoi()%>%
-  st_cast() %>%
-  st_as_sf() %>%
+pts_vor <- all_pts |>
+  st_union() |>
+  st_voronoi() |>
+  st_cast() |>
+  st_as_sf() |>
   st_join(all_pts, left = FALSE) 
 ```
 
 We need to clip this to the extent of the buildings data.
 
 ```{r warning=FALSE}
-extent <- bldgs %>%
-  st_bbox() %>%
-  st_as_sfc() %>%
+extent <- bldgs |>
+  st_bbox() |>
+  st_as_sfc() |>
   st_sf()
 
-pts_vor <- pts_vor %>%
+pts_vor <- pts_vor |>
   st_intersection(extent)
 
 plot(pts_vor, main = "Voronoi of all points", key.pos = NULL)
@@ -124,18 +126,21 @@ plot(diss_vor, main = "Dissolved Voronois", key.pos = NULL)
 Finally, we can make a map, similar to the one in Figure 2.8 in the book.
 
 ```{r warning=FALSE}
-tm_shape(bldgs, bbox = extent) +
-  tm_fill() + 
-  # make the road into a polygon for clipping to extent
-  tm_shape(roads %>% st_buffer(2) %>% st_intersection(extent)) + 
-  tm_fill(col = "#cc9999") +
-  # filter points so only those inside the extent are in the map
-  tm_shape(all_pts %>% st_filter(extent %>% st_buffer(-.1))) + 
-  tm_dots(col = "black") +
-  tm_shape(pts_vor) + 
-  tm_borders(col = "lightgray", lwd = 0.75) + 
-  tm_shape(diss_vor) + 
-  tm_borders(col = "black")
+bb <- st_bbox(extent)
+ggplot() +
+  geom_sf(data = bldgs, 
+          lwd = 0) +
+  geom_sf(data = roads |> st_buffer(2) |> st_intersection(extent), 
+          fill = "#cc9999", lwd = 0) +
+  geom_sf(data = all_pts |> st_filter(extent |> st_buffer(-.1)), 
+          colour = "black", size = 0.1) +
+  geom_sf(data = pts_vor, 
+          colour = "lightgray", fill = NA, lwd = 0.35) +
+  geom_sf(data = diss_vor, 
+          colour = "black", fill = NA) +
+  coord_sf(expand = FALSE) +
+  theme_void() +
+  theme(panel.border = element_rect(fill = NA, linewidth = 1.5))
 ```
 
 ```{r}
