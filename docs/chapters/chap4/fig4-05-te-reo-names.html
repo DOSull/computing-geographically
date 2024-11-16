@@ -291,7 +291,7 @@ Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000</code></pre>
 </div>
 </div>
 </div>
-<p>As noted in the book, the materials for this figure draw on the <a href="https://github.com/fogonwater/we-are-here/">amazing work of Chris McDowall and Tim Denee</a> in their <a href="https://www.masseypress.ac.nz/books/we-are-here/"><em>We Are Here</em> atlas</a>, the <a href="https://www.linz.govt.nz/">Toitū Te Whenua – Land Information New Zealand</a> <a href="https://data.linz.govt.nz/layer/51681-nz-place-names-nzgb/">gazetteer of placenames</a>, and on <a href="https://tehiku.nz/">Te Hiku Media</a>’s <a href="https://github.com/TeHikuMedia/nga-kupu">Ngā-kupu tools</a>.</p>
+<p>As noted in the book, the materials for this figure draw on the <a href="https://github.com/fogonwater/we-are-here/">amazing work of Chris McDowall and Tim Denee</a> in their <a href="https://www.masseypress.ac.nz/books/we-are-here/"><em>We Are Here</em> atlas</a>, the <a href="https://www.linz.govt.nz/">Toitū Te Whenua – Land Information New Zealand</a> <a href="https://data.linz.govt.nz/layer/51681-nz-place-names-nzgb/">gazetteer of placenames</a>, and on <a href="https://tehiku.nz/">Te Hiku Media</a>’s <a href="https://github.com/DOSull/nga-kupu">Ngā-kupu tools</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -733,7 +733,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

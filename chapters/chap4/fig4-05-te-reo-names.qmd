@@ -52,7 +52,7 @@ ggplot() +
   theme(panel.background = element_rect(fill = "#002b36"))
 ```
 
-As noted in the book, the materials for this figure draw on the [amazing work of Chris McDowall and Tim Denee](https://github.com/fogonwater/we-are-here/) in their [_We Are Here_ atlas](https://www.masseypress.ac.nz/books/we-are-here/), the [Toitū Te Whenua &ndash; Land Information New Zealand](https://www.linz.govt.nz/) [gazetteer of placenames](https://data.linz.govt.nz/layer/51681-nz-place-names-nzgb/), and on [Te Hiku Media](https://tehiku.nz/)'s [Ngā-kupu tools](https://github.com/TeHikuMedia/nga-kupu).  
+As noted in the book, the materials for this figure draw on the [amazing work of Chris McDowall and Tim Denee](https://github.com/fogonwater/we-are-here/) in their [_We Are Here_ atlas](https://www.masseypress.ac.nz/books/we-are-here/), the [Toitū Te Whenua &ndash; Land Information New Zealand](https://www.linz.govt.nz/) [gazetteer of placenames](https://data.linz.govt.nz/layer/51681-nz-place-names-nzgb/), and on [Te Hiku Media](https://tehiku.nz/)'s [Ngā-kupu tools](https://github.com/DOSull/nga-kupu).  
 
 ```{r}
 #| code-fold: true

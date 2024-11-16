@@ -19,7 +19,7 @@ Again, the examples in the book were made using a NetLogo model based on [this o
 ## Model code
 The 1D elementary CA model code is in the block below. It returns a matrix of cell states, with each system state a row in the matrix.
 
-The key function is `one_d_ca(rule, n, density, t)`, which returns a `t` $\times$ `n` matrix, with initial density of 1's given by the `density` parameter, and the update rule being Wolfram code `rule`.
+The key function is `one_d_ca(rule, n, density, t)`, which returns a `t` $\times$ `n` matrix, with initial density of 1's given by the `density` parameter, and the update rule being the [Wolfram code](https://mathworld.wolfram.com/ElementaryCellularAutomaton.html) specified by `rule`.
 
 ```{r}
 #| code-fold: true
@@ -82,6 +82,8 @@ one_d_ca <- function(rule = 30, n = 64, density = 0.5, t = 192) {
 
 ## Making plots
 ### Figure 8.2
+The second figure is a little easier since there is only one of them...
+
 The matrix format is convenient for computation, and fine for plotting a single model result but that has to be converted to a dataframe to be plotted using `ggplot2`. So here is the pure _R_ version of Figure 8.2, but with time running from top to bottom, more cells, and more time.
 
 ```{r fig.width=8, fig.height=11}

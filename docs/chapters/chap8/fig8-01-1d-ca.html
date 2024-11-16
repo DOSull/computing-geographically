@@ -266,7 +266,7 @@ window.Quarto = {
 <section id="model-code" class="level2">
 <h2 class="anchored" data-anchor-id="model-code">Model code</h2>
 <p>The 1D elementary CA model code is in the block below. It returns a matrix of cell states, with each system state a row in the matrix.</p>
-<p>The key function is <code>one_d_ca(rule, n, density, t)</code>, which returns a <code>t</code> <span class="math inline">\(\times\)</span> <code>n</code> matrix, with initial density of 1’s given by the <code>density</code> parameter, and the update rule being Wolfram code <code>rule</code>.</p>
+<p>The key function is <code>one_d_ca(rule, n, density, t)</code>, which returns a <code>t</code> <span class="math inline">\(\times\)</span> <code>n</code> matrix, with initial density of 1’s given by the <code>density</code> parameter, and the update rule being the <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Wolfram code</a> specified by <code>rule</code>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -332,6 +332,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="making-plots">Making plots</h2>
 <section id="figure-8.2" class="level3">
 <h3 class="anchored" data-anchor-id="figure-8.2">Figure 8.2</h3>
+<p>The second figure is a little easier since there is only one of them…</p>
 <p>The matrix format is convenient for computation, and fine for plotting a single model result but that has to be converted to a dataframe to be plotted using <code>ggplot2</code>. So here is the pure <em>R</em> version of Figure 8.2, but with time running from top to bottom, more cells, and more time.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -846,7 +847,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
