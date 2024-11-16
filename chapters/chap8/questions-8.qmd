@@ -10,3 +10,19 @@ language:
 ![Image by [Noah Wulf](https://commons.wikimedia.org/wiki/User:Noah_Wulf) used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb8.jpg)
 
 <hr>
+
+It's not about time, it's about _becoming_...
+
+<hr>
+
+**So do these kinds of dynamic models&mdash;cellular automat and ABMs&mdash;_really_ address the process problem?**
+
+<hr>
+
+**If not CA and ABMs, then what?**
+
+What about the much-vaunted digital twins?
+
+<hr>
+
+**Setting aside for now what they might look like, in what ways might more process-oriented platforms be useful?**

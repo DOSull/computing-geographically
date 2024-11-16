@@ -20,9 +20,9 @@ language:
 ::: {.callout-note collapse="true"}
 #### Update History
 
-| Date       | Changes       |
-|:-----------|:--------------|
-| 2023-10-27 | Initial post. |
+| Date       | Changes
+|:-          |:-------
+| 2023-10-27 | Initial post.
 
 :::
 

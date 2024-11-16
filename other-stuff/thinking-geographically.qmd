@@ -21,11 +21,11 @@ language:
 ::: {.callout-note collapse="true"}
 #### Update History
 
-| Date       | Changes                                               |
-|:-----------|:------------------------------------------------------|
-| 2024-04-25 | Added GLaD podcast logo and link to episode.          |
-| 2024-01-14 | Corrected some typos, and minor edits for flow.       |
-| 2024-01-13 | Initial post.                                         |
+| Date       | Changes
+|:-          |:-------
+| 2024-04-25 | Added GLaD podcast logo and link to episode.
+| 2024-01-14 | Corrected some typos, and minor edits for flow.
+| 2024-01-13 | Initial post.
 
 :::
 

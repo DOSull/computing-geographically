@@ -11,6 +11,10 @@ language:
 
 <hr>
 
+Are maps really just a bunch of lines on a ~~page~~ screen?!
+
+<hr>
+
 **Considering examples discussed in this chapter (e.g.,airports) or other examples of 'strange' geographies, what changes to standard ways of representing areas on maps or in data might these call for?**
 
 <hr>

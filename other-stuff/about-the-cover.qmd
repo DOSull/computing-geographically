@@ -20,12 +20,12 @@ knitr:
 ::: {.callout-note collapse="true"}
 #### Update History
 
-| Date       | Changes                                                                |
-|:-----------|:-----------------------------------------------------------------------|
-| 2023-11-04 | Added small image of the final cover to preamble.                      |
-| 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history. |
-| 2023-10-24 | Inverted coordinates to make landscape images.                         |
-| 2023-10-19 | Initial post.                                                          |
+| Date       | Changes
+|:-          |:-------
+| 2023-11-04 | Added small image of the final cover to preamble.
+| 2023-10-25 | Removed offsetting to centre of NZTM projection. Added Update history.
+| 2023-10-24 | Inverted coordinates to make landscape images.
+| 2023-10-19 | Initial post.
 
 :::
 

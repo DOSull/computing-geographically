@@ -11,4 +11,8 @@ language:
 
 <hr>
 
+Everything is related to everything else, but... wait, what?
+
+<hr>
+
 **Is everything a network?**
