@@ -14,36 +14,48 @@ knitr:
     message: false
 ---
 
-Not too much to say here, except that it would be nice if somebody would develop a better approach to mapping US-wide data. Counties really are a terrible base unit.
+Not too much to say here, except that it would be nice if somebody would develop a better approach to mapping US-wide data. Counties really are a terrible base unit. Augmenting the data with population density helps a little...
 
-```{r results=FALSE, fig.width=10, fig.height=7}
+```{r results=FALSE}
 library(sf)
 library(tmap)
+library(cols4all)
 library(dplyr)
 
-ca <- st_read("ca-pops.gpkg")
+ca <- st_read("ca-pops.gpkg") |>
+  mutate(area = st_area(geom), 
+         pop_density = population / area * 1000000)
+```
 
+An opportunity here to get acquainted with the new semantics of `tmap` version 4...
+
+```{r fig.width=10, fig.height=7}
 m1 <- tm_shape(ca) + 
-  tm_fill(col = "population", 
-          title = "Population", palette = "Reds") +
-  tm_borders(col = "white", lwd = 0.5) + 
-  tm_legend(position = c("left", "bottom")) +
-  tm_layout(frame = FALSE, legend.width = 0.5)
+  tm_polygons(
+    fill = "population", col = "white", lwd = 0.5,
+    fill.scale = tm_scale_intervals(values = "brewer.reds", 
+                                    style = "pretty"),
+    fill.legend = tm_legend(title = "Population", 
+                            position = c("left", "bottom"))) + 
+  tm_layout(frame = FALSE, legend.frame = FALSE)
   
 m2 <- tm_shape(ca) + 
-  tm_fill(col = "population", convert2density = TRUE, 
-          title = "Pop density", palette = "Greens") +
-  tm_borders(col = "white", lwd = 0.5) + 
-  tm_legend(position = c("left", "bottom")) +
-  tm_layout(frame = FALSE, legend.width = 0.5)
+  tm_polygons(
+    fill = "pop_density", col = "white", lwd = 0.5,
+    fill.scale = tm_scale_intervals(values = "brewer.greens",
+                                    style = "pretty"),
+    fill.legend = tm_legend(title = "Pop density", 
+                            position = c("left", "bottom"))) +
+  tm_layout(frame = FALSE, legend.frame = FALSE)
 
 m3 <- tm_shape(ca) + 
-  tm_fill(col = "population", convert2density = TRUE, 
-          title = "Pop density", style = "log10_pretty", 
-          palette = "Blues") +
-  tm_borders(col = "white", lwd = 0.5) + 
-  tm_legend(position = c("left", "bottom")) +
-  tm_layout(frame = FALSE, legend.width = 0.5)
+  tm_polygons(
+    fill = "pop_density", col = "white", lwd = 0.5,
+    fill.scale = tm_scale_intervals(values = "brewer.blues", 
+                                    style = "log10_pretty"),
+    fill.legend = tm_legend(title = "Pop density", 
+                            position = c("left", "bottom"))) + 
+  tm_layout(frame = FALSE, legend.frame = FALSE)
   
 tmap_arrange(m1, m2, m3)
 ```

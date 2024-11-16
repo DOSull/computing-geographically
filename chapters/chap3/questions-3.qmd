@@ -3,10 +3,11 @@ title: Questions for discussion
 subtitle: Chapter 3 Scale and Projection
 categories:
   - questions
-image: "q3.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+![Image by [Hameltion](https://commons.wikimedia.org/wiki/User:Hameltion) used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb3.jpg)
 
 Is scale all in our heads?
 

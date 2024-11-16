@@ -3,10 +3,11 @@ title: Questions for discussion 4
 subtitle: Place and Meaning in Space
 categories:
   - questions
-image: "q4.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+![Image by [KMJ](https://de.wikipedia.org/wiki/Benutzer:KMJhttps://de.wikipedia.org/wiki/Benutzer:KMJ) used under a [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)](lightbulb4.jpg)
 
 Giscience has questions...
 

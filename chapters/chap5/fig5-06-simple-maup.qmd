@@ -12,22 +12,23 @@ knitr:
   opts_chunk: 
     warning: false
     message: false
+    results: false
 ---
 
 I've remade this one in colour, because I think it's a bit easier to see this way.
 
 Some libraries:
 
-```{r message=FALSE, warning=FALSE, results=FALSE}
+```{r}
 library(sf)
 library(dplyr)
-library(tmap)
-library(MASS)
+library(tidyr)
+library(ggplot2)
 ```
 
 We need to make a grid of values, with a clear gradient in one direction. The code for making geometries in _R_ is ugly, so I've hidden it.
 
-```{r message=FALSE, warning=FALSE, results=FALSE}
+```{r}
 #| code-fold: true
 make_square <- function(x = 0, y = 0, d = 1) {
   xs <- x + c(-1, 1, 1, -1) * d / 2
@@ -37,56 +38,60 @@ make_square <- function(x = 0, y = 0, d = 1) {
   st_polygon(list(matrix(c(xs, ys), ncol = 2)))
 }
 
-grid <- expand.grid(1:10, 1:10)
+grid <- expand_grid(x = 1:10, y = 1:10) |> as_tibble()
 
 polys <- list()
 for (r in 1:nrow(grid)) {
-  polys <- c(polys, make_square(x = grid[r, 1], y = grid[r, 2]))
+  polys <- c(polys, make_square(x = grid$x[r], y = grid$y[r]))
 }
 
-poly_sf <- polys %>% 
-  lapply(list) %>%
-  lapply(st_polygon) %>%
-  st_sfc() %>%
+poly_sf <- polys |> 
+  lapply(list) |>
+  lapply(st_polygon) |>
+  st_sfc() |>
   st_sf(x = grid[, 1], y = grid[, 2])
-n <- dim(poly_sf)[1]
-poly_sf$val <- poly_sf$x + runif(n, -0.5, 0.5)
+
+poly_sf$z <- poly_sf$x + runif(nrow(poly_sf), -0.5, 0.5)
 ```
 
 Anyway... we have a 10 by 10 grid of squares with values that increase from left to right:
 
-```{r message=FALSE, warning=FALSE, results=FALSE}
+```{r}
 brks <- .5 + (0:100) / 10
 
-tm_shape(poly_sf) +
-  tm_polygons(col = "val", palette = "Spectral", breaks = brks, lwd = 0.5) +
-  tm_layout(frame = FALSE, legend.show = FALSE)
+ggplot(poly_sf) + 
+  geom_sf(aes(fill = z)) + 
+  scale_fill_distiller(palette = "Spectral") +
+  guides(fill = "none") + 
+  theme_void()
 ```
 
-Now we aggregate into columns and rows, taking the mean value of our variable in each case.
+Now we aggregate into columns and rows, taking the mean value of our variable in each case, and then assembling them into a single dataset with a variable `aggregation` which we can use to 'facet' the results in to two maps.
 
-```{r message=FALSE, warning=FALSE, results=FALSE}
-column_sf <- poly_sf %>%
-  group_by(x) %>%
-  summarise(val = mean(val)) 
+```{r}
+column_sf <- poly_sf |>
+  group_by(x) |>
+  summarise(z = mean(z)) |>
+  mutate(aggregation = "by column")
 
-rows_sf <- poly_sf %>%
-  group_by(y) %>%
-  summarise(val = mean(val))
+row_sf <- poly_sf |>
+  group_by(y) |>
+  summarise(z = mean(z)) |>
+  mutate(aggregation = "by row")
+
+aggregated_data <- bind_rows(column_sf, row_sf)
 ```
 
 And now we can make maps of the results. The column-wise aggregation emphasizes the gradient, while the row-wise aggregation erases it completely, since every row has a similar set of values ranging from low to high, and when these are combined each row ends up pretty much the same.
 
-```{r message=FALSE, warning=FALSE, results=FALSE}
-m1 <- tm_shape(column_sf) +
-  tm_polygons(col = "val", palette = "Spectral", breaks = brks, lwd = 0.5) +
-  tm_layout(frame = FALSE, legend.show = FALSE)
-
-m2 <- tm_shape(rows_sf) +
-  tm_polygons(col = "val", palette = "Spectral", breaks = brks, lwd = 0.5) +
-  tm_layout(frame = FALSE, legend.show = FALSE)
-
-tmap_arrange(list(m1, m2), nrow = 1)
+```{r}
+ggplot(aggregated_data) +
+  geom_sf(aes(fill = z)) + 
+  scale_fill_distiller(palette = "Spectral") +
+  guides(fill = "none") + 
+  facet_wrap( ~ aggregation) +
+  theme_void() +
+  theme(strip.text = element_text(size = 14, margin = margin(2, 0, 2, 0, "pt")))
 ```
 
 ```{r}

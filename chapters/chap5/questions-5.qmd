@@ -3,10 +3,11 @@ title: Questions for discussion 5
 subtitle: Lines and Areas
 categories:
   - questions
-image: "q5.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+![Image by [BeŻet](https://commons.wikimedia.org/wiki/User:Be%C5%BBet) used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb5.jpg)
 
 <hr>
 

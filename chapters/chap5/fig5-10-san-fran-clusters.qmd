@@ -12,11 +12,12 @@ knitr:
   opts_chunk: 
     warning: false
     message: false
+    results: false
 ---
 
 This page produces a coloured version of Figure 5.10 which is easier to read (but may not show the same clusters).
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 library(tidyr)
 library(dplyr)
 library(sf)
@@ -28,7 +29,7 @@ library(cols4all)
 ## Data
 The data are as used in [Luc Guillemot's website example](http://lucguillemot.github.io/bayareageodemo/).
 
-```{r results=FALSE}
+```{r}
 sf_demog <- st_read("sf_clustering_data.gpkg")
 ```
 
@@ -38,18 +39,20 @@ There are some NA data which we will show as hatched areas using the [`ggpattern
 ```{r}
 nas <- sf_demog |>
   st_union() |>
-  st_difference(sf_demog |> drop_na() |> st_union())
+  st_difference(sf_demog |> 
+  drop_na() |> 
+  st_union())
 ```
 
 ## Run the clustering
 _k_-means clustering in _R_ using the base `kmeans` function is straightforward, but requires a non-spatial version of the dataset. We also remove the ID columns and the `cluster` assignment from the data (since we don't want to do clustering and include a variable that already designates a cluster).
 
 ```{r}
-sf_demog <- sf_demog %>%
+sf_demog <- sf_demog |>
   drop_na()
 
-sf_demog.d <- sf_demog %>%
-  st_drop_geometry() %>%
+sf_demog.d <- sf_demog |>
+  st_drop_geometry() |>
   select(-(1:2), -cluster)
 
 km <- kmeans(sf_demog.d, centers = 9)
@@ -58,7 +61,7 @@ km <- kmeans(sf_demog.d, centers = 9)
 Next we append the cluster result to the original spatial dataset so we can map it.
 
 ```{r fig.width=10, fig.height=6}
-sf_demog$k9 <- km$cluster %>% as.factor()
+sf_demog$k9 <- km$cluster |> as.factor()
 
 ggplot(nas) + 
   geom_sf_pattern(fill = "white", lwd = 0, 

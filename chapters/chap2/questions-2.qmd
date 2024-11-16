@@ -3,10 +3,12 @@ title: Questions for discussion
 subtitle: Chapter 2 Location and Space
 categories:
   - questions
-image: "q2.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+![Image by Thomas Oboe Lee used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb2.jpg)
+
 
 As this chapter argues, the nature of space is fundamental to geography and to giscience.
 

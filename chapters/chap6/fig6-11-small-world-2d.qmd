@@ -76,11 +76,11 @@ probs <- probs[keepers]
 
 df <- data.frame(p   = probs, 
                  cc  = cluster_coeffs, 
-                 mpl = mean_path_lens) %>% 
+                 mpl = mean_path_lens) |> 
   mutate(cc = rescale(cc, to = c(0, 1)), 
-         mpl = rescale(mpl, to = c(0, 1))) %>% 
+         mpl = rescale(mpl, to = c(0, 1))) |> 
   # remove first item, p=0 and not plottable
-  pivot_longer(-p) %>%
+  pivot_longer(-p) |>
   rename(Metric = name)
 ```
 

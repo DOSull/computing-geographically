@@ -16,25 +16,33 @@ knitr:
 
 This page attempts to show the various [spatial predicates of the 9-intersection model](https://en.wikipedia.org/wiki/DE-9IM#Spatial_predicates) presented in Figure 5.1 in code.
 
-First we make some shapes, and map them.
+First we make some shapes.
 
 ```{r message=FALSE, warning=FALSE}
 library(sf)
 library(dplyr)
-library(tmap)
+library(ggplot2)
+library(ggrepel)
 library(stringr)
 
+# a circle
 p1 <- st_point(c(-2, 0)) %>% st_buffer(1, nQuadSegs = 90)
+# an identical circle
 p2 <- p1
+# same circle shifted to the right so it is touching
 p3 <- p1 + c(2, 0)
+# shifted circle scaled to half size
 p4 <- p3 * matrix(c(0.5, 0, 0, 0.5), 2, 2)
+# and shifted down so it's touching p3 and overlapping p4 
 p5 <- p4 + c(0, -0.5)
+# a donut to the side
 p6 <- st_difference(p3, p4) + c(2.1, 0)
+# and a circle overlapping the donut
 p7 <- p4 * matrix(c(1.5, 0, 0, 1.5), 2, 2) + c(2, -1)
 
 polys <- st_sfc(list(p1, p2, p3, p4, p5, p6, p7)) %>% 
   st_sf() %>%
-  mutate(ID = 1:7, 
+  mutate(ID = as.factor(1:7), 
          dx = c(0, 0, .5, 0, 0, 0, 0), 
          dy = c(-1, 1, 2, 0, 0, 0, 0))
 ```
@@ -42,20 +50,18 @@ polys <- st_sfc(list(p1, p2, p3, p4, p5, p6, p7)) %>%
 Map and label these for reference.
 
 ```{r fig.width=8, fig.height=4}
-lines <- polys %>% st_cast("MULTILINESTRING") # for placing text labels
+xy <- polys |> st_centroid() |>
+  st_coordinates() |>
+  as.data.frame() |>
+  mutate(ID = polys$ID)
 
-tm_shape(polys) + 
-  tm_fill(col = "ID", alpha = 0.5, style = "cat", 
-          palette = c("red", "dodgerblue3", "darkgreen", 
-                      "black", "yellow", "violet", "brown"),
-          legend.is.portrait = FALSE) +
-  tm_shape(lines) +
-  tm_text(text = "ID", xmod = "dx", ymod = "dy") +
-  tm_layout(
-    frame = FALSE, legend.outside = TRUE,
-    legend.outside.position = "bottom", 
-    legend.position = c(0.5, 0.5), 
-    legend.just = c(0.5, 0.5))
+ggplot(polys) +
+  geom_sf(aes(fill = ID), colour = "white", alpha = 0.5) +
+  scale_fill_manual(
+    values = c("red", "dodgerblue3", "darkgreen",
+               "black", "yellow", "violet", "brown")) +
+  geom_label_repel(data = xy, aes(x = X, y = Y, label = ID)) +
+  theme_void()
 ```
 
 Now we can run various tests against the spatial predicates in turn. For example `st_disjoint` tells us the following. 

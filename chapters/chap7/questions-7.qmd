@@ -3,10 +3,11 @@ title: Questions for discussion 7
 subtitle: Time and Dynamics
 categories:
   - questions
-image: "q7.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+![Image by [Agência Brasil](https://agenciabrasil.ebc.com.br/en) used under a [Creative Commons Attribution 3.0 Brazil license](https://creativecommons.org/licenses/by/3.0/br/deed.en)](lightbulb7.jpg)
 
 It's about time...
 

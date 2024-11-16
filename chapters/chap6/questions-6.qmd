@@ -3,12 +3,11 @@ title: Questions for discussion
 subtitle: Chapter 6 Relations, Networks, Flows
 categories:
   - questions
-image: "q6.webp"
 language:
   section-title-footnotes: "References"
 ---
 
-
+![Image by [Andy Mabbet](https://commons.wikimedia.org/wiki/User:Pigsonthewing) used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb6.jpg)
 
 <hr>
 

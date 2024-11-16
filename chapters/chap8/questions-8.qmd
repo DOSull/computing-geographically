@@ -3,7 +3,10 @@ title: Questions for discussion 8
 subtitle: Process and Pattern
 categories:
   - questions
-image: "q8.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+![Image by [Noah Wulf](https://commons.wikimedia.org/wiki/User:Noah_Wulf) used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb8.jpg)
+
+<hr>

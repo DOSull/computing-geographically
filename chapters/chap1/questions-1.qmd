@@ -3,10 +3,12 @@ title: Questions for discussion
 subtitle: Chapter 1 Building Bridges
 categories:
   - questions
-image: "q1.webp"
 language:
   section-title-footnotes: "References"
 ---
+
+
+![Image by [Ch Mahesware Raju](https://commons.wikimedia.org/wiki/User:Ch_Maheswara_Raju) used under a [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)](lightbulb1.jpg)
 
 Some of these might be more easily considered when you have read the whole book, or at least a bit more of it than the first chapter. See also the [overall questions page](../../other-stuff/questions-for-discussion.qmd).
 

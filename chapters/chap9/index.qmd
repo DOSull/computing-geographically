@@ -3,8 +3,10 @@ title: Chapter 9
 subtitle: Doing Giscience Doing Geography
 # listing:
 #   categories: true
+#   contents:
+#     - "questions-9.qmd"
 #   sort: false
-#   type: grid
+#   type: grid 
 ---
 
 Finally, a (very) modest proposal&mdash;more of a plea really&mdash;that we all pay more attention to each other's work and perspectives, and take seriously the idea that _giscience is geographical_ in how we educate both 'GISers' and geographers.

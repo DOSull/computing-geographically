@@ -223,48 +223,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This page attempts to show the various <a href="https://en.wikipedia.org/wiki/DE-9IM#Spatial_predicates">spatial predicates of the 9-intersection model</a> presented in Figure 5.1 in code.</p>
-<p>First we make some shapes, and map them.</p>
+<p>First we make some shapes.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> <span class="fu">st_buffer</span>(<span class="dv">1</span>, <span class="at">nQuadSegs =</span> <span class="dv">90</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p1</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> p3 <span class="sc">*</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> p4 <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.5</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(p3, p4) <span class="sc">+</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="dv">0</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>p7 <span class="ot">&lt;-</span> p4 <span class="sc">*</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">1.5</span>), <span class="dv">2</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>polys <span class="ot">&lt;-</span> <span class="fu">st_sfc</span>(<span class="fu">list</span>(p1, p2, p3, p4, p5, p6, p7)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">dx =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, .<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">dy =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a circle</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> <span class="fu">st_buffer</span>(<span class="dv">1</span>, <span class="at">nQuadSegs =</span> <span class="dv">90</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># an identical circle</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p1</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># same circle shifted to the right so it is touching</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># shifted circle scaled to half size</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> p3 <span class="sc">*</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># and shifted down so it's touching p3 and overlapping p4 </span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> p4 <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.5</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># a donut to the side</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(p3, p4) <span class="sc">+</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="dv">0</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># and a circle overlapping the donut</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>p7 <span class="ot">&lt;-</span> p4 <span class="sc">*</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">1.5</span>), <span class="dv">2</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>polys <span class="ot">&lt;-</span> <span class="fu">st_sfc</span>(<span class="fu">list</span>(p1, p2, p3, p4, p5, p6, p7)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">as.factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">dx =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, .<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">dy =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Map and label these for reference.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lines <span class="ot">&lt;-</span> polys <span class="sc">%&gt;%</span> <span class="fu">st_cast</span>(<span class="st">"MULTILINESTRING"</span>) <span class="co"># for placing text labels</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(polys) <span class="sc">+</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"ID"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">style =</span> <span class="st">"cat"</span>, </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"dodgerblue3"</span>, <span class="st">"darkgreen"</span>, </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"black"</span>, <span class="st">"yellow"</span>, <span class="st">"violet"</span>, <span class="st">"brown"</span>),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.is.portrait =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(lines) <span class="sc">+</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="at">text =</span> <span class="st">"ID"</span>, <span class="at">xmod =</span> <span class="st">"dx"</span>, <span class="at">ymod =</span> <span class="st">"dy"</span>) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">frame =</span> <span class="cn">FALSE</span>, <span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.outside.position =</span> <span class="st">"bottom"</span>, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.just =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> polys <span class="sc">|&gt;</span> <span class="fu">st_centroid</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_coordinates</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> polys<span class="sc">$</span>ID)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(polys) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> ID), <span class="at">colour =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"dodgerblue3"</span>, <span class="st">"darkgreen"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"black"</span>, <span class="st">"yellow"</span>, <span class="st">"violet"</span>, <span class="st">"brown"</span>)) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> xy, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">label =</span> ID)) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -335,7 +341,7 @@ was `disjoint'
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">ID</th>
+<th style="text-align: left;">ID</th>
 <th style="text-align: left;">disjoint</th>
 <th style="text-align: left;">touches</th>
 <th style="text-align: left;">equals</th>
@@ -349,7 +355,7 @@ was `disjoint'
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">1</td>
 <td style="text-align: left;">3 4 5 6 7</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1 2</td>
@@ -361,7 +367,7 @@ was `disjoint'
 <td style="text-align: left;">1 2</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">2</td>
+<td style="text-align: left;">2</td>
 <td style="text-align: left;">3 4 5 6 7</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1 2</td>
@@ -373,7 +379,7 @@ was `disjoint'
 <td style="text-align: left;">1 2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">3</td>
+<td style="text-align: left;">3</td>
 <td style="text-align: left;">1 2 6 7</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">3</td>
@@ -385,7 +391,7 @@ was `disjoint'
 <td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4</td>
+<td style="text-align: left;">4</td>
 <td style="text-align: left;">1 2 6 7</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">4</td>
@@ -397,7 +403,7 @@ was `disjoint'
 <td style="text-align: left;">3 4</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">5</td>
 <td style="text-align: left;">1 2 6 7</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">5</td>
@@ -409,7 +415,7 @@ was `disjoint'
 <td style="text-align: left;">3 5</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">6</td>
+<td style="text-align: left;">6</td>
 <td style="text-align: left;">1 2 3 4 5</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">6</td>
@@ -421,7 +427,7 @@ was `disjoint'
 <td style="text-align: left;">6</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">7</td>
+<td style="text-align: left;">7</td>
 <td style="text-align: left;">1 2 3 4 5</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">7</td>
@@ -877,7 +883,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
