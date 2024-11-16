@@ -29,13 +29,13 @@ ang <- 40 * pi / 180
 rotation <- matrix(c(cos(ang), -sin(ang), 
                      sin(ang),  cos(ang)), 2, 2, byrow = TRUE)
 
-nz <- st_read("nz-2193.gpkg") %>%
-  st_cast("POLYGON") %>%
+nz <- st_read("nz-2193.gpkg") |>
+  st_cast("POLYGON") |>
   mutate(geom = geom * rotation)
 
-toponyms <- st_read("placenames.gpkg") %>%
-  mutate(maori = reo > 0) %>%
-  mutate(geom = geom * rotation) %>%
+toponyms <- st_read("placenames.gpkg") |>
+  mutate(maori = reo > 0) |>
+  mutate(geom = geom * rotation) |>
 st_filter(nz)
 ```
 

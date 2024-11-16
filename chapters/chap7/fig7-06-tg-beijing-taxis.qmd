@@ -26,14 +26,14 @@ library(plotly)
 We filter the data so they are all within 0.25 decimal degrees of the mean location of all points (I know, I know... decimal degrees are terrible, but the point here is the time dimension, not the geographical coordinates).
 
 ```{r}
-taxis <- read.table('taxis100.txt', sep=',') %>%
+taxis <- read.table('taxis100.txt', sep=',') |>
   rename(id = V1, t = V2, lon = V3, lat = V4)
 
 lon.mean <- mean(taxis$lon)
 lat.mean <- mean(taxis$lat)
 
-taxis.bj <- taxis %>%
-  mutate(time = as.double(timeDate(t))) %>%
+taxis.bj <- taxis |>
+  mutate(time = as.double(timeDate(t))) |>
   filter(abs(lon - lon.mean) < .25,
          abs(lat - lat.mean) < .25)
 ```

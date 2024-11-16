@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  osm_tile_url <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(<span class="st">"https://tile.openstreetmap.org/{tile_name}.png"</span>)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(osm_tile_url, <span class="fu">str_glue</span>(<span class="st">"tiles/{zoom}.png"</span>), <span class="at">mode =</span> <span class="st">'wb'</span>)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zoom =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">tile_name =</span> tile_names) <span class="sc">%&gt;%</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zoom =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">tile_name =</span> tile_names) <span class="sc">|&gt;</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">left =</span> zoom <span class="sc">%%</span> <span class="dv">5</span>, <span class="at">bottom =</span> <span class="dv">3</span> <span class="sc">-</span> zoom <span class="sc">%/%</span> <span class="dv">5</span>, </span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">right =</span> left <span class="sc">+</span> <span class="dv">1</span>, <span class="at">top =</span> bottom <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -721,7 +721,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

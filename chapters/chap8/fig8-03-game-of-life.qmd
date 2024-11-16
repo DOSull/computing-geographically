@@ -79,9 +79,9 @@ height <- 50
 time_steps <- 200
 
 life_df <- life(nr = height, nc = width, tmax = time_steps, 
-                density = initial_density) %>%
-  as.data.table() %>%
-  as_tibble() %>%
+                density = initial_density) |>
+  as.data.table() |>
+  as_tibble() |>
   rename(x = V1, y = V2, t = V3, num = value)
 ```
 
@@ -89,7 +89,7 @@ life_df <- life(nr = height, nc = width, tmax = time_steps,
 The dataframe has attributes `x`, `y`, `t`, and `state`, which are most easily plotted as a sequence of model snapshots using `ggplot2::facet_wrap`.
 
 ```{r fig.width=10, fig.height=8}
-ggplot(life_df %>% dplyr::filter(t >= 30, t <= 49)) + 
+ggplot(life_df |> dplyr::filter(t >= 30, t <= 49)) + 
   geom_raster(aes(x = x, y = y, fill = num), show.legend = FALSE) + 
   coord_equal() +
   facet_wrap( ~ t, ncol = 5) +

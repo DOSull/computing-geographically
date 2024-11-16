@@ -51,16 +51,16 @@ ortho_proj <- "+proj=ortho lon_0=0 lat_0=40"
 Make a hemisphere for the globe view, and apply it to the built-in `World` dataset that ships with `tmap`.
 
 ```{r warning=FALSE}
-hemisphere <- st_point(c(0, 0)) %>%
-  st_buffer(6356752) %>%
-  st_sfc(crs = ortho_proj) %>%
-  densify() %>%
+hemisphere <- st_point(c(0, 0)) |>
+  st_buffer(6356752) |>
+  st_sfc(crs = ortho_proj) |>
+  densify() |>
   st_transform(4326)
 
 data("World")
-world_o <- World %>%
-  st_intersection(hemisphere) %>%
-  st_transform(ortho_proj) %>%
+world_o <- World |>
+  st_intersection(hemisphere) |>
+  st_transform(ortho_proj) |>
   filter(st_is_empty(geometry) == FALSE)
 ```
 
@@ -69,10 +69,10 @@ Next, convenience 'helper' functions for converting coordinate pairs between pro
 
 ```{r}
 x1y1_to_x2y2 <- function(coords, crs1 = 4326, crs2 = "+proj=merc") {
-  coords %>% st_point() %>%
-    st_sfc(crs = crs1) %>%
-    st_transform(crs2) %>%
-    st_coordinates() %>%
+  coords |> st_point() |>
+    st_sfc(crs = crs1) |>
+    st_transform(crs2) |>
+    st_coordinates() |>
     c()
 }
 
@@ -96,8 +96,8 @@ get_loxodrome <- function(lat = -89, bearing = 85, n = 100) {
     p2 <- c(-p1[1],         
             p1[2] + tan(get_radians(90 - bearing)) * -2 * p1[1])
     # the line is a densified version of this
-    transect <- st_linestring(matrix(c(p1, p2), 2, 2, byrow = TRUE)) %>%
-      st_sfc(crs = "+proj=merc") %>%
+    transect <- st_linestring(matrix(c(p1, p2), 2, 2, byrow = TRUE)) |>
+      st_sfc(crs = "+proj=merc") |>
       densify(n) # the densification step (provided by smoothr)
     transects <- c(transects, transect)
     # reset p1 to 'the other side' of the Mercator space i.e. -180
@@ -111,17 +111,17 @@ get_loxodrome <- function(lat = -89, bearing = 85, n = 100) {
   # apply this limit to the points along the last transect from west to east
   n_transects <- length(lines)
   # convert the last transect to a set of points, to apply this limit
-  pts <- transects[[n_transects]] %>%
-    st_cast("MULTIPOINT") %>%
+  pts <- transects[[n_transects]] |>
+    st_cast("MULTIPOINT") |>
     st_coordinates()
   pts <- pts[pts[, 2] <= ymax, 1:2]
   # and then convert back to a linestring
-  transects[[n_transects]] <- pts %>%
-    matrix(ncol = 2) %>%
+  transects[[n_transects]] <- pts |>
+    matrix(ncol = 2) |>
     st_linestring()
   # finally convert to lon-lat i.e. EPSG 4326
-  transects %>% st_sfc(crs = "+proj=merc") %>%
-    st_as_sf() %>%
+  transects |> st_sfc(crs = "+proj=merc") |>
+    st_as_sf() |>
     st_transform(4326)
 }
 ```
@@ -132,23 +132,23 @@ Make a loxodrome and clip the world to the chosen latitude limits. To apply rect
 
 ```{r warning=FALSE, message=FALSE}
 lox <- get_loxodrome() 
-lox_o <- lox %>%
+lox_o <- lox |>
   st_intersection(hemisphere)
 
 sf_use_s2(FALSE)
 
 mercator_limits <- st_polygon(list(
   matrix(c(-180, -89, 180, -89, 180, 89, -180, 89, -180, -89),
-  ncol = 2, byrow = TRUE))) %>%
-  st_sfc(crs = 4326) %>%
+  ncol = 2, byrow = TRUE))) |>
+  st_sfc(crs = 4326) |>
   st_as_sf()
 
-world_m <- World %>% 
-  st_intersection(mercator_limits) %>%
-  st_transform("+proj=merc") %>%
+world_m <- World |> 
+  st_intersection(mercator_limits) |>
+  st_transform("+proj=merc") |>
   filter(st_is_empty(geometry) == FALSE)
 
-lox_m <- lox %>%
+lox_m <- lox |>
   st_intersection(mercator_limits)
 ```
 

@@ -59,14 +59,14 @@ rule_description <- function(rule_num) {
 # takes a matrix of CA states (each row a timestep) and appends
 # a new row for the next system state
 generation <- function(states, rule) {
-  state <- tail(states, 1) %>% c()
+  state <- tail(states, 1) |> c()
   w_state <- wrap_state(state)
   result <- c()
   for (i in 1:length(state)) {
     nbhd <- w_state[seq(i, i + 2)]
     result <- c(result, rule[as_decimal(nbhd) + 1])
   }
-  matrix(c(states %>% t() %>% c(), result), nc = ncol(states), byrow = TRUE)
+  matrix(c(states |> t() |> c(), result), nc = ncol(states), byrow = TRUE)
 }
 
 # generate a matrix of cell states where each row is the system state
@@ -88,9 +88,9 @@ The matrix format is convenient for computation, and fine for plotting a single 
 library(ggplot2)
 library(reshape2)
 
-one_d_ca(rule = 110, n = 192, density = 0.5, t = 384) %>%
-  reshape2::melt(c("t", "x"), value.name = "state") %>%
-  mutate(state = as.logical(state)) %>%
+one_d_ca(rule = 110, n = 192, density = 0.5, t = 384) |>
+  reshape2::melt(c("t", "x"), value.name = "state") |>
+  mutate(state = as.logical(state)) |>
   ggplot() +
     geom_raster(aes(x = x, y = -t, fill = state)) + 
     scale_fill_brewer(palette = "Paired") +
@@ -104,8 +104,8 @@ And here are the results for all Wolfram's elementary 1D CA.
 ```{r fig.width=10, fig.height=12}
 # convenience function to return a dataframe instead of a matrix
 get_df <- function(rule, n = 64, density = 0.5, t = 192) {
-  one_d_ca(rule = rule, n = n, density = density, t = t) %>%
-  reshape2::melt(c("t", "x"), value.name = "state") %>%
+  one_d_ca(rule = rule, n = n, density = density, t = t) |>
+  reshape2::melt(c("t", "x"), value.name = "state") |>
   mutate(state = as.logical(state),
          rule = rule)
 }

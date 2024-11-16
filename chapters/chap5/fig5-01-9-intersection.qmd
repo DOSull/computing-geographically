@@ -26,7 +26,7 @@ library(ggrepel)
 library(stringr)
 
 # a circle
-p1 <- st_point(c(-2, 0)) %>% st_buffer(1, nQuadSegs = 90)
+p1 <- st_point(c(-2, 0)) |> st_buffer(1, nQuadSegs = 90)
 # an identical circle
 p2 <- p1
 # same circle shifted to the right so it is touching
@@ -40,8 +40,8 @@ p6 <- st_difference(p3, p4) + c(2.1, 0)
 # and a circle overlapping the donut
 p7 <- p4 * matrix(c(1.5, 0, 0, 1.5), 2, 2) + c(2, -1)
 
-polys <- st_sfc(list(p1, p2, p3, p4, p5, p6, p7)) %>% 
-  st_sf() %>%
+polys <- st_sfc(list(p1, p2, p3, p4, p5, p6, p7)) |> 
+  st_sf() |>
   mutate(ID = as.factor(1:7), 
          dx = c(0, 0, .5, 0, 0, 0, 0), 
          dy = c(-1, 1, 2, 0, 0, 0, 0))
@@ -67,7 +67,7 @@ ggplot(polys) +
 Now we can run various tests against the spatial predicates in turn. For example `st_disjoint` tells us the following. 
 
 ```{r}
-polys %>% st_disjoint()
+polys |> st_disjoint()
 ```
 
 We can tabulate the result of applying all the spatial predicates to these polygons into a table. 
@@ -78,9 +78,9 @@ The details of how this is done don't matter greatly, but if you are interested 
 #| code-fold: true
 
 get_spatial_query_as_vector <- function(data, predicate) {
-  data %>% 
-    predicate() %>%
-    lapply(str_c, collapse = " ") %>%
+  data |> 
+    predicate() |>
+    lapply(str_c, collapse = " ") |>
     unlist()
 }
 

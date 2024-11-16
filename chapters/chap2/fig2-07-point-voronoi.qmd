@@ -25,18 +25,18 @@ library(ggplot2)
 There are a few steps making a `spatstat` point pattern into a simple features dataset...
 
 ```{r warning=FALSE}
-pp <- rpoispp(100) %>%
-  as.data.frame() %>%
+pp <- rpoispp(100) |>
+  as.data.frame() |>
   st_as_sf(coords = c("x", "y"), crs = 2193)
 ```
 
 And there are a few more making a point dataset into a Voronoi polygon dataset.
 
 ```{r warning=FALSE}
-pp_vor <- pp %>%
-  st_union() %>%
-  st_voronoi() %>%
-  st_cast() %>%
+pp_vor <- pp |>
+  st_union() |>
+  st_voronoi() |>
+  st_cast() |>
   st_as_sf(crs = st_crs(pp))
 ```
 

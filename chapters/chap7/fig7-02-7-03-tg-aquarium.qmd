@@ -23,9 +23,9 @@ library(plot3D)
 ```{r fig.width=8, fig.height=8}
 time_space_data <- read.csv("tg-day-in-the-life.csv")
 
-locations_0 <- unique(select(time_space_data, x, y)) %>%
+locations_0 <- unique(select(time_space_data, x, y)) |>
   mutate(id = 1:5, t = 0)
-locations_24 <- locations_0 %>%
+locations_24 <- locations_0 |>
   mutate(t = 24)
 
 lines3D(time_space_data$x, time_space_data$y, time_space_data$t, 
@@ -48,7 +48,7 @@ arrows3D(locations_0$x, locations_0$y, locations_0$t,
 ```{r fig.width=8, fig.height=8}
 time_space_data <- read.csv("tg-meeting.csv")
 
-trace <- time_space_data %>% 
+trace <- time_space_data |> 
   filter(id == 1)
 
 lines3D(trace$x, trace$y, trace$t, 
@@ -58,7 +58,7 @@ lines3D(trace$x, trace$y, trace$t,
         bty = "g", scale = FALSE)
 
 for (i in 2:8) {
-  trace <- time_space_data %>% filter(id == i)
+  trace <- time_space_data |> filter(id == i)
   lines3D(trace$x, trace$y, trace$t, add = TRUE,
           xlim = c(-6, 6), ylim = c(-6, 6),
           col = "black", lwd = .5)

@@ -32,10 +32,10 @@ get_correlated_df <- function(cor = 0.5) {
   # generate a multivariate normal distribution
   # mu is the mean centre, Sigma is the covariance matrix
   mvrnorm(n = 1024, mu = c(5, 5), 
-          Sigma = matrix(c(1, cor, cor, 1), 2, 2)) %>%
-    as.data.frame() %>%
-    rename(x = V1, y = V2) %>%
-    arrange(x + y) %>% 
+          Sigma = matrix(c(1, cor, cor, 1), 2, 2)) |>
+    as.data.frame() |>
+    rename(x = V1, y = V2) |>
+    arrange(x + y) |> 
     mutate(id = row_number())
 }
 ```
@@ -48,23 +48,23 @@ Conversely, if the grouper variable is based on the remainder from division by 1
 ```{r}
 # aggregate similar observations
 agg_similar <- function(df) {
-  df %>%
-    mutate(grouper = id %/% 8) %>%
-    group_by(grouper) %>%
+  df |>
+    mutate(grouper = id %/% 8) |>
+    group_by(grouper) |>
     summarise(x = mean(x), 
-              y = mean(y)) %>%
-    dplyr::select(-grouper) %>%
+              y = mean(y)) |>
+    dplyr::select(-grouper) |>
     ungroup()
 }
 
 # aggregate different observations
 agg_different <- function(df) {
-  df %>%
-    mutate(grouper = id %% 128) %>%
-    group_by(grouper) %>%
+  df |>
+    mutate(grouper = id %% 128) |>
+    group_by(grouper) |>
     summarise(x = mean(x), 
-              y = mean(y)) %>%
-    dplyr::select(-grouper) %>%
+              y = mean(y)) |>
+    dplyr::select(-grouper) |>
     ungroup()
 }
 ```
@@ -123,9 +123,9 @@ First a dataset with approximate correlation between `x` and `y` of 0.5. We then
 
 ```{r message=FALSE, warning=FALSE}
 df <- get_correlated_df(0.5)
-df_sim <- df %>%
+df_sim <- df |>
   agg_similar()
-df_diff <- df %>%
+df_diff <- df |>
   agg_different()
 
 three_plots(list(df, df_sim, df_diff))
@@ -137,9 +137,9 @@ The effect is even more remarkable for uncorrelated data:
 
 ```{r message=FALSE, warning=FALSE}
 df <- get_correlated_df(0)
-df_sim <- df %>%
+df_sim <- df |>
   agg_similar()
-df_diff <- df %>%
+df_diff <- df |>
   agg_different()
 
 three_plots(list(df, df_sim, df_diff))

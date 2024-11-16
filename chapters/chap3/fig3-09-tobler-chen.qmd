@@ -54,8 +54,8 @@ Use the supplied `World` dataset (in lat-lon EPSG 4326) and project as required!
 
 ```{r fig.width=10, fig.height=9}
 data("World") 
-world_tc <- World %>%
-  select(geometry) %>%
+world_tc <- World |>
+  select(geometry) |>
   st_transform("+proj=cea lat_ts=55.654")
 
 ggplot(world_tc) +

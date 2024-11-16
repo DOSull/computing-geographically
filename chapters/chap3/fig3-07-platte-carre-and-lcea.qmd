@@ -42,11 +42,11 @@ Use the supplied `World` dataset (in lat-lon EPSG 4326) and make projections as 
 
 ```{r}
 data("World") 
-world <- World %>%
+world <- World |>
   select(geometry)
 
 # Equal area with standard parallel at 0
-world_lcea <- world %>%
+world_lcea <- world |>
   st_transform("+proj=cea")
 ```
 

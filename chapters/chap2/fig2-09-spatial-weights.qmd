@@ -39,8 +39,8 @@ chch <- st_read("chch-sa2.gpkg") # you need a spatial dataset
 `spdep` requires the data to be in the `sp` package format, so we convert to that.
 
 ```{r}
-polys <- chch %>%
-  select(geom) %>%
+polys <- chch |>
+  select(geom) |>
   as("Spatial")
 ```
 
@@ -48,13 +48,13 @@ Now make some points inside the polygons, and also some centroids.
 
 ```{r warning=FALSE}
 # guaranteed inside the polygons
-pts <- chch %>%
-  st_point_on_surface() %>% 
+pts <- chch |>
+  st_point_on_surface() |> 
   st_geometry()
 
 # not guaranteed, but better(?) for distance measurements
-pts_c <- chch %>%
-  st_centroid() %>% 
+pts_c <- chch |>
+  st_centroid() |> 
   st_geometry()
 ```
 
@@ -68,17 +68,17 @@ These are presented in a single figure in the book in four rows of three. Here I
 layout(matrix(1:3, ncol = 3, byrow = TRUE))
 par(mai = c(0, 0, 0.15, 0))
 
-nb <- polys %>% poly2nb(queen = TRUE)
+nb <- polys |> poly2nb(queen = TRUE)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "Queen's rule adjacency")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
-nb <- polys %>% poly2nb(queen = FALSE)
+nb <- polys |> poly2nb(queen = FALSE)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "Rook's rule adjacency")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
-nb <- nb %>% nblag(2) %>% nblag_cumul()
+nb <- nb |> nblag(2) |> nblag_cumul()
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "Cumulative lag-2 adjacency")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
@@ -92,17 +92,17 @@ Note that we use the centroids (`pts_c`) to calculate the distances, but the poi
 layout(matrix(1:3, ncol = 3, byrow = TRUE))
 par(mai = c(0, 0, 0.15, 0))
 
-nb <- pts_c %>% knearneigh(k = 3) %>% knn2nb()
+nb <- pts_c |> knearneigh(k = 3) |> knn2nb()
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "k = 3")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
-nb <- pts_c %>% knearneigh(k = 6) %>% knn2nb()
+nb <- pts_c |> knearneigh(k = 6) |> knn2nb()
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "k = 6")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
-nb <- pts_c %>% knearneigh(k = 12) %>% knn2nb()
+nb <- pts_c |> knearneigh(k = 12) |> knn2nb()
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "k = 12")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
@@ -116,17 +116,17 @@ Next, distance criteria, again calculated from centroids, but visualised using t
 layout(matrix(1:3, ncol = 3, byrow = TRUE))
 par(mai = c(0, 0, 0.15, 0))
 
-nb <- pts_c %>% dnearneigh(d1 = 0, d2 = 1000)
+nb <- pts_c |> dnearneigh(d1 = 0, d2 = 1000)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "Distance < 1000")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
-nb <- pts_c %>% dnearneigh(d1 = 0, d2 = 1500)
+nb <- pts_c |> dnearneigh(d1 = 0, d2 = 1500)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "Distance < 1500")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)
 
-nb <- pts_c %>% dnearneigh(d1 = 1500, d2 = 2000)
+nb <- pts_c |> dnearneigh(d1 = 1500, d2 = 2000)
 plot(polys, col = "lightgrey", lwd = 0.5, border = 'white', 
      main = "1500 < Distance < 2000")
 plot(nb, pts, col = 'red', lwd = 0.5, add = TRUE)

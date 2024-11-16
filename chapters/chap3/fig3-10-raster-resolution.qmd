@@ -32,10 +32,10 @@ z <- rast("raster-data.tif")
 Aggregate and disaggregate by 10
 
 ```{r}
-z10 <- z %>% 
+z10 <- z |> 
   aggregate(10)
 
-z_dash <- z10 %>%
+z_dash <- z10 |>
   resample(z)
 ```
 

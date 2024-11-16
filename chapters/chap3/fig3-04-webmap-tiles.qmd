@@ -41,7 +41,7 @@ for (zoom in 0:19) {
   osm_tile_url <- str_glue("https://tile.openstreetmap.org/{tile_name}.png")
   download.file(osm_tile_url, str_glue("tiles/{zoom}.png"), mode = 'wb')
 }
-df <- data.frame(zoom = 0:19, tile_name = tile_names) %>%
+df <- data.frame(zoom = 0:19, tile_name = tile_names) |>
   mutate(left = zoom %% 5, bottom = 3 - zoom %/% 5, 
          right = left + 1, top = bottom + 1)
 ```

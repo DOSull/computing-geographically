@@ -81,10 +81,10 @@ height <- 40
 time_steps <- 100
 
 vma_df <- voter_model(1:num_states, ncol = width, nrow = height, 
-                      t_max = time_steps) %>%
-  as.data.table() %>%
-  as_tibble() %>%
-  rename(x = V1, y = V2, t = V3, num = value) %>%
+                      t_max = time_steps) |>
+  as.data.table() |>
+  as_tibble() |>
+  rename(x = V1, y = V2, t = V3, num = value) |>
   mutate(state = as.factor(num))
 ```
 
@@ -92,7 +92,7 @@ vma_df <- voter_model(1:num_states, ncol = width, nrow = height,
 The dataframe has attributes `x`, `y`, `t`, and `state`, which are most easily plotted as a sequence of model snapshots using `ggplot2::facet_wrap`.
 
 ```{r fig.width=10, fig.height=8}
-ggplot(vma_df %>% filter(t %in% 2:21)) + 
+ggplot(vma_df |> filter(t %in% 2:21)) + 
   geom_raster(aes(x = x, y = y, fill = state), show.legend = FALSE) + 
   scale_fill_brewer(palette = "Accent") +
   coord_equal() +
