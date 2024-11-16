@@ -14,20 +14,31 @@ knitr:
     message: false
 ---
 
+To make spacetime lines we need 3D plotting capability, for which I used `plot3D` and `plotly`.
+
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
-library(plotly)
 library(plot3D)
 ```
 
-```{r fig.width=8, fig.height=8}
-time_space_data <- read.csv("tg-day-in-the-life.csv")
+I also jerry-rigged a simple CSV file format, which looks like the dataframe below. 
 
+```{r fig.width=8, fig.height=5}
+time_space_data <- read.csv("tg-day-in-the-life.csv")
 locations_0 <- unique(select(time_space_data, x, y)) |>
   mutate(id = 1:5, t = 0)
+
 locations_24 <- locations_0 |>
   mutate(t = 24)
 
+knitr::kable(time_space_data |> head())
+```
+
+Not tremendously interesting, but you can imagine additional attributes describing what each $(x,y,t)$ triple is and before you know it you'll be dealing in _geotemporal atoms_, although... the instantaneity implied in this representation would be rather questionable. However, the point here isn't to invent a geotemporal information system, just to make some spacetime plots, so...
+
+The `plot3D` functions aren't the most straightforward to use, but after some experimentation I came up with the following two pictures. First... a classic 'day in the life' plot.
+
+```{r fig.width=6, fig.height=6}
 lines3D(time_space_data$x, time_space_data$y, time_space_data$t, 
         xlim = c(min(time_space_data$x) - 2, 
                  max(time_space_data$x) + 2),
@@ -45,6 +56,8 @@ arrows3D(locations_0$x, locations_0$y, locations_0$t,
          add = TRUE, lty = "dashed", lwd = 0.5, col = "black")
 ```
 
+And second, a 'meeting' plot, where a collection of meeting participants converge into a 'bundle' in one place over a period of time.
+
 ```{r fig.width=8, fig.height=8}
 time_space_data <- read.csv("tg-meeting.csv")
 
@@ -54,14 +67,14 @@ trace <- time_space_data |>
 lines3D(trace$x, trace$y, trace$t, 
         xlim = c(-6, 6), ylim = c(-6, 6),
         xlab = "x", ylab = "y", zlab = "Time, t",
-        col = "black", lwd = .5, phi = 25, theta = 60, 
+        col = "black", lwd = 1, phi = 25, theta = 60, 
         bty = "g", scale = FALSE)
 
 for (i in 2:8) {
   trace <- time_space_data |> filter(id == i)
   lines3D(trace$x, trace$y, trace$t, add = TRUE,
           xlim = c(-6, 6), ylim = c(-6, 6),
-          col = "black", lwd = .5)
+          col = "black", lwd = 1)
 }
 ```
 
