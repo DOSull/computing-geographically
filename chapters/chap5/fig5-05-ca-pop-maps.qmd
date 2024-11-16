@@ -29,7 +29,7 @@ ca <- st_read("ca-pops.gpkg") |>
 
 An opportunity here to get acquainted with the new semantics of `tmap` version 4...
 
-```{r fig.width=10, fig.height=7}
+```{r fig.width=10, fig.height=6}
 m1 <- tm_shape(ca) + 
   tm_polygons(
     fill = "population", col = "white", lwd = 0.5,
