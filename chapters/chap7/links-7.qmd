@@ -7,7 +7,7 @@ image: "links-7.png"
 ---
 
 ### Footnote 2
-The '<span style="font-style: italic">time</span>bliography' of representations of time in giscience is no longer available at `http://spaceandtime.wsiabato.info/`. Unfortunately the Internet Archive snapshots of it are not very useful due to the interactive nature of the site. You'll have to make do with reading the paper referenced in the book!
+The '<span style="font-style: italic">time</span>bliography' of representations of time in giscience is no longer available at `spaceandtime.wsiabato.info`. Unfortunately the Internet Archive snapshots of it are not very useful due to the interactive nature of the site. You'll have to make do with reading the paper referenced in the book!
 
 ### Figure 7.6
 The taxi trajectory dataset is available at [microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample](https://www.microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample/).
