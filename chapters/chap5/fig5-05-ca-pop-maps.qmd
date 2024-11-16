@@ -36,7 +36,7 @@ m1 <- tm_shape(ca) +
     fill.scale = tm_scale_intervals(values = "brewer.reds", 
                                     style = "pretty"),
     fill.legend = tm_legend(title = "Population", 
-                            position = c("left", "bottom"))) + 
+                            position = c(0.54, 0.76))) + 
   tm_layout(frame = FALSE, legend.frame = FALSE)
   
 m2 <- tm_shape(ca) + 
@@ -45,7 +45,7 @@ m2 <- tm_shape(ca) +
     fill.scale = tm_scale_intervals(values = "brewer.greens",
                                     style = "pretty"),
     fill.legend = tm_legend(title = "Pop density", 
-                            position = c("left", "bottom"))) +
+                            position = c(0.54, 0.76))) + 
   tm_layout(frame = FALSE, legend.frame = FALSE)
 
 m3 <- tm_shape(ca) + 
@@ -54,7 +54,7 @@ m3 <- tm_shape(ca) +
     fill.scale = tm_scale_intervals(values = "brewer.blues", 
                                     style = "log10_pretty"),
     fill.legend = tm_legend(title = "Pop density", 
-                            position = c("left", "bottom"))) + 
+                            position = c(0.54, 0.76))) + 
   tm_layout(frame = FALSE, legend.frame = FALSE)
   
 tmap_arrange(m1, m2, m3)
