@@ -1,6 +1,6 @@
 ---
-title: Questions for discussion 7
-subtitle: Time and Dynamics
+title: Discussion questions
+subtitle: Chapter 7 Time and Dynamics
 categories:
   - questions
 language:

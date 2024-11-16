@@ -10,12 +10,22 @@ This website provides a collection of resources for the book O'Sullivan D. 2024.
 
 Included are:
 
-*Updated links* for internet sources referenced in the text
+::: {style="text-align:left; margin:0em 2em 0em 2em; text-indent:-1em;"}
+*Updated links* for internet sources referenced in the text, which are regularly checked;
+:::
 
-*Code samples* to create alternative (often colour) versions of some of the figures
+::: {style="text-align:left; margin:0em 2em 0em 2em; text-indent:-1em;"}
+*Code samples* to create alternative (often colour) versions of some of the figures;
+:::
 
-*Background information* on other figures
+::: {style="text-align:left; margin:0em 2em 0em 2em; text-indent:-1em;"}
+*Background information* on other figures;
+:::
 
-[*High resolution copies of all the figures*](the-figures/) from the book as published
+::: {style="text-align:left; margin:0em 2em 0em 2em; text-indent:-1em;"}
+[*High resolution copies of all the figures*](the-figures/) from the book as published, freely available to download; and
+:::
 
-[*Other odds and ends*](posts.qmd)
+::: {style="text-align:left; margin:0em 2em 0em 2em; text-indent:-1em;"}
+[*Other odds and ends*](posts.qmd) about writing the book and related thoughts and musings.
+:::

@@ -1,6 +1,6 @@
 ---
-title: Questions for discussion 5
-subtitle: Lines and Areas
+title: Discussion questions
+subtitle: Chapter 5 Lines and Areas
 categories:
   - questions
 language:

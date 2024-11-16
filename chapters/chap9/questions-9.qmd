@@ -1,6 +1,6 @@
 ---
-title: Questions for discussion 9
-subtitle: Doing Giscience Doing Geography
+title: Discussion questions
+subtitle: Chapter 9 Doing Giscience Doing Geography
 categories:
   - questions
 language:

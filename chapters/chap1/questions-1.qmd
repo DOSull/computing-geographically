@@ -1,5 +1,5 @@
 ---
-title: Questions for discussion
+title: Discussion questions
 subtitle: Chapter 1 Building Bridges
 categories:
   - questions
