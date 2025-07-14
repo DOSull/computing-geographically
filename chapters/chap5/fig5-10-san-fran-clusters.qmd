@@ -72,7 +72,7 @@ ggplot(nas) +
   guides(fill = "none") +
   coord_sf(xlim = c(1.82e6, 1.87e6), ylim = c(6.3e5, 6.6e5)) +
   theme_void() +
-  theme(panel.background = element_rect(fill = "#bbddff"))
+  theme(panel.background = element_rect(fill = "#cceeff"))
 ```
 
 And for comparison, below is the regionalization from Luc Guillemot's more complex clustering method. The colours don't match up (they are just colours!) but you can see that the overall regionalisation result is broadly similar, even though we have requested only 9 clusters from the _k_-means analysis.
@@ -88,7 +88,7 @@ ggplot(nas) +
   guides(fill = "none") +
   coord_sf(xlim = c(1.82e6, 1.87e6), ylim = c(6.3e5, 6.6e5)) +
   theme_void() +
-  theme(panel.background = element_rect(fill = "#bbddff"))
+  theme(panel.background = element_rect(fill = "#cceeff"))
 ```
 
 ```{r}
