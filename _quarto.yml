@@ -34,7 +34,7 @@ website:
       - text: All the pages
         file: "index-listing.qmd"
   page-navigation: true
-  body-footer: "&copy; 2023-24 David O'Sullivan"
+  body-footer: "&copy; 2023-25 David O'Sullivan"
 
 format:
   html:

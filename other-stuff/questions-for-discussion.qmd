@@ -28,7 +28,7 @@ draft: false
 
 :::
 
-<a href="https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Rodin_1.jpg"><img src="the-thinker.jpg" style="width:250px; float:right; padding:0px 15px 15px 0px"></a> This post is simply to direct your attention to the 'Questions for discussion' pages that I've started adding to each chapter section. I've added some questions for Chapters [1](../chapters/chap1/questions-1.qmd), [2](../chapters/chap2/questions-2.qmd) and [3](../chapters/chap3/questions-3.qmd) so far, with more to come. The preview images for the pages are from [A Glossary of Gestures for Critical Discussion](https://criticalhandgestures.tumblr.com/).
+<a href="https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Rodin_1.jpg"><img src="the-thinker.jpg" style="width:250px; float:right; padding:0px 15px 15px 0px"></a> This post is simply to direct your attention to the 'Questions for discussion' pages that I've started adding to each chapter section. I've added some questions for Chapters [1](../chapters/chap1/questions-1.qmd), [2](../chapters/chap2/questions-2.qmd) and [3](../chapters/chap3/questions-3.qmd) so far, with more to come.
 
 <hr>
 

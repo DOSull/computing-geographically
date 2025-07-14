@@ -16,3 +16,17 @@ Everything is related to everything else, but... wait, what?
 <hr>
 
 **Is everything a network?**
+
+It's easy to start thinking of everything as a network, which quickly leads to... "well, if everything is a network, then nothing is" and other such philosophical conundrums. When does network thinking fall down and stop being a useful frame?
+
+<hr>
+
+**"but near things are more related than distant things"**
+
+What should we understand by "near" in the much quoted second clause of Tobler's dictum?^[Tobler WR. 1970. A computer movie simulating urban growth in the Detroit region. _Economic Geography_, **46**(Supp. 1), 234–240.]
+
+<hr>
+
+**How do networks as most often understood in giscience differ from networks in actor-network theory?**
+
+To address this question consider the notion of 'flat ontology' discussed at various points in the book.^[The index is your friend...]

@@ -15,14 +15,18 @@ It's not about time, it's about _becoming_...
 
 <hr>
 
-**So do these kinds of dynamic models&mdash;cellular automat and ABMs&mdash;_really_ address the process problem?**
+**So do these kinds of dynamic models&mdash;cellular automata and ABMs&mdash;_really_ address the process problem?**
+
+I've personally invested a lot of time and effort in making cellular automaton and agent-based models, and even I'm not entirely convinced. Why might we be skeptical of a claim that they capture 'process'.
 
 <hr>
 
 **If not CA and ABMs, then what?**
 
-What about the much-vaunted digital twins?
+Can we do better? What about the much-vaunted digital twins? What failing do any of these representations share?
 
 <hr>
 
 **Setting aside for now what they might look like, in what ways might more process-oriented platforms be useful?**
+
+What kinds of things is GIS bad at that more process-oriented approaches would be better at?

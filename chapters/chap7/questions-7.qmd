@@ -15,6 +15,14 @@ It's about time...
 
 **Have the cartographic origins of GIS (and by extension giscience) doomed it to struggling to adequately handle time and change?**
 
+Consider here what the possibilities might have been for a different GIS origin story. How would GIS be different if it had emerged after cinema or immersive video games?
+
 <hr>
 
-**What distinguishes contemporary approaches to 'place'  from Hartshorne's regional geography?**
+**Are maps (and by extension GIS) truly static? In what ways do maps and GIS differ from this perspective?**
+
+<hr>
+
+**What distinguishes contemporary approaches to 'place' from Hartshorne's regional geography?**
+
+In the text I am (perhaps overly) kind to Hartshorne. But then I think many others have been overly unkind to him. Unfortunately he does go on a bit (OK... a _lot_) so it's perhaps easier to ignore him that take him eriously.^[Hartshorne R. 1939. The nature of geography: A critical survey of current thought in the light of the past. _Annals of the Association of American Geographers_, **39**(3/4), 173–658.]

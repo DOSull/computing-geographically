@@ -10,3 +10,9 @@ language:
 ![Image by [Zsemle Zsemle](https://500px.com/Zsemle) used under a [Creative Commons Attribution 3 Unported license](https://creativecommons.org/licenses/by/3.0/deed.en)](lightbulb9.jpg)
 
 <hr>
+
+**So... you (I am guessing) have taken some GIS and some geography classes. Excepting the class that has exposed you to this book do you agree that GIS and geography are taught too much in isolation from one another?**
+
+That was my experience (see the introduction) both as student and professor. Is there a better way?
+
+How would you redesign geography (and spatial data science, giscience, data science... whatever) curricula to improve things?

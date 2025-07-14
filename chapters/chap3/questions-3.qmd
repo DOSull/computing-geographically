@@ -36,4 +36,4 @@ Also for discussion: explicitly relating scale and map projection in the way it 
 <hr>
 
 **Is map generalization just 'lying with maps'?**
-Mark Monmonier suggests in _How to Lie with Maps_ that cartographica generalisation is unavoidable and inevitably makes maps misleading.^[Monmonier MS. 2018. [*How to Lie with Maps*](https://press.uchicago.edu/ucp/books/book/chicago/H/bo27400568.html). 3rd edition. Chicago: The University of Chicago Press.] Is lying an appropriate framework for thinking about map generalisation?
+Mark Monmonier suggests in _How to Lie with Maps_ that cartographic generalisation is unavoidable and inevitably makes maps misleading.^[Monmonier MS. 2018. [*How to Lie with Maps*](https://press.uchicago.edu/ucp/books/book/chicago/H/bo27400568.html). 3rd edition. Chicago: The University of Chicago Press.] Is lying an appropriate framework for thinking about map generalisation?
