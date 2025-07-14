@@ -31,10 +31,8 @@ We need to make a grid of values, with a clear gradient in one direction. The co
 ```{r}
 #| code-fold: true
 make_square <- function(x = 0, y = 0, d = 1) {
-  xs <- x + c(-1, 1, 1, -1) * d / 2
-  ys <- y + c(-1, -1, 1, 1) * d / 2
-  xs <- c(xs, xs[1])
-  ys <- c(ys, ys[1])
+  xs <- x + c(-1,  1, 1, -1, -1) * d / 2
+  ys <- y + c(-1, -1, 1,  1, -1) * d / 2
   st_polygon(list(matrix(c(xs, ys), ncol = 2)))
 }
 
