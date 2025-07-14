@@ -70,7 +70,7 @@ Now we can run various tests against the spatial predicates in turn. For example
 polys |> st_disjoint()
 ```
 
-We can tabulate the result of applying all the spatial predicates to these polygons into a table. 
+We can compile the result of applying all the spatial predicates to these polygons into a table. 
 
 The details of how this is done don't matter greatly, but if you are interested click into the code below. The core of it is based on the various `st_*` functions such as `st_intersects` or `st_contains`. These correspond, more or less to the relations identified in Figure 5.1. The spatial predicates available in the `sf` package in _R_ correspond to those implemented in spatial databases such as [PostGIS](https://postgis.net/).
 
